@@ -1,6 +1,12 @@
 {
-  "version": 2,
-  "description": "Coding Cursor config — 17 pre-installed skills, 13 rules, tech-stack catalog",
+  "version": 3,
+  "description": "Coding Cursor config — 17 skills, 17 rules, MCP (agent-patterns), tech-stack catalog",
+  "mcp": {
+    "default_server": "agent-patterns",
+    "url": "https://mcp.agentpatternscatalog.org/mcp",
+    "docs": "docs/MCP_SETUP.md",
+    "catalog": "docs/mcp-catalog.json"
+  },
   "preinstalled": {
     "count": 17,
     "categories": {
@@ -46,7 +52,8 @@
       "agentic-systems",
       "security-baseline",
       "testing-discipline",
-      "tech-stack-skills"
+      "tech-stack-skills",
+      "mcp-architecture"
     ]
   },
   "optional_catalog": [

@@ -28,7 +28,8 @@ This repository is a **portable engineering workspace** — link it into any cod
 14. [Setup on a new machine](#setup-on-a-new-machine)
 15. [Troubleshooting](#troubleshooting)
 16. [Evolving this config](#evolving-this-config)
-17. [Quick reference](#quick-reference)
+17. [MCP integration](#mcp-integration)
+18. [Quick reference](#quick-reference)
 
 ---
 
@@ -39,7 +40,8 @@ This repository is a **portable engineering workspace** — link it into any cod
 | **Type** | Cursor configuration repository (rules + skills + docs) |
 | **Mode** | Engineering — plan, architect, implement, validate |
 | **Pre-installed skills** | **17** (4 architecture + Next.js + GSAP + UI + utilities) |
-| **Project rules** | **16** `.mdc` files (workflow + architecture + security) |
+| **Project rules** | **17** `.mdc` files (workflow + architecture + security + MCP) |
+| **MCP (default)** | [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) — 421+ agentic patterns |
 | **Stack skills** | **Catalog only** — install per project (Flutter, Django, etc.) |
 | **Orchestration** | `AGENTS.md` at repo root |
 | **Manifest** | `skills-manifest.json` |
@@ -198,6 +200,7 @@ Full manifest: [skills-manifest.json](skills-manifest.json)
 | `security-baseline` | Globs | Auth/API paths |
 | `testing-discipline` | Globs | Test files |
 | `tech-stack-skills` | Context | Points to stack catalog |
+| `mcp-architecture` | Context | Agent Patterns Catalog MCP usage |
 
 ---
 
@@ -219,12 +222,14 @@ cursor-config-coding/
 │   │   ├── gsap-*/
 │   │   ├── impeccable/
 │   │   └── graphify/
-│   └── skills-catalog/           # Optional stack skills (not loaded)
-│       ├── stacks.json
-│       └── README.md
+│   ├── skills-catalog/           # Optional stack skills (not loaded)
+│   ├── mcp.json                  # Default MCP: agent-patterns
+│   └── mcp.json.example          # Optional MCP servers
 ├── docs/
 │   ├── TECH_STACK_SKILLS.md
-│   └── INDUSTRY_PRACTICES.md
+│   ├── INDUSTRY_PRACTICES.md
+│   ├── MCP_SETUP.md
+│   └── mcp-catalog.json
 └── scripts/
     ├── link-to-project.ps1
     └── install-catalog-skill.ps1
@@ -348,7 +353,15 @@ Implement Phase 2 of the approved plan: hero section animation with GSAP scroll 
 Follow execution and quality-gates rules.
 ```
 
+### Agent patterns via MCP
+
+```text
+Use agent-patterns MCP: recommend a recipe for a long-horizon coding agent.
+Compare ReAct vs plan-and-execute via catalog edges. Cite pattern ids in the plan.
+```
+
 ---
+
 
 ## Linking to code projects
 
@@ -414,6 +427,31 @@ one agent mistake = one rule PR
 
 ---
 
+## MCP integration
+
+This config ships with **[Agent Patterns Catalog](https://www.agentpatternscatalog.org/)** MCP — live tools over 421 patterns, 161 compositions, anti-patterns, and glossary terms.
+
+| File | Purpose |
+|------|---------|
+| [`.cursor/mcp.json`](.cursor/mcp.json) | Default MCP config (agent-patterns) |
+| [`.cursor/mcp.json.example`](.cursor/mcp.json.example) | Optional servers (Context7, GitHub) |
+| [docs/MCP_SETUP.md](docs/MCP_SETUP.md) | Setup, verify, prompts, security |
+| [docs/mcp-catalog.json](docs/mcp-catalog.json) | Machine-readable MCP catalog |
+| [`.cursor/rules/mcp-architecture.mdc`](.cursor/rules/mcp-architecture.mdc) | When agent should call MCP |
+
+**Endpoint:** `https://mcp.agentpatternscatalog.org/mcp` (no API key required)
+
+**Key tools:** `find_pattern`, `recommend_recipe`, `pattern_for_symptom`, `glossary_term`
+
+```text
+Design agent feature → MCP recommend_recipe → agentic-system-design skill → implement
+Debug agent loop     → MCP pattern_for_symptom → fix with catalog anti-patterns
+```
+
+After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SETUP.md).
+
+---
+
 ## Quick reference
 
 | I want to… | Do this |
@@ -428,3 +466,6 @@ one agent mistake = one rule PR
 | Map a codebase | `graphify` on target folder |
 | Polish UI | `impeccable` |
 | Scroll animation | `gsap-framer-scroll-animation` |
+| Agent architecture patterns | Agent-patterns MCP + `agentic-system-design` |
+| Debug agent loops | MCP `pattern_for_symptom` |
+| MCP not connecting | Reload window; check Output → MCP Logs |

@@ -49,6 +49,23 @@ User / trigger
 | RAG vs fine-tune | Dynamic knowledge vs baked-in style | RAG for facts; fine-tune rarely for format/tone only |
 | Runtime | API-hosted vs self-hosted | API for most products until cost/privacy forces self-host |
 
+## MCP: Agent Patterns Catalog (use when connected)
+
+This config includes `.cursor/mcp.json` → [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) (`https://mcp.agentpatternscatalog.org/mcp`).
+
+**Before finalizing agent architecture**, query MCP when available:
+
+| Goal | Tool |
+|------|------|
+| Pick a structure | `recommend_recipe` |
+| Lookup patterns | `find_pattern` |
+| Debug misbehavior | `pattern_for_symptom` |
+| Shared vocabulary | `glossary_term` |
+
+Cite **catalog pattern ids** in design docs and ADRs. See [docs/MCP_SETUP.md](../../../docs/MCP_SETUP.md).
+
+Example: *"Recommend a recipe for a code-review agent, expand patterns, list anti-patterns."*
+
 ## Guardrails (required)
 
 - Hard **max steps** per agent loop

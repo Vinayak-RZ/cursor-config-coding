@@ -15,7 +15,7 @@ Before starting any task in this repository:
    - Validation, completion, or phase reports → quality-gates rules
    - UI / React / Next.js files → frontend-architecture rule + skill
    - API / services / server code → backend-architecture rule + skill
-   - Agents / LLM / MCP / automations → agentic-systems rule + skill
+   - Agents / LLM / MCP / automations → agentic-systems + mcp-architecture rules + skills
    - Architectural choices → trade-offs rule + system-design-tradeoffs skill
    - Test files → testing-discipline rule
    - Auth / API security paths → security-baseline rule

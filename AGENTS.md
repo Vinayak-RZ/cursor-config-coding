@@ -19,6 +19,15 @@ Engineering workflow: plan → architect (when needed) → approve → implement
 
 Before large refactors, consider `graphify` on the affected directory.
 
+## MCP (live architecture patterns)
+
+Default server: **agent-patterns** → [Agent Patterns Catalog](https://www.agentpatternscatalog.org/)  
+Config: `.cursor/mcp.json` | Guide: [docs/MCP_SETUP.md](docs/MCP_SETUP.md)
+
+For agentic design, **query MCP first** (`find_pattern`, `recommend_recipe`, `pattern_for_symptom`) then apply `agentic-system-design` + `system-design-tradeoffs`.
+
+Reload Cursor after changing `mcp.json`.
+
 ## During implementation
 
 4. Apply `execution.mdc` — phase-based work only; minimal scope.
