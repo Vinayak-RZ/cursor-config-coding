@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "description": "Coding Cursor config — 17 skills, 17 rules, MCP (agent-patterns), tech-stack catalog",
+  "version": 4,
+  "description": "Coding Cursor config — 19 skills, 19 rules, MCP, learn-while-building, auto conventional commits",
   "mcp": {
     "default_server": "agent-patterns",
     "url": "https://mcp.agentpatternscatalog.org/mcp",
@@ -8,7 +8,7 @@
     "catalog": "docs/mcp-catalog.json"
   },
   "preinstalled": {
-    "count": 17,
+    "count": 19,
     "categories": {
       "architecture": [
         "frontend-architecture",
@@ -17,6 +17,8 @@
         "system-design-tradeoffs"
       ],
       "nextjs": ["nextjs-app-router-patterns"],
+      "documentation": ["extensive-readme"],
+      "learning": ["learn-while-building"],
       "animation": [
         "gsap-core",
         "gsap-react",
@@ -41,11 +43,13 @@
       "ai-anti-patterns",
       "planning",
       "communication",
-      "documentation"
+      "documentation",
+      "learn-and-research"
     ],
     "contextual": [
       "execution",
       "quality-gates",
+      "git-commit-discipline",
       "trade-offs",
       "frontend-architecture",
       "backend-architecture",
@@ -55,6 +59,11 @@
       "tech-stack-skills",
       "mcp-architecture"
     ]
+  },
+  "workflows": {
+    "implementation": "plan → approve → phase → validate → commit",
+    "learning": "docs/LEARNING_AND_RESEARCH.md",
+    "commits": "conventional commits after milestones; no push unless user asks"
   },
   "optional_catalog": [
     {

@@ -12,7 +12,9 @@ Before starting any task in this repository:
 3. Always follow rules with `alwaysApply: true`.
 4. For `alwaysApply: false` rules, include them when the task matches their description:
    - Implementation or file changes → execution rules
-   - Validation, completion, or phase reports → quality-gates rules
+   - Validation, completion, or phase reports → quality-gates + git-commit-discipline rules
+   - Research, explain, learning → learn-and-research rule + `learn-while-building` skill
+   - README / onboarding docs → `extensive-readme` skill
    - UI / React / Next.js files → frontend-architecture rule + skill
    - API / services / server code → backend-architecture rule + skill
    - Agents / LLM / MCP / automations → agentic-systems + mcp-architecture rules + skills

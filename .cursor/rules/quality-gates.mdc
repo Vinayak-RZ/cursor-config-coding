@@ -19,6 +19,7 @@ Include:
 - Validation performed
 - Known issues
 - Next phase objectives
+- **What you learned** (2–4 bullets: concepts, patterns, trade-offs)
 
 Phase reports are mandatory.
 
@@ -50,7 +51,8 @@ A task is complete only when:
 - Validation completed
 - Documentation updated
 - Progress updated
-- Phase report generated
+- Phase report generated (include **What you learned** bullets per `learn-and-research.mdc`)
+- **Conventional commit created** per `git-commit-discipline.mdc` (unless user said no commits this session)
 
 Do not mark work complete before all criteria are satisfied.
 
@@ -64,8 +66,9 @@ For every task:
 4. Obtain approval.
 5. Execute approved phase.
 6. Validate results.
-7. Generate phase report.
+7. Generate phase report (with learning summary).
 8. Update documentation.
-9. Continue to next phase.
+9. **Create conventional commit** for the phase.
+10. Continue to next phase.
 
 Never skip workflow steps.

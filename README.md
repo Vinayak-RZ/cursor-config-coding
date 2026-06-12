@@ -39,8 +39,8 @@ This repository is a **portable engineering workspace** — link it into any cod
 |--------|-------------|
 | **Type** | Cursor configuration repository (rules + skills + docs) |
 | **Mode** | Engineering — plan, architect, implement, validate |
-| **Pre-installed skills** | **17** (4 architecture + Next.js + GSAP + UI + utilities) |
-| **Project rules** | **17** `.mdc` files (workflow + architecture + security + MCP) |
+| **Pre-installed skills** | **19** (4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
+| **Project rules** | **19** `.mdc` files (workflow + architecture + security + MCP + commits + learning) |
 | **MCP (default)** | [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) — 421+ agentic patterns |
 | **Stack skills** | **Catalog only** — install per project (Flutter, Django, etc.) |
 | **Orchestration** | `AGENTS.md` at repo root |
@@ -48,7 +48,10 @@ This repository is a **portable engineering workspace** — link it into any cod
 
 When linked into a code project, the agent:
 
-- Requires planning and approval before large implementations
+- Requires planning and **user approval** before large implementations
+- **Researches and explains** unfamiliar tech before architectural choices
+- **Teaches while building** — phase learning summaries, optional `LEARNING.md`
+- **Commits proactively** with conventional commits after validated milestones (no push unless you ask)
 - Applies **frontend**, **backend**, and **agentic** architecture skills when relevant
 - Forces explicit **trade-off analysis** for non-obvious decisions
 - Routes optional skills by tech stack ([TECH_STACK_SKILLS.md](docs/TECH_STACK_SKILLS.md))
@@ -85,14 +88,18 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 
 | Spec | Value |
 |------|-------|
-| Pre-installed skills | 17 |
+| Pre-installed skills | 19 |
 | Architecture skills | 4 (`frontend-architecture`, `backend-architecture`, `agentic-system-design`, `system-design-tradeoffs`) |
+| Documentation skill | `extensive-readme` |
+| Learning skill | `learn-while-building` |
 | Stack pre-install | `nextjs-app-router-patterns` only |
 | Animation skills | 9 GSAP skills |
 | UI skill | `impeccable` |
 | Exploration | `graphify` |
-| Rules (total) | 16 |
-| Always-on rules | 7 (core, boundaries, anti-patterns, planning, communication, documentation, rule-awareness) |
+| Rules (total) | 19 |
+| Always-on rules | 8 (+ `learn-and-research`) |
+| Commit rule | `git-commit-discipline` — conventional commits after phases |
+| Learning guide | [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md) |
 | Optional catalog skills | 6+ (see `skills-manifest.json`) |
 | Workflow origin | Stamped Energy Main_Website phased rules |
 
@@ -165,6 +172,15 @@ Each skill includes a `references/patterns.md` pattern catalog.
 
 **Not default:** `nextjs-framer-motion-animations` — install from catalog if needed.
 
+### Documentation & learning (2) — pre-installed
+
+| Skill | When to use |
+|-------|-------------|
+| `extensive-readme` | Exhaustive README / onboarding reference manual |
+| `learn-while-building` | Research briefs, explain decisions, phase learning summaries |
+
+Guide: [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md)
+
 ### UI & utilities (3) — pre-installed
 
 `impeccable`, `graphify`, `find-skills`
@@ -183,8 +199,10 @@ Full manifest: [skills-manifest.json](skills-manifest.json)
 | `planning` | Yes | Plan before implement |
 | `communication` | Yes | Risks, tradeoffs, structured updates |
 | `documentation` | Yes | Keep project docs in sync |
+| `learn-and-research` | Yes | Research, explain, learning summaries, keep user in loop |
 | `execution` | Context | Phase-based implementation |
 | `quality-gates` | Context | Validate before done |
+| `git-commit-discipline` | Context | Conventional commits after milestones |
 
 ### Engineering (new)
 
@@ -212,12 +230,14 @@ cursor-config-coding/
 ├── AGENTS.md
 ├── skills-manifest.json
 ├── .cursor/
-│   ├── rules/                    # 16 .mdc files
-│   ├── skills/                   # 17 pre-installed skills
+│   ├── rules/                    # 19 .mdc files
+│   ├── skills/                   # 19 pre-installed skills
 │   │   ├── frontend-architecture/
 │   │   ├── backend-architecture/
 │   │   ├── agentic-system-design/
 │   │   ├── system-design-tradeoffs/
+│   │   ├── extensive-readme/
+│   │   ├── learn-while-building/
 │   │   ├── nextjs-app-router-patterns/
 │   │   ├── gsap-*/
 │   │   ├── impeccable/
@@ -227,6 +247,7 @@ cursor-config-coding/
 │   └── mcp.json.example          # Optional MCP servers
 ├── docs/
 │   ├── TECH_STACK_SKILLS.md
+│   ├── LEARNING_AND_RESEARCH.md
 │   ├── INDUSTRY_PRACTICES.md
 │   ├── MCP_SETUP.md
 │   └── mcp-catalog.json
@@ -346,11 +367,27 @@ Should we add Redis for session cache or stick with DB sessions?
 Use system-design-tradeoffs — compare options explicitly.
 ```
 
+### Learn while building
+
+```text
+Help me learn as we build the auth module. Research session storage options,
+present a plan for approval, then implement phase 1. End with what I should
+understand and commit with a conventional message.
+```
+
+### Exhaustive README
+
+```text
+Use extensive-readme skill to rewrite this repo's README as a reference manual.
+Verify counts and env vars from the codebase.
+```
+
 ### Implementation (existing workflow)
 
 ```text
 Implement Phase 2 of the approved plan: hero section animation with GSAP scroll trigger.
-Follow execution and quality-gates rules.
+Follow execution, quality-gates, and git-commit-discipline rules.
+Commit as feat(ui): add hero scroll animation when phase validates.
 ```
 
 ### Agent patterns via MCP
@@ -462,7 +499,11 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 | Build an AI agent | "Use agentic-system-design skill" |
 | Compare options | "Use system-design-tradeoffs" |
 | React perf patterns | `install-catalog-skill.ps1` + vercel-react-best-practices |
+| Learn while building | `learn-while-building` skill + [LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md) |
+| Exhaustive README | `extensive-readme` skill |
+| Auto conventional commits | `git-commit-discipline` rule (agent commits; you control push) |
 | PM / GTM work | Open [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness) |
+| Decks / video | Open [cursor-config-design](https://github.com/Vinayak-RZ/cursor-config-design) |
 | Map a codebase | `graphify` on target folder |
 | Polish UI | `impeccable` |
 | Scroll animation | `gsap-framer-scroll-animation` |

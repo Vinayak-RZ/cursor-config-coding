@@ -1,0 +1,81 @@
+---
+description: Proactive conventional commits after meaningful milestones — apply when completing a phase, feature, fix, or docs batch
+alwaysApply: false
+---
+
+# Git commit discipline
+
+**This config expects the agent to commit** — do not wait for the user to say "commit" after meaningful work completes.
+
+The user still controls **push** — never push unless explicitly asked.
+
+## When to commit
+
+Commit after:
+
+- ✅ An **approved implementation phase** completes and validates
+- ✅ A **feature** or user-visible capability is done (even if multi-phase, commit per phase)
+- ✅ A **bug fix** is verified
+- ✅ A **refactor** that preserves behavior is complete
+- ✅ **Docs** batch (README, ADR, phase report) tied to shipped work
+
+Do **not** commit:
+
+- ❌ Mid-phase WIP with failing tests or broken build
+- ❌ Plan-only changes before user approval (unless docs-only plan in `IMPLEMENTATION_PLAN.md`)
+- ❌ Files containing secrets (`.env`, credentials) — warn user instead
+- ❌ Trivial one-line nits unless bundled with the same phase commit
+
+## Conventional commit format
+
+```
+type(scope): imperative summary
+
+Optional body: why this change, not a file list.
+```
+
+### Types
+
+| Type | Use |
+|------|-----|
+| `feat` | New capability |
+| `fix` | Bug fix |
+| `refactor` | Behavior-preserving restructure |
+| `docs` | Documentation only |
+| `test` | Tests only |
+| `chore` | Tooling, deps, config |
+| `perf` | Performance improvement |
+
+### Scope
+
+Short module or area: `auth`, `api`, `ui`, `agent`, `config`. Omit if unclear.
+
+### Examples
+
+```
+feat(billing): add Stripe webhook handler for subscription events
+fix(auth): reject expired refresh tokens before DB lookup
+docs(readme): add architecture diagram and env reference
+refactor(api): extract validation layer from route handlers
+```
+
+## Commit workflow
+
+1. Run validation for the phase (tests/lint/typecheck as project supports)
+2. Update `PROGRESS.md` and phase report if present
+3. `git status` + `git diff` — review what will be committed
+4. Stage relevant files only — no secrets, no unrelated changes
+5. Commit with conventional message
+6. Tell user: **hash**, **message**, **what was included**, **what is next**
+
+## Safety
+
+- NEVER update git config
+- NEVER `--no-verify`, force push, or hard reset unless user explicitly requests
+- NEVER amend unless user asked and HEAD was not pushed
+- One logical change per commit — split feat vs docs if unrelated
+
+## Pair with
+
+- `quality-gates.mdc` — validate before commit
+- `documentation.mdc` — sync docs in same commit when behavior changed

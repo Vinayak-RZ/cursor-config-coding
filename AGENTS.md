@@ -1,12 +1,13 @@
 # Coding — Agent Mode
 
-Engineering workflow: plan → architect (when needed) → approve → implement → validate.
+Engineering workflow: **research → plan → approve → implement → validate → commit → learn**.
 
 ## Before any task
 
-1. Read this file and all `.cursor/rules/` (start with `rule-awareness`, `core-engineering`).
-2. Follow `planning.mdc` — analyze, plan, get approval before non-trivial coding.
+1. Read this file and all `.cursor/rules/` (start with `rule-awareness`, `core-engineering`, `learn-and-research`).
+2. Follow `planning.mdc` — analyze, plan, **get user approval** before non-trivial coding.
 3. Follow `communication.mdc` — surface risks and tradeoffs explicitly.
+4. Unfamiliar tech → research brief for the user before architectural choices.
 
 ## Architecture (when designing or refactoring)
 
@@ -18,6 +19,23 @@ Engineering workflow: plan → architect (when needed) → approve → implement
 | Any major trade-off | `system-design-tradeoffs` | `trade-offs.mdc` |
 
 Before large refactors, consider `graphify` on the affected directory.
+
+## Learning & documentation
+
+| Need | Skill / doc |
+|------|-------------|
+| Learn while building | `learn-while-building` |
+| Exhaustive README | `extensive-readme` |
+| Workflow guide | [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md) |
+
+End each phase with a short **What you learned** summary. Optional: maintain `LEARNING.md` in the project.
+
+## Git commits
+
+After each validated phase or meaningful feature: **conventional commit** per `git-commit-discipline.mdc`.
+
+- Agent commits proactively — user does not need to ask
+- Agent does **not** push unless user asks
 
 ## MCP (live architecture patterns)
 
@@ -36,9 +54,9 @@ Reload Cursor after changing `mcp.json`.
 
 ## Before completion
 
-7. Apply `quality-gates.mdc` — validate, report, update progress docs if present.
+7. Apply `quality-gates.mdc` — validate, report, update progress docs, **commit**.
 
-## Pre-installed skills (17)
+## Pre-installed skills (19)
 
 See [skills-manifest.json](skills-manifest.json) for the full list.
 
@@ -48,6 +66,7 @@ See [skills-manifest.json](skills-manifest.json) for the full list.
 .\scripts\link-to-project.ps1 -Target "D:\Startups\Stamped_Energy\Main_Website"
 ```
 
-## Companion repo
+## Companion repos
 
-[cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness) — PM/GTM/research (separate workspace).
+- [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness) — PM/GTM/research
+- [cursor-config-design](https://github.com/Vinayak-RZ/cursor-config-design) — decks, video, visual
