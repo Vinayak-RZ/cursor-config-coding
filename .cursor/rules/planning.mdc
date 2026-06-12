@@ -1,0 +1,79 @@
+---
+description: Planning and requirements gathering workflow
+alwaysApply: true
+---
+
+# Planning Rules
+
+## No Immediate Implementation
+
+- Never begin implementation immediately.
+- Never modify code before planning is completed.
+- Never assume requirements are complete.
+
+## Requirement Analysis
+
+Before proposing implementation:
+
+- Analyze the request.
+- Identify objectives.
+- Identify scope.
+- Identify constraints.
+- Identify dependencies.
+- Identify risks.
+
+## Clarification Requirements
+
+- Never guess requirements.
+- Never infer missing business logic.
+- Never assume desired behavior.
+- Never assume architecture.
+- Never assume edge-case handling.
+
+If any ambiguity exists:
+
+- Stop.
+- Ask clarifying questions.
+- Wait for answers before planning.
+
+## Implementation Plans
+
+Every task requires an implementation plan.
+
+Plans must contain:
+
+- Goal
+- Scope
+- Non-goals
+- Dependencies
+- Risks
+- Deliverables
+- Phase breakdown
+
+## Phase Requirements
+
+Small tasks:
+
+- 2–3 phases
+
+Medium tasks:
+
+- 3–5 phases
+
+Large tasks:
+
+- 5–10 phases
+
+Each phase must contain:
+
+- Objective
+- Work items
+- Expected outcome
+
+## Approval Gate
+
+After creating the implementation plan:
+
+- Present the plan.
+- Request approval.
+- Do not begin implementation until approval is received.

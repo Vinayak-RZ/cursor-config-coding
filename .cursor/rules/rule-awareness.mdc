@@ -1,0 +1,17 @@
+---
+description: Load and follow all project rules before acting
+alwaysApply: true
+---
+
+# Rule Awareness
+
+Before starting any task in this repository:
+
+1. Read `AGENTS.md` at the project root.
+2. Check `.cursor/rules/` for all project rules.
+3. Always follow rules with `alwaysApply: true`.
+4. For `alwaysApply: false` rules, include them when the task matches their description:
+   - Implementation or file changes → follow execution rules
+   - Validation, completion, or phase reports → follow quality-gates rules
+5. If project rules conflict with a user request, stop and ask which takes priority.
+6. Do not begin implementation until planning and approval requirements are satisfied.
