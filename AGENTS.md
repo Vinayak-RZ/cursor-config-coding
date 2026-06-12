@@ -1,36 +1,44 @@
 # Coding — Agent Mode
 
-Engineering workflow: plan → approve → implement → validate.
+Engineering workflow: plan → architect (when needed) → approve → implement → validate.
 
 ## Before any task
 
-1. Follow `planning.mdc` — analyze, plan, get approval before coding.
-2. Follow `communication.mdc` — surface risks and tradeoffs.
-3. Follow `documentation.mdc` — keep project docs in sync (when present in the target repo).
+1. Read this file and all `.cursor/rules/` (start with `rule-awareness`, `core-engineering`).
+2. Follow `planning.mdc` — analyze, plan, get approval before non-trivial coding.
+3. Follow `communication.mdc` — surface risks and tradeoffs explicitly.
+
+## Architecture (when designing or refactoring)
+
+| Domain | Skill | Rule |
+|--------|-------|------|
+| Frontend / UI / Next.js | `frontend-architecture` | `frontend-architecture.mdc` |
+| Backend / API / data | `backend-architecture` | `backend-architecture.mdc` |
+| AI agents / LLM / tools | `agentic-system-design` | `agentic-systems.mdc` |
+| Any major trade-off | `system-design-tradeoffs` | `trade-offs.mdc` |
+
+Before large refactors, consider `graphify` on the affected directory.
 
 ## During implementation
 
-4. Apply `execution.mdc` — phase-based work only.
-5. For stack-specific work, read [docs/TECH_STACK_SKILLS.md](docs/TECH_STACK_SKILLS.md) and `.cursor/rules/tech-stack-skills.mdc`.
+4. Apply `execution.mdc` — phase-based work only; minimal scope.
+5. Stack-specific optional skills: [docs/TECH_STACK_SKILLS.md](docs/TECH_STACK_SKILLS.md).
+6. UI polish: `impeccable`. Animation: `gsap-*` skills.
 
 ## Before completion
 
-6. Apply `quality-gates.mdc` — validate and report.
+7. Apply `quality-gates.mdc` — validate, report, update progress docs if present.
 
-## Pre-installed skills
+## Pre-installed skills (17)
 
-| Skill | When |
-|-------|------|
-| `nextjs-app-router-patterns` | Next.js App Router projects (only pre-installed stack skill) |
-| `graphify` | Map codebase/docs before large refactors |
-| `impeccable` | UI polish and design audit |
-| `gsap-*` | Animation and scroll (not Framer Motion by default) |
-| `find-skills` | Discover more skills |
-
-Stack-specific skills (React, Flutter, Django, etc.) live in the **catalog** — install per project via `scripts/install-catalog-skill.ps1`.
+See [skills-manifest.json](skills-manifest.json) for the full list.
 
 ## Linking to a code project
 
 ```powershell
 .\scripts\link-to-project.ps1 -Target "D:\Startups\Stamped_Energy\Main_Website"
 ```
+
+## Companion repo
+
+[cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness) — PM/GTM/research (separate workspace).
