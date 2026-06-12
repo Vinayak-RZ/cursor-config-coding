@@ -63,7 +63,7 @@
   "workflows": {
     "implementation": "plan → approve → phase → validate → commit",
     "learning": "docs/LEARNING_AND_RESEARCH.md",
-    "commits": "conventional commits after milestones; no push unless user asks"
+    "commits": "conventional commits after milestones; auto-push at 10 unpushed or when user asks"
   },
   "optional_catalog": [
     {

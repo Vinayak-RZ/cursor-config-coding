@@ -30,12 +30,14 @@ Before large refactors, consider `graphify` on the affected directory.
 
 End each phase with a short **What you learned** summary. Optional: maintain `LEARNING.md` in the project.
 
-## Git commits
+## Git commits and pushes
 
-After each validated phase or meaningful feature: **conventional commit** per `git-commit-discipline.mdc`.
+After each validated phase or meaningful feature:
 
-- Agent commits proactively — user does not need to ask
-- Agent does **not** push unless user asks
+- **Conventional commit** per `git-commit-discipline.mdc`
+- **Push check** after every commit — auto-push when **≥ 10 unpushed** commits, or when user asks
+
+Global rule: `~/.cursor/rules/git-commit-push-global.mdc`
 
 ## MCP (live architecture patterns)
 

@@ -51,7 +51,8 @@ When linked into a code project, the agent:
 - Requires planning and **user approval** before large implementations
 - **Researches and explains** unfamiliar tech before architectural choices
 - **Teaches while building** — phase learning summaries, optional `LEARNING.md`
-- **Commits proactively** with conventional commits after validated milestones (no push unless you ask)
+- **Commits proactively** with conventional commits after validated milestones
+- **Auto-pushes** when 10 unpushed commits accumulate, or when you say push
 - Applies **frontend**, **backend**, and **agentic** architecture skills when relevant
 - Forces explicit **trade-off analysis** for non-obvious decisions
 - Routes optional skills by tech stack ([TECH_STACK_SKILLS.md](docs/TECH_STACK_SKILLS.md))
@@ -98,7 +99,7 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 | Exploration | `graphify` |
 | Rules (total) | 19 |
 | Always-on rules | 8 (+ `learn-and-research`) |
-| Commit rule | `git-commit-discipline` — conventional commits after phases |
+| Commit rule | `git-commit-discipline` — conventional commits + push at 10 unpushed |
 | Learning guide | [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md) |
 | Optional catalog skills | 6+ (see `skills-manifest.json`) |
 | Workflow origin | Stamped Energy Main_Website phased rules |
@@ -501,7 +502,7 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 | React perf patterns | `install-catalog-skill.ps1` + vercel-react-best-practices |
 | Learn while building | `learn-while-building` skill + [LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md) |
 | Exhaustive README | `extensive-readme` skill |
-| Auto conventional commits | `git-commit-discipline` rule (agent commits; you control push) |
+| Auto conventional commits + push | `git-commit-discipline` + `~/.cursor/rules/git-commit-push-global.mdc` |
 | PM / GTM work | Open [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness) |
 | Decks / video | Open [cursor-config-design](https://github.com/Vinayak-RZ/cursor-config-design) |
 | Map a codebase | `graphify` on target folder |
