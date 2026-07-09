@@ -9,10 +9,12 @@ Before starting any task in this repository:
 
 1. Read `AGENTS.md` at the project root.
 2. Check `.cursor/rules/` for all project rules.
-3. Always follow rules with `alwaysApply: true`.
+3. Always follow rules with `alwaysApply: true` (including `ponytail.mdc`).
 4. For `alwaysApply: false` rules, include them when the task matches their description:
-   - Implementation or file changes → execution rules
+   - **Any coding task (write, fix, refactor, add dependency)** → read `ponytail` skill **first**, then execution rules
+   - Implementation or file changes → execution rules + ponytail ladder on every edit
    - Validation, completion, or phase reports → quality-gates + git-commit-discipline rules
+   - Over-engineering review → `ponytail-review` or `ponytail-audit` skills
    - Research, explain, learning → learn-and-research rule + `learn-while-building` skill
    - README / onboarding docs → `extensive-readme` skill
    - UI / React / Next.js files → frontend-architecture rule + skill

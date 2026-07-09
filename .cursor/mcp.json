@@ -2,6 +2,10 @@
   "mcpServers": {
     "agent-patterns": {
       "url": "https://mcp.agentpatternscatalog.org/mcp"
+    },
+    "ponytail": {
+      "command": "node",
+      "args": [".cursor/vendor/ponytail/ponytail-mcp/index.js"]
     }
   }
 }

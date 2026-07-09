@@ -5,6 +5,15 @@ alwaysApply: false
 
 # Execution Rules
 
+## Ponytail gate
+
+Before writing or editing code in this phase:
+
+1. Read `.cursor/skills/ponytail/SKILL.md` (or confirm `ponytail.mdc` is active).
+2. Trace the real flow in the files the change touches.
+3. Climb the ladder — stop at the first rung that holds.
+4. Prefer deletion over addition; fewest files possible.
+
 ## Phase-Based Development
 
 All implementation must be performed in phases.

@@ -13,6 +13,17 @@
       "glossary_term"
     ]
   },
+  "ponytail": {
+    "name": "ponytail",
+    "purpose": "Lazy senior dev ruleset — YAGNI, stdlib first, minimum code",
+    "command": "node .cursor/vendor/ponytail/ponytail-mcp/index.js",
+    "setup": "scripts/setup-ponytail-mcp.ps1",
+    "auth": "none",
+    "tools_highlight": ["ponytail_instructions"],
+    "prompts_highlight": ["ponytail"],
+    "source": "https://github.com/DietrichGebert/ponytail",
+    "when": "Reinforce minimal-code discipline; optional — rule + skill are primary"
+  },
   "optional": [
     {
       "name": "context7",

@@ -11,6 +11,16 @@ When designing, reviewing, or debugging **agentic / LLM systems**, use connected
 
 Endpoint: `https://mcp.agentpatternscatalog.org/mcp` (see `.cursor/mcp.json`)
 
+## Ponytail MCP (minimal code)
+
+Server: `ponytail` — tool `ponytail_instructions`, prompt `ponytail` (modes: `lite`, `full`, `ultra`).
+
+Use when you want to **reinforce** the ponytail ladder via MCP. Primary enforcement is always-on `ponytail.mdc` + `ponytail` skill — MCP does not replace those.
+
+Setup once: `.\scripts\setup-ponytail-mcp.ps1`
+
+## agent-patterns tools
+
 | Situation | Call |
 |-----------|------|
 | New agent feature | `recommend_recipe` → expand composed patterns |

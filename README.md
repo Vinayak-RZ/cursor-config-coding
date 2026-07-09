@@ -39,9 +39,9 @@ This repository is a **portable engineering workspace** — link it into any cod
 |--------|-------------|
 | **Type** | Cursor configuration repository (rules + skills + docs) |
 | **Mode** | Engineering — plan, architect, implement, validate |
-| **Pre-installed skills** | **19** (4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
-| **Project rules** | **19** `.mdc` files (workflow + architecture + security + MCP + commits + learning) |
-| **MCP (default)** | [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) — 421+ agentic patterns |
+| **Pre-installed skills** | **25** (6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
+| **Project rules** | **20** `.mdc` files (ponytail + workflow + architecture + security + MCP + commits + learning) |
+| **MCP (default)** | [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) + [Ponytail](https://github.com/DietrichGebert/ponytail) minimal-code server |
 | **Stack skills** | **Catalog only** — install per project (Flutter, Django, etc.) |
 | **Orchestration** | `AGENTS.md` at repo root |
 | **Manifest** | `skills-manifest.json` |
@@ -49,6 +49,7 @@ This repository is a **portable engineering workspace** — link it into any cod
 When linked into a code project, the agent:
 
 - Requires planning and **user approval** before large implementations
+- **Ponytail-first** — climb the lazy senior dev ladder before any code change (minimal diff, production-grade)
 - **Researches and explains** unfamiliar tech before architectural choices
 - **Teaches while building** — phase learning summaries, optional `LEARNING.md`
 - **Commits proactively** with conventional commits after validated milestones
@@ -89,7 +90,8 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 
 | Spec | Value |
 |------|-------|
-| Pre-installed skills | 19 |
+| Pre-installed skills | 25 |
+| Ponytail (minimal code) | 6 skills + `ponytail.mdc` always-on rule |
 | Architecture skills | 4 (`frontend-architecture`, `backend-architecture`, `agentic-system-design`, `system-design-tradeoffs`) |
 | Documentation skill | `extensive-readme` |
 | Learning skill | `learn-while-building` |
@@ -97,14 +99,27 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 | Animation skills | 9 GSAP skills |
 | UI skill | `impeccable` |
 | Exploration | `graphify` |
-| Rules (total) | 19 |
-| Always-on rules | 8 (+ `learn-and-research`) |
+| Rules (total) | 20 |
+| Always-on rules | 9 (+ `ponytail`, `learn-and-research`) |
 | Commit rule | `git-commit-discipline` — conventional commits + push at 10 unpushed |
 | Learning guide | [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md) |
 | Optional catalog skills | 6+ (see `skills-manifest.json`) |
 | Workflow origin | Stamped Energy Main_Website phased rules |
 
 ---
+
+## Ponytail — minimal code (pre-installed)
+
+From [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail). **Mandatory gate** before any coding task.
+
+| Asset | Role |
+|-------|------|
+| `ponytail.mdc` | Always-on rule — YAGNI, stdlib/native first, shortest diff |
+| `ponytail` skill | Full ladder, intensity levels (`lite` / `full` / `ultra`) |
+| `ponytail-review` | Diff review for over-engineering |
+| `ponytail-audit` | Whole-repo bloat audit |
+| `ponytail-debt` | Ledger of `ponytail:` shortcut comments |
+| `ponytail` MCP | `ponytail_instructions` tool — run `setup-ponytail-mcp.ps1` once |
 
 ## Architecture system
 
@@ -152,6 +167,17 @@ Each skill includes a `references/patterns.md` pattern catalog.
 
 ## Skills inventory
 
+### Minimal code (6) — pre-installed, **read first**
+
+| Skill | When to use |
+|-------|-------------|
+| `ponytail` | **Every coding task** — before writing or editing code |
+| `ponytail-review` | Review diff for over-engineering |
+| `ponytail-audit` | Whole-repo bloat audit |
+| `ponytail-debt` | Harvest `ponytail:` deferred shortcuts |
+| `ponytail-gain` | Benchmark scoreboard (informational) |
+| `ponytail-help` | Command reference |
+
 ### Architecture (4) — pre-installed
 
 | Skill | When to use |
@@ -197,6 +223,7 @@ Full manifest: [skills-manifest.json](skills-manifest.json)
 | Rule | Always | Purpose |
 |------|--------|---------|
 | `rule-awareness` | Yes | Load all rules + AGENTS.md |
+| `ponytail` | Yes | Minimal code — lazy senior dev ladder (always before coding) |
 | `planning` | Yes | Plan before implement |
 | `communication` | Yes | Risks, tradeoffs, structured updates |
 | `documentation` | Yes | Keep project docs in sync |
@@ -495,6 +522,7 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 | I want to… | Do this |
 |------------|---------|
 | Wire into a code repo | `.\scripts\link-to-project.ps1 -Target "..."` |
+| Minimal production-grade code | `ponytail` skill + `ponytail.mdc` (automatic) |
 | Frontend architecture | "Use frontend-architecture skill" |
 | Backend / API design | "Use backend-architecture skill" |
 | Build an AI agent | "Use agentic-system-design skill" |

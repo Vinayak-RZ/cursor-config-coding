@@ -5,6 +5,7 @@ alwaysApply: true
 
 # Core engineering
 
+- **Ponytail first** — on any code change, read `ponytail` skill and climb the ladder before writing (see `ponytail.mdc`)
 - **Minimal correct diff** — solve the task; no drive-by refactors
 - **Read before write** — match existing conventions in the repo
 - **Reference, don't copy** — point to canonical files instead of duplicating large blocks
