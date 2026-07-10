@@ -4,13 +4,14 @@ Engineering workflow: **ponytail → research → plan → approve → implement
 
 ## Ponytail — mandatory gate for all coding
 
-**Before writing or modifying any code**, apply [Ponytail](https://github.com/DietrichGebert/ponytail) — the lazy senior dev ladder for minimal, production-grade diffs.
+**Before writing or modifying any code**, read and apply the `ponytail` skill (`.cursor/skills/ponytail/SKILL.md`). Always-on rule: `ponytail.mdc`.
+
+From [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) — lazy senior dev ladder for minimal, production-grade diffs. **Skills + MDC only** (no Ponytail MCP).
 
 | Layer | What | When |
 |-------|------|------|
-| Rule | `ponytail.mdc` | Always on — YAGNI, stdlib/native first, shortest working diff |
+| Rule | `ponytail.mdc` | Always on — requires reading the `ponytail` skill before code |
 | Skill | `ponytail` | **Read first** on every coding task (write, fix, refactor, add deps) |
-| MCP | `ponytail` / `ponytail_instructions` | Optional reinforcement via `.cursor/mcp.json` |
 | Review | `ponytail-review`, `ponytail-audit` | After implementation or on request — hunt over-engineering |
 
 Climb the ladder after you understand the problem: YAGNI → reuse codebase → stdlib → native → installed dep → one line → minimum that works. Never cut validation, security, accessibility, or error handling that prevents data loss.
@@ -55,23 +56,20 @@ After each validated phase or meaningful feature:
 
 Global rule: `~/.cursor/rules/git-commit-push-global.mdc`
 
-## MCP
+## MCP (live architecture patterns)
 
-Default servers: **agent-patterns** + **ponytail**  
+Default server: **agent-patterns** → [Agent Patterns Catalog](https://www.agentpatternscatalog.org/)  
 Config: `.cursor/mcp.json` | Guide: [docs/MCP_SETUP.md](docs/MCP_SETUP.md)
 
-| Server | Use when |
-|--------|----------|
-| **agent-patterns** | Agentic design — `find_pattern`, `recommend_recipe`, `pattern_for_symptom` |
-| **ponytail** | Reinforce minimal-code ladder — `ponytail_instructions` (optional; rule + skill are primary) |
+For agentic design, **query MCP first** (`find_pattern`, `recommend_recipe`, `pattern_for_symptom`) then apply `agentic-system-design` + `system-design-tradeoffs`.
 
-First-time ponytail MCP setup: `.\scripts\setup-ponytail-mcp.ps1`
+Minimal-code discipline is **not** via MCP — use `ponytail.mdc` + the `ponytail` skill.
 
 Reload Cursor after changing `mcp.json`.
 
 ## During implementation
 
-6. Apply `execution.mdc` — phase-based work only; minimal scope; ponytail ladder on every edit.
+6. Apply `execution.mdc` — phase-based work only; minimal scope; **read `ponytail` skill** on every edit.
 7. Stack-specific optional skills: [docs/TECH_STACK_SKILLS.md](docs/TECH_STACK_SKILLS.md).
 8. UI polish: `impeccable`. Animation: `gsap-*` skills.
 9. Before marking done on non-trivial changes: consider `ponytail-review` on the diff.

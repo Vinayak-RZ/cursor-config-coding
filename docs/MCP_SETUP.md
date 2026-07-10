@@ -11,24 +11,14 @@ File: [`.cursor/mcp.json`](../.cursor/mcp.json)
   "mcpServers": {
     "agent-patterns": {
       "url": "https://mcp.agentpatternscatalog.org/mcp"
-    },
-    "ponytail": {
-      "command": "node",
-      "args": [".cursor/vendor/ponytail/ponytail-mcp/index.js"]
     }
   }
 }
 ```
 
-**First-time setup for ponytail MCP** (after clone or vendor update):
-
-```powershell
-.\scripts\setup-ponytail-mcp.ps1
-```
-
-Requires Node.js on PATH. The ponytail **rule** (`ponytail.mdc`) and **skill** are the primary enforcement; MCP is optional reinforcement via `ponytail_instructions` tool or `ponytail` prompt.
-
 When you **link** this config into a code project (`link-to-project.ps1`), `.cursor/mcp.json` is included automatically.
+
+Minimal-code discipline uses **`ponytail.mdc` + the `ponytail` skill** — there is no Ponytail MCP in this config.
 
 ## Verify connection
 
@@ -43,7 +33,6 @@ Troubleshooting: **Output panel → MCP Logs** for connection errors.
 
 | Task | MCP tool / prompt |
 |------|-------------------|
-| Reinforce minimal code before implementing | `ponytail_instructions` (mode: `full` or `ultra`) |
 | Design new agent/LLM feature | `recommend_recipe`, then expand composed patterns |
 | Validate architecture | Compare design to catalog patterns + anti-patterns |
 | Agent loops / hallucinated tools | `pattern_for_symptom` |
@@ -86,7 +75,6 @@ See [mcp-catalog.json](./mcp-catalog.json) and [`.cursor/mcp.json.example`](../.
 | Server | Purpose | Auth |
 |--------|---------|------|
 | **agent-patterns** (default) | Agentic architecture patterns | None |
-| **ponytail** (default) | Minimal-code / lazy senior dev ruleset | None (run `setup-ponytail-mcp.ps1` once) |
 | **context7** | Live framework/library docs | `CONTEXT7_API_KEY` |
 | **github** | Issues, PRs, repo search | `GITHUB_PERSONAL_ACCESS_TOKEN` |
 

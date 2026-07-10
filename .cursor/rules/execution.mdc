@@ -9,10 +9,11 @@ alwaysApply: false
 
 Before writing or editing code in this phase:
 
-1. Read `.cursor/skills/ponytail/SKILL.md` (or confirm `ponytail.mdc` is active).
+1. **Read** `.cursor/skills/ponytail/SKILL.md` — required, not optional.
 2. Trace the real flow in the files the change touches.
 3. Climb the ladder — stop at the first rung that holds.
 4. Prefer deletion over addition; fewest files possible.
+5. On non-trivial diffs, consider `ponytail-review` before marking the phase done.
 
 ## Phase-Based Development
 

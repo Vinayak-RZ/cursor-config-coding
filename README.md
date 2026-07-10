@@ -41,7 +41,7 @@ This repository is a **portable engineering workspace** — link it into any cod
 | **Mode** | Engineering — plan, architect, implement, validate |
 | **Pre-installed skills** | **25** (6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
 | **Project rules** | **20** `.mdc` files (ponytail + workflow + architecture + security + MCP + commits + learning) |
-| **MCP (default)** | [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) + [Ponytail](https://github.com/DietrichGebert/ponytail) minimal-code server |
+| **MCP (default)** | [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) — 421+ agentic patterns |
 | **Stack skills** | **Catalog only** — install per project (Flutter, Django, etc.) |
 | **Orchestration** | `AGENTS.md` at repo root |
 | **Manifest** | `skills-manifest.json` |
@@ -49,7 +49,7 @@ This repository is a **portable engineering workspace** — link it into any cod
 When linked into a code project, the agent:
 
 - Requires planning and **user approval** before large implementations
-- **Ponytail-first** — climb the lazy senior dev ladder before any code change (minimal diff, production-grade)
+- **Ponytail-first** — always-on `ponytail.mdc` requires reading the `ponytail` skill before any code change (minimal diff, production-grade)
 - **Researches and explains** unfamiliar tech before architectural choices
 - **Teaches while building** — phase learning summaries, optional `LEARNING.md`
 - **Commits proactively** with conventional commits after validated milestones
@@ -110,16 +110,16 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 
 ## Ponytail — minimal code (pre-installed)
 
-From [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail). **Mandatory gate** before any coding task.
+From [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail). **Mandatory gate** before any coding task. Skills + MDC only — **no Ponytail MCP**.
 
 | Asset | Role |
 |-------|------|
-| `ponytail.mdc` | Always-on rule — YAGNI, stdlib/native first, shortest diff |
+| `ponytail.mdc` | Always-on rule — requires reading the `ponytail` skill before code |
 | `ponytail` skill | Full ladder, intensity levels (`lite` / `full` / `ultra`) |
 | `ponytail-review` | Diff review for over-engineering |
 | `ponytail-audit` | Whole-repo bloat audit |
 | `ponytail-debt` | Ledger of `ponytail:` shortcut comments |
-| `ponytail` MCP | `ponytail_instructions` tool — run `setup-ponytail-mcp.ps1` once |
+| `ponytail-gain` / `ponytail-help` | Scoreboard + command reference |
 
 ## Architecture system
 

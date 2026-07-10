@@ -10,8 +10,9 @@ Before starting any task in this repository:
 1. Read `AGENTS.md` at the project root.
 2. Check `.cursor/rules/` for all project rules.
 3. Always follow rules with `alwaysApply: true` (including `ponytail.mdc`).
-4. For `alwaysApply: false` rules, include them when the task matches their description:
-   - **Any coding task (write, fix, refactor, add dependency)** → read `ponytail` skill **first**, then execution rules
+4. **Coding tasks:** read and apply the `ponytail` skill (`.cursor/skills/ponytail/SKILL.md`) **before** any plan that writes code or any file edit.
+5. For `alwaysApply: false` rules, include them when the task matches their description:
+   - **Any coding task (write, fix, refactor, add dependency)** → `ponytail` skill first, then execution rules
    - Implementation or file changes → execution rules + ponytail ladder on every edit
    - Validation, completion, or phase reports → quality-gates + git-commit-discipline rules
    - Over-engineering review → `ponytail-review` or `ponytail-audit` skills
@@ -23,5 +24,5 @@ Before starting any task in this repository:
    - Architectural choices → trade-offs rule + system-design-tradeoffs skill
    - Test files → testing-discipline rule
    - Auth / API security paths → security-baseline rule
-5. If project rules conflict with a user request, stop and ask which takes priority.
-6. Do not begin implementation until planning and approval requirements are satisfied.
+6. If project rules conflict with a user request, stop and ask which takes priority.
+7. Do not begin implementation until planning and approval requirements are satisfied.

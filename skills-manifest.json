@@ -1,10 +1,9 @@
 {
   "version": 5,
-  "description": "Coding Cursor config — 25 skills, 20 rules, MCP (agent-patterns + ponytail), learn-while-building, auto conventional commits",
+  "description": "Coding Cursor config — 25 skills, 20 rules, agent-patterns MCP, ponytail skills+MDC (no ponytail MCP), learn-while-building, auto conventional commits",
   "mcp": {
-    "default_servers": ["agent-patterns", "ponytail"],
-    "agent_patterns_url": "https://mcp.agentpatternscatalog.org/mcp",
-    "ponytail_setup": "scripts/setup-ponytail-mcp.ps1",
+    "default_server": "agent-patterns",
+    "url": "https://mcp.agentpatternscatalog.org/mcp",
     "docs": "docs/MCP_SETUP.md",
     "catalog": "docs/mcp-catalog.json"
   },

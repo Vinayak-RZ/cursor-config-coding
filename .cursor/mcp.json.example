@@ -3,10 +3,6 @@
     "agent-patterns": {
       "url": "https://mcp.agentpatternscatalog.org/mcp"
     },
-    "ponytail": {
-      "command": "node",
-      "args": [".cursor/vendor/ponytail/ponytail-mcp/index.js"]
-    },
     "github": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-github"],
