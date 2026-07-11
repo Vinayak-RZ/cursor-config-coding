@@ -39,8 +39,8 @@ This repository is a **portable engineering workspace** — link it into any cod
 |--------|-------------|
 | **Type** | Cursor configuration repository (rules + skills + docs) |
 | **Mode** | Engineering — plan, architect, implement, validate |
-| **Pre-installed skills** | **25** (6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
-| **Project rules** | **20** `.mdc` files (ponytail + workflow + architecture + security + MCP + commits + learning) |
+| **Pre-installed skills** | **35** (10 Spec Kit + 6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
+| **Project rules** | **21** `.mdc` files (ponytail + Spec Kit + workflow + architecture + security + MCP + commits + learning) |
 | **MCP (default)** | [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) — 421+ agentic patterns |
 | **Stack skills** | **Catalog only** — install per project (Flutter, Django, etc.) |
 | **Orchestration** | `AGENTS.md` at repo root |
@@ -50,6 +50,7 @@ When linked into a code project, the agent:
 
 - Requires planning and **user approval** before large implementations
 - **Ponytail-first** — always-on `ponytail.mdc` requires reading the `ponytail` skill before any code change (minimal diff, production-grade)
+- **Spec Kit** — Spec-Driven Development skills for greenfield / multi-phase features ([docs/SPEC_KIT.md](docs/SPEC_KIT.md))
 - **Researches and explains** unfamiliar tech before architectural choices
 - **Teaches while building** — phase learning summaries, optional `LEARNING.md`
 - **Commits proactively** with conventional commits after validated milestones
@@ -90,7 +91,8 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 
 | Spec | Value |
 |------|-------|
-| Pre-installed skills | 25 |
+| Pre-installed skills | 35 |
+| Spec Kit (SDD) | 10 `speckit-*` skills + `speckit.mdc` + `install-spec-kit.ps1` |
 | Ponytail (minimal code) | 6 skills + `ponytail.mdc` always-on rule |
 | Architecture skills | 4 (`frontend-architecture`, `backend-architecture`, `agentic-system-design`, `system-design-tradeoffs`) |
 | Documentation skill | `extensive-readme` |
@@ -99,7 +101,7 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 | Animation skills | 9 GSAP skills |
 | UI skill | `impeccable` |
 | Exploration | `graphify` |
-| Rules (total) | 20 |
+| Rules (total) | 21 |
 | Always-on rules | 9 (+ `ponytail`, `learn-and-research`) |
 | Commit rule | `git-commit-discipline` — conventional commits + push at 10 unpushed |
 | Learning guide | [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md) |
@@ -120,6 +122,17 @@ From [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail). **Ma
 | `ponytail-audit` | Whole-repo bloat audit |
 | `ponytail-debt` | Ledger of `ponytail:` shortcut comments |
 | `ponytail-gain` / `ponytail-help` | Scoreboard + command reference |
+
+## Spec Kit — Spec-Driven Development (pre-installed)
+
+From [github/spec-kit](https://github.com/github/spec-kit) (pinned **v0.12.11**). For greenfield / multi-phase features.
+
+| Asset | Role |
+|-------|------|
+| `speckit-*` skills (10) | constitution → specify → plan → tasks → implement (+ clarify/analyze/checklist/converge/taskstoissues) |
+| `speckit.mdc` | When to use Spec Kit (not for one-line fixes) |
+| `scripts/install-spec-kit.ps1` | Scaffold `.specify/` in the **code** project |
+| [docs/SPEC_KIT.md](docs/SPEC_KIT.md) | Full setup + workflow |
 
 ## Architecture system
 
@@ -166,6 +179,18 @@ Each skill includes a `references/patterns.md` pattern catalog.
 ---
 
 ## Skills inventory
+
+### Spec-driven (10) — pre-installed
+
+| Skill | When to use |
+|-------|-------------|
+| `speckit-constitution` | Project principles |
+| `speckit-specify` | Requirements / user stories |
+| `speckit-plan` | Tech plan |
+| `speckit-tasks` / `speckit-implement` | Break down and build |
+| `speckit-clarify` / `analyze` / `checklist` / `converge` / `taskstoissues` | Optional quality / tracking |
+
+Guide: [docs/SPEC_KIT.md](docs/SPEC_KIT.md) · Install `.specify/`: `.\scripts\install-spec-kit.ps1 -Target "..."`
 
 ### Minimal code (6) — pre-installed, **read first**
 
@@ -224,6 +249,7 @@ Full manifest: [skills-manifest.json](skills-manifest.json)
 |------|--------|---------|
 | `rule-awareness` | Yes | Load all rules + AGENTS.md |
 | `ponytail` | Yes | Minimal code — lazy senior dev ladder (always before coding) |
+| `speckit` | Context | Spec-Driven Development for features / greenfield |
 | `planning` | Yes | Plan before implement |
 | `communication` | Yes | Risks, tradeoffs, structured updates |
 | `documentation` | Yes | Keep project docs in sync |
@@ -522,6 +548,7 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 | I want to… | Do this |
 |------------|---------|
 | Wire into a code repo | `.\scripts\link-to-project.ps1 -Target "..."` |
+| Spec-Driven feature | `speckit-*` skills + [SPEC_KIT.md](docs/SPEC_KIT.md) |
 | Minimal production-grade code | `ponytail` skill + `ponytail.mdc` (automatic) |
 | Frontend architecture | "Use frontend-architecture skill" |
 | Backend / API design | "Use backend-architecture skill" |

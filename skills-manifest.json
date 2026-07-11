@@ -1,14 +1,21 @@
 {
-  "version": 5,
-  "description": "Coding Cursor config — 25 skills, 20 rules, agent-patterns MCP, ponytail skills+MDC (no ponytail MCP), learn-while-building, auto conventional commits",
+  "version": 6,
+  "description": "Coding Cursor config — 35 skills, 21 rules, agent-patterns MCP, ponytail + Spec Kit, learn-while-building, auto conventional commits",
   "mcp": {
     "default_server": "agent-patterns",
     "url": "https://mcp.agentpatternscatalog.org/mcp",
     "docs": "docs/MCP_SETUP.md",
     "catalog": "docs/mcp-catalog.json"
   },
+  "spec_kit": {
+    "source": "https://github.com/github/spec-kit",
+    "pinned_version": "v0.12.11",
+    "install_script": "scripts/install-spec-kit.ps1",
+    "docs": "docs/SPEC_KIT.md",
+    "rule": "speckit"
+  },
   "preinstalled": {
-    "count": 25,
+    "count": 35,
     "categories": {
       "minimal-code": [
         "ponytail",
@@ -17,6 +24,18 @@
         "ponytail-debt",
         "ponytail-gain",
         "ponytail-help"
+      ],
+      "spec-driven": [
+        "speckit-constitution",
+        "speckit-specify",
+        "speckit-clarify",
+        "speckit-plan",
+        "speckit-checklist",
+        "speckit-tasks",
+        "speckit-analyze",
+        "speckit-implement",
+        "speckit-converge",
+        "speckit-taskstoissues"
       ],
       "architecture": [
         "frontend-architecture",
@@ -66,11 +85,13 @@
       "security-baseline",
       "testing-discipline",
       "tech-stack-skills",
-      "mcp-architecture"
+      "mcp-architecture",
+      "speckit"
     ]
   },
   "workflows": {
     "implementation": "plan → approve → phase → validate → commit",
+    "spec_driven": "constitution → specify → plan → tasks → implement (ponytail on code)",
     "learning": "docs/LEARNING_AND_RESEARCH.md",
     "commits": "conventional commits after milestones; auto-push at 10 unpushed or when user asks"
   },

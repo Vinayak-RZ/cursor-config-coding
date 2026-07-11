@@ -1,6 +1,6 @@
 # Coding — Agent Mode
 
-Engineering workflow: **ponytail → research → plan → approve → implement → validate → commit → learn**.
+Engineering workflow: **ponytail → (spec-kit for features) → research → plan → approve → implement → validate → commit → learn**.
 
 ## Ponytail — mandatory gate for all coding
 
@@ -18,13 +18,28 @@ Climb the ladder after you understand the problem: YAGNI → reuse codebase → 
 
 Intensity: `full` (default). User can say `/ponytail ultra` for stricter YAGNI or `stop ponytail` to disable.
 
+## Spec Kit — Spec-Driven Development (features / greenfield)
+
+From [github/spec-kit](https://github.com/github/spec-kit). Pre-installed skills: `speckit-*`. Rule: `speckit.mdc`. Guide: [docs/SPEC_KIT.md](docs/SPEC_KIT.md).
+
+Use for **new features / greenfield**, not one-line fixes. Target repo needs `.specify/`:
+
+```powershell
+.\scripts\install-spec-kit.ps1 -Target "D:\Startups\YourApp"
+```
+
+Order: `constitution` → `specify` → (`clarify`) → `plan` → (`checklist`) → `tasks` → (`analyze`) → `implement` → (`converge`).
+
+During implement, still apply **ponytail** on every code change.
+
 ## Before any task
 
 1. Read this file and all `.cursor/rules/` (start with `rule-awareness`, `ponytail`, `core-engineering`, `learn-and-research`).
 2. **Coding tasks:** read `ponytail` skill and climb the ladder before proposing or writing code.
-3. Follow `planning.mdc` — analyze, plan, **get user approval** before non-trivial coding.
-4. Follow `communication.mdc` — surface risks and tradeoffs explicitly.
-5. Unfamiliar tech → research brief for the user before architectural choices.
+3. **Feature / greenfield:** follow `speckit.mdc` and Spec Kit skills when the user wants specs-first or the change is multi-phase.
+4. Follow `planning.mdc` — analyze, plan, **get user approval** before non-trivial coding.
+5. Follow `communication.mdc` — surface risks and tradeoffs explicitly.
+6. Unfamiliar tech → research brief for the user before architectural choices.
 
 ## Architecture (when designing or refactoring)
 
@@ -69,16 +84,16 @@ Reload Cursor after changing `mcp.json`.
 
 ## During implementation
 
-6. Apply `execution.mdc` — phase-based work only; minimal scope; **read `ponytail` skill** on every edit.
-7. Stack-specific optional skills: [docs/TECH_STACK_SKILLS.md](docs/TECH_STACK_SKILLS.md).
-8. UI polish: `impeccable`. Animation: `gsap-*` skills.
-9. Before marking done on non-trivial changes: consider `ponytail-review` on the diff.
+7. Apply `execution.mdc` — phase-based work only; minimal scope; **read `ponytail` skill** on every edit.
+8. Stack-specific optional skills: [docs/TECH_STACK_SKILLS.md](docs/TECH_STACK_SKILLS.md).
+9. UI polish: `impeccable`. Animation: `gsap-*` skills.
+10. Before marking done on non-trivial changes: consider `ponytail-review` on the diff.
 
 ## Before completion
 
-10. Apply `quality-gates.mdc` — validate, report, update progress docs, **commit**.
+11. Apply `quality-gates.mdc` — validate, report, update progress docs, **commit**.
 
-## Pre-installed skills (25)
+## Pre-installed skills (35)
 
 See [skills-manifest.json](skills-manifest.json) for the full list.
 
@@ -86,6 +101,7 @@ See [skills-manifest.json](skills-manifest.json) for the full list.
 
 ```powershell
 .\scripts\link-to-project.ps1 -Target "D:\Startups\Stamped_Energy\Main_Website"
+.\scripts\install-spec-kit.ps1 -Target "D:\Startups\Stamped_Energy\Main_Website"  # optional: Spec-Driven Development
 ```
 
 ## Companion repos

@@ -16,6 +16,7 @@ Before starting any task in this repository:
    - Implementation or file changes → execution rules + ponytail ladder on every edit
    - Validation, completion, or phase reports → quality-gates + git-commit-discipline rules
    - Over-engineering review → `ponytail-review` or `ponytail-audit` skills
+   - **Greenfield / new feature / specs-first** → `speckit.mdc` + `speckit-*` skills (after ponytail for code)
    - Research, explain, learning → learn-and-research rule + `learn-while-building` skill
    - README / onboarding docs → `extensive-readme` skill
    - UI / React / Next.js files → frontend-architecture rule + skill
