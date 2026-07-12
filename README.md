@@ -39,7 +39,7 @@ This repository is a **portable engineering workspace** — link it into any cod
 |--------|-------------|
 | **Type** | Cursor configuration repository (rules + skills + docs) |
 | **Mode** | Engineering — plan, architect, implement, validate |
-| **Pre-installed skills** | **35** (10 Spec Kit + 6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
+| **Pre-installed skills** | **36** (nawab-plans + 10 Spec Kit + 6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
 | **Project rules** | **21** `.mdc` files (ponytail + Spec Kit + workflow + architecture + security + MCP + commits + learning) |
 | **MCP (default)** | [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) — 421+ agentic patterns |
 | **Stack skills** | **Catalog only** — install per project (Flutter, Django, etc.) |
@@ -50,6 +50,7 @@ When linked into a code project, the agent:
 
 - Requires planning and **user approval** before large implementations
 - **Ponytail-first** — always-on `ponytail.mdc` requires reading the `ponytail` skill before any code change (minimal diff, production-grade)
+- **Nawab plans** — Plan mode **must** use `nawab-plans` for master execution plans (`planning.mdc`)
 - **Spec Kit** — Spec-Driven Development skills for greenfield / multi-phase features ([docs/SPEC_KIT.md](docs/SPEC_KIT.md))
 - **Researches and explains** unfamiliar tech before architectural choices
 - **Teaches while building** — phase learning summaries, optional `LEARNING.md`
@@ -91,7 +92,8 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 
 | Spec | Value |
 |------|-------|
-| Pre-installed skills | 35 |
+| Pre-installed skills | 36 |
+| Planning | `nawab-plans` — **mandatory in Plan mode** (`planning.mdc`) |
 | Spec Kit (SDD) | 10 `speckit-*` skills + `speckit.mdc` + `install-spec-kit.ps1` |
 | Ponytail (minimal code) | 6 skills + `ponytail.mdc` always-on rule |
 | Architecture skills | 4 (`frontend-architecture`, `backend-architecture`, `agentic-system-design`, `system-design-tradeoffs`) |
@@ -109,6 +111,12 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 | Workflow origin | Stamped Energy Main_Website phased rules |
 
 ---
+
+## Nawab Plans — master execution plans (pre-installed, **mandatory in Plan mode**)
+
+Skill: `nawab-plans` · Template: `PLAN.template.md` · Subagents: `SUBAGENT_ORCHESTRATION.md`
+
+Enforced by always-on `planning.mdc`: any Plan mode session or implementation plan **must** load this skill. Collapse unused sections as `N/A` — do not invent a thinner format.
 
 ## Ponytail — minimal code (pre-installed)
 
@@ -248,6 +256,7 @@ Full manifest: [skills-manifest.json](skills-manifest.json)
 | Rule | Always | Purpose |
 |------|--------|---------|
 | `rule-awareness` | Yes | Load all rules + AGENTS.md |
+| `planning` | Yes | Plans via **nawab-plans** (mandatory) + approval gate |
 | `ponytail` | Yes | Minimal code — lazy senior dev ladder (always before coding) |
 | `speckit` | Context | Spec-Driven Development for features / greenfield |
 | `planning` | Yes | Plan before implement |
@@ -548,6 +557,7 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 | I want to… | Do this |
 |------------|---------|
 | Wire into a code repo | `.\scripts\link-to-project.ps1 -Target "..."` |
+| Draft / Plan mode plan | `nawab-plans` skill (mandatory) + `PLAN.template.md` |
 | Spec-Driven feature | `speckit-*` skills + [SPEC_KIT.md](docs/SPEC_KIT.md) |
 | Minimal production-grade code | `ponytail` skill + `ponytail.mdc` (automatic) |
 | Frontend architecture | "Use frontend-architecture skill" |

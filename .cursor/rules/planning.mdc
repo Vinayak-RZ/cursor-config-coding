@@ -1,9 +1,21 @@
 ---
-description: Planning and requirements gathering workflow
+description: Planning and requirements gathering — mandatory nawab-plans skill in Plan mode
 alwaysApply: true
 ---
 
 # Planning Rules
+
+## Mandatory skill — nawab-plans
+
+**Whenever you are in Plan mode, drafting an implementation plan, or the task requires planning before coding**, you MUST:
+
+1. Read and follow `.cursor/skills/nawab-plans/SKILL.md`
+2. Use `.cursor/skills/nawab-plans/PLAN.template.md` as the plan structure
+3. Consult `.cursor/skills/nawab-plans/SUBAGENT_ORCHESTRATION.md` when the plan involves subagents
+
+This is compulsory — do not invent a thinner plan format. Scale depth with **project** vs **feature** mode; collapse unused sections as `N/A — [reason]` rather than skipping the skill.
+
+Trivial one-line / typo fixes the user marked as skip-plan may skip a full nawab document — still do not invent an alternate planning skill.
 
 ## No Immediate Implementation
 
@@ -38,37 +50,21 @@ If any ambiguity exists:
 
 ## Implementation Plans
 
-Every task requires an implementation plan.
+Every non-trivial task requires an implementation plan via **nawab-plans** (all required sections from the skill / template).
 
-Plans must contain:
+At minimum the plan must cover nawab sections for:
 
-- Goal
-- Scope
+- Goal / north star & scope boundary
 - Non-goals
-- Dependencies
+- Prerequisites & blockers
+- Dependencies / authority map
 - Risks
 - Deliverables
-- Phase breakdown
+- Workstreams / phases
+- Commit matrix & test gates
+- Agent orchestration (when multi-agent)
 
-## Phase Requirements
-
-Small tasks:
-
-- 2–3 phases
-
-Medium tasks:
-
-- 3–5 phases
-
-Large tasks:
-
-- 5–10 phases
-
-Each phase must contain:
-
-- Objective
-- Work items
-- Expected outcome
+Phase sizing still applies (small 2–3 · medium 3–5 · large 5–10), expressed inside the nawab phase structure.
 
 ## Approval Gate
 

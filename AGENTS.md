@@ -1,6 +1,6 @@
 # Coding — Agent Mode
 
-Engineering workflow: **ponytail → (spec-kit for features) → research → plan → approve → implement → validate → commit → learn**.
+Engineering workflow: **ponytail → nawab-plans (Plan mode) → (spec-kit for features) → research → plan → approve → implement → validate → commit → learn**.
 
 ## Ponytail — mandatory gate for all coding
 
@@ -18,6 +18,18 @@ Climb the ladder after you understand the problem: YAGNI → reuse codebase → 
 
 Intensity: `full` (default). User can say `/ponytail ultra` for stricter YAGNI or `stop ponytail` to disable.
 
+## Nawab Plans — mandatory in Plan mode
+
+**Whenever in Plan mode or drafting an implementation plan**, read and apply `nawab-plans` (`.cursor/skills/nawab-plans/SKILL.md`). Enforced by `planning.mdc`.
+
+| Asset | Role |
+|-------|------|
+| `nawab-plans` skill | Master execution plan structure (18 sections) |
+| `PLAN.template.md` | Copy into `IMPLEMENTATION_PLAN.md` |
+| `SUBAGENT_ORCHESTRATION.md` | Spawn map / lead vs subagent roles |
+
+Do not invent a thinner plan format. Collapse unused sections as `N/A` — do not skip the skill.
+
 ## Spec Kit — Spec-Driven Development (features / greenfield)
 
 From [github/spec-kit](https://github.com/github/spec-kit). Pre-installed skills: `speckit-*`. Rule: `speckit.mdc`. Guide: [docs/SPEC_KIT.md](docs/SPEC_KIT.md).
@@ -34,12 +46,13 @@ During implement, still apply **ponytail** on every code change.
 
 ## Before any task
 
-1. Read this file and all `.cursor/rules/` (start with `rule-awareness`, `ponytail`, `core-engineering`, `learn-and-research`).
+1. Read this file and all `.cursor/rules/` (start with `rule-awareness`, `ponytail`, `planning`, `core-engineering`, `learn-and-research`).
 2. **Coding tasks:** read `ponytail` skill and climb the ladder before proposing or writing code.
-3. **Feature / greenfield:** follow `speckit.mdc` and Spec Kit skills when the user wants specs-first or the change is multi-phase.
-4. Follow `planning.mdc` — analyze, plan, **get user approval** before non-trivial coding.
-5. Follow `communication.mdc` — surface risks and tradeoffs explicitly.
-6. Unfamiliar tech → research brief for the user before architectural choices.
+3. **Plan mode / any implementation plan:** read `nawab-plans` skill **compulsorily** and follow `PLAN.template.md`.
+4. **Feature / greenfield:** follow `speckit.mdc` and Spec Kit skills when the user wants specs-first or the change is multi-phase; structure delivery with `nawab-plans`.
+5. Follow `planning.mdc` — analyze, plan, **get user approval** before non-trivial coding.
+6. Follow `communication.mdc` — surface risks and tradeoffs explicitly.
+7. Unfamiliar tech → research brief for the user before architectural choices.
 
 ## Architecture (when designing or refactoring)
 
@@ -93,7 +106,7 @@ Reload Cursor after changing `mcp.json`.
 
 11. Apply `quality-gates.mdc` — validate, report, update progress docs, **commit**.
 
-## Pre-installed skills (35)
+## Pre-installed skills (36)
 
 See [skills-manifest.json](skills-manifest.json) for the full list.
 
