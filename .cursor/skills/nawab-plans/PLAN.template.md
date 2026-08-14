@@ -15,7 +15,7 @@
 | **Base branch** | `main` |
 | **Feature branch(es)** | `cursor/[name]-[suffix]` or per-workstream |
 | **Authority docs** | [links] |
-| **Estimated commits** | [range — see §9 granularity; e.g. 18–25 for multi-package] |
+| **Estimated commits** | [range — see §9; marketing UI pass ≈ 7–8; multi-package ≈ 18–25] |
 | **Lead agent** | Orchestrate, commit, integrate subagents, PR |
 
 ---
@@ -194,21 +194,26 @@ todos:
 
 ## §9 Commit matrix
 
-> One row = one commit. Tests in same commit. Gates = project-native commands.
-> **Break work down** — target a significant commit count for scope (see table).
+> One row = one commit. Tests in same commit when applicable. Gates = project-native commands.
+> **Size to work class** — marketing/UI multi-page ≈ **7–8**; multi-package/platform ≈ **18–30+**.
 
 ### Commit granularity targets
 
 | Scope | Target rows |
 |-------|-------------|
-| Major feature | 8–15+ |
+| Hotfix | 1–3 |
+| Marketing / DESIGN.md multi-page UI pass | **7–8** |
+| Medium product feature | 7–10 |
+| Major backend feature | 10–15 |
 | Multi-package | 18–30+ |
 | Full project | 25–50+ |
 
-**Split into separate commits:** scaffold · CI · contracts · each migration ·
-each route/handler · each UI module · smoke · E2E · hardening slices.
+**Auto-select:** brand/marketing page passes and selective UI restructures → **7–8** commits by default.
 
-User minimum (if any): **≥ [N] commits** — matrix must meet or exceed.
+**Split when boundaries are real:** scaffold · CI · contracts · each migration ·
+each route/handler · related UI+copy as one row · docs/validate last.
+
+User override (if any): **[N] commits** — matrix must match.
 
 ### Phase A — [name] (WS-A)
 

@@ -4,12 +4,12 @@ description: >
   Master structure for planning entire project execution in one plan — greenfield
   platforms, multi-package systems, or major feature additions. Defines workstreams,
   phases, commit matrices, test gates, agent orchestration, subagent spawn map,
-  documentation sync, validation hardening, and cutover. Any stack. Plans must
-  break work into many small commits — a significant commit count is intentional,
-  not bloat. Use when drafting IMPLEMENTATION_PLAN.md, orchestrating multi-agent delivery,
-  planning stamped-l2-scale builds, or turning a vague project into an executable
-  contract. Pair with domain architecture skills during research; speckit-* for
-  greenfield spec artifacts.
+  documentation sync, validation hardening, and cutover. Any stack. Size commit
+  matrices to work class: marketing/UI multi-page passes default to 7–8 commits;
+  multi-package/platform plans stay 18–30+. Use when drafting IMPLEMENTATION_PLAN.md,
+  orchestrating multi-agent delivery, planning stamped-l2-scale builds, or turning
+  a vague project into an executable contract. Pair with domain architecture skills
+  during research; speckit-* for greenfield spec artifacts.
 argument-hint: "[project-name or feature-scope]"
 license: MIT
 ---
@@ -221,35 +221,35 @@ Rules:
 
 #### Commit granularity doctrine
 
-**Break everything down.** A nawab plan deliberately targets a **significant
-number of commits** — many small, independently validatable slices rather than
-a few large dumps. This is intentional: easier review, bisect, rollback, and
-per-commit gates.
+Size the matrix to the **work class**, not a fixed “many commits” habit. Prefer
+independently revertible rows; do **not** pad empty commits to hit a number, and
+do **not** invent a 20-row matrix for a marketing/UI pass that naturally fits ~8.
 
 | Scope | Target commit count | How to break down |
 |-------|---------------------|-------------------|
-| Major feature (1–2 packages) | **8–15+** | scaffold · CI · contracts · each endpoint · each migration · tests · docs |
-| Multi-package / platform layer | **18–30+** | per package scaffold · per router · per schema migration · per UI module · smoke · E2E · hardening |
-| Full greenfield project | **25–50+** | all of the above · per workstream · validation slices · cutover prep |
+| Hot fix / tiny change | **1–3** | skip nawab or single-row matrix |
+| **Marketing / DESIGN.md multi-page UI pass** (this class) | **7–8** | shared primitives · one commit per major surface (solutions, platform, industries, company, resources) · docs · validate |
+| Medium product feature (API + UI, one package) | **7–10** | scaffold · core behavior · tests · docs — coalesce related UI+copy |
+| Major backend feature (1–2 packages, migrations) | **10–15** | scaffold · CI · contracts · migrations · endpoints · tests · docs |
+| Multi-package / platform layer | **18–30+** | per package scaffold · routers · migrations · UI modules · E2E · hardening |
+| Full greenfield project | **25–50+** | all of the above · per workstream · cutover |
 
-**Split rules — one commit per row when possible:**
+**Auto-select rule for agents:** If the plan is a **brand/marketing site page pass**, **visual system alignment**, or **selective restructure across existing routes** (no new services/migrations), default the §9 matrix to **7–8 commits**. Only escalate toward 15+ when there are real package/API/migration boundaries.
 
-1. **Scaffold** separate from **first behavior**
-2. **CI / contract tests** before **implementation** (separate commits)
+**Split rules — apply when the boundary is real:**
+
+1. **Scaffold** separate from **first behavior** (backend/platform); marketing passes may fold shared primitives into commit 1
+2. **CI / contract tests** before **implementation** when contracts exist
 3. **Each migration file** or schema boundary — own commit
-4. **Each API route group** or handler — own commit
-5. **Each UI page / module** — own commit
-6. **Each test tier addition** (fuzz, E2E, Playwright) — own commit
-7. **Hardening** — multiple commits (audit fixes, new regression tests, orchestrator)
+4. **Each API route group** — own commit when non-trivial
+5. **Related UI page family + light copy** — one commit (do not split content-only commits for marketing passes)
+6. **Hardening / docs / typecheck** — last 1–2 rows
 
-If a row bundles more than one of the above, **split it** unless the combined
-diff is trivial (<~30 lines, single concern).
+If a row bundles unrelated concerns (e.g. solutions + industries), **split it**. If two rows are the same page family (hub + its content polish), **merge them**.
 
-**User-specified minimum** (e.g. "≥18 commits") — treat as a hard plan requirement;
-add rows until the matrix meets it without padding empty commits.
+**User-specified count** (e.g. “exactly 8” or “≥18”) — treat as a hard plan requirement.
 
-**Anti-squash:** do not collapse the matrix to "finish faster." Fewer commits is
-not fewer work — it is worse integration feedback.
+**Anti-pad / anti-bloat:** Do not inflate a marketing multi-page plan to 18–24 rows. Do not collapse a multi-package platform plan to 7 rows.
 
 | # | WS | Commit | Contents | Tests (same commit) | Gate | Agent |
 |---|-----|--------|----------|---------------------|------|-------|
@@ -258,11 +258,11 @@ not fewer work — it is worse integration feedback.
 **Commit contract (state in plan):**
 
 1. One logical change — independently revertible
-2. Tests in the **same commit**
+2. Tests in the **same commit** when applicable
 3. Conventional commits: `feat` · `fix` · `test` · `ci` · `chore` · `refactor` · `docs` · `perf`
 4. Next row blocked until gate passes
 5. Contract/golden tests before implementation when applicable
-6. **Matrix row count ≥ target for scope** — see granularity table above
+6. **Matrix row count matches the scope table** — marketing UI default **7–8**
 
 **Gate column:** project-native commands only — read repo first.
 
@@ -408,9 +408,9 @@ Before approval (`planning.mdc`):
 [ ] Blockers explicit; no phase starts through unresolved P0 blocker
 [ ] Workstreams cover all deliverables; no orphan packages
 [ ] Spawn map names executor per expensive research or parallel track
-[ ] Commit matrix complete; row count meets granularity targets for scope
-[ ] Work broken into small commits — no mega-rows bundling scaffold + feat + tests
-[ ] Every feat/fix row has tests + gate + agent
+[ ] Commit matrix complete; row count matches work-class targets (marketing UI ≈ 7–8; platform ≈ 18+)
+[ ] Rows are coherent slices — no padding; no mega-rows mixing unrelated surfaces
+[ ] Every feat/fix row has tests/gates where applicable + agent
 [ ] Todos align with phases and critical commits
 [ ] Test strategy uses repo's real commands
 [ ] Exit criteria binary; P0 separated from P1
@@ -424,8 +424,9 @@ Before approval (`planning.mdc`):
 ## Anti-patterns
 
 - Feature bullet list with no commit matrix or workstreams
-- **3–5 mega-commits for work that should be 20+ rows**
-- Squashing matrix rows to reduce commit count
+- **Marketing/UI multi-page plan padded to 18–24 commits** when **7–8** fits
+- **Platform/multi-package plan collapsed to ~7 commits** when boundaries need 18+
+- Squashing unrelated matrix rows into one mega-commit
 - Subagents spawned without sync points or path boundaries
 - Lead agent lets subagents commit without integration plan
 - Gates that cannot fail ("manual testing" with no checklist)
@@ -442,7 +443,8 @@ Before approval (`planning.mdc`):
 | Scope | Mode | Workstreams | Commits (target) | Subagents | Sections depth |
 |-------|------|-------------|------------------|-----------|----------------|
 | Hotfix | skip nawab | — | 1–3 | — | — |
-| Medium feature | feature | 1 | **8–15** | rare | §5–§9 medium; §14 light |
+| Marketing / DESIGN.md multi-page UI pass | feature | 1–2 | **7–8** | rare | §5–§9 medium |
+| Medium product feature | feature | 1 | **7–10** | rare | §5–§9 medium; §14 light |
 | Multi-package feature | feature | 2–3 | **15–25** | explore + 1 builder | full §6, §14 |
 | Greenfield platform | project | 3–5 | **25–40** | common | all sections full |
 | Full project + cutover | project | 3–5 | **30–50+** | common | §15 required |
