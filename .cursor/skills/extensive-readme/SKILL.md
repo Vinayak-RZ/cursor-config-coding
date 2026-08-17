@@ -1,19 +1,23 @@
 ---
 name: extensive-readme
 description: >-
-  Authors exhaustive, production-grade README.md files for any software project.
-  Produces structured docs with vision, architecture diagrams, setup, configuration
-  tables, API/tool catalogs, data models, testing, cookbook, roadmap, FAQ, glossary,
-  and changelog. Use when creating or rewriting README, project documentation,
-  onboarding docs, or when the user wants a comprehensive repo overview like a
-  reference manual.
+  Authors exhaustive, production-grade README.md files that also teach the reader:
+  non-obvious techniques, analogies, honest limits, and verified blogs/papers.
+  Produces numbered reference manuals with vision, architecture, setup, catalogs,
+  glossary, and further reading. Use when creating or rewriting a comprehensive
+  repo overview, onboarding docs, or a reference-style README. Do not use for a
+  public product landing page (logo, tagline, tiny quickstart) — use product-readme.
 ---
 
 # Extensive README Authoring
 
 Create README files that serve as the **single source of truth** for a project — not a
-marketing blurb. The reader should understand what the system is, how it works, how to run
-it, and how to extend it without opening the codebase first.
+marketing blurb. The reader should understand what the system is, how it works, how to
+run it, and how to extend it without opening the codebase first.
+
+The README must also **teach**. After reading it, a newcomer should know the clever
+bets in this codebase — why they exist, how they work, what they cost — and have
+verified links to go deeper. Catalogs without explanation fail this skill.
 
 ## When to apply
 
@@ -21,6 +25,10 @@ it, and how to extend it without opening the codebase first.
 - User wants exhaustive / reference-style documentation
 - Onboarding docs for a new contributor or future-you
 - Rewriting a thin README into a proper manual
+
+**Use `product-readme` instead** when the user wants a public product landing page:
+logo, tagline, demo, tiny install, "why use this" — the Colibri / LangChain / vLLM
+shape. This skill is the reference manual behind that landing page.
 
 ## Workflow
 
@@ -36,8 +44,10 @@ Explore the codebase systematically. Do not invent features.
 6. **Tests** — how to run them, what they cover
 7. **Deployment** — Docker, CI, cloud targets if present
 8. **Git history** — skim recent commits for changelog and roadmap phases
+9. **Ideas worth understanding** — non-obvious bets, not feature bullets (see Teach)
 
-Capture: exact tool/API counts, file paths, env var names, ports, and version constraints.
+Capture: exact tool/API counts, file paths, env var names, ports, version constraints,
+and a short list of 3–8 ideas the README must teach.
 
 ### Phase 2 — Draft structure
 
@@ -49,12 +59,14 @@ Use the section order in [templates.md](templates.md). Adapt sections to the pro
 | TL;DR bullets | Turn/request lifecycle diagram |
 | Table of contents | Full API/tool appendix |
 | Vision (is / is not) | Agentic-AI or domain concept glossary |
-| Architecture diagram(s) | Multi-interface (web + CLI + bot) |
-| Quickstart | Worlds/domains/multi-tenant model |
-| Configuration reference | Approval gates / safety stack |
-| Directory tree | Self-evolution / eval harness |
-| Testing | Cost model |
-| Roadmap + changelog | Cookbook with example prompts |
+| Ideas worth understanding | Multi-interface (web + CLI + bot) |
+| Architecture diagram(s) | Worlds/domains/multi-tenant model |
+| Quickstart | Approval gates / safety stack |
+| Configuration reference | Self-evolution / eval harness |
+| Directory tree | Cost model |
+| Testing | Cookbook with example prompts |
+| Further reading | |
+| Roadmap + changelog | |
 
 **Skip** sections that don't apply — mark them omitted, don't leave empty placeholders.
 
@@ -66,6 +78,25 @@ Use the section order in [templates.md](templates.md). Adapt sections to the pro
 - Blockquote positioning statement: what it is, what it is not, primary interface
 - Deployment target or runtime context if relevant
 - Horizontal rule, then **TL;DR** — 8–12 bullets of differentiators
+
+**Teach the reader (mandatory)**
+
+After discovery, pick **3–8 ideas worth understanding**. These are the non-obvious
+engineering bets — the "crazy things" in the report — not a feature list.
+
+For each idea, write all of:
+
+1. **Name** — a memorable label (e.g. "JIT for weights", "one hierarchy not one memory requirement")
+2. **Mechanism** — how it actually works, with a concrete path or invariant
+3. **Analogy** — one short comparison a newcomer can hold
+4. **Constraint it solves** — what would go wrong without it
+5. **Honest limits** — when it wins, when it loses, what is unproven
+6. **Sources** — 1–3 **verified** links (blog, paper, related system). Follow
+   [further-reading.md](further-reading.md). Never invent URLs.
+
+Tone for these blocks: technical-blog quality. The reader should leave knowing the
+idea, not only that a file exists. Place them as a numbered section **Ideas worth
+understanding** (and fold extra depth into How it works). Also add **Further reading**.
 
 **Body principles**
 
@@ -93,14 +124,17 @@ Run [checklist.md](checklist.md) before delivering. Fix:
 - TOC links that don't match heading anchors
 - Required env vars that don't match `config` / `.env.example`
 - Tool/API counts that don't match registry or routes
+- Teaching blocks that are feature bullets with no mechanism/analogy/limits
+- Citation URLs that were not verified
 
 ### Phase 5 — Maintain
 
 When updating an existing extensive README:
 
-- Update counts, paths, and diagrams in the same PR as code changes
+- Update counts, paths, diagrams, and teaching blocks in the same PR as code changes
 - Append changelog row; don't rewrite history
 - Move completed roadmap items to changelog; keep future directions realistic
+- Re-verify further-reading links if they go stale
 
 ## Section numbering rules
 
@@ -134,6 +168,9 @@ Group by category. Show category counts and verify total.
 
 Optional **Appendix** with full parameter tables for power users.
 
+A catalog is not a teaching block. If a tool encodes a non-obvious idea, name that
+idea in **Ideas worth understanding** and point at the catalog row.
+
 ## Roadmap section shape
 
 ```markdown
@@ -142,7 +179,7 @@ Optional **Appendix** with full parameter tables for power users.
 ### Build phases (completed)
 | Phase | Theme | Status |
 |-------|-------|--------|
-| 0 | … | ✅ |
+| 0 | … | done |
 
 ### Possible future directions
 - Bullet list of realistic next steps (not wishlist noise)
@@ -152,13 +189,16 @@ Distinguish **shipped** (changelog) from **planned** (roadmap).
 
 ## Anti-patterns
 
-- ❌ Generic "Features" bullet list with no file paths
-- ❌ README shorter than the project's complexity warrants
-- ❌ Copying package.json description as the whole README
-- ❌ Stale diagrams showing removed interfaces
-- ❌ "76 tools" when registry has 81 — always verify
-- ❌ Mixing Chroma/Qdrant/Postgres without checking `vector_store` or DB config
-- ❌ Numbered sections out of order in the file body
+- Generic "Features" bullet list with no file paths
+- README shorter than the project's complexity warrants
+- Copying package.json description as the whole README
+- Stale diagrams showing removed interfaces
+- "76 tools" when registry has 81 — always verify
+- Mixing Chroma/Qdrant/Postgres without checking `vector_store` or DB config
+- Numbered sections out of order in the file body
+- Catalogs without teaching the non-obvious bets
+- Invented or guessed citation URLs
+- Using this skill for a product landing page (that is `product-readme`)
 
 ## Output
 
@@ -171,3 +211,4 @@ follows the same skill at reduced scope.
 
 - Section templates and starter text: [templates.md](templates.md)
 - Pre-ship validation: [checklist.md](checklist.md)
+- How to cite blogs and papers: [further-reading.md](further-reading.md)
