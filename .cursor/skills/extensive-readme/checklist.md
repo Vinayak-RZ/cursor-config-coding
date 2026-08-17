@@ -36,6 +36,14 @@ Run before delivering. Fix every fail. Do not ship a catalog-only README.
 - [ ] Present tense for current behavior; past tense only in changelog
 - [ ] Honest today vs roadmap
 
+## Future advancements (mandatory)
+
+- [ ] Section exists near the end of the README (after further reading / roadmap)
+- [ ] At least **3** advancements, prefer **4**
+- [ ] Each names a next bet, why it matters, what would land, and done-when
+- [ ] Each is grounded in this repo (`{path}`, TODO, missing test, incomplete interface)
+- [ ] None are generic slogans ("scale", "add AI", "more features")
+
 ## Routing
 
 - [ ] This file is a reference manual, not a product landing page

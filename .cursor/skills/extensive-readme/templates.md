@@ -33,8 +33,9 @@ Runtime: {language / deploy target}.
 - [9. Testing](#9-testing)
 - [10. Further reading](#10-further-reading)
 - [11. Roadmap and changelog](#11-roadmap-and-changelog)
-- [12. FAQ](#12-faq)
-- [13. Glossary](#13-glossary)
+- [12. Future advancements](#12-future-advancements)
+- [13. FAQ](#13-faq)
+- [14. Glossary](#14-glossary)
 
 ## 1. Vision
 
@@ -75,9 +76,13 @@ Use a mermaid `flowchart TD` or `flowchart LR` here (≤15 nodes).
 
 ## 11. Roadmap and changelog
 
-## 12. FAQ
+## 12. Future advancements
 
-## 13. Glossary
+{Mandatory. At least 3, prefer 4. See template below.}
+
+## 13. FAQ
+
+## 14. Glossary
 ```
 
 Renumber if you skip sections. TOC anchors must match headings.
@@ -120,6 +125,44 @@ Related systems (verified):
 ```
 
 Rules for every URL: [further-reading.md](further-reading.md).
+
+## Future advancements (mandatory, near the end)
+
+At least **3**, prefer **4**. Each one must cite a gap in *this* repo.
+
+```markdown
+## N. Future advancements
+
+What can still be built in this repository.
+
+### N.1 {Named next bet}
+
+**Why now.** {What is missing or weak today. Cite `{path}`, a TODO, or a missing test.}
+
+**What would land.** {Files, APIs, or docs that would change.}
+
+**Done when.** {How a later reader would know this shipped.}
+
+### N.2 {Named next bet}
+
+**Why now.** …
+**What would land.** …
+**Done when.** …
+
+### N.3 {Named next bet}
+
+**Why now.** …
+**What would land.** …
+**Done when.** …
+
+### N.4 {Named next bet}
+
+**Why now.** …
+**What would land.** …
+**Done when.** …
+```
+
+Do not substitute a bullet wishlist. Do not invent work that contradicts **What it is not**.
 
 ## Catalog table (tools / APIs / CLI)
 

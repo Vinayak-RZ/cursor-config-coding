@@ -4,7 +4,8 @@ description: >-
   Authors exhaustive, production-grade README.md files that also teach the reader:
   non-obvious techniques, analogies, honest limits, and verified blogs/papers.
   Produces numbered reference manuals with vision, architecture, setup, catalogs,
-  glossary, and further reading. Use when creating or rewriting a comprehensive
+  glossary, further reading, and a future-advancements section (at least 3–4 next
+  steps inside this repo). Use when creating or rewriting a comprehensive
   repo overview, onboarding docs, or a reference-style README. Do not use for a
   public product landing page (logo, tagline, tiny quickstart) — use product-readme.
 ---
@@ -45,9 +46,12 @@ Explore the codebase systematically. Do not invent features.
 7. **Deployment** — Docker, CI, cloud targets if present
 8. **Git history** — skim recent commits for changelog and roadmap phases
 9. **Ideas worth understanding** — non-obvious bets, not feature bullets (see Teach)
+10. **Gaps and next bets** — TODOs, missing tests, thin docs, incomplete interfaces,
+    honest follow-ons that could land *in this repo*
 
 Capture: exact tool/API counts, file paths, env var names, ports, version constraints,
-and a short list of 3–8 ideas the README must teach.
+a short list of 3–8 ideas the README must teach, and **at least 3–4 future
+advancements** grounded in what you found (not a generic wishlist).
 
 ### Phase 2 — Draft structure
 
@@ -67,8 +71,11 @@ Use the section order in [templates.md](templates.md). Adapt sections to the pro
 | Testing | Cookbook with example prompts |
 | Further reading | |
 | Roadmap + changelog | |
+| Future advancements (3–4 min) | |
 
 **Skip** sections that don't apply — mark them omitted, don't leave empty placeholders.
+**Never skip Future advancements.** It is mandatory and must list at least 3–4
+concrete next steps for *this* repository.
 
 ### Phase 3 — Write with quality bar
 
@@ -98,6 +105,24 @@ Tone for these blocks: technical-blog quality. The reader should leave knowing t
 idea, not only that a file exists. Place them as a numbered section **Ideas worth
 understanding** (and fold extra depth into How it works). Also add **Further reading**.
 
+**Future advancements (mandatory, near the end)**
+
+After teaching what exists today, close with **Future advancements** — what can
+still be built *inside this repo*. Minimum **3**, prefer **4**. Each item must be
+specific to gaps you found (TODO, missing test, incomplete API, docs hole,
+performance ceiling), not industry buzzwords.
+
+For each advancement, write:
+
+1. **Name** — the next bet, not "make it better"
+2. **Why** — what is weak or missing in the tree today (cite `{path}` or a gap)
+3. **What would land** — modules, APIs, or docs that would change
+4. **Done when** — how a later reader would know it shipped
+
+Place this section **after** Further reading / Roadmap and **before** FAQ and
+Glossary (or last if those are omitted). Do not merge it into a one-line bullet
+list. Do not invent a product that contradicts What it is not.
+
 **Body principles**
 
 1. **Tables over prose** for catalogs (tools, env vars, tables, endpoints)
@@ -126,6 +151,7 @@ Run [checklist.md](checklist.md) before delivering. Fix:
 - Tool/API counts that don't match registry or routes
 - Teaching blocks that are feature bullets with no mechanism/analogy/limits
 - Citation URLs that were not verified
+- Fewer than 3 future advancements, or advancements with no path/gap in this repo
 
 ### Phase 5 — Maintain
 
@@ -180,12 +206,29 @@ idea in **Ideas worth understanding** and point at the catalog row.
 | Phase | Theme | Status |
 |-------|-------|--------|
 | 0 | … | done |
-
-### Possible future directions
-- Bullet list of realistic next steps (not wishlist noise)
 ```
 
-Distinguish **shipped** (changelog) from **planned** (roadmap).
+Distinguish **shipped** (changelog) from **planned**. Do not hide future work here —
+the next section is **Future advancements**.
+
+## Future advancements section shape
+
+Always include. At least **3**, prefer **4**. Grounded in this repo.
+
+```markdown
+## N. Future advancements
+
+What can still be built in this repository — not a generic industry wishlist.
+
+### N.1 {Named next bet}
+**Why now.** {Gap in `{path}` or missing capability.}
+**What would land.** {Modules / APIs / docs.}
+**Done when.** {Observable outcome.}
+
+### N.2 …
+### N.3 …
+### N.4 …
+```
 
 ## Anti-patterns
 
@@ -199,6 +242,8 @@ Distinguish **shipped** (changelog) from **planned** (roadmap).
 - Catalogs without teaching the non-obvious bets
 - Invented or guessed citation URLs
 - Using this skill for a product landing page (that is `product-readme`)
+- README with no Future advancements, or fewer than 3 repo-specific next bets
+- Future advancements that are slogans ("scale", "AI", "more features") with no path
 
 ## Output
 
