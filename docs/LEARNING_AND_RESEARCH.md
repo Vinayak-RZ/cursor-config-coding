@@ -27,7 +27,8 @@ Requirement → research brief (if unfamiliar)
 | Skill | Role |
 |-------|------|
 | `learn-while-building` | Research, explain, learning summaries, LEARNING.md |
-| `extensive-readme` | Exhaustive README when documenting a repo |
+| `extensive-readme` | Exhaustive README when documenting a repo (teaches the non-obvious ideas) |
+| `product-readme` | Public product landing README (logo, tagline, tiny quickstart) |
 
 ## Rules
 
@@ -68,4 +69,5 @@ Explain why we used server actions here instead of a REST route. Use an analogy.
 **README:**
 ```text
 Use extensive-readme skill to rewrite this repo's README as a reference manual.
+Use product-readme for a public landing page (logo, tagline, tiny quickstart).
 ```

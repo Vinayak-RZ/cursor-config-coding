@@ -78,7 +78,7 @@ implementation. Record sources and choices in **§11 Research log**.
 | Codebase mapping | `graphify` (large or unfamiliar repos) |
 | Security | `security-baseline` |
 | Greenfield spec artifacts | `speckit-constitution` → `specify` → `plan` → `tasks` |
-| README / onboarding | `extensive-readme` |
+| README / onboarding | `extensive-readme` (manual) · `product-readme` (landing) |
 
 Plans that recommend stacks or patterns without research citations are **incomplete**.
 
