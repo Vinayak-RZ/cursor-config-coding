@@ -96,13 +96,13 @@ Use this shape for every item in **Ideas worth understanding**:
 
 **Constraint.** {What would go wrong, or what the system cannot afford.}
 
-**How it works.** {Mechanism in 3–8 sentences. Name the invariant. Cite `{path}`.}
+**How it works.** {Short sentences a non-specialist can follow. Cite `{path}`. If this is hard, one simple paragraph plus a verified blog or wiki — do not paste the paper.}
 
 **Analogy.** {One comparison a newcomer can hold — e.g. "a JIT, but for weights".}
 
 **Limits.** {When it wins, when it loses, what is unproven. Do not oversell.}
 
-**Read next.** [{Title}]({verified-url}) — {why this source}. Optional second link.
+**Read next.** [{Title}]({verified-url}) — {why this source}. Blog, wiki, or paper. Optional second link.
 ```
 
 Good names are ideas, not features: "one hierarchy, not one memory requirement",

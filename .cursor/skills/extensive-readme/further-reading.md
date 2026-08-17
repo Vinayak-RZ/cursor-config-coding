@@ -17,11 +17,16 @@ Prefer, in order:
 
 1. **Primary write-up** by the authors of the technique (project blog, paper PDF)
 2. **Official docs** that explain the idea (not an API dump)
-3. **Related system** the code actually builds on (named in comments, papers, or acknowledgements)
-4. **Survey / lecture notes** only when 1–3 do not exist
+3. **Wiki / encyclopedia** for background concepts a non-specialist needs
+   (Wikipedia is fine: Mixture of Experts, LRU cache, JIT, virtual memory)
+4. **Related system** the code actually builds on (named in comments, papers, or acknowledgements)
+5. **Survey / lecture notes** only when 1–4 do not exist
 
 Skip SEO roundups, uncredited Medium clones, and random GitHub gists unless the
 repo itself cites them.
+
+Use a wiki/blog link whenever the README names something a curious human would
+have to look up. Keep the README explanation simple; the link is the depth.
 
 ## How to search
 

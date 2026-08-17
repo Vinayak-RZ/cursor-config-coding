@@ -32,8 +32,11 @@ Run before delivering. Fix every fail. Do not ship a catalog-only README.
 ## Voice
 
 - [ ] Opening 30 lines: title, positioning, TL;DR
-- [ ] Technical-blog sentences; no engagement bait
-- [ ] Present tense for current behavior; past tense only in changelog
+- [ ] A curious non-specialist can follow the narrative without a glossary in the other hand
+- [ ] Required jargon is defined in one plain sentence on first use
+- [ ] Hard ideas: simple explanation in the README, then a verified blog or wiki link
+- [ ] Narrative (vision + ideas + how it works + future) is finishable in one sitting (~10–20 min); catalogs are tables, not essays
+- [ ] No engagement bait; present tense for current behavior; past tense only in changelog
 - [ ] Honest today vs roadmap
 
 ## Future advancements (mandatory)
