@@ -2,8 +2,9 @@
 
 ## Routing
 
-- [ ] This is a public product landing page, not an exhaustive manual
-- [ ] If the user asked for a reference/onboarding catalog, stop and use `extensive-readme`
+- [ ] This is a public product landing page, not a readable overview or internals dump
+- [ ] Readable human README → `readable-readme`; package-by-package → `extensive-readme`
+- [ ] If an extensive companion was requested: top banner links to `docs/EXTENSIVE.md`
 
 ## First screen
 

@@ -4,8 +4,9 @@ description: >-
   Authors public product README.md files for software people can install and use:
   centered logo, badges, tagline, demo, mission, named techniques, tiny quickstart,
   and a docs index. Colibri / LangChain / vLLM / llama.cpp shape. Use when showcasing
-  an OSS product, library, or engine as a landing page. Do not use for an exhaustive
-  reference manual — use extensive-readme.
+  an OSS product, library, or engine as a landing page. Do not use for a human
+  readable overview (readable-readme) or a package-by-package internals dump
+  (extensive-readme). Unspecified "make a README" goes to the readme skill.
 ---
 
 # Product README Authoring
@@ -23,9 +24,17 @@ ecosystem), vLLM (named technique + real blog link), llama.cpp (badges + quick s
 - The repo is something people **install and run**, not an internal notes dump
 - User wants a logo, tagline, demo, and "get started" — not every env var
 
-**Use `extensive-readme` instead** for a numbered contributor manual (config tables,
-API catalogs, glossary). That skill also **teaches** the non-obvious ideas. This skill
-teaches too, but only the 1–5 ideas a newcomer needs; dump the rest to `docs/`.
+**Use `readable-readme` instead** for a long human `README.md` people finish in one
+sitting. **Use `extensive-readme`** for `docs/EXTENSIVE.md` (every package and file
+map). **Use `readme`** when the user did not name a type — that skill asks first.
+
+If this run also requested an extensive companion: write `README.md` here, then load
+`extensive-readme`. Put this banner **at the top** of `README.md` (after the logo is
+fine, before the pitch):
+
+```markdown
+> Full internals (every package, file map, how the repo runs): [Extensive README](docs/EXTENSIVE.md)
+```
 
 ## Workflow
 
@@ -132,8 +141,9 @@ Screenshots need captions that teach, not "screenshot of the UI".
 ## Output
 
 - `README.md` at repo root (or the package the user named)
+- Banner to `docs/EXTENSIVE.md` when an extensive companion was requested
 - `assets/{product}-logo.svg` only when no logo existed
-- Do not rewrite `docs/` unless the user asked; link to what exists
+- Do not write the extensive dump yourself — load `extensive-readme`
 
 ## Additional resources
 

@@ -20,8 +20,10 @@ Before starting any task in this repository:
    - Over-engineering review → `ponytail-review` or `ponytail-audit` skills
    - **Greenfield / new feature / specs-first** → `speckit.mdc` + `speckit-*` skills (after ponytail for code); structure delivery with `nawab-plans`
    - Research, explain, learning → learn-and-research rule + `learn-while-building` skill
-   - README / onboarding docs → `extensive-readme` skill (reference manual)
+   - "Make a README" with no type → `readme` skill (asks product vs readable, and whether extensive is also needed)
+   - Readable / general README.md → `readable-readme` skill
    - Public product / OSS landing README → `product-readme` skill
+   - Package-by-package internals (`docs/EXTENSIVE.md`) → `extensive-readme` skill
    - UI / React / Next.js files → frontend-architecture rule + skill
    - API / services / server code → backend-architecture rule + skill
    - Agents / LLM / MCP / automations → agentic-systems + mcp-architecture rules + skills

@@ -39,7 +39,7 @@ This repository is a **portable engineering workspace** — link it into any cod
 |--------|-------------|
 | **Type** | Cursor configuration repository (rules + skills + docs) |
 | **Mode** | Engineering — plan, architect, implement, validate |
-| **Pre-installed skills** | **37** (nawab-plans + 10 Spec Kit + 6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
+| **Pre-installed skills** | **39** (nawab-plans + 10 Spec Kit + 6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
 | **Project rules** | **21** `.mdc` files (ponytail + Spec Kit + workflow + architecture + security + MCP + commits + learning) |
 | **MCP (default)** | [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) — 421+ agentic patterns |
 | **Stack skills** | **Catalog only** — install per project (Flutter, Django, etc.) |
@@ -92,12 +92,12 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 
 | Spec | Value |
 |------|-------|
-| Pre-installed skills | 37 |
+| Pre-installed skills | 39 |
 | Planning | `nawab-plans` — **mandatory in Plan mode** (`planning.mdc`) |
 | Spec Kit (SDD) | 10 `speckit-*` skills + `speckit.mdc` + `install-spec-kit.ps1` |
 | Ponytail (minimal code) | 6 skills + `ponytail.mdc` always-on rule |
 | Architecture skills | 4 (`frontend-architecture`, `backend-architecture`, `agentic-system-design`, `system-design-tradeoffs`) |
-| Documentation skills | `extensive-readme`, `product-readme` |
+| Documentation skills | `readme`, `product-readme`, `readable-readme`, `extensive-readme` |
 | Learning skill | `learn-while-building` |
 | Stack pre-install | `nextjs-app-router-patterns` only |
 | Animation skills | 9 GSAP skills |
@@ -232,12 +232,14 @@ Guide: [docs/SPEC_KIT.md](docs/SPEC_KIT.md) · Install `.specify/`: `.\scripts\i
 
 **Not default:** `nextjs-framer-motion-animations` — install from catalog if needed.
 
-### Documentation & learning (3) — pre-installed
+### Documentation & learning (5) — pre-installed
 
 | Skill | When to use |
 |-------|-------------|
-| `extensive-readme` | Exhaustive README / onboarding reference manual that also teaches the non-obvious ideas |
+| `readme` | "Make a README" with no type — asks product vs readable, and whether extensive is also needed |
 | `product-readme` | Public product landing README (logo, tagline, demo, tiny quickstart) — Colibri / LangChain / vLLM shape |
+| `readable-readme` | Long human `README.md` people can actually finish |
+| `extensive-readme` | Package-by-package internals companion (`docs/EXTENSIVE.md`), linked from the main README |
 | `learn-while-building` | Research briefs, explain decisions, phase learning summaries |
 
 Guide: [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md)
@@ -301,7 +303,9 @@ cursor-config-coding/
 │   │   ├── agentic-system-design/
 │   │   ├── system-design-tradeoffs/
 │   │   ├── extensive-readme/
+│   │   ├── readable-readme/
 │   │   ├── product-readme/
+│   │   ├── readme/
 │   │   ├── learn-while-building/
 │   │   ├── nextjs-app-router-patterns/
 │   │   ├── gsap-*/
@@ -440,11 +444,23 @@ present a plan for approval, then implement phase 1. End with what I should
 understand and commit with a conventional message.
 ```
 
-### Exhaustive README
+### README (ask first)
 
 ```text
-Use extensive-readme skill to rewrite this repo's README as a reference manual.
-Verify counts and env vars from the codebase. Teach the non-obvious ideas with verified links.
+Use the readme skill. Ask me which type.
+```
+
+### Readable README
+
+```text
+Use readable-readme for a human README.md I can actually finish.
+```
+
+### Extensive internals
+
+```text
+Use extensive-readme for docs/EXTENSIVE.md — every package and why each file exists.
+Link it from the top of README.md.
 ```
 
 ### Product README
@@ -575,7 +591,9 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 | Compare options | "Use system-design-tradeoffs" |
 | React perf patterns | `install-catalog-skill.ps1` + vercel-react-best-practices |
 | Learn while building | `learn-while-building` skill + [LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md) |
-| Exhaustive README | `extensive-readme` skill |
+| Make a README (choose type) | `readme` skill |
+| Readable / general README.md | `readable-readme` skill |
+| Extensive internals companion | `extensive-readme` skill |
 | Product / OSS landing README | `product-readme` skill |
 | Auto conventional commits + push | `git-commit-discipline` + `~/.cursor/rules/git-commit-push-global.mdc` |
 | PM / GTM work | Open [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness) |
