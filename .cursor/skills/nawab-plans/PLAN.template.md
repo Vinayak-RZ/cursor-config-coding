@@ -387,9 +387,11 @@ Write `EXECUTION_GRAPH.md` and execute graph waves immediately
 
 `N/A — graph-engineering not requested`
 
-When `graph-engineering` was named, replace N/A with the full shape from
+When `graph-engineering` was named, **ask questions first**, then replace N/A
+with the full shape from
 `.cursor/skills/graph-engineering/GRAPH.template.md`. **Required:** a
-**Node plans** table with a working markdown link to every `plans/nodes/<id>.md`.
+**Node plans** table with working links, and a **Lifecycle** table (run,
+trials, docs-out present or N/A with reason).
 
 **If this section is filled:** approving this plan starts graph execution
 immediately. No second wait.

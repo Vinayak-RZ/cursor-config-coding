@@ -35,6 +35,26 @@ Default directory: `plans/nodes/<id>.md` next to `EXECUTION_GRAPH.md`.
 
 ---
 
+## Lifecycle
+
+Every full one-shot lists these stages. `N/A` needs a reason. See
+`.cursor/skills/graph-engineering/LIFECYCLE.md`.
+
+| Stage | Node id(s) | Plan / N/A |
+|-------|------------|------------|
+| Research + questions | R0 | lead (Gate 0 done) |
+| Docs-in | D0 | [plans/nodes/D0.md](plans/nodes/D0.md) |
+| Architecture | A1 | [plans/nodes/A1.md](plans/nodes/A1.md) |
+| Design / UI UX | U1 | [plans/nodes/U1.md](plans/nodes/U1.md) or `N/A — …` |
+| Build | B* | links |
+| Integrate | M1 | [plans/nodes/M1.md](plans/nodes/M1.md) |
+| Evaluate | E1 | [plans/nodes/E1.md](plans/nodes/E1.md) |
+| Run | R1 | [plans/nodes/R1.md](plans/nodes/R1.md) |
+| Trials | T1 | [plans/nodes/T1.md](plans/nodes/T1.md) |
+| Docs-out | D1 | [plans/nodes/D1.md](plans/nodes/D1.md) |
+
+---
+
 ## Mermaid
 
 Draw **only real edges**. Independent nodes have no arrow between them.

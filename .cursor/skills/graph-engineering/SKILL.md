@@ -1,14 +1,14 @@
 ---
 name: graph-engineering
 description: >
-  Builds a graph-of-plans for large one-shot work: the graph is the master
-  plan you read; each node has its own linked sub-plan; approval of the graph
-  writes EXECUTION_GRAPH.md and runs the waves (fan-out, barriers, verifiers)
-  immediately. Use for entire projects or major features when the user invokes
-  /graph-engineering or says "graph this plan", "graph engineering", "convert
-  the plan to a graph", "run this as a graph", or "one-shot this project".
-  Do not load while drafting or executing a nawab plan unless the user named
-  it. Not graphify (codebase knowledge graphs). Not for 1–3 step real chains.
+  Builds a graph-of-plans for end-to-end one-shots: research then questions
+  (must ask; do not guess), then a master graph covering docs-in, architecture,
+  design/UI UX, build, integrate, evaluate, actually run, multiple trials, and
+  docs-out. Each node has a linked sub-plan; approving the graph runs it.
+  Use for entire products or major features when the user invokes
+  /graph-engineering or says "graph this plan", "one-shot this project",
+  or "run this as a graph". Do not load unless the user named it. Not
+  graphify. Not for 1–3 step real chains.
 disable-model-invocation: true
 trigger: /graph-engineering
 argument-hint: "[plan path or leave blank to use the current nawab plan]"
@@ -30,6 +30,7 @@ slice without hunting.
 
 Template: [GRAPH.template.md](GRAPH.template.md)  
 Node plan: [NODE.template.md](NODE.template.md)  
+Lifecycle: [LIFECYCLE.md](LIFECYCLE.md)  
 Topologies: [TOPOLOGIES.md](TOPOLOGIES.md)
 
 ## Persistence
@@ -55,8 +56,9 @@ Load **only** when the user named this skill. Signals:
 **Skip the fleet** (one-node or short chain in §19) when the work is a real
 1–3 step dependency. Do not invent nodes or nested plans for a hotfix.
 
-This skill is for **entire projects and major feature additions** — long,
-quality-rich, parallel work.
+This skill is for **entire products and major features** — research through
+shipped software, proven by running it, then docs. Long, quality-rich,
+parallel work.
 
 ---
 
@@ -98,16 +100,52 @@ If a `model` slug is not in the session list, use `inherit`. Never guess.
 
 ---
 
-## Two modes
+## Gate 0 — Research, then questions (blocking)
+
+**Before** nawab §19, node plans, or approval. Asking is expected. Do not
+smooth over uncertainty.
+
+1. Research the repo or state greenfield. 5–10 lines of what you found.
+2. Ask numbered questions. Split **must-answer** (blocks compile),
+   **trade-off** (neither option is obviously better — show both, ask
+   PRIORITY), and **optional** (state the default).
+3. **Stop. Wait.** Do not compile the graph on guessed architecture, UX,
+   tenancy, or "we will figure it out in the node."
+
+Full rules and the trade-off block: [LIFECYCLE.md](LIFECYCLE.md).
+
+---
+
+## End-to-end coverage
+
+A full one-shot graph **includes every lifecycle stage** or marks
+`N/A — [reason]`. Catalog: [LIFECYCLE.md](LIFECYCLE.md).
+
+| Stage | Must mean |
+|-------|----------|
+| Docs-in | Existing docs good enough to plan, or listed gaps |
+| Architecture | Boundaries + remaining trade-offs decided with the user |
+| Design / UI UX | Required if there is a user-facing surface |
+| Build | Fan-out slices with real edges only |
+| Integrate | Barrier over the slices |
+| Evaluate | Tests / evals that can fail |
+| Run | **Boot it** — not only unit tests |
+| Trials | **More than one** run (happy, empty, error, one regression) |
+| Docs-out | README (and companions) **after** it works — `readme` skill |
+
+A graph that ends at "code written" is incomplete.
+
+---
 
 ### A. Drafting (skill named, not yet approved)
 
-1. Draft nawab §0–§18 for **scope** (what the project is).
-2. Compile the **graph of plans** (checklist below). Write every node plan
-   **before** asking for approval so the links work.
-3. Put the graph in **§19** and on disk as `EXECUTION_GRAPH.md`.
-4. Approval footer: *Approving this graph writes/refreshes `EXECUTION_GRAPH.md` and starts execution immediately. Node plans are already linked.*
-5. Stop. Wait only for **that** approval. No per-node wait.
+1. **Gate 0** — research, then questions. Wait for answers.
+2. Draft nawab §0–§18 for **scope**.
+3. Compile the **graph of plans** (checklist). Cover the lifecycle. Write
+   every node plan **before** approval so the links work.
+4. Put the graph in **§19** and on disk as `EXECUTION_GRAPH.md`.
+5. Approval footer: *Approving this graph starts execution immediately. Node plans are linked. Lifecycle stages are listed (or N/A).*
+6. Stop. Wait only for **that** approval.
 
 ### B. On approval, or skill named on an already-approved plan
 
@@ -120,9 +158,11 @@ If a `model` slug is not in the session list, use `inherit`. Never guess.
 
 ## Compile checklist
 
-Read [TOPOLOGIES.md](TOPOLOGIES.md) if the shape is not a simple diamond.
+Gate 0 must already be done. Read [LIFECYCLE.md](LIFECYCLE.md). Read
+[TOPOLOGIES.md](TOPOLOGIES.md) if the shape is not a simple diamond.
 
-1. From nawab §5–§9, list candidate nodes — **one job each**.
+1. Start from the lifecycle catalog. Add/split nodes from nawab §5–§9.
+   Mark unused stages `N/A — [reason]` on the graph.
 2. Cut fake edges: if B does not **read** A's output, they are the same wave.
 3. Contract every node (in schema, out schema). Pass inputs explicitly.
 4. Mark remaining edges `plumbing` | `agent` | `verify`.
@@ -130,7 +170,7 @@ Read [TOPOLOGIES.md](TOPOLOGIES.md) if the shape is not a simple diamond.
 6. Write `plans/nodes/<id>.md` per node from [NODE.template.md](NODE.template.md).
    Map commits onto the parent §9 matrix; writers must not overlap.
 7. Fill [GRAPH.template.md](GRAPH.template.md). **Node plans** table is
-   required — every row is a working markdown link.
+   required — every row is a working markdown link. Include **Lifecycle**.
 8. Tiny real chains stay a chain. Do not pad.
 
 Save agents for judgment. Not for plumbing.
@@ -141,9 +181,10 @@ Show in chat, not only in files:
 
 1. The mermaid graph
 2. The **Node plans** table with clickable links
-3. Wave table (counts, where the barrier is)
-4. **Edges cut, and why**
-5. Model tiers: which nodes run cheap
+3. Lifecycle table (every stage present or N/A)
+4. Wave table (counts, where the barrier is)
+5. **Edges cut, and why**
+6. Model tiers: which nodes run cheap
 
 During a wave: name wave, node ids, model; after: survivors vs dropped.
 
@@ -187,6 +228,9 @@ The graph is the execution program. Node plans are additive files.
 ## Anti-patterns
 
 - Loading this skill because Plan mode is on
+- Compiling the graph before Gate 0 answers (guessing architecture or UX)
+- Skipping trade-off questions when two options are both valid
+- Graph that ends at "code written" with no run / trials / docs-out
 - Graph with no working links to node plans
 - 18-section nawab **per node** (collapse; depth 2 only)
 - Node plan that spawns another graph unasked

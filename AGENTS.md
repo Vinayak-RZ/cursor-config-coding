@@ -36,12 +36,13 @@ Do not invent a thinner plan format. Collapse unused sections as `N/A` — do no
 
 | Asset | Role |
 |-------|------|
-| `graph-engineering` skill | Graph of plans: master graph + linked node plan per node |
+| `graph-engineering` skill | Graph of plans: questions first, then master graph + linked node plans through docs-out |
 | `GRAPH.template.md` | Master graph (what you read) — **must** link every node plan |
 | `NODE.template.md` | Collapsed plan for one node (`plans/nodes/<id>.md`) |
+| `LIFECYCLE.md` | Gate 0 questions + docs-in → run → trials → docs-out |
 | `TOPOLOGIES.md` | Diamond, pipeline vs barrier, cycle, verifiers |
 
-When named: fill **§19** with the graph and write node plans **before** approval so the links work. **Approving the nawab plan** runs the graph immediately (no second wait). Not `graphify`.
+When named: **Gate 0** (research, then questions — do not guess). Then fill **§19** with the graph and write node plans **before** approval so the links work. Lifecycle must include run, trials, and docs-out (or N/A with reason). **Approving the nawab plan** runs the graph immediately. Not `graphify`.
 
 ## Spec Kit — Spec-Driven Development (features / greenfield)
 

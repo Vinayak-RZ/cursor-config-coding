@@ -118,7 +118,7 @@ Skill: `nawab-plans` · Template: `PLAN.template.md` · Subagents: `SUBAGENT_ORC
 
 Enforced by always-on `planning.mdc`: any Plan mode session or implementation plan **must** load this skill. Collapse unused sections as `N/A` — do not invent a thinner format.
 
-**Opt-in:** `graph-engineering` — only when you name it. The **graph is the plan you read**; each node has a linked sub-plan. Approving the nawab plan **runs immediately**. Not `graphify`.
+**Opt-in:** `graph-engineering` — only when you name it. Research + questions first, then the **graph is the plan you read** (docs through build, run, trials, README). Each node has a linked sub-plan. Approving **runs immediately**. Not `graphify`.
 
 ## Ponytail — minimal code (pre-installed)
 
@@ -195,7 +195,7 @@ Each skill includes a `references/patterns.md` pattern catalog.
 | Skill | When to use |
 |-------|-------------|
 | `nawab-plans` | **Every Plan mode / implementation plan** — mandatory (`planning.mdc`) |
-| `graph-engineering` | **Only when named**. Graph is the plan you read; each node has a linked sub-plan; approve → run. **Not** `graphify`. |
+| `graph-engineering` | **Only when named**. Questions first; graph is the plan (docs → build → run → trials → README). Linked node plans. Approve → run. **Not** `graphify`. |
 
 ### Spec-driven (10) — pre-installed
 
