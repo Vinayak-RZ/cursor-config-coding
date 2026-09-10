@@ -1,8 +1,8 @@
 # [PROJECT_OR_FEATURE_NAME] — Master Execution Plan
 
-> Nawab master plan — entire project or major feature execution in one document.
-> **Mode:** project | feature  
-> Copy to `IMPLEMENTATION_PLAN.md` and maintain `PROGRESS.md` during execution.
+> Nawab **standard** or **project** profile. Cursor Plan defaults to
+> [PLAN.template.lite.md](PLAN.template.lite.md) instead.
+> Copy to `IMPLEMENTATION_PLAN.md` when Delivery is repo.
 
 ---
 
@@ -10,12 +10,16 @@
 
 | Field | Value |
 |-------|-------|
+| **Profile** | standard / project |
 | **Mode** | project / feature |
 | **Stack** | [from repo — e.g. Python/FastAPI + Next.js + Postgres] |
 | **Base branch** | `main` |
 | **Feature branch(es)** | `cursor/[name]-[suffix]` or per-workstream |
+| **User commit budget** | [ask first if missing — overrides §9 defaults] |
+| **Delivery** | cursor-plan / repo IMPLEMENTATION_PLAN |
+| **Supersedes** | none / [prior plan] |
 | **Authority docs** | [links] |
-| **Estimated commits** | [range — see §9; marketing UI pass ≈ 7–8; multi-package ≈ 18–25] |
+| **Estimated commits** | [must match user budget when set] |
 | **Lead agent** | Orchestrate, commit, integrate subagents, PR |
 
 ---
@@ -193,6 +197,11 @@ todos:
 ---
 
 ## §9 Commit matrix
+
+**User commit budget (from §0):** **[N]** — hard requirement. If this matrix
+would exceed **2×** that number, coalesce rows here before asking approval.
+
+Work-class defaults apply **only** when the user did not give a number.
 
 > One row = one commit. Tests in same commit when applicable. Gates = project-native commands.
 > **Size to work class** — marketing/UI multi-page ≈ **7–8**; multi-package/platform ≈ **18–30+**.
