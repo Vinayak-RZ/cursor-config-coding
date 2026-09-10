@@ -15,3 +15,4 @@ When the **target is an application repo** (not this config distro):
 - `PROGRESS.md` during phased work
 
 This config repo’s overview is `README.md`. Do not invent `PROJECT_OVERVIEW.md` here.
+Skills stay portable: never require a named customer repo to use them.
