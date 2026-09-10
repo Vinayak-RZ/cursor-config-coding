@@ -1,0 +1,17 @@
+# Progress — config 2026 audit
+
+- **Branch:** `cursor/config-2026-audit`
+- **Current phase:** N complete
+- **Completed:** 0 research → A always-on slim → B skill hygiene → F nawab profiles → G README skills (portable) → C Spec Kit v1.0.6 → D scripts → E docs → N validate
+- **Remaining:** none (merge/PR when asked)
+- **Blockers:** none
+- **Gate:** `.\scripts\validate-config.ps1` exit 0 (40 skills, 3 always-on stubs / 51 lines, pin v1.0.6, lite template, no “19 .mdc”, skills have no named-gold-repo strings)
+- **Ponytail-review:** no extra layers to delete on the new scripts; install-spec-kit temp init is the junction-safety path, not YAGNI.
+
+## Always-on
+
+`rule-awareness`, `ponytail`, `ai-anti-patterns` only.
+
+## Skills (portable)
+
+Jobs, not named products: nawab profiles, product vs readable vs extensive README, graphify DMI, Spec Kit v1.0.6.
