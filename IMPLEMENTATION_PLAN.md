@@ -2,6 +2,12 @@
 
 > Approved execution contract. Source: nawab plan (feature mode). Do not treat Cursor `.plan.md` as writable authority.
 
+**Status:** complete on `cursor/config-2026-audit` (2026-09-11). Gate: `.\scripts\validate-config.ps1` exit 0.
+
+**Portability (user correction during G):** skill bodies describe jobs, not named products or private gold repos. Corpus in §1 remains research evidence for *this* audit only.
+
+---
+
 
 # Config repo 2026 audit â€” Master Execution Plan
 
