@@ -2,6 +2,8 @@
 
 **ponytail → nawab-plans (lite default in Plan mode) → spec-kit for greenfield → implement → validate → commit.**
 
+Skills in this config describe **jobs** (plan, README, architecture), not a named product. Fill them from the repo in front of you.
+
 ## Always on
 
 Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `nawab-plans` at **lite / standard / project** (lite unless the user asks full nawab or the work is multi-package). graph-engineering only if named — not graphify.
