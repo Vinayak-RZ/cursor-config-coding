@@ -1,7 +1,11 @@
 # Subagent orchestration — nawab plans
 
-Reference for **§6 Agent orchestration** in nawab plans. The lead agent writes
-this section into the plan; this file defines the patterns.
+**When:** project profile, or standard with parallel workstreams.
+
+Lite / lead-only: write `§6 N/A — lead executes §9 sequentially` in the plan.
+Do not copy this file into lite plans.
+
+The spawn-prompt contract below is the appendix for real parallel work.
 
 ---
 
