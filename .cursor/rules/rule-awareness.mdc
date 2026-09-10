@@ -15,7 +15,7 @@ Before starting any task in this repository:
 6. For `alwaysApply: false` rules, include them when the task matches their description:
    - **Any coding task (write, fix, refactor, add dependency)** → `ponytail` skill first, then execution rules
    - **Plan mode / drafting IMPLEMENTATION_PLAN** → `nawab-plans` skill (mandatory) + `planning.mdc`
-   - **User names graph-engineering / "graph this plan" / /graph-engineering** → `graph-engineering` skill **only then** (never auto-chain from nawab). Fill §19; on nawab-plan approval write `EXECUTION_GRAPH.md` and run the graph immediately.
+   - **User names graph-engineering / "graph this plan" / /graph-engineering** → **read** `.cursor/skills/graph-engineering/SKILL.md` **only then** (it is `disable-model-invocation`, so it will not auto-load — open the file). Never auto-chain from nawab. Fill §19; on nawab-plan approval write `EXECUTION_GRAPH.md` and run the graph immediately.
    - Implementation or file changes → execution rules + ponytail ladder on every edit
    - Validation, completion, or phase reports → quality-gates + git-commit-discipline rules
    - Over-engineering review → `ponytail-review` or `ponytail-audit` skills

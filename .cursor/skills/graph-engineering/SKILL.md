@@ -1,16 +1,18 @@
 ---
 name: graph-engineering
 description: >
-  Compiles a nawab plan into an execution graph (real edges only, fan-out,
-  contracts, verifiers, cycles) and embeds it as §19 in the plan. On nawab
-  plan approval, writes EXECUTION_GRAPH.md and runs the graph immediately.
-  Use only when the user names this skill, says "graph this plan", "convert
-  the plan to a graph", "graph engineering", or invokes /graph-engineering.
-  Do not use when drafting or executing nawab-plans unless the user named
-  this skill. Not graphify (codebase knowledge graphs).
+  Compiles an execution plan into a graph — nodes with schema contracts, edges
+  only where data actually crosses, parallel Task fan-out, verifiers on the
+  edge, converging cycles — written into nawab §19. Approving the nawab plan
+  then writes EXECUTION_GRAPH.md and runs the waves immediately, no second
+  wait. Use only when the user invokes /graph-engineering or says "graph this
+  plan", "graph engineering", "convert the plan to a graph", or "run this as a
+  graph". Do not load while drafting or executing a nawab plan unless the user
+  named it. Not graphify (codebase knowledge graphs).
 disable-model-invocation: true
 trigger: /graph-engineering
 argument-hint: "[plan path or leave blank to use the current nawab plan]"
+license: MIT
 ---
 
 # Graph Engineering
@@ -25,6 +27,14 @@ skill shapes *agent execution*.
 
 Template: [GRAPH.template.md](GRAPH.template.md)  
 Topologies: [TOPOLOGIES.md](TOPOLOGIES.md)
+
+## Persistence
+
+Once loaded, this skill stays active for the **whole run** — every wave, not
+only the first. Do not drift back to sequential one-node-at-a-time work after
+wave 0 finishes. Ponytail stays active alongside it on every code write.
+
+Off only: "stop graph" / "run it linearly" / user reverts to §18.
 
 ---
 
@@ -62,7 +72,31 @@ orchestration scripts or `.claude/workflows/`.
 | Verifier | Extra readonly `Task`s that try to kill findings before they pass downstream |
 | Isolation | Nawab file-ownership (one writer per path). Cloud worktrees only if the user asked |
 | Cycle | Lead `while` with a **seen** set — dedupe against everything seen, not only confirmed |
-| Model tier | `Task` `model`: cheap on extract/classify (`composer-2.5-fast`); `inherit` on merge/judge |
+| Model tier | `Task` `model`: `composer-2.5-fast` on extract/classify; `inherit` on merge/judge |
+| Concurrency | Readonly nodes: fan out freely, overflow queues. Writers: **2–4** max, disjoint paths |
+
+Model slugs must come from the session's available list. If a tier is not
+available, use `inherit` — never guess a slug.
+
+---
+
+## Worked example
+
+Plan says: *"Audit all 6 API routes for missing auth, then write the report."*
+
+Read linearly that is 7 waits and one context holding all 6 routes. But no
+route audit consumes another route's output, so **there are no edges between
+them** — that is fan-out, not a queue.
+
+| Wave | Nodes | How |
+|------|-------|-----|
+| 0 | 6 route audits | 6 `Task` calls in **one message** · `explore` · readonly · `composer-2.5-fast` · each returns `{ route, findings: [{ line, issue, severity }] }` |
+| 1 | collect | **Lead code only** — `flatMap` findings, dedupe by `route+line`. No Task, no tokens |
+| 2 | verify | One `Task` per surviving finding, prompted to **refute** it; keep what survives |
+| 3 | report | One `Task` · `inherit` · consumes the verified set |
+
+Only wave 3 needs the whole set, so wave 3 is the **only** barrier. Waves 0
+and 2 drop failed nodes and keep going.
 
 ---
 
@@ -104,6 +138,18 @@ Read [TOPOLOGIES.md](TOPOLOGIES.md) if the shape is not a simple diamond.
 
 Save agents for judgment. Not for plumbing.
 
+## Output contract
+
+When compiling, show the user in chat — not only in the file:
+
+1. The mermaid graph
+2. The wave table: node count per wave, and where the barrier is
+3. **Edges cut, and why** — this is the payoff; name them
+4. One line on model tiers: which nodes run cheap
+
+During execution, per wave: name the wave, node count, and model tier before
+spawning; survivors vs dropped after it returns.
+
 ---
 
 ## Execute protocol
@@ -144,3 +190,5 @@ Never auto-chain this skill from nawab-plans. Nawab §0–§18 and the commit ma
 - Claude Code `parallel()` / `agent()` scripts as if they exist here
 - Confusing this skill with `graphify`
 - Inventing fan-out for a 1–3 step real chain
+- Drifting back to sequential execution after the first wave
+- Guessing a `model` slug that is not in the session's available list

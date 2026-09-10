@@ -1,8 +1,22 @@
 # Topologies
 
-Read this while compiling nawab §19. Pick the cheapest shape that matches
-**real data dependencies**. Default: per-item pipeline. Barrier only when
-a stage needs the whole set.
+Read this while compiling nawab §19 **when the shape is not a simple diamond**.
+Pick the cheapest shape that matches **real data dependencies**. Default:
+per-item pipeline. Barrier only when a stage needs the whole set.
+
+| Need | Section |
+|------|---------|
+| Is this arrow real? | [Cut fake edges first](#cut-fake-edges-first) |
+| Serial work | [Chain](#chain) |
+| N independent jobs | [Fan-out](#fan-out-one-message-n-tasks) |
+| Should I wait for all of them? | [Pipeline vs barrier](#pipeline-vs-barrier) |
+| Breadth then one answer | [Diamond](#diamond-workhorse) |
+| Path depends on a finding | [Conditional](#conditional) |
+| Confidence in findings | [Verifiers on the edge](#verifiers-on-the-edge) |
+| Unknown-size discovery | [Cycle](#cycle-unknown-size) |
+| Cost control | [Model tiering](#model-tiering) |
+| Parallel writers | [Isolation](#isolation) |
+| Quick pick | [Shape cheat sheet](#shape-cheat-sheet) |
 
 ---
 
