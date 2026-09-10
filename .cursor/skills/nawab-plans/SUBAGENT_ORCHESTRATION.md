@@ -137,8 +137,8 @@ plan delegates a long-running WS branch.
 
 | ID | Phase | Type | Task | Sync |
 |----|-------|------|------|------|
-| S1 | 0 | explore | Map `external/handoff/*` vs repo | Before §9 commit 1 |
-| S2 | B | generalPurpose | Scaffold `packages/console` shell | Commit 16 |
+| S1 | 0 | explore | Map `docs/specs/*` vs the tree | Before §9 commit 1 |
+| S2 | B | generalPurpose | Scaffold `packages/app` shell | Commit 16 |
 | S3 | N | security-review | Full branch diff | Before cutover |
 | S4 | N | explore | Repo walkthrough for untested paths | Hardening commits |
 

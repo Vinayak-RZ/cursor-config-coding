@@ -14,7 +14,8 @@ license: MIT
 # Nawab Plans
 
 One plan is the **execution contract**: what to build, in what order, with what
-tests, who does what, when it is done.
+tests, who does what, when it is done. Portable across stacks — never bake a
+named product or customer into the skill; fill §0 from the repo in front of you.
 
 Templates: [PLAN.template.lite.md](PLAN.template.lite.md) · [PLAN.template.md](PLAN.template.md)  
 Subagents: [SUBAGENT_ORCHESTRATION.md](SUBAGENT_ORCHESTRATION.md) (project / parallel WS only)
@@ -33,7 +34,7 @@ Cursor Plan mode **defaults to lite** unless the user says “full nawab”,
 |---------|------|-------------------|
 | **lite** | Most Cursor plans; UI pass; docs; ≤~10 commits | §0 §1 §9 §16 §18 + Open questions |
 | **standard** | One-package feature with real deps/tests | lite + §2 §3 §7 §10 §11 |
-| **project** | Greenfield platform, multi-repo, Stamped-scale | full §0–§18 (collapse as `N/A — reason`, do not omit headings) |
+| **project** | Greenfield platform, multi-repo, or many packages | full §0–§18 (collapse as `N/A — reason`, do not omit headings) |
 
 Hotfix / one-file: skip nawab — ponytail only.
 
