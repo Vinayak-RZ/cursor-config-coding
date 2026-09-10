@@ -377,9 +377,9 @@ _or:_
 ```
 
 If **§19 is filled**, do not run this linear protocol as the primary loop.
-On approval: write `EXECUTION_GRAPH.md` from §19 and execute graph waves
-immediately (`graph-engineering` skill). Keep §9 commits, gates, and
-lead-owned git.
+On approval: the graph is the plan you read; node plans are linked from it.
+Write `EXECUTION_GRAPH.md` and execute graph waves immediately
+(`graph-engineering` skill). Keep §9 commits, gates, and lead-owned git.
 
 ---
 
@@ -388,11 +388,11 @@ lead-owned git.
 `N/A — graph-engineering not requested`
 
 When `graph-engineering` was named, replace N/A with the full shape from
-`.cursor/skills/graph-engineering/GRAPH.template.md` (metadata, mermaid,
-nodes, edges, waves, failure, commit mapping).
+`.cursor/skills/graph-engineering/GRAPH.template.md`. **Required:** a
+**Node plans** table with a working markdown link to every `plans/nodes/<id>.md`.
 
-**If this section is filled:** approving this plan writes `EXECUTION_GRAPH.md`
-and **starts graph execution immediately**. No second wait.
+**If this section is filled:** approving this plan starts graph execution
+immediately. No second wait.
 
 ---
 

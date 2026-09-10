@@ -43,7 +43,8 @@ the plan explicitly delegates a workstream branch with merge-back at a named gat
 Launch multiple subagents in **one message** when tasks are independent.
 
 When the user named `graph-engineering`, compile this spawn map into nawab
-**§19** (node contracts, real edges, waves). Default remains this table.
+**§19** as a **graph of plans**: one node plan per spawn (`plans/nodes/<id>.md`),
+linked from the graph. Default remains this table.
 See `.cursor/skills/graph-engineering/SKILL.md`. Do not load that skill
 unless the user named it.
 

@@ -32,10 +32,11 @@ Subagent reference: [SUBAGENT_ORCHESTRATION.md](SUBAGENT_ORCHESTRATION.md)
 
 **Optional companion — `graph-engineering`:** never auto-chain. Load it only
 when the user names `/graph-engineering`, `@graph-engineering`, or “graph
-this plan”. Then fill **§19 Execution graph**. On nawab-plan approval, that
-skill writes `EXECUTION_GRAPH.md` and **runs immediately** (no second wait).
-Default plans keep §19 as `N/A — graph-engineering not requested` and follow
-linear §18.
+this plan”. Then the **graph is the plan you read**: fill **§19** and write
+a linked node plan per node (`plans/nodes/<id>.md`). On nawab-plan approval,
+that skill **runs immediately** (no second wait, no wait per node). Default
+plans keep §19 as `N/A — graph-engineering not requested` and follow linear
+§18.
 
 ---
 
@@ -390,7 +391,8 @@ not a separate skill.
 Subagent spawn at step 3b follows §6 exactly.
 
 If **§19 is filled** (`graph-engineering` was named), §18 defers to the graph
-waves on approval: write `EXECUTION_GRAPH.md` from §19 and run immediately.
+waves on approval: the graph is the plan you read; each node has a linked
+plan under `plans/nodes/`. Write `EXECUTION_GRAPH.md` and run immediately.
 Commit matrix, gates, and lead-owned git still apply. See
 `.cursor/skills/graph-engineering/SKILL.md`.
 
@@ -400,11 +402,13 @@ Default: `N/A — graph-engineering not requested`.
 
 When the user named `graph-engineering`, fill this section from
 [GRAPH.template.md](../graph-engineering/GRAPH.template.md): mermaid (real
-edges only), node contracts, edge kinds (`plumbing` / `agent` / `verify`),
-waves, failure / `seen` keys, commit mapping.
+edges only), **a markdown link to every node plan**, node contracts, edge
+kinds, waves, checkpoints. Write node files from
+[NODE.template.md](../graph-engineering/NODE.template.md) **before** asking
+for approval so the links work.
 
 Approving a plan with a filled §19 **starts graph execution**. There is no
-second graph approval.
+second graph approval and no per-node wait.
 
 ---
 
@@ -430,7 +434,7 @@ Before approval (`planning.mdc`):
 
 ```text
 [ ] §0–§18 all present (N/A marked where collapsed)
-[ ] §19 is N/A unless graph-engineering was named; if named, §19 is filled and the approval footer says approve = run the graph
+[ ] §19 is N/A unless graph-engineering was named; if named, §19 is the graph you read, every node has a working plan link, and the approval footer says approve = run the graph
 [ ] Blockers explicit; no phase starts through unresolved P0 blocker
 [ ] Workstreams cover all deliverables; no orphan packages
 [ ] Spawn map names executor per expensive research or parallel track
@@ -491,7 +495,7 @@ End with:
 ## Approval
 Plan ready. Mode: [project|feature]. Approve to begin Phase [0/A].
 Lead agent will follow §18 Execution protocol.
-(If §19 is filled: approving writes EXECUTION_GRAPH.md and starts graph execution immediately.)
+(If §19 is filled: the graph is the plan you read — every node plan is linked. Approving starts graph execution immediately.)
 ```
 
 After approval, the plan **is** the runbook. Updates go through plan revision,

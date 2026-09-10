@@ -15,8 +15,9 @@ alwaysApply: true
 
 Do **not** load `graph-engineering` during plan drafting unless the user
 named it (`/graph-engineering`, “graph this plan”). When it **was** named:
-fill nawab §19; on nawab-plan approval write `EXECUTION_GRAPH.md` and start
-graph execution immediately (no second wait).
+the graph is the plan you read (nawab §19 + linked `plans/nodes/<id>.md`);
+on nawab-plan approval write `EXECUTION_GRAPH.md` and start graph execution
+immediately (no second wait).
 
 This is compulsory — do not invent a thinner plan format. Scale depth with **project** vs **feature** mode; collapse unused sections as `N/A — [reason]` rather than skipping the skill.
 

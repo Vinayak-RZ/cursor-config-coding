@@ -93,7 +93,7 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 | Spec | Value |
 |------|-------|
 | Pre-installed skills | 40 |
-| Planning | `nawab-plans` — **mandatory in Plan mode** (`planning.mdc`); opt-in `graph-engineering` (graph in §19; approve plan runs it; **not** graphify) |
+| Planning | `nawab-plans` — **mandatory in Plan mode**; opt-in `graph-engineering` (graph is the plan you read; node plans are linked; approve runs it; **not** graphify) |
 | Spec Kit (SDD) | 10 `speckit-*` skills + `speckit.mdc` + `install-spec-kit.ps1` |
 | Ponytail (minimal code) | 6 skills + `ponytail.mdc` always-on rule |
 | Architecture skills | 4 (`frontend-architecture`, `backend-architecture`, `agentic-system-design`, `system-design-tradeoffs`) |
@@ -118,7 +118,7 @@ Skill: `nawab-plans` · Template: `PLAN.template.md` · Subagents: `SUBAGENT_ORC
 
 Enforced by always-on `planning.mdc`: any Plan mode session or implementation plan **must** load this skill. Collapse unused sections as `N/A` — do not invent a thinner format.
 
-**Opt-in:** `graph-engineering` — only when you name it (`/graph-engineering`, “graph this plan”). Fills **§19** in the plan. Approving the nawab plan writes `EXECUTION_GRAPH.md` and **runs the graph immediately**. Not `graphify`.
+**Opt-in:** `graph-engineering` — only when you name it. The **graph is the plan you read**; each node has a linked sub-plan. Approving the nawab plan **runs immediately**. Not `graphify`.
 
 ## Ponytail — minimal code (pre-installed)
 
@@ -195,7 +195,7 @@ Each skill includes a `references/patterns.md` pattern catalog.
 | Skill | When to use |
 |-------|-------------|
 | `nawab-plans` | **Every Plan mode / implementation plan** — mandatory (`planning.mdc`) |
-| `graph-engineering` | **Only when named** (`/graph-engineering`, “graph this plan”). Graph in nawab §19; approve the plan → write `EXECUTION_GRAPH.md` and run. **Not** `graphify`. |
+| `graph-engineering` | **Only when named**. Graph is the plan you read; each node has a linked sub-plan; approve → run. **Not** `graphify`. |
 
 ### Spec-driven (10) — pre-installed
 
@@ -594,7 +594,7 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 |------------|---------|
 | Wire into a code repo | `.\scripts\link-to-project.ps1 -Target "..."` |
 | Draft / Plan mode plan | `nawab-plans` skill (mandatory) + `PLAN.template.md` |
-| Graph a plan (fan-out, not a queue) | Name `graph-engineering` — fills §19; approve nawab plan to run. Not `graphify` |
+| Graph a large project (not a queue) | Name `graph-engineering` — graph is the plan; node plans are linked from it; approve to run. Not `graphify` |
 | Spec-Driven feature | `speckit-*` skills + [SPEC_KIT.md](docs/SPEC_KIT.md) |
 | Minimal production-grade code | `ponytail` skill + `ponytail.mdc` (automatic) |
 | Frontend architecture | "Use frontend-architecture skill" |

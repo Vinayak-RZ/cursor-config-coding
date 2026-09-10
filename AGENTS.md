@@ -36,11 +36,12 @@ Do not invent a thinner plan format. Collapse unused sections as `N/A` — do no
 
 | Asset | Role |
 |-------|------|
-| `graph-engineering` skill | Compile the plan into a graph (real edges, fan-out, contracts) |
-| `GRAPH.template.md` | Shape for nawab **§19** and `EXECUTION_GRAPH.md` |
+| `graph-engineering` skill | Graph of plans: master graph + linked node plan per node |
+| `GRAPH.template.md` | Master graph (what you read) — **must** link every node plan |
+| `NODE.template.md` | Collapsed plan for one node (`plans/nodes/<id>.md`) |
 | `TOPOLOGIES.md` | Diamond, pipeline vs barrier, cycle, verifiers |
 
-When named: fill **§19** in the nawab plan. **Approving the nawab plan** writes `EXECUTION_GRAPH.md` and **runs the graph immediately** (no second wait). Not `graphify`.
+When named: fill **§19** with the graph and write node plans **before** approval so the links work. **Approving the nawab plan** runs the graph immediately (no second wait). Not `graphify`.
 
 ## Spec Kit — Spec-Driven Development (features / greenfield)
 
