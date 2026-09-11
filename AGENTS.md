@@ -6,13 +6,13 @@ Skills in this config describe **jobs** (plan, README, architecture), not a name
 
 ## Always on
 
-Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `nawab-plans` at **lite / standard / project** (lite unless the user asks full nawab or the work is multi-package). graph-engineering only if named — not graphify.
+Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `nawab-plans` at **lite / standard / project** (lite unless the user asks full nawab or the work is multi-package). graph-engineering **or** graph-of-loops only if named (never both) — not graphify.
 
 ## Skills
 
 | Need | Skill |
 |------|--------|
-| Plan | `nawab-plans` |
+| Plan | `nawab-plans` (+ opt-in `graph-engineering` XOR `graph-of-loops`) |
 | Specs-first | `speckit-*` + [docs/SPEC_KIT.md](docs/SPEC_KIT.md) |
 | UI / Next | `frontend-architecture`, `nextjs-app-router-patterns`, `impeccable` |
 | API / data | `backend-architecture` |

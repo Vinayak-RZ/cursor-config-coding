@@ -39,7 +39,7 @@ This repository is a **portable engineering workspace** — link it into any cod
 |--------|-------------|
 | **Type** | Cursor configuration repository (rules + skills + docs) |
 | **Mode** | Engineering — plan, architect, implement, validate |
-| **Pre-installed skills** | **40** (nawab-plans + opt-in graph-engineering + 10 Spec Kit + 6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
+| **Pre-installed skills** | **41** (nawab-plans + opt-in graph-engineering **or** graph-of-loops + 10 Spec Kit + 6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
 | **Project rules** | **21** `.mdc` files (ponytail + Spec Kit + workflow + architecture + security + MCP + commits + learning) |
 | **MCP (default)** | [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) — 421+ agentic patterns |
 | **Stack skills** | **Catalog only** — install per project (Flutter, Django, etc.) |
@@ -92,8 +92,8 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 
 | Spec | Value |
 |------|-------|
-| Pre-installed skills | 40 |
-| Planning | `nawab-plans` — Plan mode **lite** by default; **standard** / **project** when you ask or the work is multi-package. Opt-in `graph-engineering` (not graphify) |
+| Pre-installed skills | 41 |
+| Planning | `nawab-plans` — Plan mode **lite** by default; **standard** / **project** when you ask or the work is multi-package. Opt-in `graph-engineering` **or** `graph-of-loops` (never both; not graphify) |
 | Spec Kit (SDD) | 10 `speckit-*` skills + `speckit.mdc` + `install-spec-kit.ps1` (pinned **v1.0.6**) |
 | Ponytail (minimal code) | 6 skills + `ponytail.mdc` always-on rule |
 | Architecture skills | 4 (`frontend-architecture`, `backend-architecture`, `agentic-system-design`, `system-design-tradeoffs`) |
@@ -118,7 +118,7 @@ Skill: `nawab-plans` · Templates: `PLAN.template.lite.md` (Cursor Plan default)
 
 Load the **chosen profile**. Lite is §0 §1 §9 §16 §18. Do not pad lite to 18 sections. Ask commit budget before §9 if missing.
 
-**Opt-in:** `graph-engineering` — only when you name it. Not `graphify`.
+**Opt-in (XOR, never both):** `graph-engineering` (one-shot nodes) **or** `graph-of-loops` (maker + checker until a stop command). Only when you name that skill. Not `graphify`.
 
 ## Ponytail — minimal code (pre-installed)
 
@@ -190,12 +190,13 @@ Each skill includes a `references/patterns.md` pattern catalog.
 
 ## Skills inventory
 
-### Planning (2) — pre-installed
+### Planning (3) — pre-installed
 
 | Skill | When to use |
 |-------|-------------|
 | `nawab-plans` | **Every Plan mode / implementation plan** — mandatory (`planning.mdc`) |
-| `graph-engineering` | **Only when named**. Questions first; graph is the plan (docs → build → run → trials → README). Linked node plans. Approve → run. **Not** `graphify`. |
+| `graph-engineering` | **Only when named**. Questions first; graph is the plan (docs → build → run → trials → README). Linked **one-shot** node plans. Approve → run. **Not** `graphify`. **Not** with `graph-of-loops`. |
+| `graph-of-loops` | **Only when named**. Same lifecycle, but each node is maker + independent checker until a **stop command** holds (budget or escalate). `LOOP_GRAPH.md` + `plans/loops/`. **Not** Cursor `/loop`. **Not** with `graph-engineering`. |
 
 ### Spec-driven (10) — pre-installed
 
@@ -312,9 +313,10 @@ cursor-config-coding/
 ├── skills-manifest.json
 ├── .cursor/
 │   ├── rules/                    # 21 .mdc files (3 always-on stubs)
-│   ├── skills/                   # 40 pre-installed skills
+│   ├── skills/                   # 41 pre-installed skills
 │   │   ├── nawab-plans/
-│   │   ├── graph-engineering/   # opt-in; not graphify
+│   │   ├── graph-engineering/   # opt-in one-shot graph; not graphify
+│   │   ├── graph-of-loops/      # opt-in XOR; maker+checker until stop
 │   │   ├── frontend-architecture/
 │   │   ├── backend-architecture/
 │   │   ├── agentic-system-design/
@@ -599,7 +601,8 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 |------------|---------|
 | Wire into a code repo | `.\scripts\link-to-project.ps1 -Target "..."` |
 | Draft / Plan mode plan | `nawab-plans` at **lite** (or standard/project if you ask) |
-| Graph a large project (not a queue) | Name `graph-engineering` — graph is the plan; node plans are linked from it; approve to run. Not `graphify` |
+| Graph a large project (one-shot nodes) | Name `graph-engineering` — graph is the plan; node plans are linked from it; approve to run. Not `graphify`. |
+| Graph a large project (loop until gate) | Name `graph-of-loops` instead — never both. Maker + checker until a stop command. Not Cursor `/loop`. |
 | Spec-Driven feature | `speckit-*` skills + [SPEC_KIT.md](docs/SPEC_KIT.md) |
 | Minimal production-grade code | `ponytail` skill + `ponytail.mdc` (automatic) |
 | Frontend architecture | "Use frontend-architecture skill" |
