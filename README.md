@@ -118,7 +118,7 @@ Skill: `nawab-plans` · Templates: `PLAN.template.lite.md` (Cursor Plan default)
 
 Load the **chosen profile**. Lite is §0 §1 §9 §16 §18. Do not pad lite to 18 sections. Ask commit budget before §9 if missing.
 
-**Opt-in (XOR, never both):** `graph-engineering` (one-shot nodes) **or** `graph-of-loops` (maker + checker until a stop command). Only when you name that skill. Not `graphify`.
+**Opt-in (XOR, never both):** `graph-engineering` (one-shot nodes) **or** `graph-of-loops` (long product cycle: questions, product lock, ADRs, maker+checker loops, boot, queued trials, docs-out). Only when you name that skill. Not `graphify`.
 
 ## Ponytail — minimal code (pre-installed)
 
@@ -196,7 +196,7 @@ Each skill includes a `references/patterns.md` pattern catalog.
 |-------|-------------|
 | `nawab-plans` | **Every Plan mode / implementation plan** — mandatory (`planning.mdc`) |
 | `graph-engineering` | **Only when named**. Questions first; graph is the plan (docs → build → run → trials → README). Linked **one-shot** node plans. Approve → run. **Not** `graphify`. **Not** with `graph-of-loops`. |
-| `graph-of-loops` | **Only when named**. Same lifecycle, but each node is maker + independent checker until a **stop command** holds (budget or escalate). `LOOP_GRAPH.md` + `plans/loops/`. **Not** Cursor `/loop`. **Not** with `graph-engineering`. |
+| `graph-of-loops` | **Only when named**. Long product one-shot (1–2h+): questions → product lock → ADRs → build loops (maker + checker until a **stop command**) → boot → queued trials → docs-out. `LOOP_GRAPH.md` + `plans/loops/`. **Not** Cursor `/loop`. **Not** with `graph-engineering`. |
 
 ### Spec-driven (10) — pre-installed
 
@@ -602,7 +602,7 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 | Wire into a code repo | `.\scripts\link-to-project.ps1 -Target "..."` |
 | Draft / Plan mode plan | `nawab-plans` at **lite** (or standard/project if you ask) |
 | Graph a large project (one-shot nodes) | Name `graph-engineering` — graph is the plan; node plans are linked from it; approve to run. Not `graphify`. |
-| Graph a large project (loop until gate) | Name `graph-of-loops` instead — never both. Maker + checker until a stop command. Not Cursor `/loop`. |
+| Graph a large project (loop until gate) | Name `graph-of-loops` instead — never both. Full cycle: questions, product, architecture, build loops, boot, queued trials, docs. Not Cursor `/loop`. |
 | Spec-Driven feature | `speckit-*` skills + [SPEC_KIT.md](docs/SPEC_KIT.md) |
 | Minimal production-grade code | `ponytail` skill + `ponytail.mdc` (automatic) |
 | Frontend architecture | "Use frontend-architecture skill" |

@@ -406,9 +406,11 @@ Exactly one named skill may fill this section:
   plans table with working links; Lifecycle table (run, trials, docs-out
   present or N/A with reason).
 - **graph-of-loops:** ask questions first, then
-  `.cursor/skills/graph-of-loops/LOOP_GRAPH.template.md`. **Required:** Loop
-  plans table with working links; each loop names a **stop command**;
-  Lifecycle table as above.
+  `.cursor/skills/graph-of-loops/LOOP_GRAPH.template.md`. Use nawab
+  **standard or project** (not lite). **Required:** Loop plans table with
+  working links; each loop names a **stop command**; Lifecycle includes
+  product lock, architecture, evaluate, run, trials, docs-out (or N/A with
+  reason).
 - **Both named:** stop and ask which wins. Do not compile either until then.
 
 **If this section is filled:** approving this plan starts that graph

@@ -18,6 +18,7 @@
 | **Max rounds** | 3 |
 | **State** | [plans/loops/N1.state.json](N1.state.json) |
 | **Isolation** | path-ownership; checker writes **nothing** in product trees |
+| **Companion skills** | none / `ponytail` / `impeccable` / `readme` / `*-architecture` |
 
 ---
 

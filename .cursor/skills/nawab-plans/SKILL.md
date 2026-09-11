@@ -100,7 +100,7 @@ Exactly one:
 |-------|-----|
 | nothing | `N/A — graph-engineering / graph-of-loops not requested` |
 | `graph-engineering` | Gate 0, then one-shot graph (`EXECUTION_GRAPH.md`) |
-| `graph-of-loops` | Gate 0, then loop graph (`LOOP_GRAPH.md`) |
+| `graph-of-loops` | Gate 0, then loop graph (`LOOP_GRAPH.md`); nawab **standard/project** (not lite) |
 | both | **illegal** — ask which wins |
 
 The filled graph is the plan you read. Approving runs it.

@@ -85,6 +85,40 @@ If the slug is not in the session list, use `inherit`.
 
 Wait (do not skip) when:
 
+- Gate 0 (before compile) — already done if you are executing
 - A node `escalated`
 - The loop plan marks prod / freeze
 - Stop cannot be run (missing tool) — that is escalate, not a silent pass
+
+Do **not** wait for a per-node "does this look good?" after approval.
+
+---
+
+## Long run (1–2 hours or more)
+
+This skill is meant to **keep going** until the cycle tail is done
+([QUALITY.md](QUALITY.md)). Efficiency is how you last that long without
+slop.
+
+1. **Do not restart.** Resume from `LOOP_GRAPH.md` + `state.json`. Never
+   re-ask Gate 0. Never redo a `passed` node.
+2. **Checkpoint every wave** (graph status + `PROGRESS.md`) so a dead
+   context can continue. Chat: wave id, nodes passed/escalated, next wave.
+3. **Small prompts.** Each Task gets **that** loop plan path + input
+   artifact + findings. Never paste the whole nawab or sibling plans.
+4. **Cheap checkers.** Fast model + fast stop (seconds). Full e2e belongs
+   on E1/R1/T1, not every B* round.
+5. **Fan-out real independence only.** Cap **2–4** concurrent writers.
+   Readonly checkers can fan out more.
+6. **Lead plumbing.** Flatten, dedupe, git, gates — no extra agent.
+7. **Ponytail on writes.** Inner retries fix the stop, not extra features.
+8. **Commit as you go.** Lead commits each passed node's §9 rows so a crash
+   does not sit on a giant uncommitted tree.
+9. **Context dying.** Finish the current checker, write checkpoints, tell
+   the user `resume at wave N / node id`. Do not dump a recap novel.
+10. **Done.** All required cycle stages `passed` (or N/A with reason), T1
+    log filled, D1 README names the boot command. Then stop — do not start
+    a second product.
+
+Token waste: identical maker prompts every round, checkers that rewrite
+code, serializing independent B* nodes, documenting before R1.

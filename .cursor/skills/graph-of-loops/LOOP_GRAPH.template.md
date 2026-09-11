@@ -43,12 +43,13 @@ Loop status: `pending` / `looping` / `passed` / `escalated`.
 
 ## Lifecycle
 
-Every full one-shot lists these stages. `N/A` needs a reason. See
-`.cursor/skills/graph-engineering/LIFECYCLE.md`.
+Every full one-shot lists these stages. `N/A` needs a reason. Catalog:
+`.cursor/skills/graph-of-loops/CYCLE.md`.
 
 | Stage | Node id(s) | Plan / N/A |
 |-------|------------|------------|
-| Research + questions | R0 | lead (Gate 0 done) |
+| Research + questions | R0 | lead (Gate 0 done; skill `QUESTIONS.md`) |
+| Product lock | P0 | [plans/loops/P0.md](plans/loops/P0.md) |
 | Docs-in | D0 | [plans/loops/D0.md](plans/loops/D0.md) |
 | Architecture | A1 | [plans/loops/A1.md](plans/loops/A1.md) |
 | Design / UI UX | U1 | [plans/loops/U1.md](plans/loops/U1.md) or `N/A — …` |
@@ -56,10 +57,12 @@ Every full one-shot lists these stages. `N/A` needs a reason. See
 | Integrate | M1 | [plans/loops/M1.md](plans/loops/M1.md) |
 | Evaluate | E1 | [plans/loops/E1.md](plans/loops/E1.md) |
 | Run | R1 | [plans/loops/R1.md](plans/loops/R1.md) |
-| Trials | T1 | [plans/loops/T1.md](plans/loops/T1.md) |
+| Trials | T1 | [plans/loops/T1.md](plans/loops/T1.md) — queue in plan |
 | Docs-out | D1 | [plans/loops/D1.md](plans/loops/D1.md) |
+| Harden | H1 | [plans/loops/H1.md](plans/loops/H1.md) or `N/A — …` |
 
-Inner checkers do not replace **Run** or **Trials**.
+Software graphs **must** include P0, A1, E1, R1, T1, D1. Inner checkers do
+not replace **Run** or **Trials**.
 
 ---
 
