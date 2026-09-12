@@ -39,7 +39,7 @@ This repository is a **portable engineering workspace** — link it into any cod
 |--------|-------------|
 | **Type** | Cursor configuration repository (rules + skills + docs) |
 | **Mode** | Engineering — plan, architect, implement, validate |
-| **Pre-installed skills** | **40** (nawab-plans + opt-in graph-engineering + 10 Spec Kit + 6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
+| **Pre-installed skills** | **41** (nawab-plans + opt-in graph-engineering **or** graph-of-loops + 10 Spec Kit + 6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
 | **Project rules** | **21** `.mdc` files (ponytail + Spec Kit + workflow + architecture + security + MCP + commits + learning) |
 | **MCP (default)** | [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) — 421+ agentic patterns |
 | **Stack skills** | **Catalog only** — install per project (Flutter, Django, etc.) |
@@ -92,12 +92,12 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 
 | Spec | Value |
 |------|-------|
-| Pre-installed skills | 40 |
-| Planning | `nawab-plans` — Plan mode **lite** by default; **standard** / **project** when you ask or the work is multi-package. Opt-in `graph-engineering` (not graphify) |
+| Pre-installed skills | 42 |
+| Planning | `nawab-plans` — Plan mode **lite** by default; **standard** / **project** when you ask or the work is multi-package. Opt-in `graph-engineering` **or** `graph-of-loops` (never both; not graphify) |
 | Spec Kit (SDD) | 10 `speckit-*` skills + `speckit.mdc` + `install-spec-kit.ps1` (pinned **v1.0.6**) |
 | Ponytail (minimal code) | 6 skills + `ponytail.mdc` always-on rule |
 | Architecture skills | 4 (`frontend-architecture`, `backend-architecture`, `agentic-system-design`, `system-design-tradeoffs`) |
-| Documentation skills | `readme`, `product-readme`, `readable-readme`, `extensive-readme` |
+| Documentation skills | `readme`, `product-readme`, `readable-readme`, `extensive-readme`, `copywriting` |
 | Learning skill | `learn-while-building` |
 | Stack pre-install | `nextjs-app-router-patterns` only |
 | Animation skills | 9 GSAP skills |
@@ -118,7 +118,7 @@ Skill: `nawab-plans` · Templates: `PLAN.template.lite.md` (Cursor Plan default)
 
 Load the **chosen profile**. Lite is §0 §1 §9 §16 §18. Do not pad lite to 18 sections. Ask commit budget before §9 if missing.
 
-**Opt-in:** `graph-engineering` — only when you name it. Not `graphify`.
+**Opt-in (XOR, never both):** `graph-engineering` (one-shot nodes) **or** `graph-of-loops` (long product cycle: questions, product lock, ADRs, maker+checker loops, boot, queued trials, docs-out). Only when you name that skill. Not `graphify`.
 
 ## Ponytail — minimal code (pre-installed)
 
@@ -190,12 +190,13 @@ Each skill includes a `references/patterns.md` pattern catalog.
 
 ## Skills inventory
 
-### Planning (2) — pre-installed
+### Planning (3) — pre-installed
 
 | Skill | When to use |
 |-------|-------------|
 | `nawab-plans` | **Every Plan mode / implementation plan** — mandatory (`planning.mdc`) |
-| `graph-engineering` | **Only when named**. Questions first; graph is the plan (docs → build → run → trials → README). Linked node plans. Approve → run. **Not** `graphify`. |
+| `graph-engineering` | **Only when named**. Questions first; graph is the plan (docs → build → run → trials → README). Linked **one-shot** node plans. Approve → run. **Not** `graphify`. **Not** with `graph-of-loops`. |
+| `graph-of-loops` | **Only when named**. Long product one-shot (1–2h+): questions → product lock → ADRs → build loops (maker + checker until a **stop command**) → boot → queued trials → docs-out. `LOOP_GRAPH.md` + `plans/loops/`. **Not** Cursor `/loop`. **Not** with `graph-engineering`. |
 
 ### Spec-driven (10) — pre-installed
 
@@ -241,14 +242,15 @@ Guide: [docs/SPEC_KIT.md](docs/SPEC_KIT.md) · Install `.specify/`: `.\scripts\i
 
 **Not default:** `nextjs-framer-motion-animations` — install from catalog if needed.
 
-### Documentation & learning (5) — pre-installed
+### Documentation & learning (6) — pre-installed
 
 | Skill | When to use |
 |-------|-------------|
-| `readme` | "Make a README" with no type — product landing vs internal-service overview |
+| `readme` | "Make a README" with no type — product landing vs internal-service overview. Writers load `copywriting` + `anti-slop.md` |
 | `product-readme` | Installable/OSS landing: is/isn’t, interface, invariant, proof, named techniques with limits |
 | `readable-readme` | One-sitting overview for an internal platform service |
 | `extensive-readme` | Internals companion: domain concepts then how it runs then package maps (`docs/EXTENSIVE.md`) |
+| `copywriting` | Public sentences others will see (READMEs, landings, CTAs). Scorecard + anti-slop. Never invents proof. |
 | `learn-while-building` | Research briefs, explain decisions, phase learning summaries |
 
 Guide: [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md)
@@ -312,9 +314,10 @@ cursor-config-coding/
 ├── skills-manifest.json
 ├── .cursor/
 │   ├── rules/                    # 21 .mdc files (3 always-on stubs)
-│   ├── skills/                   # 40 pre-installed skills
+│   ├── skills/                   # 42 pre-installed skills
 │   │   ├── nawab-plans/
-│   │   ├── graph-engineering/   # opt-in; not graphify
+│   │   ├── graph-engineering/   # opt-in one-shot graph; not graphify
+│   │   ├── graph-of-loops/      # opt-in XOR; maker+checker until stop
 │   │   ├── frontend-architecture/
 │   │   ├── backend-architecture/
 │   │   ├── agentic-system-design/
@@ -323,6 +326,7 @@ cursor-config-coding/
 │   │   ├── readable-readme/
 │   │   ├── product-readme/
 │   │   ├── readme/
+│   │   ├── copywriting/
 │   │   ├── learn-while-building/
 │   │   ├── nextjs-app-router-patterns/
 │   │   ├── gsap-*/
@@ -339,6 +343,8 @@ cursor-config-coding/
 │   └── mcp-catalog.json
 └── scripts/
     ├── link-to-project.ps1
+    ├── sync-coding-skills.ps1
+    ├── sync-coding-skills.sh
     ├── install-spec-kit.ps1
     ├── install-catalog-skill.ps1
     └── validate-config.ps1
@@ -382,7 +388,23 @@ cd cursor-config-coding
 
 ---
 
-### Method 4: Install optional catalog skills
+### Method 4: Sync skills into global + existing repos
+
+Copies `copywriting`, `readme` (including `anti-slop.md`), `product-readme`,
+`readable-readme`, and `extensive-readme` into `~/.cursor/skills` and into any
+local git repo under `D:\Startups` / `D:\Tech` that already has those folders.
+Junctioned `.cursor` trees are left alone (they already point here). Other
+clones of this config are skipped; pull `main` there instead.
+
+```powershell
+.\scripts\sync-coding-skills.ps1
+# Git Bash:
+./scripts/sync-coding-skills.sh
+```
+
+---
+
+### Method 5: Install optional catalog skills
 
 Into a **project's** `.cursor/skills/` (not global):
 
@@ -394,7 +416,7 @@ Into a **project's** `.cursor/skills/` (not global):
 
 ---
 
-### Method 5: Two-window workflow
+### Method 6: Two-window workflow
 
 | Window | Repo |
 |--------|------|
@@ -484,6 +506,12 @@ Link it from the top of README.md.
 
 ```text
 Use product-readme for an installable/OSS landing: what it is/isn’t, proof command, named techniques with limits.
+```
+
+### Copywriting (public sentences)
+
+```text
+Use copywriting. Then product-readme. Public copy, not a sales letter. Anti-slop pass required.
 ```
 
 ### Implementation (existing workflow)
@@ -598,8 +626,10 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 | I want to… | Do this |
 |------------|---------|
 | Wire into a code repo | `.\scripts\link-to-project.ps1 -Target "..."` |
+| Sync README/copywriting skills globally + local copies | `.\scripts\sync-coding-skills.ps1` |
 | Draft / Plan mode plan | `nawab-plans` at **lite** (or standard/project if you ask) |
-| Graph a large project (not a queue) | Name `graph-engineering` — graph is the plan; node plans are linked from it; approve to run. Not `graphify` |
+| Graph a large project (one-shot nodes) | Name `graph-engineering` — graph is the plan; node plans are linked from it; approve to run. Not `graphify`. |
+| Graph a large project (loop until gate) | Name `graph-of-loops` instead — never both. Full cycle: questions, product, architecture, build loops, boot, queued trials, docs. Not Cursor `/loop`. |
 | Spec-Driven feature | `speckit-*` skills + [SPEC_KIT.md](docs/SPEC_KIT.md) |
 | Minimal production-grade code | `ponytail` skill + `ponytail.mdc` (automatic) |
 | Frontend architecture | "Use frontend-architecture skill" |
@@ -612,6 +642,7 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 | Readable / general README.md | `readable-readme` skill |
 | Extensive internals companion | `extensive-readme` skill |
 | Product / OSS landing README | `product-readme` skill |
+| Public copy / headlines / CTAs | `copywriting` skill (loads anti-slop) |
 | Auto conventional commits + push | `git-commit-discipline` + `~/.cursor/rules/git-commit-push-global.mdc` |
 | PM / GTM work | Open [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness) |
 | Decks / video | Open [cursor-config-design](https://github.com/Vinayak-RZ/cursor-config-design) |

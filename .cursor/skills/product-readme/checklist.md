@@ -27,3 +27,12 @@
 - [ ] Get started comes after teaching
 - [ ] Catalogs live in `docs/` or `extensive-readme`
 - [ ] License stated if the repo has one
+
+## Anti-slop and copy (required)
+
+Run [../copywriting/scorecard.md](../copywriting/scorecard.md) and
+[../readme/anti-slop.md](../readme/anti-slop.md) **Pass**. Rewrite until clean.
+
+- [ ] One idea; proof command is the action
+- [ ] No "not just X, it's Y" punch; is / is not is one factual nearby-wrong
+- [ ] No AI vocabulary stack, -ing tails, "serves as", em dashes, Title Case headings

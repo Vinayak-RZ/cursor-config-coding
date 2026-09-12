@@ -62,11 +62,16 @@ Do not invent features, numbers, or URLs.
 
 ### Phase 3 — Write
 
-Follow [templates.md](templates.md). No `## 1. Vision` numbering. No slogan claims.
+Read [../copywriting/SKILL.md](../copywriting/SKILL.md) and
+[../readme/anti-slop.md](../readme/anti-slop.md) first. Follow
+[templates.md](templates.md). No `## 1. Vision` numbering. No slogan claims.
+Copywriting writes the sentences. This skill owns section order. The
+first-screen **is / is not** line is a factual nearby-wrong, once. Empty
+upgrade ("it's not X, it's Y") is banned; earned contrast of two facts may stay.
 
 ### Phase 4 — Validate
 
-Run [checklist.md](checklist.md).
+Run [checklist.md](checklist.md), the copywriting [scorecard](../copywriting/scorecard.md), and the anti-slop **Pass**.
 
 ## First screen (required)
 
@@ -125,9 +130,12 @@ omit. Never invent tok/s, “trusted by”, or public-bench scores as fitness.
 - Proof missing; install dumped before the reader knows what they installed
 - Invented URLs, fake benchmarks, empty placeholders
 - File maps in `README.md`
+- LLM default voice: [../readme/anti-slop.md](../readme/anti-slop.md)
 
 ## Additional resources
 
 - [templates.md](templates.md)
 - [examples.md](examples.md)
 - [checklist.md](checklist.md)
+- [../readme/anti-slop.md](../readme/anti-slop.md)
+- [../copywriting/SKILL.md](../copywriting/SKILL.md)

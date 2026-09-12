@@ -1,6 +1,6 @@
 ﻿{
   "version": 7,
-  "description": "Coding Cursor config — 40 skills, 21 rules, 3 always-on stubs, agent-patterns MCP, nawab-plans profiles + opt-in graph-engineering + ponytail + Spec Kit v1.0.6",
+  "description": "Coding Cursor config — 42 skills, 21 rules, 3 always-on stubs, agent-patterns MCP, nawab-plans profiles + opt-in graph-engineering XOR graph-of-loops + ponytail + Spec Kit v1.0.6",
   "mcp": {
     "default_server": "agent-patterns",
     "url": "https://mcp.agentpatternscatalog.org/mcp",
@@ -15,9 +15,9 @@
     "rule": "speckit"
   },
   "preinstalled": {
-    "count": 40,
+    "count": 42,
     "categories": {
-      "planning": ["nawab-plans", "graph-engineering"],
+      "planning": ["nawab-plans", "graph-engineering", "graph-of-loops"],
       "minimal-code": [
         "ponytail",
         "ponytail-review",
@@ -45,7 +45,7 @@
         "system-design-tradeoffs"
       ],
       "nextjs": ["nextjs-app-router-patterns"],
-      "documentation": ["readme", "product-readme", "readable-readme", "extensive-readme"],
+      "documentation": ["readme", "product-readme", "readable-readme", "extensive-readme", "copywriting"],
       "learning": ["learn-while-building"],
       "animation": [
         "gsap-core",
@@ -86,7 +86,7 @@
     ]
   },
   "workflows": {
-    "implementation": "nawab-plans (lite default) → approve → implement; opt-in graph-engineering in §19",
+    "implementation": "nawab-plans (lite default) → approve → implement; opt-in graph-engineering XOR graph-of-loops in §19",
     "spec_driven": "constitution → specify → plan → tasks → implement (ponytail on code)",
     "learning": "docs/LEARNING_AND_RESEARCH.md",
     "commits": "conventional commits after milestones; auto-push at 10 unpushed or when user asks"
