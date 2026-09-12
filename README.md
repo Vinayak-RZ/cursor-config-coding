@@ -343,6 +343,8 @@ cursor-config-coding/
 │   └── mcp-catalog.json
 └── scripts/
     ├── link-to-project.ps1
+    ├── sync-coding-skills.ps1
+    ├── sync-coding-skills.sh
     ├── install-spec-kit.ps1
     ├── install-catalog-skill.ps1
     └── validate-config.ps1
@@ -386,7 +388,23 @@ cd cursor-config-coding
 
 ---
 
-### Method 4: Install optional catalog skills
+### Method 4: Sync skills into global + existing repos
+
+Copies `copywriting`, `readme` (including `anti-slop.md`), `product-readme`,
+`readable-readme`, and `extensive-readme` into `~/.cursor/skills` and into any
+local git repo under `D:\Startups` / `D:\Tech` that already has those folders.
+Junctioned `.cursor` trees are left alone (they already point here). Other
+clones of this config are skipped; pull `main` there instead.
+
+```powershell
+.\scripts\sync-coding-skills.ps1
+# Git Bash:
+./scripts/sync-coding-skills.sh
+```
+
+---
+
+### Method 5: Install optional catalog skills
 
 Into a **project's** `.cursor/skills/` (not global):
 
@@ -398,7 +416,7 @@ Into a **project's** `.cursor/skills/` (not global):
 
 ---
 
-### Method 5: Two-window workflow
+### Method 6: Two-window workflow
 
 | Window | Repo |
 |--------|------|
@@ -608,6 +626,7 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 | I want to… | Do this |
 |------------|---------|
 | Wire into a code repo | `.\scripts\link-to-project.ps1 -Target "..."` |
+| Sync README/copywriting skills globally + local copies | `.\scripts\sync-coding-skills.ps1` |
 | Draft / Plan mode plan | `nawab-plans` at **lite** (or standard/project if you ask) |
 | Graph a large project (one-shot nodes) | Name `graph-engineering` — graph is the plan; node plans are linked from it; approve to run. Not `graphify`. |
 | Graph a large project (loop until gate) | Name `graph-of-loops` instead — never both. Full cycle: questions, product, architecture, build loops, boot, queued trials, docs. Not Cursor `/loop`. |
