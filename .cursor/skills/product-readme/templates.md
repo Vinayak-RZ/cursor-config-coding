@@ -75,6 +75,17 @@ Demos / screenshots with a teaching caption, and/or a fenced real CLI.
 Say what the command proves. If you cannot run it, mark the block illustrative.
 `--help` is not the product check.
 
+### Coined class name (optional, before prompts)
+
+Only if the tree uses a class the public does not already say. One sentence, then instantiate. Not the category line.
+
+```markdown
+## {Term}
+
+A **{term}** is what enables a general {harness} to have expertise in a specific domain.
+{Product} is the {term} for {this field}.
+```
+
 ### Try these prompts
 
 ```markdown

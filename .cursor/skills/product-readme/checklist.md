@@ -16,7 +16,7 @@
 
 Host-run product:
 
-- [ ] Centered mascot (or reused mark), centered name, centered category line
+- [ ] Category line uses words a stranger already has; coined class names are defined once before prompts, not in the heading
 - [ ] Conversion: turn {host} into {job}; stages exist in this tree
 - [ ] Body does not restack the category sentence; GitHub About holds "world's first"
 - [ ] Count line is tree-true

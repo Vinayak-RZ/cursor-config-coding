@@ -95,7 +95,7 @@ patch this skill (still no customer names), then rewrite again.
 
 1. Centered **character mark** (see Logo)
 2. Centered product name (H1). Do not duplicate it inside the mascot.
-3. Centered **category line** (`The first {narrow category}.`)
+3. Centered **category line** (`The first {narrow category}.` in words a stranger already has; coined class names stay out of this line)
 4. Real badges / nav only
 5. Extensive banner if a companion exists
 6. **Conversion paragraph:** turn {host} into {job}; plain-language input; named stages

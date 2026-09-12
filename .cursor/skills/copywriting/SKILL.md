@@ -62,13 +62,15 @@ Pick the lead from the **product kind** (the README skill names the kind; copy f
 | Named product people clone and run with an AI host (studio, harness, lab, domain kernel, agent system) | **Category line** → **host conversion** → **countable proof** |
 | Library / SDK / small CLI | **Promise + proof command** (what it is, then how to prove it) |
 
-**Category line.** Under the product name: `The first {narrow category}.` The blank must be specific enough a rival cannot paste it. "AI platform" is not a category. "World's first" is a positioning bet, not a census. Skip it on a crowded commodity (the 50th HTTP client).
+**Category line.** Under the product name: `The first {narrow category}.` The blank must be words a stranger already has (lab, studio, system) and specific enough a rival cannot paste it. "AI platform" is not a category. Coined class names (kernel, harness-as-product-class) stay out of this line. "World's first" is a positioning bet, not a census. Skip it on a crowded commodity (the 50th HTTP client).
 
 **Host conversion.** First paragraph of the body: `Turn your {tool they already run} into a {complete job}.` Then: `Describe {input} in plain language. {Product} handles {named stages that exist in this tree}.` Do not restack the category sentence here.
 
 **Countable proof.** Same paragraph or the next: only real inventory (packs, pipelines, workflows, tools, files, hosts). If you have two true counts, stop. Do not invent a third to complete a cadence.
 
 **GitHub About.** Repo-settings blurb, not a second heading: `World's first {narrow category}. {counts}. Turn your {host} into a {job}.` The README heading keeps `The first`. The body keeps conversion + counts.
+
+**Coined class name.** If the tree names a class the public does not already say (for example a kernel that sits under a general agentic harness), define it once, in one sentence, before you ask them to act: `{term} is what enables a general {harness} to have expertise in {this domain}.` Then instantiate: this product is that {term} for {the field}. Do not lead the page with the coinage.
 
 Do **not** PAS-agitate ("tired of buggy X?"). Do **not** open with a chatbot insult. Nearby-wrong stays once, after the conversion, as a contract.
 
