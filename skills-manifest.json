@@ -1,6 +1,6 @@
 ﻿{
   "version": 7,
-  "description": "Coding Cursor config — 41 skills, 21 rules, 3 always-on stubs, agent-patterns MCP, nawab-plans profiles + opt-in graph-engineering XOR graph-of-loops + ponytail + Spec Kit v1.0.6",
+  "description": "Coding Cursor config — 42 skills, 21 rules, 3 always-on stubs, agent-patterns MCP, nawab-plans profiles + opt-in graph-engineering XOR graph-of-loops + ponytail + Spec Kit v1.0.6",
   "mcp": {
     "default_server": "agent-patterns",
     "url": "https://mcp.agentpatternscatalog.org/mcp",
@@ -15,7 +15,7 @@
     "rule": "speckit"
   },
   "preinstalled": {
-    "count": 41,
+    "count": 42,
     "categories": {
       "planning": ["nawab-plans", "graph-engineering", "graph-of-loops"],
       "minimal-code": [
@@ -45,7 +45,7 @@
         "system-design-tradeoffs"
       ],
       "nextjs": ["nextjs-app-router-patterns"],
-      "documentation": ["readme", "product-readme", "readable-readme", "extensive-readme"],
+      "documentation": ["readme", "product-readme", "readable-readme", "extensive-readme", "copywriting"],
       "learning": ["learn-while-building"],
       "animation": [
         "gsap-core",

@@ -60,7 +60,8 @@ Follow [templates.md](templates.md). **Concepts and how-it-runs before the packa
 
 ### Phase 3 — Write
 
-Read [../readme/anti-slop.md](../readme/anti-slop.md) first.
+Read [../copywriting/SKILL.md](../copywriting/SKILL.md) and
+[../readme/anti-slop.md](../readme/anti-slop.md) first.
 
 **Coverage (mandatory)**
 
@@ -81,7 +82,7 @@ engineering follow-ups.
 
 ### Phase 4 — Validate
 
-Run [checklist.md](checklist.md) and the anti-slop **Pass**.
+Run [checklist.md](checklist.md), the copywriting [scorecard](../copywriting/scorecard.md), and the anti-slop **Pass**.
 
 ## Anti-patterns
 
@@ -100,3 +101,4 @@ Run [checklist.md](checklist.md) and the anti-slop **Pass**.
 - [checklist.md](checklist.md)
 - [further-reading.md](further-reading.md)
 - [../readme/anti-slop.md](../readme/anti-slop.md)
+- [../copywriting/SKILL.md](../copywriting/SKILL.md)

@@ -1,17 +1,20 @@
-# Anti-AI slop (public README copy)
+# Anti-AI slop (public copy)
 
-Load this **before writing** any README this family authors (`product-readme`,
-`readable-readme`, `extensive-readme`). After the draft, run **Pass** at the
-bottom. Rewrite until the pass is clean. Do not ship copy that fails it.
+Load this **before writing** any public prose this family authors:
+`copywriting`, `product-readme`, `readable-readme`, `extensive-readme`. After
+the draft, run **Pass** at the bottom. Rewrite until the pass is clean.
 
 Patterns come from Wikipedia’s field guide
 [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
-(WikiProject AI Cleanup). That page is for encyclopedia detection. This file
-keeps the tells that show up in **software docs** and drops wikitext / AfC /
-citation markup.
+(WikiProject AI Cleanup). Encyclopedia detection, adapted for software docs
+and marketing pages. Wikitext / AfC / citation markup is out.
 
-One or two of these in isolation can be human. A README that stacks them is
+One or two of these in isolation can be human. A page that stacks them is
 unusable. Ban the stack.
+
+This file stops **LLM cadence**. It does not flatten copy into beige. Specific
+true contrast is how good copy works. Empty upgrade reframes are how models
+write. The test is below.
 
 ## Allowed: factual nearby-wrong
 
@@ -20,24 +23,34 @@ is not, in plain sentences:
 
 > Queuekit is a job queue you can run today. It is not a workflow engine.
 
-That is a contract. One nearby-wrong neighbor. No punch. No "just". No upgrade
-reframe.
+That is a contract. One nearby-wrong neighbor. No "just". No vibe-upgrade.
 
-## Stop: rhetorical contrast
+## Allowed: earned contrast
 
-Do not write the LLM "clearing up a misconception" move. Wikipedia calls this
-**negative parallelism**.
+Two checkable facts in tension may sit next to each other:
+
+> Confirm writes `confirmed.json`. It does not start SPICE.
+> Melatonin knocks you out. This does not.
+
+Keep it when **both** sides point at something you can verify (a command, a
+file, a number, a named rival in this tree). Delete "not just". Delete the
+second clause if it is a mood ("revolution", "backbone", "experience",
+"future").
+
+## Stop: empty upgrade cadence
+
+Do not write the LLM "clearing up a misconception" move when the second half
+is a bigger vibe. Wikipedia calls the family **negative parallelism**.
 
 | Banned | Why |
 |--------|-----|
-| "It's not just X, it's Y" | Upgrade reframe. The user's example. |
-| "This isn't X. It's Y." | Same move, two sentences. |
+| "It's not just X, it's Y" | Upgrade reframe. Ban even when Y is pretty. |
+| "This isn't X. It's Y." | Same move, two sentences, unless both sides are facts (see earned contrast). |
 | "Not only X, but also Y" | Inflates a list into a speech. |
 | "No X, no Y, just Z" | Sales cadence. |
-| "X rather than Y" as a punch line | Grok-flavored contrast. |
 
-Do not use that cadence anywhere else in the doc: pitch, techniques, futures,
-captions, or "Why it exists".
+"X rather than Y" is fine when Y is a real alternative (MATLAB Copilot, a
+general coding agent). It is slop when Y is a slogan.
 
 ## Stop: inflated significance
 
@@ -108,7 +121,7 @@ legacy" / "Future outlook".
 
 ## Stop: chatbot residue
 
-These never belong in a shipped README:
+These never belong in shipped public copy:
 
 - "I hope this helps", "Of course!", "Certainly!", "You're absolutely right"
 - "Would you like…", "let me know", "here is a more detailed breakdown"
@@ -168,8 +181,8 @@ is not proof of AI. "Bland" is not the goal. Specific and true is the goal.
 
 ## Pass (required before shipping)
 
-- [ ] No "not just X, it's Y" / "this isn't X, it's Y" / "not only… but also" punch
-- [ ] Factual is / is not appears at most once, as a contract, not a refrain
+- [ ] No "not just X, it's Y" / empty "this isn't X, it's Y" / "not only… but also" punch
+- [ ] Remaining contrast has two checkable sides, or the is / is not contract appears once
 - [ ] No inflated-significance stems; no -ing analysis tails
 - [ ] AI vocabulary is absent or a single justified technical use
 - [ ] Copulas stay "is/are/has"; no "serves as" / "boasts" / "stands as"

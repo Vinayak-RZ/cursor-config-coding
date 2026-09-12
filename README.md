@@ -92,12 +92,12 @@ Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursor
 
 | Spec | Value |
 |------|-------|
-| Pre-installed skills | 41 |
+| Pre-installed skills | 42 |
 | Planning | `nawab-plans` — Plan mode **lite** by default; **standard** / **project** when you ask or the work is multi-package. Opt-in `graph-engineering` **or** `graph-of-loops` (never both; not graphify) |
 | Spec Kit (SDD) | 10 `speckit-*` skills + `speckit.mdc` + `install-spec-kit.ps1` (pinned **v1.0.6**) |
 | Ponytail (minimal code) | 6 skills + `ponytail.mdc` always-on rule |
 | Architecture skills | 4 (`frontend-architecture`, `backend-architecture`, `agentic-system-design`, `system-design-tradeoffs`) |
-| Documentation skills | `readme`, `product-readme`, `readable-readme`, `extensive-readme` |
+| Documentation skills | `readme`, `product-readme`, `readable-readme`, `extensive-readme`, `copywriting` |
 | Learning skill | `learn-while-building` |
 | Stack pre-install | `nextjs-app-router-patterns` only |
 | Animation skills | 9 GSAP skills |
@@ -242,14 +242,15 @@ Guide: [docs/SPEC_KIT.md](docs/SPEC_KIT.md) · Install `.specify/`: `.\scripts\i
 
 **Not default:** `nextjs-framer-motion-animations` — install from catalog if needed.
 
-### Documentation & learning (5) — pre-installed
+### Documentation & learning (6) — pre-installed
 
 | Skill | When to use |
 |-------|-------------|
-| `readme` | "Make a README" with no type — product landing vs internal-service overview. Writers load `anti-slop.md` |
+| `readme` | "Make a README" with no type — product landing vs internal-service overview. Writers load `copywriting` + `anti-slop.md` |
 | `product-readme` | Installable/OSS landing: is/isn’t, interface, invariant, proof, named techniques with limits |
 | `readable-readme` | One-sitting overview for an internal platform service |
 | `extensive-readme` | Internals companion: domain concepts then how it runs then package maps (`docs/EXTENSIVE.md`) |
+| `copywriting` | Public sentences others will see (READMEs, landings, CTAs). Scorecard + anti-slop. Never invents proof. |
 | `learn-while-building` | Research briefs, explain decisions, phase learning summaries |
 
 Guide: [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md)
@@ -313,7 +314,7 @@ cursor-config-coding/
 ├── skills-manifest.json
 ├── .cursor/
 │   ├── rules/                    # 21 .mdc files (3 always-on stubs)
-│   ├── skills/                   # 41 pre-installed skills
+│   ├── skills/                   # 42 pre-installed skills
 │   │   ├── nawab-plans/
 │   │   ├── graph-engineering/   # opt-in one-shot graph; not graphify
 │   │   ├── graph-of-loops/      # opt-in XOR; maker+checker until stop
@@ -325,6 +326,7 @@ cursor-config-coding/
 │   │   ├── readable-readme/
 │   │   ├── product-readme/
 │   │   ├── readme/
+│   │   ├── copywriting/
 │   │   ├── learn-while-building/
 │   │   ├── nextjs-app-router-patterns/
 │   │   ├── gsap-*/
@@ -488,6 +490,12 @@ Link it from the top of README.md.
 Use product-readme for an installable/OSS landing: what it is/isn’t, proof command, named techniques with limits.
 ```
 
+### Copywriting (public sentences)
+
+```text
+Use copywriting. Then product-readme. Public copy, not a sales letter. Anti-slop pass required.
+```
+
 ### Implementation (existing workflow)
 
 ```text
@@ -615,6 +623,7 @@ After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SET
 | Readable / general README.md | `readable-readme` skill |
 | Extensive internals companion | `extensive-readme` skill |
 | Product / OSS landing README | `product-readme` skill |
+| Public copy / headlines / CTAs | `copywriting` skill (loads anti-slop) |
 | Auto conventional commits + push | `git-commit-discipline` + `~/.cursor/rules/git-commit-push-global.mdc` |
 | PM / GTM work | Open [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness) |
 | Decks / video | Open [cursor-config-design](https://github.com/Vinayak-RZ/cursor-config-design) |

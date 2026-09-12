@@ -28,10 +28,11 @@
 - [ ] Catalogs live in `docs/` or `extensive-readme`
 - [ ] License stated if the repo has one
 
-## Anti-slop (required)
+## Anti-slop and copy (required)
 
-Run [../readme/anti-slop.md](../readme/anti-slop.md) **Pass**. Rewrite until clean.
+Run [../copywriting/scorecard.md](../copywriting/scorecard.md) and
+[../readme/anti-slop.md](../readme/anti-slop.md) **Pass**. Rewrite until clean.
 
-- [ ] No "not just X, it's Y" / "this isn't X, it's Y" punch
-- [ ] is / is not is one factual nearby-wrong in the blockquote, not a refrain
+- [ ] One idea; proof command is the action
+- [ ] No "not just X, it's Y" punch; is / is not is one factual nearby-wrong
 - [ ] No AI vocabulary stack, -ing tails, "serves as", em dashes, Title Case headings

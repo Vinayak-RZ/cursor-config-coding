@@ -77,7 +77,8 @@ Analogy is **optional** — omit when it adds fluff.
 
 ### Phase 3 — Write
 
-Read [../readme/anti-slop.md](../readme/anti-slop.md) first.
+Read [../copywriting/SKILL.md](../copywriting/SKILL.md) and
+[../readme/anti-slop.md](../readme/anti-slop.md) first.
 
 **Length.** One sitting (~10–15 minutes). Tables for catalogs.
 
@@ -89,7 +90,7 @@ Read [../readme/anti-slop.md](../readme/anti-slop.md) first.
 
 ### Phase 4 — Validate
 
-Run [checklist.md](checklist.md) and the anti-slop **Pass**.
+Run [checklist.md](checklist.md), the copywriting [scorecard](../copywriting/scorecard.md), and the anti-slop **Pass**.
 
 ## Anti-patterns
 
@@ -105,3 +106,4 @@ Run [checklist.md](checklist.md) and the anti-slop **Pass**.
 - [templates.md](templates.md)
 - [checklist.md](checklist.md)
 - [../readme/anti-slop.md](../readme/anti-slop.md)
+- [../copywriting/SKILL.md](../copywriting/SKILL.md)
