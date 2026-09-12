@@ -246,7 +246,7 @@ Guide: [docs/SPEC_KIT.md](docs/SPEC_KIT.md) · Install `.specify/`: `.\scripts\i
 
 | Skill | When to use |
 |-------|-------------|
-| `readme` | "Make a README" with no type — product landing vs internal-service overview |
+| `readme` | "Make a README" with no type — product landing vs internal-service overview. Writers load `anti-slop.md` |
 | `product-readme` | Installable/OSS landing: is/isn’t, interface, invariant, proof, named techniques with limits |
 | `readable-readme` | One-sitting overview for an internal platform service |
 | `extensive-readme` | Internals companion: domain concepts then how it runs then package maps (`docs/EXTENSIVE.md`) |

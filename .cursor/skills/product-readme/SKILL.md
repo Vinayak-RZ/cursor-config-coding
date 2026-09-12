@@ -62,11 +62,14 @@ Do not invent features, numbers, or URLs.
 
 ### Phase 3 — Write
 
-Follow [templates.md](templates.md). No `## 1. Vision` numbering. No slogan claims.
+Read [../readme/anti-slop.md](../readme/anti-slop.md) first. Follow
+[templates.md](templates.md). No `## 1. Vision` numbering. No slogan claims.
+No rhetorical "it's not X, it's Y". The first-screen **is / is not** line is
+a factual nearby-wrong, once.
 
 ### Phase 4 — Validate
 
-Run [checklist.md](checklist.md).
+Run [checklist.md](checklist.md) and the anti-slop **Pass**.
 
 ## First screen (required)
 
@@ -125,9 +128,11 @@ omit. Never invent tok/s, “trusted by”, or public-bench scores as fitness.
 - Proof missing; install dumped before the reader knows what they installed
 - Invented URLs, fake benchmarks, empty placeholders
 - File maps in `README.md`
+- LLM default voice: [../readme/anti-slop.md](../readme/anti-slop.md)
 
 ## Additional resources
 
 - [templates.md](templates.md)
 - [examples.md](examples.md)
 - [checklist.md](checklist.md)
+- [../readme/anti-slop.md](../readme/anti-slop.md)

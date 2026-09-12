@@ -27,3 +27,11 @@
 - [ ] Get started comes after teaching
 - [ ] Catalogs live in `docs/` or `extensive-readme`
 - [ ] License stated if the repo has one
+
+## Anti-slop (required)
+
+Run [../readme/anti-slop.md](../readme/anti-slop.md) **Pass**. Rewrite until clean.
+
+- [ ] No "not just X, it's Y" / "this isn't X, it's Y" punch
+- [ ] is / is not is one factual nearby-wrong in the blockquote, not a refrain
+- [ ] No AI vocabulary stack, -ing tails, "serves as", em dashes, Title Case headings

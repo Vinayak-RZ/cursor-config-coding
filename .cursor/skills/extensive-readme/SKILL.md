@@ -60,6 +60,8 @@ Follow [templates.md](templates.md). **Concepts and how-it-runs before the packa
 
 ### Phase 3 — Write
 
+Read [../readme/anti-slop.md](../readme/anti-slop.md) first.
+
 **Coverage (mandatory)**
 
 - **Domain concepts** — the ideas this tree encodes, with limits
@@ -79,7 +81,7 @@ engineering follow-ups.
 
 ### Phase 4 — Validate
 
-Run [checklist.md](checklist.md).
+Run [checklist.md](checklist.md) and the anti-slop **Pass**.
 
 ## Anti-patterns
 
@@ -90,9 +92,11 @@ Run [checklist.md](checklist.md).
 - Invented files, packages, or URLs
 - Dumping `node_modules` or build output
 - Baking a named customer or private path
+- LLM default voice: [../readme/anti-slop.md](../readme/anti-slop.md)
 
 ## Additional resources
 
 - [templates.md](templates.md)
 - [checklist.md](checklist.md)
 - [further-reading.md](further-reading.md)
+- [../readme/anti-slop.md](../readme/anti-slop.md)

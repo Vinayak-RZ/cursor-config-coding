@@ -1,7 +1,9 @@
 # Product README — templates
 
 First-screen contract, then teaching, then install. Delete any block you cannot
-make true. No numbered Vision sections.
+make true. No numbered Vision sections. Prose must pass
+[../readme/anti-slop.md](../readme/anti-slop.md). The is / is not line is a
+factual nearby-wrong, not "it's not X, it's Y".
 
 ## Logo + badges + nav
 

@@ -77,6 +77,8 @@ Analogy is **optional** — omit when it adds fluff.
 
 ### Phase 3 — Write
 
+Read [../readme/anti-slop.md](../readme/anti-slop.md) first.
+
 **Length.** One sitting (~10–15 minutes). Tables for catalogs.
 
 **Jargon.** Ordinary words; one plain sentence on first use.
@@ -87,7 +89,7 @@ Analogy is **optional** — omit when it adds fluff.
 
 ### Phase 4 — Validate
 
-Run [checklist.md](checklist.md).
+Run [checklist.md](checklist.md) and the anti-slop **Pass**.
 
 ## Anti-patterns
 
@@ -96,8 +98,10 @@ Run [checklist.md](checklist.md).
 - More than 5 teaching ideas
 - Required analogy on every idea
 - Invented URLs; slogan futures ("add AI")
+- LLM default voice: [../readme/anti-slop.md](../readme/anti-slop.md)
 
 ## Additional resources
 
 - [templates.md](templates.md)
 - [checklist.md](checklist.md)
+- [../readme/anti-slop.md](../readme/anti-slop.md)

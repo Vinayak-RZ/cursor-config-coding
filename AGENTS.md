@@ -18,7 +18,7 @@ Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `n
 | API / data | `backend-architecture` |
 | Agents | `agentic-system-design` + agent-patterns MCP |
 | Trade-off | `system-design-tradeoffs` |
-| README | `readme` router — product (installable/OSS) vs readable (platform layer) |
+| README | `readme` router — product (installable/OSS) vs readable (platform layer); writers load `anti-slop.md` |
 | Review | `ponytail-review`, `ponytail-audit` |
 
 Inventory: [skills-manifest.json](skills-manifest.json)

@@ -12,6 +12,8 @@ description: >-
 # README router
 
 Three README skills exist. This skill **chooses**; it does not author the prose.
+Every writer skill loads [anti-slop.md](anti-slop.md) before drafting. Public
+copy must not read like LLM default voice.
 
 **Portable:** pick by *kind of repo*, not by a named product. Skills stay reusable
 on any stack.
@@ -67,7 +69,8 @@ Do not default silently. Hybrid (logo then readable TOC) only if the user asks.
 | readable + extensive | `readable-readme` then `extensive-readme` |
 | extensive only | `extensive-readme` (+ banner on existing README.md) |
 
-Order: `README.md` first, then `docs/EXTENSIVE.md`.
+Order: `README.md` first, then `docs/EXTENSIVE.md`. Before either file is
+written, the loaded author skill reads [anti-slop.md](anti-slop.md).
 
 ## Do not
 
@@ -75,3 +78,4 @@ Order: `README.md` first, then `docs/EXTENSIVE.md`.
 - Write all three unsolicited
 - Put the extensive dump into `README.md`
 - Name a customer or private gold README inside the routed skills
+- Ship LLM-default voice (see [anti-slop.md](anti-slop.md))
