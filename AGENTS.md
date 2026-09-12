@@ -19,7 +19,7 @@ Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `n
 | Agents | `agentic-system-design` + agent-patterns MCP |
 | Trade-off | `system-design-tradeoffs` |
 | README | `readme` router — product vs readable; writers load `copywriting` + `anti-slop.md` |
-| Copy | `copywriting` — public sentences (READMEs, landings, CTAs); anti-slop pass required |
+| Copy | `copywriting` — public sentences (READMEs, landings, CTAs); category + conversion for host-run products; anti-slop pass required |
 | Review | `ponytail-review`, `ponytail-audit` |
 
 Inventory: [skills-manifest.json](skills-manifest.json)

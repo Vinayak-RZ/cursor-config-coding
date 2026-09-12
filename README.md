@@ -247,7 +247,7 @@ Guide: [docs/SPEC_KIT.md](docs/SPEC_KIT.md) · Install `.specify/`: `.\scripts\i
 | Skill | When to use |
 |-------|-------------|
 | `readme` | "Make a README" with no type — product landing vs internal-service overview. Writers load `copywriting` + `anti-slop.md` |
-| `product-readme` | Installable/OSS landing: is/isn’t, interface, invariant, proof, named techniques with limits |
+| `product-readme` | Installable/OSS landing: host-run products get category + turn-host-into-job + counts; libraries get is/isn’t, proof, named techniques |
 | `readable-readme` | One-sitting overview for an internal platform service |
 | `extensive-readme` | Internals companion: domain concepts then how it runs then package maps (`docs/EXTENSIVE.md`) |
 | `copywriting` | Public sentences others will see (READMEs, landings, CTAs). Scorecard + anti-slop. Never invents proof. |
@@ -505,13 +505,13 @@ Link it from the top of README.md.
 ### Product README
 
 ```text
-Use product-readme for an installable/OSS landing: what it is/isn’t, proof command, named techniques with limits.
+Use product-readme for an installable/OSS landing. Named host-run products: category claim, turn the coding assistant into the job, tree-true counts. Libraries: what it is/isn’t, proof command, named techniques with limits.
 ```
 
 ### Copywriting (public sentences)
 
 ```text
-Use copywriting. Then product-readme. Public copy, not a sales letter. Anti-slop pass required.
+Use copywriting. Then product-readme. Category landing, not a PAS sales letter. Anti-slop pass required. Never invent counts.
 ```
 
 ### Implementation (existing workflow)
