@@ -12,6 +12,7 @@
 
 <p align="center">
   <a href="#quick-start"><b>Quick start</b></a> ·
+  <a href="#planning-stack"><b>Planning stack</b></a> ·
   <a href="#try-these-prompts"><b>Try these prompts</b></a> ·
   <a href="docs/EXTENSIVE.md"><b>Internals</b></a>
 </p>
@@ -20,11 +21,11 @@
 
 Turn Cursor into a plan-then-ship engineering workflow. **42 skills**, **21 rules**.
 
-Describe the feature in plain language. cursor-config-coding handles the plan, the spec, and the smallest correct diff.
+You keep every product and architecture decision. The agent writes the plan, stops, and waits. You approve. Then it executes. Describe the job in plain language.
 
 > **cursor-config-coding is an engineering lab you can junction today.** It is not a PM or GTM config.
 > Primary interface: a prompt in Cursor after `link-to-project.ps1`.
-> Invariant: **skills name a job. They never bake a customer product.**
+> Invariant: **humans decide; the agent plans, waits, then executes.**
 
 ## Proof
 
@@ -42,9 +43,100 @@ ok  : skills have no named-gold-repo strings
 validate-config: all checks passed.
 ```
 
+## The bet
+
+Most Cursor configs dump rules and hope the model "just builds." This lab splits the control loop the other way:
+
+| Seat | Owns |
+|------|------|
+| You | Goals, non-goals, trade-offs, PRIORITY, approval |
+| Agent | Questions, the written plan, execution after that approval |
+
+`nawab-plans` is the everyday contract. `graph-engineering` and `graph-of-loops` are the opt-in graphs for a large change. Both graphs **stop at Gate 0** (research, then numbered questions) and **stop again** until you approve the graph. Approving starts the run. Guessing architecture, UX, or tenancy is illegal in these skills.
+
+That is the product. Architecture skills, Spec Kit, ponytail, and the README family hang off this loop. They do not replace it.
+
+## Planning stack
+
+```mermaid
+flowchart TD
+  J[You describe the job] --> G0[Agent: research then questions]
+  G0 --> H1[You answer / pick PRIORITY]
+  H1 --> P[Agent: nawab contract]
+  P --> X{Large change named?}
+  X -->|no| A1[You approve the plan]
+  X -->|graph-engineering| GE[EXECUTION_GRAPH.md plus node plans]
+  X -->|graph-of-loops| GL[LOOP_GRAPH.md plus loop plans]
+  GE --> A2[You approve the graph]
+  GL --> A2
+  A1 --> E[Agent executes]
+  A2 --> E
+  E --> K[Gates / stop commands]
+```
+
+Name **one** graph skill or neither. Naming both is a stop-and-ask. Neither graph is `graphify` (that CLI maps a codebase; it does not shape execution). Cursor `/loop` is an interval wake; `graph-of-loops` does not arm timers.
+
+### nawab-plans (default, almost always)
+
+`nawab-plans` is the execution contract: what to build, in what order, with what tests, who does what, when it is done. Plan mode loads it at **lite** unless you ask for more.
+
+| Profile | When | What you get |
+|---------|------|----------------|
+| **lite** | Most Cursor work: UI, docs, ~10 commits | §0 metadata, §1 north star, §9 commit matrix, §16 exit criteria, §18 protocol |
+| **standard** | One-package feature with real deps and tests | lite plus research, constraints, risks, test map, decisions |
+| **project** | Greenfield, multi-repo, or many packages | full §0-§18; unused headings stay as `N/A` plus a reason |
+
+A one-file hotfix skips nawab and uses ponytail only. Do not pad lite to 18 sections. Your commit budget overrides the work-class defaults; one §9 row is one conventional commit.
+
+After you approve, the agent follows §18: ponytail on every edit, implement the next row, run that row's gate, commit. It does not silently enlarge scope.
+
+### When the change is large: two XOR graphs
+
+For an entire product or a major feature, a linear §9 list under-specifies **shape**: what can run in the same wave, which slice owns which files, what artifact actually crosses an edge. That is when you **name** one of these skills. They stay off until you do (`disable-model-invocation: true`).
+
+Both sit on the same idea the last two years of agent research keeps returning to: **do not reason in a chain when the work is a graph.** [Graph of Thoughts](https://arxiv.org/abs/2308.09687) (Besta et al., AAAI 2024) models LLM thoughts as vertices and dependencies as directed edges, including aggregation and feedback loops instead of Chain-of-Thought / Tree-of-Thoughts only. [LangGraph](https://docs.langchain.com/oss/python/langgraph/interrupts) made cyclic graphs plus a human `interrupt` the default control plane for long agents.
+
+This lab is not a GoT runtime and not a LangGraph app. It applies that graph control plane **inside Cursor**: markdown graphs, linked node plans, `Task` fan-out, bounded loops, a human gate **before** compile and **before** the expensive run.
+
+| | `graph-engineering` | `graph-of-loops` |
+|---|---------------------|------------------|
+| You name it | `/graph-engineering`, "graph this plan", "one-shot this feature" | `/graph-of-loops`, "run this as a graph of loops" |
+| Graph you approve | `EXECUTION_GRAPH.md` | `LOOP_GRAPH.md` |
+| Node | One-shot workstream with its own plan file | Loop: maker writes, a **different** checker runs a stop command |
+| Stop | Node return contract | Command or file predicate. "Looks good" refuses compile |
+| Inner retry | No | `max_rounds` default 3, cap 5 unless you raise it |
+| Clock | Parallel one-shots | Expect 1-2 hours or more after approval |
+| Nawab profile | Scope in §0-§18 | **standard or project**, not lite |
+| Done means | Lifecycle covered or marked N/A: docs-in, architecture, build, integrate, eval, **boot**, **multiple trials**, docs-out | Same, plus product lock and ADRs. Ending at "code written" is illegal |
+
+**Shared discipline (both graphs)**
+
+1. **Gate 0 is blocking.** Research 5-10 lines, then numbered questions split into must-answer, trade-off (Option A / B plus PRIORITY), and optional-with-default. Stop. Wait. Do not compile on "we will figure it out in the node."
+2. **The graph is the plan you look at.** Every node has a working markdown link. Fake "and then" edges get cut: if B does not read A's output, they are the same wave.
+3. **Approving runs it.** The footer says so. Writers keep disjoint paths (2-4 concurrent). Ponytail on every product-code write.
+4. **Software has to boot.** A green unit file is not R1. Trials (T1) are more than one happy path.
+
+Pick `graph-engineering` when slices are known one-shots. Pick `graph-of-loops` when a slice should stay up until a separate checker agrees. Limit: 1-3 real steps stay linear nawab. Do not invent a fleet for a hotfix.
+
 ## Try these prompts
 
 Open a linked app in Cursor and paste:
+
+```text
+Plan this in nawab-plans lite. Ask any blocking questions first.
+Wait for my approval before you edit code.
+```
+
+```text
+Use graph-engineering. Gate 0 first: research this repo, then ask
+must-answer and trade-off questions. Do not compile the graph until I answer.
+```
+
+```text
+Use graph-of-loops for this product. Standard or project nawab, not lite.
+Maker plus independent checker on every build node. Stop commands must be
+real. Do not start the long run until I approve LOOP_GRAPH.md.
+```
 
 ```text
 We're adding a dashboard to our Next.js App Router app.
@@ -53,18 +145,8 @@ boundaries, and state. Surface trade-offs before coding.
 ```
 
 ```text
-Design a REST API for user subscriptions with Stripe webhooks.
-Use backend-architecture: service layers, idempotency, error shape.
-```
-
-```text
-We need an internal agent that reads our docs and opens GitHub issues.
-Use agentic-system-design: tool contracts, step limits, eval plan.
-```
-
-```text
-Use product-readme. Then extensive-readme. Category landing for this
-repo, internals in docs/EXTENSIVE.md. Anti-slop pass. Never invent counts.
+Use product-readme. Then extensive-readme. Category landing, internals
+in docs/EXTENSIVE.md. Anti-slop pass. Never invent counts.
 ```
 
 ## Workspace
@@ -83,7 +165,7 @@ cd cursor-config-coding
 .\scripts\link-to-project.ps1 -Target "<absolute-path-to-your-app>"
 ```
 
-Then paste one of the prompts above.
+Then paste a planning prompt above. Plan mode will load `nawab-plans` at lite on its own. Name a graph skill only when the change is large.
 
 Greenfield Spec Kit (writes `.specify/` into the **app**, never into a junctioned `.cursor`):
 
@@ -97,50 +179,42 @@ Optional inventory check from this clone:
 .\scripts\validate-config.ps1
 ```
 
-## How it works
+## How the rest of the lab attaches
 
-```mermaid
-flowchart LR
-  A[Plain-language job] --> B[AGENTS.md]
-  B --> C[ponytail]
-  C --> D{Plan or greenfield?}
-  D -->|Plan mode| E[nawab-plans]
-  D -->|new product| F[speckit]
-  E --> G[you approve]
-  F --> G
-  G --> H[implement]
-  H --> I[validate]
-  I --> J[conventional commit]
-```
-
-- **Ponytail first.** The agent reads the lazy-senior ladder before it edits. Limit: it must not skip trust-boundary validation, data-loss handling, or anything you named. [ponytail](https://github.com/DietrichGebert/ponytail)
-- **Nawab, sized to the work.** Plan mode loads `nawab-plans` at **lite** unless you ask for standard or project. Limit: a one-file hotfix skips nawab. This placement is local to `.cursor/skills/nawab-plans/`.
-- **Spec Kit for greenfield.** constitution → specify → plan → tasks → implement. Limit: not for one-line fixes. Skills are pinned to **v1.0.6**. [Spec Kit](https://github.com/github/spec-kit)
-- **Architecture on the files in front of you.** Frontend, backend, and agentic skills attach by glob; `system-design-tradeoffs` when the choice is real. Limit: only Next.js is a pre-installed stack skill. Flutter, Django, and the rest stay in the catalog.
+- **Ponytail first on every write.** After approval, the agent still climbs YAGNI → reuse this repo → stdlib → native → installed dep → one line → minimum that works. Limit: it must not skip trust-boundary validation, data-loss handling, or anything you named. [ponytail](https://github.com/DietrichGebert/ponytail)
+- **Spec Kit for greenfield specs.** constitution → specify → plan → tasks → implement. Limit: not for one-line fixes. Skills pinned to **v1.0.6**. [Spec Kit](https://github.com/github/spec-kit)
+- **Architecture on the files in front of you.** Frontend, backend, and agentic skills attach by glob; `system-design-tradeoffs` when neither option is free. Limit: only Next.js is a pre-installed stack skill.
 - **Junction, don't copy.** Many apps share one `.cursor` tree. Limit: `mklink /J` is Windows. Do not run `specify init --force` against that junction.
+- **README router.** `readme` picks a type. `product-readme` is this landing (category, conversion, counts). `readable-readme` is a one-sitting overview for an internal service. `extensive-readme` writes `docs/EXTENSIVE.md` (concepts, then how it runs, then every package). Writers load `copywriting` and `anti-slop.md`. The router asks when kind is unknown.
 
 ## Field guide
 
 | Word | Meaning here |
 |------|----------------|
-| Rule | Short invariant in `.cursor/rules`. Always-on is three stubs (51 lines). |
-| Skill | Multi-step job in `.cursor/skills`. Fill blanks from the repo you opened. |
-| Lite vs project | Lite is five plan sections. Project is the full nawab template. Do not pad lite. |
-| XOR graphs | Name `graph-engineering` **or** `graph-of-loops`, never both. Neither is `graphify`. |
-| README family | `product-readme` (this shape), `readable-readme` (internal service), `extensive-readme` (package map). |
+| Decision | You. Product, architecture, PRIORITY, approve / reject |
+| Plan | `nawab-plans` contract; optionally a named graph |
+| Execute | Agent, after approval only |
+| Lite / standard / project | nawab profiles. Project is the full contract, not a fourth "extensive" profile |
+| XOR graphs | Name `graph-engineering` **or** `graph-of-loops`, never both |
+| Gate 0 | Research, then questions, then wait |
+| Stop command | A predicate a checker can run. Not a vibe |
+| graphify | Codebase map. Not §19 |
 
 ## Go deeper
 
 | Doc | What it is |
 |-----|------------|
 | [docs/EXTENSIVE.md](docs/EXTENSIVE.md) | Concepts, runtime path, every package and file |
-| [docs/SPEC_KIT.md](docs/SPEC_KIT.md) | Spec Kit pin, `.specify/` install, skill order |
+| `.cursor/skills/nawab-plans/` | Profiles and templates |
+| `.cursor/skills/graph-engineering/` | Graph of plans, lifecycle, topologies |
+| `.cursor/skills/graph-of-loops/` | Maker/checker loops, cycle, execute |
+| [docs/SPEC_KIT.md](docs/SPEC_KIT.md) | Spec Kit pin, `.specify/` install |
 | [docs/MCP_SETUP.md](docs/MCP_SETUP.md) | Default [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) MCP |
-| [docs/TECH_STACK_SKILLS.md](docs/TECH_STACK_SKILLS.md) | Optional stack skills (not pre-installed) |
 | [docs/INDUSTRY_PRACTICES.md](docs/INDUSTRY_PRACTICES.md) | Rules vs skills vs hooks |
-| [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md) | Teach-while-building |
 | [skills-manifest.json](skills-manifest.json) | Machine-readable inventory |
 | [AGENTS.md](AGENTS.md) | What the agent reads first in this lab |
+| [Graph of Thoughts (arXiv)](https://arxiv.org/abs/2308.09687) | Graph-shaped LLM reasoning this lab cites, not vendors |
+| [LangGraph interrupts](https://docs.langchain.com/oss/python/langgraph/interrupts) | HITL pause/resume in a cyclic agent graph |
 
 PM / GTM work lives in [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness). Decks and video live in [cursor-config-design](https://github.com/Vinayak-RZ/cursor-config-design).
 
