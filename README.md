@@ -1,654 +1,147 @@
-# cursor-config-coding
+<p align="center">
+  <img src="assets/cursor-config-coding-logo.svg" width="176" alt="cursor-config-coding helper">
+</p>
 
-A version-controlled **Cursor AI configuration** for engineering work: phased implementation, architecture patterns, system-design trade-offs, security baselines, and stack-aware skill routing.
+<h1 align="center">
+  <img src="assets/cursor-config-coding-wordmark.svg" width="360" alt="cursor-config-coding">
+</h1>
 
-This repository is a **portable engineering workspace** — link it into any code project so the agent plans before coding, surfaces trade-offs, and applies frontend/backend/agentic architecture guidance automatically.
+<p align="center">
+  <strong>The first portable engineering lab for Cursor.</strong>
+</p>
 
-**GitHub:** [github.com/Vinayak-RZ/cursor-config-coding](https://github.com/Vinayak-RZ/cursor-config-coding)
+<p align="center">
+  <a href="#quick-start"><b>Quick start</b></a> ·
+  <a href="#try-these-prompts"><b>Try these prompts</b></a> ·
+  <a href="docs/EXTENSIVE.md"><b>Internals</b></a>
+</p>
 
-**Companion repo (business):** [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness) — PM, GTM, and research (separate workspace).
+> Full internals (every package, file map, how the repo runs): [Extensive README](docs/EXTENSIVE.md)
 
----
+Turn Cursor into a plan-then-ship engineering workflow. **42 skills**, **21 rules**.
 
-## Table of contents
+Describe the feature in plain language. cursor-config-coding handles the plan, the spec, and the smallest correct diff.
 
-1. [What this is](#what-this-is)
-2. [What this is not](#what-this-is-not)
-3. [Industry practices](#industry-practices)
-4. [Repository specifications](#repository-specifications)
-5. [Architecture system (new)](#architecture-system)
-6. [Skills inventory](#skills-inventory)
-7. [Rules inventory](#rules-inventory)
-8. [Directory structure](#directory-structure)
-9. [How to use — all methods](#how-to-use-this--all-methods)
-10. [Tech stack catalog](#tech-stack-catalog)
-11. [Example prompts](#example-prompts)
-12. [Linking to code projects](#linking-to-code-projects)
-13. [Cloud agents](#cloud-agents)
-14. [Setup on a new machine](#setup-on-a-new-machine)
-15. [Troubleshooting](#troubleshooting)
-16. [Evolving this config](#evolving-this-config)
-17. [MCP integration](#mcp-integration)
-18. [Quick reference](#quick-reference)
+> **cursor-config-coding is an engineering lab you can junction today.** It is not a PM or GTM config.
+> Primary interface: a prompt in Cursor after `link-to-project.ps1`.
+> Invariant: **skills name a job. They never bake a customer product.**
 
----
+## Proof
 
-## What this is
-
-| Aspect | Description |
-|--------|-------------|
-| **Type** | Cursor configuration repository (rules + skills + docs) |
-| **Mode** | Engineering — plan, architect, implement, validate |
-| **Pre-installed skills** | **41** (nawab-plans + opt-in graph-engineering **or** graph-of-loops + 10 Spec Kit + 6 ponytail + 4 architecture + Next.js + docs + learning + GSAP + UI + utilities) |
-| **Project rules** | **21** `.mdc` files (ponytail + Spec Kit + workflow + architecture + security + MCP + commits + learning) |
-| **MCP (default)** | [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) — 421+ agentic patterns |
-| **Stack skills** | **Catalog only** — install per project (Flutter, Django, etc.) |
-| **Orchestration** | `AGENTS.md` at repo root |
-| **Manifest** | `skills-manifest.json` |
-
-When linked into a code project, the agent:
-
-- Requires planning and **user approval** before large implementations
-- **Ponytail-first** — always-on `ponytail.mdc` requires reading the `ponytail` skill before any code change
-- **Nawab plans** — Plan mode loads `nawab-plans` at **lite** unless you ask for standard/project
-- **Spec Kit** — Spec-Driven Development for greenfield / multi-phase features ([docs/SPEC_KIT.md](docs/SPEC_KIT.md); pin **v1.0.6**)
-- **Researches and explains** unfamiliar tech before architectural choices
-- **Teaches while building** — phase learning summaries, optional `LEARNING.md`
-- **Commits proactively** with conventional commits after validated milestones
-- **Auto-pushes** when 10 unpushed commits accumulate, or when you say push
-- Applies **frontend**, **backend**, and **agentic** architecture skills when relevant
-- Forces explicit **trade-off analysis** for non-obvious decisions
-- Routes optional skills by tech stack ([TECH_STACK_SKILLS.md](docs/TECH_STACK_SKILLS.md))
-- Blocks common **AI code anti-patterns**
-
----
-
-## What this is not
-
-- **Not a business/PM config** — use `cursor-config-buisness` for strategy and research
-- **Not a monolithic `.cursorrules` file** — modular `.mdc` rules with scoped activation
-- **Not a bundle of every stack skill** — only Next.js is pre-installed; others are catalogued
-- **Not hooks-enforced by default** — add `.cursor/hooks.json` per project for format/lint guards
-
----
-
-## Industry practices
-
-This config follows the **three-layer model** used in professional Cursor setups (2025–2026):
-
-| Layer | This repo |
-|-------|-----------|
-| **Rules** | Short invariants + scoped conventions (`.cursor/rules/`). **Always-on:** three stubs (`rule-awareness`, `ponytail`, `ai-anti-patterns`). |
-| **Skills** | Deep workflows. **Portable** — they describe a job (plan, README, architecture), never a named customer or private gold repo. |
-| **Hooks** | Optional per project (not included — add when you need deterministic enforcement) |
-
-Detailed rationale: [docs/INDUSTRY_PRACTICES.md](docs/INDUSTRY_PRACTICES.md)
-
-Inspired by: [Cursor Rules docs](https://cursor.com/docs/rules), [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules), [skills.sh](https://skills.sh/), rules↔skills pairing patterns from community configs.
-
----
-
-## Repository specifications
-
-| Spec | Value |
-|------|-------|
-| Pre-installed skills | 42 |
-| Planning | `nawab-plans` — Plan mode **lite** by default; **standard** / **project** when you ask or the work is multi-package. Opt-in `graph-engineering` **or** `graph-of-loops` (never both; not graphify) |
-| Spec Kit (SDD) | 10 `speckit-*` skills + `speckit.mdc` + `install-spec-kit.ps1` (pinned **v1.0.6**) |
-| Ponytail (minimal code) | 6 skills + `ponytail.mdc` always-on rule |
-| Architecture skills | 4 (`frontend-architecture`, `backend-architecture`, `agentic-system-design`, `system-design-tradeoffs`) |
-| Documentation skills | `readme`, `product-readme`, `readable-readme`, `extensive-readme`, `copywriting` |
-| Learning skill | `learn-while-building` |
-| Stack pre-install | `nextjs-app-router-patterns` only |
-| Animation skills | 9 GSAP skills |
-| UI skill | `impeccable` |
-| Exploration | `graphify` |
-| Rules (total) | 21 |
-| Always-on rules | **3** (`rule-awareness`, `ponytail`, `ai-anti-patterns`) |
-| Commit rule | `git-commit-discipline` — conventional commits + push at 10 unpushed |
-| Learning guide | [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md) |
-| Optional catalog skills | Vercel React BP, frontend-design, agent-browser, others — **not** pre-installed (see `skills-manifest.json`) |
-| Skill portability | Skills name a **job**, not a product. Gold READMEs/plans taught the shape; they are not baked in. |
-
----
-
-## Nawab Plans — master execution plans (pre-installed)
-
-Skill: `nawab-plans` · Templates: `PLAN.template.lite.md` (Cursor Plan default) · `PLAN.template.md` (standard/project)
-
-Load the **chosen profile**. Lite is §0 §1 §9 §16 §18. Do not pad lite to 18 sections. Ask commit budget before §9 if missing.
-
-**Opt-in (XOR, never both):** `graph-engineering` (one-shot nodes) **or** `graph-of-loops` (long product cycle: questions, product lock, ADRs, maker+checker loops, boot, queued trials, docs-out). Only when you name that skill. Not `graphify`.
-
-## Ponytail — minimal code (pre-installed)
-
-From [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail). **Mandatory gate** before any coding task. Skills + MDC only — **no Ponytail MCP**.
-
-| Asset | Role |
-|-------|------|
-| `ponytail.mdc` | Always-on rule — requires reading the `ponytail` skill before code |
-| `ponytail` skill | Full ladder, intensity levels (`lite` / `full` / `ultra`) |
-| `ponytail-review` | Diff review for over-engineering |
-| `ponytail-audit` | Whole-repo bloat audit |
-| `ponytail-debt` | Ledger of `ponytail:` shortcut comments |
-| `ponytail-gain` / `ponytail-help` | Scoreboard + command reference |
-
-## Spec Kit — Spec-Driven Development (pre-installed)
-
-From [github/spec-kit](https://github.com/github/spec-kit) (pinned **v1.0.6**). For greenfield / multi-phase features.
-
-| Asset | Role |
-|-------|------|
-| `speckit-*` skills (10) | constitution → specify → plan → tasks → implement (+ clarify/analyze/checklist/converge/taskstoissues) |
-| `speckit.mdc` | When to use Spec Kit (not for one-line fixes) |
-| `scripts/install-spec-kit.ps1` | Scaffold `.specify/` in the **code** project |
-| [docs/SPEC_KIT.md](docs/SPEC_KIT.md) | Full setup + workflow |
-
-## Architecture system
-
-Four pre-installed skills work together with matching rules:
-
-### Frontend architecture
-
-**Skill:** `frontend-architecture`  
-**Rule:** `frontend-architecture.mdc` (globs: `**/*.{tsx,jsx,vue,svelte}`)
-
-Covers: rendering strategy (SSR/CSR/ISR), component layers, state ownership, data-fetch boundaries, styling/motion defaults, anti-patterns.
-
-### Backend architecture
-
-**Skill:** `backend-architecture`  
-**Rule:** `backend-architecture.mdc` (globs: `api/`, `services/`, `server/`, etc.)
-
-Covers: service layers, API design, authZ placement, persistence, caching, async jobs, scalability checklist.
-
-### Agentic system design
-
-**Skill:** `agentic-system-design`  
-**Rule:** `agentic-systems.mdc` (globs: `agent/`, `mcp`, `llm`, `.cursor/`)
-
-Covers: tool schemas, step limits, human-in-the-loop, RAG/memory, evals, cost/latency, prompt-injection awareness.
-
-### System design trade-offs
-
-**Skill:** `system-design-tradeoffs`  
-**Rule:** `trade-offs.mdc` (agent-requested)
-
-Forces explicit Option A / Option B analysis with `PRIORITY = COST | SPEED | QUALITY | SIMPLICITY | CONSISTENCY | AVAILABILITY`.
+This is the inventory check, not `--help`. It counts the 42 skills, the three always-on rules, and the Spec Kit pin.
 
 ```text
-                    system-design-tradeoffs
-                              │
-          ┌───────────────────┼───────────────────┐
-          ▼                   ▼                   ▼
- frontend-architecture  backend-architecture  agentic-system-design
+$ .\scripts\validate-config.ps1
+ok  : skill count 42
+ok  : always-on rules: ai-anti-patterns, ponytail, rule-awareness
+ok  : always-on lines 51 (<= 120)
+ok  : Spec Kit pin v1.0.6 in script/manifest/source
+ok  : nawab PLAN.template.lite.md exists
+ok  : skills have no named-gold-repo strings
+
+validate-config: all checks passed.
 ```
 
-Each skill includes a `references/patterns.md` pattern catalog.
+## Try these prompts
 
----
-
-## Skills inventory
-
-### Planning (3) — pre-installed
-
-| Skill | When to use |
-|-------|-------------|
-| `nawab-plans` | **Every Plan mode / implementation plan** — mandatory (`planning.mdc`) |
-| `graph-engineering` | **Only when named**. Questions first; graph is the plan (docs → build → run → trials → README). Linked **one-shot** node plans. Approve → run. **Not** `graphify`. **Not** with `graph-of-loops`. |
-| `graph-of-loops` | **Only when named**. Long product one-shot (1–2h+): questions → product lock → ADRs → build loops (maker + checker until a **stop command**) → boot → queued trials → docs-out. `LOOP_GRAPH.md` + `plans/loops/`. **Not** Cursor `/loop`. **Not** with `graph-engineering`. |
-
-### Spec-driven (10) — pre-installed
-
-| Skill | When to use |
-|-------|-------------|
-| `speckit-constitution` | Project principles |
-| `speckit-specify` | Requirements / user stories |
-| `speckit-plan` | Tech plan |
-| `speckit-tasks` / `speckit-implement` | Break down and build |
-| `speckit-clarify` / `analyze` / `checklist` / `converge` / `taskstoissues` | Optional quality / tracking |
-
-Guide: [docs/SPEC_KIT.md](docs/SPEC_KIT.md) · Install `.specify/`: `.\scripts\install-spec-kit.ps1 -Target "..."`
-
-### Minimal code (6) — pre-installed, **read first**
-
-| Skill | When to use |
-|-------|-------------|
-| `ponytail` | **Every coding task** — before writing or editing code |
-| `ponytail-review` | Review diff for over-engineering |
-| `ponytail-audit` | Whole-repo bloat audit |
-| `ponytail-debt` | Harvest `ponytail:` deferred shortcuts |
-| `ponytail-gain` | Benchmark scoreboard (informational) |
-| `ponytail-help` | Command reference |
-
-### Architecture (4) — pre-installed
-
-| Skill | When to use |
-|-------|-------------|
-| `frontend-architecture` | UI structure, Next.js/React patterns, state, rendering |
-| `backend-architecture` | APIs, services, databases, scaling |
-| `agentic-system-design` | LLM features, agents, tools, MCP, RAG |
-| `system-design-tradeoffs` | Any non-obvious architectural decision |
-
-### Next.js (1) — pre-installed
-
-| Skill | Installs (skills.sh) |
-|-------|----------------------|
-| `nextjs-app-router-patterns` | 20.7K |
-
-### Animation (9) — pre-installed
-
-`gsap-core`, `gsap-react`, `gsap-scrolltrigger`, `gsap-timeline`, `gsap-plugins`, `gsap-performance`, `gsap-frameworks`, `gsap-utils`, `gsap-framer-scroll-animation`
-
-**Not default:** `nextjs-framer-motion-animations` — install from catalog if needed.
-
-### Documentation & learning (6) — pre-installed
-
-| Skill | When to use |
-|-------|-------------|
-| `readme` | "Make a README" with no type — product landing vs internal-service overview. Writers load `copywriting` + `anti-slop.md` |
-| `product-readme` | Installable/OSS landing: host-run products get category + turn-host-into-job + counts; libraries get is/isn’t, proof, named techniques |
-| `readable-readme` | One-sitting overview for an internal platform service |
-| `extensive-readme` | Internals companion: domain concepts then how it runs then package maps (`docs/EXTENSIVE.md`) |
-| `copywriting` | Public sentences others will see (READMEs, landings, CTAs). Scorecard + anti-slop. Never invents proof. |
-| `learn-while-building` | Research briefs, explain decisions, phase learning summaries |
-
-Guide: [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md)
-
-### UI & utilities (3) — pre-installed
-
-`impeccable`, `graphify`, `find-skills`
-
-Full manifest: [skills-manifest.json](skills-manifest.json)
-
----
-
-## Rules inventory
-
-Always-on is **three stubs**. Everything else is glob- or description-gated.
-
-### Always-on
-
-| Rule | Purpose |
-|------|---------|
-| `rule-awareness` | Load AGENTS.md; route to skills |
-| `ponytail` | Read ponytail skill before any code edit |
-| `ai-anti-patterns` | Block common AI code smells |
-
-### Workflow (on request / Plan mode)
-
-| Rule | When | Purpose |
-|------|------|---------|
-| `planning` | Plan mode | Load `nawab-plans` at the chosen profile (lite default) |
-| `speckit` | Greenfield | Spec-Driven Development |
-| `communication` | Substantial tasks | Risks, tradeoffs, structured updates |
-| `documentation` | App-repo docs | IMPLEMENTATION_PLAN / DECISIONS / PROGRESS |
-| `learn-and-research` | Unfamiliar tech | Research brief, explain, learn |
-| `execution` | Implementing | Phase-based work |
-| `quality-gates` | Completing | Validate before done |
-| `git-commit-discipline` | After milestones | Conventional commits |
-
-### Engineering (scoped)
-
-| Rule | When | Purpose |
-|------|------|---------|
-| `core-engineering` | Coding | Minimal diff, read-before-write |
-| `architecture-boundaries` | Globs | Layer separation |
-| `trade-offs` | Architectural choice | Explicit decision framework |
-| `frontend-architecture` | UI globs | UI files |
-| `backend-architecture` | API globs | Server/API files |
-| `agentic-systems` | Agent globs | Agent/LLM code |
-| `security-baseline` | Auth/API globs | Security baseline |
-| `testing-discipline` | Test globs | Tests |
-| `tech-stack-skills` | Stack files | Points to catalog |
-| `mcp-architecture` | Agent design | Agent Patterns Catalog MCP |
-
----
-
-## Directory structure
-
-```text
-cursor-config-coding/
-├── README.md
-├── AGENTS.md
-├── skills-manifest.json
-├── .cursor/
-│   ├── rules/                    # 21 .mdc files (3 always-on stubs)
-│   ├── skills/                   # 42 pre-installed skills
-│   │   ├── nawab-plans/
-│   │   ├── graph-engineering/   # opt-in one-shot graph; not graphify
-│   │   ├── graph-of-loops/      # opt-in XOR; maker+checker until stop
-│   │   ├── frontend-architecture/
-│   │   ├── backend-architecture/
-│   │   ├── agentic-system-design/
-│   │   ├── system-design-tradeoffs/
-│   │   ├── extensive-readme/
-│   │   ├── readable-readme/
-│   │   ├── product-readme/
-│   │   ├── readme/
-│   │   ├── copywriting/
-│   │   ├── learn-while-building/
-│   │   ├── nextjs-app-router-patterns/
-│   │   ├── gsap-*/
-│   │   ├── impeccable/
-│   │   └── graphify/
-│   ├── skills-catalog/           # Optional stack skills (not loaded)
-│   ├── mcp.json                  # Default MCP: agent-patterns
-│   └── mcp.json.example          # Optional MCP servers
-├── docs/
-│   ├── TECH_STACK_SKILLS.md
-│   ├── LEARNING_AND_RESEARCH.md
-│   ├── INDUSTRY_PRACTICES.md
-│   ├── MCP_SETUP.md
-│   └── mcp-catalog.json
-└── scripts/
-    ├── link-to-project.ps1
-    ├── sync-coding-skills.ps1
-    ├── sync-coding-skills.sh
-    ├── install-spec-kit.ps1
-    ├── install-catalog-skill.ps1
-    └── validate-config.ps1
-```
-
----
-
-## How to use this — all methods
-
-### Method 1: Link into a code project (recommended)
-
-One-time junction per project:
-
-```powershell
-cd D:\Startups\cursor-config-coding
-.\scripts\link-to-project.ps1 -Target "D:\Startups\YourApp"
-```
-
-Creates: `YourApp\.cursor` → this repo's `.cursor`. Seeds `AGENTS.md` from `templates/AGENTS.overlay.md` **only if missing**.
-
----
-
-### Method 2: Open this repo directly
-
-For config maintenance or testing rules/skills:
-
-```powershell
-git clone https://github.com/Vinayak-RZ/cursor-config-coding.git
-cursor .
-```
-
----
-
-### Method 3: Clone on a new machine
-
-```powershell
-git clone https://github.com/Vinayak-RZ/cursor-config-coding.git
-cd cursor-config-coding
-.\scripts\link-to-project.ps1 -Target "C:\path\to\your\app"
-```
-
----
-
-### Method 4: Sync skills into global + existing repos
-
-Copies `copywriting`, `readme` (including `anti-slop.md`), `product-readme`,
-`readable-readme`, and `extensive-readme` into `~/.cursor/skills` and into any
-local git repo under `D:\Startups` / `D:\Tech` that already has those folders.
-Junctioned `.cursor` trees are left alone (they already point here). Other
-clones of this config are skipped; pull `main` there instead.
-
-```powershell
-.\scripts\sync-coding-skills.ps1
-# Git Bash:
-./scripts/sync-coding-skills.sh
-```
-
----
-
-### Method 5: Install optional catalog skills
-
-Into a **project's** `.cursor/skills/` (not global):
-
-```powershell
-.\scripts\install-catalog-skill.ps1 `
-  -Package "vercel-labs/agent-skills@vercel-react-best-practices" `
-  -ProjectRoot "D:\Startups\YourApp"
-```
-
----
-
-### Method 6: Two-window workflow
-
-| Window | Repo |
-|--------|------|
-| Engineering | Code project with linked `.cursor` |
-| Business | [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness) |
-
----
-
-## Tech stack catalog
-
-Pre-installed stack skill: **Next.js only** (`nextjs-app-router-patterns`).
-
-Other stacks — documented, not pre-installed:
-
-| Stack | Primary catalog skill | Doc |
-|-------|----------------------|-----|
-| Next.js | + optional Vercel/Clerk skills | [TECH_STACK_SKILLS.md](docs/TECH_STACK_SKILLS.md) |
-| React | `vercel-react-best-practices` | same |
-| Flutter | `flutter-apply-architecture-best-practices` | same |
-| Kotlin | `kotlin-springboot` | same |
-| Django | `django-patterns` | same |
-| Express | `mcollina/skills@node` | same |
-
-Machine-readable: [.cursor/skills-catalog/stacks.json](.cursor/skills-catalog/stacks.json)
-
----
-
-## Example prompts
-
-### Frontend architecture
+Open a linked app in Cursor and paste:
 
 ```text
 We're adding a dashboard to our Next.js App Router app.
-Propose a frontend architecture: folder structure, RSC vs client boundaries, and state approach.
-Surface trade-offs before coding.
+Propose a frontend architecture: folder structure, RSC vs client
+boundaries, and state. Surface trade-offs before coding.
 ```
-
-### Backend architecture
 
 ```text
 Design a REST API for user subscriptions with Stripe webhooks.
-Use backend-architecture skill — service layers, idempotency, error shape.
+Use backend-architecture: service layers, idempotency, error shape.
 ```
-
-### Agentic feature
 
 ```text
 We need an internal agent that reads our docs and opens GitHub issues.
-Use agentic-system-design — tool contracts, step limits, eval plan.
+Use agentic-system-design: tool contracts, step limits, eval plan.
 ```
-
-### Trade-offs only
 
 ```text
-Should we add Redis for session cache or stick with DB sessions?
-Use system-design-tradeoffs — compare options explicitly.
+Use product-readme. Then extensive-readme. Category landing for this
+repo, internals in docs/EXTENSIVE.md. Anti-slop pass. Never invent counts.
 ```
 
-### Learn while building
+## Workspace
 
-```text
-Help me learn as we build the auth module. Research session storage options,
-present a plan for approval, then implement phase 1. End with what I should
-understand and commit with a conventional message.
-```
+`link-to-project.ps1` points the app's `.cursor` at this clone (Windows junction). If the app has no `AGENTS.md`, it copies `templates/AGENTS.overlay.md`. You work in the app. This lab stays one repo.
 
-### README (ask first)
+Cloud agents see the skills only after `.cursor/skills/` is in that app's git history (junction locally, or copy and commit).
 
-```text
-Use the readme skill. Ask me which type.
-```
+## Quick start
 
-### Readable README
-
-```text
-Use readable-readme for a human README.md I can actually finish.
-```
-
-### Extensive internals
-
-```text
-Use extensive-readme for docs/EXTENSIVE.md — every package and why each file exists.
-Link it from the top of README.md.
-```
-
-### Product README
-
-```text
-Use product-readme for an installable/OSS landing. Named host-run products: category claim, turn the coding assistant into the job, tree-true counts. Libraries: what it is/isn’t, proof command, named techniques with limits.
-```
-
-### Copywriting (public sentences)
-
-```text
-Use copywriting. Then product-readme. Category landing, not a PAS sales letter. Anti-slop pass required. Never invent counts.
-```
-
-### Implementation (existing workflow)
-
-```text
-Implement Phase 2 of the approved plan: hero section animation with GSAP scroll trigger.
-Follow execution, quality-gates, and git-commit-discipline rules.
-Commit as feat(ui): add hero scroll animation when phase validates.
-```
-
-### Agent patterns via MCP
-
-```text
-Use agent-patterns MCP: recommend a recipe for a long-horizon coding agent.
-Compare ReAct vs plan-and-execute via catalog edges. Cite pattern ids in the plan.
-```
-
----
-
-
-## Linking to code projects
-
-```powershell
-.\scripts\link-to-project.ps1 -Target "<absolute-path-to-code-repo>"
-```
-
-**Requirements:** Windows junction support (Developer Mode or Administrator).
-
-**Backup:** Existing `.cursor` is renamed to `.cursor.backup.<timestamp>`.
-
-Do not run `specify init --force` against a junctioned `.cursor` — use `install-spec-kit.ps1`.
-
----
-
-## Cloud agents
-
-Cloud agents load skills from the **cloned repository's** `.cursor/skills/`.
-
-1. Link this config into your app repo (or copy `.cursor/` into the app repo and commit)
-2. Push to GitHub
-3. Run cloud agent on that branch
-
-Architecture skills committed here will be available once `.cursor` is part of the app repo history.
-
----
-
-## Setup on a new machine
+You need two things: **Git** and **Cursor**. Junctions on Windows need Developer Mode or Administrator.
 
 ```powershell
 git clone https://github.com/Vinayak-RZ/cursor-config-coding.git
 cd cursor-config-coding
-.\scripts\link-to-project.ps1 -Target "C:\path\to\your\app"
+.\scripts\link-to-project.ps1 -Target "<absolute-path-to-your-app>"
 ```
 
-**Requirements:** Cursor, Git, PowerShell. Node.js only for `install-catalog-skill.ps1`.
+Then paste one of the prompts above.
 
----
+Greenfield Spec Kit (writes `.specify/` into the **app**, never into a junctioned `.cursor`):
 
-## Troubleshooting
-
-| Issue | Fix |
-|-------|-----|
-| Rules not loading | Reload Cursor window; verify junction: `dir .cursor` in project |
-| Wrong skill invoked | Name skill explicitly: "use frontend-architecture" |
-| `mklink` fails | Enable Developer Mode or run PowerShell as Admin |
-| Stack skill missing | Run `install-catalog-skill.ps1` — not pre-installed by design |
-| Trade-offs skipped | Say "use system-design-tradeoffs before deciding" |
-| Cloud missing skills | Commit `.cursor/skills/` in the app repo, not just locally |
-
----
-
-## Evolving this config
-
-1. **Agent repeats a mistake** → add/tighten a rule (keep <200 lines per file)
-2. **Reusable multi-step workflow** → add a skill
-3. **New stack you use often** → add row to `stacks.json` + TECH_STACK_SKILLS.md
-4. **Optional skill proves valuable** → install in a project, then vendor into repo if **universal** (a job any repo can use). Never bake a named customer or private gold README into a skill.
-
-```text
-one agent mistake = one rule PR
+```powershell
+.\scripts\install-spec-kit.ps1 -Target "<absolute-path-to-your-app>"
 ```
 
----
+Optional inventory check from this clone:
 
-## MCP integration
-
-This config ships with **[Agent Patterns Catalog](https://www.agentpatternscatalog.org/)** MCP — live tools over 421 patterns, 161 compositions, anti-patterns, and glossary terms.
-
-| File | Purpose |
-|------|---------|
-| [`.cursor/mcp.json`](.cursor/mcp.json) | Default MCP config (agent-patterns) |
-| [`.cursor/mcp.json.example`](.cursor/mcp.json.example) | Optional servers (Context7, GitHub) |
-| [docs/MCP_SETUP.md](docs/MCP_SETUP.md) | Setup, verify, prompts, security |
-| [docs/mcp-catalog.json](docs/mcp-catalog.json) | Machine-readable MCP catalog |
-| [`.cursor/rules/mcp-architecture.mdc`](.cursor/rules/mcp-architecture.mdc) | When agent should call MCP |
-
-**Endpoint:** `https://mcp.agentpatternscatalog.org/mcp` (no API key required)
-
-**Key tools:** `find_pattern`, `recommend_recipe`, `pattern_for_symptom`, `glossary_term`
-
-```text
-Design agent feature → MCP recommend_recipe → agentic-system-design skill → implement
-Debug agent loop     → MCP pattern_for_symptom → fix with catalog anti-patterns
+```powershell
+.\scripts\validate-config.ps1
 ```
 
-After editing `mcp.json`, reload Cursor. Full guide: [MCP_SETUP.md](docs/MCP_SETUP.md).
+## How it works
 
----
+```mermaid
+flowchart LR
+  A[Plain-language job] --> B[AGENTS.md]
+  B --> C[ponytail]
+  C --> D{Plan or greenfield?}
+  D -->|Plan mode| E[nawab-plans]
+  D -->|new product| F[speckit]
+  E --> G[you approve]
+  F --> G
+  G --> H[implement]
+  H --> I[validate]
+  I --> J[conventional commit]
+```
 
-## Quick reference
+- **Ponytail first.** The agent reads the lazy-senior ladder before it edits. Limit: it must not skip trust-boundary validation, data-loss handling, or anything you named. [ponytail](https://github.com/DietrichGebert/ponytail)
+- **Nawab, sized to the work.** Plan mode loads `nawab-plans` at **lite** unless you ask for standard or project. Limit: a one-file hotfix skips nawab. This placement is local to `.cursor/skills/nawab-plans/`.
+- **Spec Kit for greenfield.** constitution → specify → plan → tasks → implement. Limit: not for one-line fixes. Skills are pinned to **v1.0.6**. [Spec Kit](https://github.com/github/spec-kit)
+- **Architecture on the files in front of you.** Frontend, backend, and agentic skills attach by glob; `system-design-tradeoffs` when the choice is real. Limit: only Next.js is a pre-installed stack skill. Flutter, Django, and the rest stay in the catalog.
+- **Junction, don't copy.** Many apps share one `.cursor` tree. Limit: `mklink /J` is Windows. Do not run `specify init --force` against that junction.
 
-| I want to… | Do this |
-|------------|---------|
-| Wire into a code repo | `.\scripts\link-to-project.ps1 -Target "..."` |
-| Sync README/copywriting skills globally + local copies | `.\scripts\sync-coding-skills.ps1` |
-| Draft / Plan mode plan | `nawab-plans` at **lite** (or standard/project if you ask) |
-| Graph a large project (one-shot nodes) | Name `graph-engineering` — graph is the plan; node plans are linked from it; approve to run. Not `graphify`. |
-| Graph a large project (loop until gate) | Name `graph-of-loops` instead — never both. Full cycle: questions, product, architecture, build loops, boot, queued trials, docs. Not Cursor `/loop`. |
-| Spec-Driven feature | `speckit-*` skills + [SPEC_KIT.md](docs/SPEC_KIT.md) |
-| Minimal production-grade code | `ponytail` skill + `ponytail.mdc` (automatic) |
-| Frontend architecture | "Use frontend-architecture skill" |
-| Backend / API design | "Use backend-architecture skill" |
-| Build an AI agent | "Use agentic-system-design skill" |
-| Compare options | "Use system-design-tradeoffs" |
-| React perf patterns | `install-catalog-skill.ps1` + vercel-react-best-practices |
-| Learn while building | `learn-while-building` skill + [LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md) |
-| Make a README (choose type) | `readme` skill |
-| Readable / general README.md | `readable-readme` skill |
-| Extensive internals companion | `extensive-readme` skill |
-| Product / OSS landing README | `product-readme` skill |
-| Public copy / headlines / CTAs | `copywriting` skill (loads anti-slop) |
-| Auto conventional commits + push | `git-commit-discipline` + `~/.cursor/rules/git-commit-push-global.mdc` |
-| PM / GTM work | Open [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness) |
-| Decks / video | Open [cursor-config-design](https://github.com/Vinayak-RZ/cursor-config-design) |
-| Map a codebase | `graphify` on target folder |
-| Polish UI | `impeccable` |
-| Scroll animation | `gsap-framer-scroll-animation` |
-| Agent architecture patterns | Agent-patterns MCP + `agentic-system-design` |
-| Debug agent loops | MCP `pattern_for_symptom` |
-| MCP not connecting | Reload window; check Output → MCP Logs |
+## Field guide
+
+| Word | Meaning here |
+|------|----------------|
+| Rule | Short invariant in `.cursor/rules`. Always-on is three stubs (51 lines). |
+| Skill | Multi-step job in `.cursor/skills`. Fill blanks from the repo you opened. |
+| Lite vs project | Lite is five plan sections. Project is the full nawab template. Do not pad lite. |
+| XOR graphs | Name `graph-engineering` **or** `graph-of-loops`, never both. Neither is `graphify`. |
+| README family | `product-readme` (this shape), `readable-readme` (internal service), `extensive-readme` (package map). |
+
+## Go deeper
+
+| Doc | What it is |
+|-----|------------|
+| [docs/EXTENSIVE.md](docs/EXTENSIVE.md) | Concepts, runtime path, every package and file |
+| [docs/SPEC_KIT.md](docs/SPEC_KIT.md) | Spec Kit pin, `.specify/` install, skill order |
+| [docs/MCP_SETUP.md](docs/MCP_SETUP.md) | Default [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) MCP |
+| [docs/TECH_STACK_SKILLS.md](docs/TECH_STACK_SKILLS.md) | Optional stack skills (not pre-installed) |
+| [docs/INDUSTRY_PRACTICES.md](docs/INDUSTRY_PRACTICES.md) | Rules vs skills vs hooks |
+| [docs/LEARNING_AND_RESEARCH.md](docs/LEARNING_AND_RESEARCH.md) | Teach-while-building |
+| [skills-manifest.json](skills-manifest.json) | Machine-readable inventory |
+| [AGENTS.md](AGENTS.md) | What the agent reads first in this lab |
+
+PM / GTM work lives in [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness). Decks and video live in [cursor-config-design](https://github.com/Vinayak-RZ/cursor-config-design).
+
+Sync the README/copywriting skills into `~/.cursor/skills` with `.\scripts\sync-coding-skills.ps1`. Install a catalog skill into an app with `.\scripts\install-catalog-skill.ps1`.
