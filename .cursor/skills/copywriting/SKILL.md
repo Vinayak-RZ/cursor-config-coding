@@ -16,8 +16,8 @@ This skill supplies **sentences**. README skills still own **structure**.
 
 Compiled from: your business-config `direct-response-copy-engine` (Schwartz,
 Masterson, Dry); Corey Haines conversion copy (clarity, one CTA, customer
-language); Wikipedia [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) via [../readme/anti-slop.md](../readme/anti-slop.md).
-Fifty frameworks stay out. A GitHub README is not a sales letter.
+language); Wikipedia [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
+via [../readme/anti-slop.md](../readme/anti-slop.md). Fifty frameworks stay out.
 
 **Load before drafting:** [../readme/anti-slop.md](../readme/anti-slop.md) and
 [scorecard.md](scorecard.md).
@@ -38,36 +38,50 @@ Fifty frameworks stay out. A GitHub README is not a sales letter.
 | Internal architecture prose with no reader | Skip. Write the fact. |
 
 If positioning is mushy, say so in one line and write the smallest true claim.
-Do not invent a category.
+Do not invent a category. Do not invent counts to sound like a studio landing.
 
 ## Hard lines
 
 - **One idea, one reader, one promise, one action.** Extra benefits get cut or demoted.
-- **Channel desire.** Start at the want they already have, not the product.
+- **Channel desire.** Start at the want they already have, not the product internals.
 - **Never invent proof.** Numbers, customers, benches, "trusted by" come from the tree or the user. Missing proof → smaller true claim.
 - **Concrete, falsifiable, nobody else.** Harry Dry's three tests on every important line. See [scorecard.md](scorecard.md).
 - **Two seconds.** If it needs a decoder, rewrite.
-- **Anti-slop pass.** LLM cadence is a ship blocker. Earned contrast (two checkable facts) is allowed. Empty upgrade ("it's not a tool, it's a revolution") is not.
+- **Anti-slop pass.** LLM cadence is a ship blocker. Earned contrast (two checkable facts) is allowed. Empty upgrade ("it's not a tool, it's a revolution") is not. A narrow **category claim** with tree-true counts is allowed (see below).
 
 ## Surfaces
 
 ### README (default when a README skill is also loaded)
 
-GitHub reader is **solution-aware / product-aware**. Lead with what it is and
-how to prove it. Do **not** PAS-agitate ("tired of buggy circuits?") into a
-sales letter.
+GitHub is a **category landing**, not a PAS sales letter, and not a teaching essay that hides the offer.
 
-- Structure: the loaded README skill (first screen, techniques + limits, install).
-- Copy job: make the pitch, invariant, and technique lines pass the scorecard.
-- Action: the proof command or install. Not "Get Started" with nothing behind it.
-- Nearby-wrong: one factual neighbor, once. Insider codenames only if the README
-  already names them; otherwise name the category ("not a general coding agent
-  that also does circuits").
+Pick the lead from the **product kind** (the README skill names the kind; copy fills the blanks from this tree only):
+
+| Kind | Lead (in this order) |
+|------|----------------------|
+| Named product people clone and run with an AI host (studio, harness, lab, domain kernel, agent system) | **Category line** → **host conversion** → **countable proof** |
+| Library / SDK / small CLI | **Promise + proof command** (what it is, then how to prove it) |
+
+**Category line.** Under the product name: `The first {narrow category}.` The blank must be words a stranger already has (lab, studio, system) and specific enough a rival cannot paste it. "AI platform" is not a category. Coined class names (kernel, harness-as-product-class) stay out of this line. "World's first" is a positioning bet, not a census. Skip it on a crowded commodity (the 50th HTTP client).
+
+**Host conversion.** First paragraph of the body: `Turn your {tool they already run} into a {complete job}.` Then: `Describe {input} in plain language. {Product} handles {named stages that exist in this tree}.` Do not restack the category sentence here.
+
+**Countable proof.** Same paragraph or the next: only real inventory (packs, pipelines, workflows, tools, files, hosts). If you have two true counts, stop. Do not invent a third to complete a cadence.
+
+**GitHub About.** Repo-settings blurb, not a second heading: `World's first {narrow category}. {counts}. Turn your {host} into a {job}.` The README heading keeps `The first`. The body keeps conversion + counts.
+
+**Coined class name.** If the tree names a class the public does not already say (for example a kernel that sits under a general agentic harness), define it once, in one sentence, before you ask them to act: `{term} is what enables a general {harness} to have expertise in {this domain}.` Then instantiate: this product is that {term} for {the field}. Do not lead the page with the coinage.
+
+Do **not** PAS-agitate ("tired of buggy X?"). Do **not** open with a chatbot insult. Nearby-wrong stays once, after the conversion, as a contract.
+
+- Structure: the loaded README skill.
+- Copy job: category / conversion / counts / invariant / technique lines pass the scorecard.
+- Action: the prompt they paste, or the proof command. Not "Get Started" with nothing behind it.
+- GitHub **About** blurb: world's first + counts + conversion. Do not paste that stack as a second heading in the README.
 
 ### Marketing page / landing
 
-One message, one CTA. Match the lead to awareness (below). Headline = the one
-idea. Subhead adds the mechanism or the proof. CTA = verb + what they get.
+One message, one CTA. Match the lead to awareness (below). Headline = the one idea. Subhead adds the mechanism or the proof. CTA = verb + what they get. Category + conversion is fair here too when the product is a named studio/kernel.
 
 ### Ads, captions, hooks
 
@@ -85,23 +99,26 @@ Pull from the repo first. Ask only for gaps. Never fill a gap with a guess.
 6. **Awareness:** unaware / problem-aware / solution-aware / product-aware / most-aware
 7. **Sophistication:** have they heard this claim to death? If yes, lead with the how, not the promise.
 8. **One action:** the next step
+9. **Product kind:** named host-run product vs library (drives the README lead)
 
 Thin proof means a quieter claim. It does not mean a louder adjective.
 
 ## Generate
 
-1. Lock the **one idea**. It must be easy to understand, easy to believe, and something a competitor cannot sign. Fail any check → work the idea, not the adjectives.
-2. Pick the **lead** (Masterson):
-   - Warm (product/most-aware): Promise or Offer
-   - Cold (unaware/problem-aware): Problem-solution, story, or a checkable proclamation
-   - GitHub README: Promise + Offer (what it is, then the proof command)
-3. Write the **hook** (headline / first paragraph). Run Dry's tests.
-4. Write the **body**. Each section proves the one idea. Features become: mechanism → what changes for the reader → limit or proof.
+1. Lock the **one idea**. Easy to understand, easy to believe, something a competitor cannot sign. Fail any check → work the idea, not the adjectives.
+2. Pick the **lead** (Masterson + README kind):
+   - Named host-run product: Category + conversion + counts
+   - Library README: Promise + Offer (what it is, then the proof command)
+   - Cold marketing (unaware/problem-aware): Problem-solution, story, or a checkable proclamation
+3. Write the **hook**. Run Dry's tests.
+4. Write the **body**. Each section proves the one idea. Features become: mechanism → what changes for the reader → limit or proof. First-screen copy uses **public category language**. Internal codes, harness letters, and ticket ids wait until Go deeper.
 5. **One ask.**
 6. Run [scorecard.md](scorecard.md) and the anti-slop **Pass**. Rewrite until both are clean.
 
-Headline formulas that are allowed because they stay specific:
+Headline formulas that stay specific:
 
+- `The first {narrow category}` / `World's first {narrow category}`
+- `Turn your {host} into a {complete job}`
 - `{outcome} without {named pain}`
 - `The {category} for {named reader}`
 - `{checkable fact}` (Volvo-style pointing)
@@ -128,7 +145,7 @@ Headline formulas that are slop unless the blanks are facts: "Unlock the power o
 
 | Also loaded | Copywriting does | The other skill does |
 |-------------|------------------|----------------------|
-| `product-readme` | Pitch, invariant wording, technique lines, captions | Section order, proof command, logo, limits required |
+| `product-readme` | Category, conversion, counts, invariant wording, technique lines, captions | Section order, mascot vs wordmark, proof command, limits required |
 | `readable-readme` | Concept brief in human nouns | 7-section skeleton, cap of 5 ideas |
 | `extensive-readme` | Why a file exists, in a sentence you can see | Package map, path accuracy |
 | `impeccable` | UI microcopy | Layout, type, motion |
@@ -136,9 +153,12 @@ Headline formulas that are slop unless the blanks are facts: "Unlock the power o
 ## Do not
 
 - Overlay AIDA/PAS on a product README
+- Open a product README by dunking on chatbots
 - Stack CTAs ("star, follow, and try")
 - Use "Learn More" / "Get Started" / "Click Here" when a specific verb exists
 - Pepper rhetorical questions as a default ("Tired of X?")
 - Cite invented conversion stats (including third-party "+81% conversions" claims)
 - Copy a competitor's line and swap the noun
+- Invent inventory counts to mimic another landing's rhythm
 - Skip anti-slop because "this is marketing"
+- Name a customer product inside this skill file

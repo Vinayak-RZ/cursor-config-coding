@@ -22,7 +22,7 @@ on any stack.
 
 | Skill | What it writes | Typical file |
 |-------|----------------|--------------|
-| `product-readme` | Public landing that teaches: is/isn’t, interface, invariant, proof, named techniques | `README.md` |
+| `product-readme` | Public landing: host-run products get category + conversion + counts; libraries get is/isn’t + proof | `README.md` |
 | `readable-readme` | One-sitting overview for an internal service in a platform | `README.md` |
 | `extensive-readme` | Concepts + how it runs + package maps | `docs/EXTENSIVE.md` |
 

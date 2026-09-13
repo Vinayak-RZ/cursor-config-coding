@@ -25,11 +25,27 @@ is not, in plain sentences:
 
 That is a contract. One nearby-wrong neighbor. No "just". No vibe-upgrade.
 
+## Allowed: category claim
+
+A named product people clone and run with an AI host **may** open with a
+narrow category bet, immediately backed by inventory this tree can count:
+
+> The first open-source {specific job-system}.
+> 12 {pipelines}, 100 {tools}. Turn your AI coding assistant into a {complete job}.
+
+"World's first" / "The first" is positioning, not a census. Keep it when the
+category is narrow enough a rival cannot paste it, and the next sentence has
+**tree-true counts**. Drop it on a crowded commodity (another HTTP client).
+Do not invent a third count to complete a cadence.
+
+This is not an empty upgrade. Empty upgrade is "it's not a tool, it's a
+revolution" with no inventory.
+
 ## Allowed: earned contrast
 
 Two checkable facts in tension may sit next to each other:
 
-> Confirm writes `confirmed.json`. It does not start SPICE.
+> The write path returns 204. It does not enqueue a second job.
 > Melatonin knocks you out. This does not.
 
 Keep it when **both** sides point at something you can verify (a command, a
@@ -49,8 +65,8 @@ is a bigger vibe. Wikipedia calls the family **negative parallelism**.
 | "Not only X, but also Y" | Inflates a list into a speech. |
 | "No X, no Y, just Z" | Sales cadence. |
 
-"X rather than Y" is fine when Y is a real alternative (MATLAB Copilot, a
-general coding agent). It is slop when Y is a slogan.
+"X rather than Y" is fine when Y is a real alternative (a named rival in this
+tree, a general-purpose tool for the same job). It is slop when Y is a slogan.
 
 ## Stop: inflated significance
 
@@ -191,3 +207,4 @@ is not proof of AI. "Bland" is not the goal. Specific and true is the goal.
 - [ ] No chatbot residue, placeholders, or "in conclusion"
 - [ ] No em dashes, Title Case headings, emoji headings, or bold-every-term
 - [ ] Product name stays the product name
+- [ ] "World's first" / "The first" has a narrow category and tree-true counts, or it is absent
