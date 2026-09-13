@@ -120,33 +120,30 @@ Pick `graph-engineering` when slices are known one-shots. Pick `graph-of-loops` 
 
 ## Try these prompts
 
-Open a linked app in Cursor and paste:
+Say the job in plain language. Name `nawab-plans` when you want it done well, or **one** graph skill when the change is a product start, a large overhaul, or a one-shot feature. For docs, say you want a good README. Do not paste Gate 0, profile names, `LOOP_GRAPH.md`, or anti-slop. The skill asks, waits for you, and routes the rest.
 
 ```text
-Plan this in nawab-plans lite. Ask any blocking questions first.
-Wait for my approval before you edit code.
+We're adding team billing to this app: Stripe Checkout, a billing settings
+page, webhooks for subscription changes, and an admin view of who is on
+which plan. Use nawab-plans. I want this done well.
 ```
 
 ```text
-Use graph-engineering. Gate 0 first: research this repo, then ask
-must-answer and trade-off questions. Do not compile the graph until I answer.
+Greenfield. We're building a local-first issue tracker for small product
+teams: projects, issues, comments, keyboard-first UI, SQLite, no login in
+v1. One-shot the first version with graph-engineering.
 ```
 
 ```text
-Use graph-of-loops for this product. Standard or project nawab, not lite.
-Maker plus independent checker on every build node. Stop commands must be
-real. Do not start the long run until I approve LOOP_GRAPH.md.
+This app grew a pile of ad-hoc API routes, mixed server and client fetching,
+and no real auth boundary. Overhaul it into a clear service layer, one auth
+story, and a Next.js App Router dashboard for the same product.
+Use graph-of-loops.
 ```
 
 ```text
-We're adding a dashboard to our Next.js App Router app.
-Propose a frontend architecture: folder structure, RSC vs client
-boundaries, and state. Surface trade-offs before coding.
-```
-
-```text
-Use product-readme. Then extensive-readme. Category landing, internals
-in docs/EXTENSIVE.md. Anti-slop pass. Never invent counts.
+Make a good README for this. A stranger should know what it is, how to run
+it, and where the internals live.
 ```
 
 ## Workspace
@@ -165,7 +162,7 @@ cd cursor-config-coding
 .\scripts\link-to-project.ps1 -Target "<absolute-path-to-your-app>"
 ```
 
-Then paste a planning prompt above. Plan mode will load `nawab-plans` at lite on its own. Name a graph skill only when the change is large.
+Then talk like the prompts above. Plan mode loads `nawab-plans` at lite on its own. Name a graph skill only for a large one-shot. "Make a good README" hits the `readme` router.
 
 Greenfield Spec Kit (writes `.specify/` into the **app**, never into a junctioned `.cursor`):
 
@@ -185,7 +182,7 @@ Optional inventory check from this clone:
 - **Spec Kit for greenfield specs.** constitution → specify → plan → tasks → implement. Limit: not for one-line fixes. Skills pinned to **v1.0.6**. [Spec Kit](https://github.com/github/spec-kit)
 - **Architecture on the files in front of you.** Frontend, backend, and agentic skills attach by glob; `system-design-tradeoffs` when neither option is free. Limit: only Next.js is a pre-installed stack skill.
 - **Junction, don't copy.** Many apps share one `.cursor` tree. Limit: `mklink /J` is Windows. Do not run `specify init --force` against that junction.
-- **README router.** `readme` picks a type. `product-readme` is this landing (category, conversion, counts). `readable-readme` is a one-sitting overview for an internal service. `extensive-readme` writes `docs/EXTENSIVE.md` (concepts, then how it runs, then every package). Writers load `copywriting` and `anti-slop.md`. The router asks when kind is unknown.
+- **README router.** "Make a good README for this" is enough. `readme` picks product vs readable, asks once if kind is unclear, and whether to also write `docs/EXTENSIVE.md`. You do not name `product-readme` or anti-slop unless you want to override.
 
 ## Field guide
 
