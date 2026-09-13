@@ -12,6 +12,7 @@
 
 <p align="center">
   <a href="#quick-start"><b>Quick start</b></a> ·
+  <a href="#always-on-context"><b>Context</b></a> ·
   <a href="#planning-stack"><b>Planning stack</b></a> ·
   <a href="#try-these-prompts"><b>Try these prompts</b></a> ·
   <a href="docs/EXTENSIVE.md"><b>Internals</b></a>
@@ -57,6 +58,19 @@ Most Cursor configs dump rules and hope the model "just builds." This lab splits
 That is the product. Architecture skills, Spec Kit, ponytail, and the README family hang off this loop. They do not replace it.
 
 ## Planning stack
+
+### Always-on context
+
+Cursor injects `alwaysApply: true` rules into every chat. This lab keeps that set thin on purpose.
+
+| What is always in context | Size |
+|---------------------------|------|
+| Three stubs: `rule-awareness`, `ponytail`, `ai-anti-patterns` | **51 lines** |
+| Hard budget (validator fails if we exceed it) | **120 lines** |
+
+The other **18 rules** and all **42 skills** stay on disk. They enter context only when you name them, when a glob matches (UI, API, tests), or when Plan mode loads `nawab-plans`. `rule-awareness` is an index, not a dump: it points at `AGENTS.md` and the matching skill, then that file is read. The agent does not load every `.mdc` or `SKILL.md` up front.
+
+`.\scripts\validate-config.ps1` checks the three names and the 51-line count. Idle chats stay cheap. A named graph still costs tokens for that run; the promise is the always-on slice, not a free long job.
 
 ```mermaid
 flowchart TD
