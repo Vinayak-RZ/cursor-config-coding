@@ -127,8 +127,7 @@ Search `assets/`, `docs/`, `docs/media/`, `public/`, `static/`, `brand/`.
 | Named host-run product | Character mark: small helper / companion, original vector, 2–3 colors. Domain cue as an attribute (bolt, lens, tool), not a pasted trademark. No photorealism. Transparent background. |
 | Library / SDK | Flat geometric or short wordmark, 1–2 colors, no gradients / 3D / emoji |
 
-Write `assets/{product}-logo.svg`. Mascot width in the README ~160–220. Wordmark
-bar ~220–560. Do not invent favicons. Do not copy a trademarked mascot.
+Write `assets/{product}-logo.svg` (and a raster twin if the mark is a soft character). Mascot width in the README ~160–220. **Lockup:** character in the center, **wordmark under it** as a separate image in a real typeface (`assets/{product}-wordmark.svg` or `.png`). Do not use a default GitHub H1 as the name, and do not bake a long name into the mascot. Do not invent favicons. Do not copy a trademarked mascot.
 
 ## Teaching
 

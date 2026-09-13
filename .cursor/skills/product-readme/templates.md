@@ -8,10 +8,12 @@ Do not paste a customer product name from memory.
 
 ```markdown
 <p align="center">
-  <img src="assets/{product}-logo.svg" width="200" alt="{product} helper">
+  <img src="assets/{product}-logo.svg" width="168" alt="{product} helper">
 </p>
 
-<h1 align="center">{Product name}</h1>
+<h1 align="center">
+  <img src="assets/{product}-wordmark.svg" width="380" alt="{Product name}">
+</h1>
 
 <p align="center">
   <strong>The first {narrow category}.</strong>
