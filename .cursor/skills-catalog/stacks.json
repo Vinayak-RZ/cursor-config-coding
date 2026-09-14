@@ -23,7 +23,7 @@
         "vercel-labs/agent-skills@vercel-react-view-transitions",
         "duyet/claude-plugins@react-nextjs-patterns"
       ],
-      "also_use_preinstalled": ["impeccable", "gsap-react", "gsap-core", "graphify"]
+      "also_use_preinstalled": ["impeccable", "gsap-framer-scroll-animation", "graphify"]
     },
     "flutter": {
       "detect": ["pubspec.yaml", "flutter"],
