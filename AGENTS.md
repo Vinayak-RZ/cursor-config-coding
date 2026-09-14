@@ -13,8 +13,9 @@ Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `n
 | Need | Skill |
 |------|--------|
 | Plan | `nawab-plans` (+ opt-in `graph-engineering` XOR `graph-of-loops`) |
-| Specs-first | `speckit-*` + [docs/SPEC_KIT.md](docs/SPEC_KIT.md) |
-| UI / Next | `frontend-architecture`, `nextjs-app-router-patterns`, `impeccable` |
+| Specs-first | `speckit` + [docs/SPEC_KIT.md](docs/SPEC_KIT.md) |
+| UI / Next | `frontend-architecture`, `nextjs-app-router-patterns`, `vercel-react-best-practices`, `impeccable` |
+| Computer | `computer-use` then `agent-browser` (IDE browser first; no desktop CUA) |
 | API / data | `backend-architecture` |
 | Agents | `agentic-system-design` + agent-patterns MCP |
 | Trade-off | `system-design-tradeoffs` |

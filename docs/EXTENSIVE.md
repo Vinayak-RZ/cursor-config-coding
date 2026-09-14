@@ -51,12 +51,12 @@ See [ADR-002](../DECISIONS.md).
 
 ### Spec Kit pin and junction safety
 
-`speckit-*` skills are vendored from [github/spec-kit](https://github.com/github/spec-kit)
-at **v1.0.6**. Skills live in this config. `.specify/` must live in the **app**.
+`speckit` is one router skill. CLI pin is **v1.0.6** from [github/spec-kit](https://github.com/github/spec-kit).
+Skills live in this config. `.specify/` must live in the **app**.
 `install-spec-kit.ps1` inits Spec Kit in a temp directory and copies `.specify/`
 only, because `specify init --force` into a junctioned `.cursor` would write
-into this repo. `speckit-taskstoissues` is still vendored (legacy). Limit: the
-skills do nothing useful until `.specify/` exists in the target app.
+into this repo. Extra `/speckit-*` commands are catalog / `find-skills`, not
+preinstalled. Limit: the skill does nothing useful until `.specify/` exists in the target app.
 
 See [ADR-004](../DECISIONS.md) and [SPEC_KIT.md](SPEC_KIT.md).
 
@@ -79,10 +79,10 @@ data-loss handling, security, accessibility, or anything the user asked for.
 ### Architecture quartet and catalog stacks
 
 Four pre-installed skills cover UI, API/data, agents, and trade-offs. Matching
-rules attach by glob or description. The only pre-installed **stack** skill is
-`nextjs-app-router-patterns`. Flutter, Django, Kotlin, Express, extra React
-packs, and similar live in `.cursor/skills-catalog/` and
-[TECH_STACK_SKILLS.md](TECH_STACK_SKILLS.md). Limit: the catalog is documentation.
+rules attach by glob or description. Pre-installed **stack** skills:
+`nextjs-app-router-patterns` and `vercel-react-best-practices`. Flutter, Django,
+Kotlin, Express, extra GSAP slices, and similar live in `.cursor/skills-catalog/`
+and [TECH_STACK_SKILLS.md](TECH_STACK_SKILLS.md). Limit: the catalog is documentation.
 Cursor does not load `skills-catalog/` as skills.
 
 ### README family
@@ -118,7 +118,7 @@ sequenceDiagram
   alt Plan mode
     Agent->>Agent: nawab-plans at lite
   else Greenfield and .specify exists
-    Agent->>Agent: speckit-* workflow
+    Agent->>Agent: speckit workflow
   end
   Agent->>App: implement, validate, conventional commit
 ```
@@ -135,12 +135,12 @@ sequenceDiagram
    `ponytail` requires the ponytail skill before edits. `ai-anti-patterns`
    blocks copy-paste logic, swallowed exceptions, speculative abstractions.
 5. Plan mode loads `nawab-plans` via `planning.mdc`. Greenfield loads
-   `speckit-*` via `speckit.mdc` once `.specify/` exists.
+   `speckit` via `speckit.mdc` once `.specify/` exists.
 6. Frontend/backend/agent globs pull architecture skills. Trade-offs are
    agent-requested. Stack extras install through `install-catalog-skill.ps1`.
 7. After a milestone, `git-commit-discipline.mdc` wants a conventional commit.
    Auto-push at 10 unpushed commits, or when you ask.
-8. `scripts/validate-config.ps1` is the distro gate: 42 skills, three always-on
+8. `scripts/validate-config.ps1` is the distro gate: 30 skills, three always-on
    names, line budget, Spec Kit pin, lite template, portable skill bodies.
 
 **Cloud path.** A junction is local. Cloud agents need `.cursor/skills/` in the
@@ -158,7 +158,7 @@ This is not an npm workspace. Top-level folders are the packages.
 |---------|------|------|-------|
 | Root contract | `.` | What the agent and the validator treat as source of truth | `AGENTS.md`, `skills-manifest.json` |
 | Rules | `.cursor/rules` | 21 `.mdc` invariants (3 always-on) | `rule-awareness.mdc` |
-| Skills | `.cursor/skills` | 42 pre-installed jobs | each `SKILL.md` |
+| Skills | `.cursor/skills` | 30 pre-installed jobs | each `SKILL.md` |
 | Skills catalog | `.cursor/skills-catalog` | Optional stacks, not loaded by Cursor | `stacks.json` |
 | MCP | `.cursor/mcp.json` | Default Agent Patterns Catalog | `mcp.json` |
 | Scripts | `scripts/` | Junction, Spec Kit, sync, catalog, validate | `link-to-project.ps1` |
@@ -177,7 +177,7 @@ and `README.md`.
 
 **How it works.** `AGENTS.md` is the short always-on map: ponytail → nawab
 lite in Plan mode → Spec Kit for greenfield → implement → validate → commit.
-`skills-manifest.json` version 7 lists the 42 skills, MCP default, Spec Kit
+`skills-manifest.json` version 8 lists the 30 skills, MCP default, Spec Kit
 pin, and optional catalog rows. `DECISIONS.md` holds ADRs 001-004.
 `IMPLEMENTATION_PLAN.md` and `PROGRESS.md` are the 2026 audit ledger for
 **this** config, not for linked apps.
@@ -239,7 +239,7 @@ point at skills instead of duplicating workflows. See
 user names the skill. Graph skills wait until the user names them.
 
 **How it works.** Each folder with a `SKILL.md` is one pre-installed skill.
-`validate-config.ps1` counts those folders and expects **42**.
+`validate-config.ps1` counts those folders and expects **30**.
 
 #### Pre-installed skills
 
@@ -254,21 +254,13 @@ user names the skill. Graph skills wait until the user names them.
 | `ponytail-debt` | Shortcuts | Harvest `ponytail:` comments |
 | `ponytail-gain` | Scoreboard | Informational benchmark notes |
 | `ponytail-help` | Reference | Ponytail command list |
-| `speckit-constitution` | Spec Kit | Project principles |
-| `speckit-specify` | Spec Kit | Requirements / stories |
-| `speckit-clarify` | Spec Kit | Open questions |
-| `speckit-plan` | Spec Kit | Tech plan |
-| `speckit-tasks` | Spec Kit | Task breakdown |
-| `speckit-implement` | Spec Kit | Build from tasks |
-| `speckit-analyze` | Spec Kit | Consistency pass |
-| `speckit-checklist` | Spec Kit | Quality checklist |
-| `speckit-converge` | Spec Kit | Merge parallel specs |
-| `speckit-taskstoissues` | Spec Kit (legacy) | Tasks to GitHub issues |
+| `speckit` | Spec Kit | Router: when to use, phase order, needs `.specify/` |
 | `frontend-architecture` | UI work | Rendering, state, boundaries |
 | `backend-architecture` | API / data | Layers, authZ, persistence |
 | `agentic-system-design` | Agents | Tools, step limits, evals, MCP |
 | `system-design-tradeoffs` | Hard choices | Option A / B with a named priority |
-| `nextjs-app-router-patterns` | Next.js | Only pre-installed stack skill |
+| `nextjs-app-router-patterns` | Next.js | App Router patterns |
+| `vercel-react-best-practices` | React / Next | Waterfalls, bundle, RSC perf |
 | `readme` | Unknown README | Ask product vs readable vs extensive |
 | `product-readme` | OSS / host-run landing | Category, conversion, counts, proof |
 | `readable-readme` | Internal service | One-sitting overview |
@@ -276,17 +268,13 @@ user names the skill. Graph skills wait until the user names them.
 | `copywriting` | Public sentences | Scorecard + anti-slop; never invent proof |
 | `learn-while-building` | Teaching | Research briefs, phase learning |
 | `impeccable` | UI polish | Craft, type, motion, critique |
+| `frontend-design` | Blank-canvas UI | Distinctive visual identity |
+| `web-design-guidelines` | UI audit | A11y / UX / forms / focus |
+| `computer-use` | GUI policy | Codex ladder mapped to Cursor (no desktop CUA) |
+| `agent-browser` | GUI tool | Chrome / CDP / a11y-tree `@eN` refs |
 | `graphify` | Codebase map | Knowledge graph CLI on a folder |
 | `find-skills` | Discovery | Find more skills |
-| `gsap-core` | Animation | GSAP primitives |
-| `gsap-react` | Animation | GSAP + React |
-| `gsap-scrolltrigger` | Animation | Scroll-linked timelines |
-| `gsap-timeline` | Animation | Timeline control |
-| `gsap-plugins` | Animation | Plugin usage |
-| `gsap-performance` | Animation | Perf constraints |
-| `gsap-frameworks` | Animation | Framework adapters |
-| `gsap-utils` | Animation | Utility helpers |
-| `gsap-framer-scroll-animation` | Animation | Scroll work; preferred over Framer catalog skill |
+| `gsap-framer-scroll-animation` | Animation | Scroll work; extra GSAP slices via `find-skills` |
 
 #### Extra files (not every `SKILL.md`)
 
@@ -451,7 +439,7 @@ A "This repo" section is left as blanks for the app's own invariants.
 rule-awareness.mdc → AGENTS.md → skills-manifest.json
 ponytail.mdc → ponytail/SKILL.md
 planning.mdc → nawab-plans (lite default)
-speckit.mdc → speckit-* + install-spec-kit.ps1 + docs/SPEC_KIT.md
+speckit.mdc → speckit + install-spec-kit.ps1 + docs/SPEC_KIT.md
 tech-stack-skills.mdc → skills-catalog/stacks.json + docs/TECH_STACK_SKILLS.md
 mcp-architecture.mdc → mcp.json + agentic-system-design + docs/MCP_SETUP.md
 link-to-project.ps1 → templates/AGENTS.overlay.md + .cursor/
@@ -466,7 +454,7 @@ product-readme → copywriting + readme/anti-slop.md
 |------|--------|--------|
 | Default MCP | `.cursor/mcp.json` | `agent-patterns`, no key |
 | Optional MCP | `.cursor/mcp.json.example` | GitHub token, Context7 key |
-| Skill inventory | `skills-manifest.json` | `preinstalled.count` must stay 42 |
+| Skill inventory | `skills-manifest.json` | `preinstalled.count` must stay 30 |
 | Spec Kit pin | manifest, `SPEC_KIT.md`, `speckit-SOURCE.txt`, `install-spec-kit.ps1` | `v1.0.6` |
 | Stack detect | `skills-catalog/stacks.json` | Not auto-installed |
 | Always-on line budget | `validate-config.ps1` | 120 lines |
@@ -484,7 +472,7 @@ There is no unit test runner and no `.github/workflows` directory.
 
 The distro test is `scripts/validate-config.ps1`. It checks:
 
-- Directory count of `.cursor/skills/*/SKILL.md` equals `preinstalled.count` (42)
+- Directory count of `.cursor/skills/*/SKILL.md` equals `preinstalled.count` (30)
 - `alwaysApply: true` names are exactly `ai-anti-patterns`, `ponytail`,
   `rule-awareness`
 - Combined always-on line count ≤ 120 (currently 51)

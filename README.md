@@ -20,7 +20,7 @@
 
 > Full internals (every package, file map, how the repo runs): [Extensive README](docs/EXTENSIVE.md)
 
-Turn Cursor into a plan-then-ship engineering workflow. **42 skills**, **21 rules**.
+Turn Cursor into a plan-then-ship engineering workflow. **30 skills**, **21 rules**.
 
 You keep every product and architecture decision. The agent writes the plan, stops, and waits. You approve. Then it executes. Describe the job in plain language.
 
@@ -30,11 +30,11 @@ You keep every product and architecture decision. The agent writes the plan, sto
 
 ## Proof
 
-This is the inventory check, not `--help`. It counts the 42 skills, the three always-on rules, and the Spec Kit pin.
+This is the inventory check, not `--help`. It counts the 30 skills, the three always-on rules, and the Spec Kit pin.
 
 ```text
 $ .\scripts\validate-config.ps1
-ok  : skill count 42
+ok  : skill count 30
 ok  : always-on rules: ai-anti-patterns, ponytail, rule-awareness
 ok  : always-on lines 51 (<= 120)
 ok  : Spec Kit pin v1.0.6 in script/manifest/source
@@ -68,7 +68,7 @@ Cursor injects `alwaysApply: true` rules into every chat. This lab keeps that se
 | Three stubs: `rule-awareness`, `ponytail`, `ai-anti-patterns` | **51 lines** |
 | Hard budget (validator fails if we exceed it) | **120 lines** |
 
-The other **18 rules** and all **42 skills** stay on disk. They enter context only when you name them, when a glob matches (UI, API, tests), or when Plan mode loads `nawab-plans`. `rule-awareness` is an index, not a dump: it points at `AGENTS.md` and the matching skill, then that file is read. The agent does not load every `.mdc` or `SKILL.md` up front.
+The other **18 rules** and all **30 skills** stay on disk. They enter context only when you name them, when a glob matches (UI, API, tests), or when Plan mode loads `nawab-plans`. `rule-awareness` is an index, not a dump: it points at `AGENTS.md` and the matching skill, then that file is read. The agent does not load every `.mdc` or `SKILL.md` up front.
 
 `.\scripts\validate-config.ps1` checks the three names and the 51-line count. Idle chats stay cheap. A named graph still costs tokens for that run; the promise is the always-on slice, not a free long job.
 
@@ -193,8 +193,9 @@ Optional inventory check from this clone:
 ## How the rest of the lab attaches
 
 - **Ponytail first on every write.** After approval, the agent still climbs YAGNI → reuse this repo → stdlib → native → installed dep → one line → minimum that works. Limit: it must not skip trust-boundary validation, data-loss handling, or anything you named. [ponytail](https://github.com/DietrichGebert/ponytail)
-- **Spec Kit for greenfield specs.** constitution → specify → plan → tasks → implement. Limit: not for one-line fixes. Skills pinned to **v1.0.6**. [Spec Kit](https://github.com/github/spec-kit)
-- **Architecture on the files in front of you.** Frontend, backend, and agentic skills attach by glob; `system-design-tradeoffs` when neither option is free. Limit: only Next.js is a pre-installed stack skill.
+- **Spec Kit for greenfield specs.** Say use speckit. constitution → specify → plan → tasks → implement. Limit: not for one-line fixes. CLI pinned to **v1.0.6**. [Spec Kit](https://github.com/github/spec-kit)
+- **Architecture on the files in front of you.** Frontend, backend, and agentic skills attach by glob; `system-design-tradeoffs` when neither option is free. Limit: Next.js App Router and Vercel React performance are the pre-installed stack skills.
+- **Computer use.** API and files first, then the Cursor IDE browser, then `agent-browser`. Cursor has no full-desktop Computer Use. Limit: do not add unofficial desktop-CUA MCPs.
 - **Junction, don't copy.** Many apps share one `.cursor` tree. Limit: `mklink /J` is Windows. Do not run `specify init --force` against that junction.
 - **README router.** "Make a good README for this" is enough. `readme` picks product vs readable, asks once if kind is unclear, and whether to also write `docs/EXTENSIVE.md`. You do not name `product-readme` or anti-slop unless you want to override.
 
