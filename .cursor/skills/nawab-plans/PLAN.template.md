@@ -371,7 +371,7 @@ _or:_
 ```text
 1. Load this plan + nawab-plans skill; ponytail on every edit
 2. Clear §2 blockers
-3. Phase 0 if spec artifacts required (speckit-*)
+3. Phase 0 if spec artifacts required (speckit)
 4. For each phase in §7:
    a. Sync §8 todos
    b. Execute §6 spawns at trigger rows

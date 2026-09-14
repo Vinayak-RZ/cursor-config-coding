@@ -36,6 +36,16 @@
 
 **Alternatives:** Stay on 0.12.11; bump and `specify init --force` on junctioned `.cursor`.
 
-**Choice:** Pin **v1.0.6**. Regenerate `speckit-*` in a temp dir. `install-spec-kit.ps1` copies `.specify` only so a junctioned `.cursor` is never overwritten. Keep `speckit-taskstoissues` as legacy.
+**Choice:** Pin **v1.0.6**. `install-spec-kit.ps1` copies `.specify` only so a junctioned `.cursor` is never overwritten. This config later collapsed ten `speckit-*` command skills into one `speckit` router (ADR-005).
 
 **Rationale:** Skills match the CLI. Junction safety for linked app repos.
+
+## ADR-005 — One skill per GSAP and Spec Kit family; computer-use harness
+
+**Context:** Nine GSAP skills and ten Spec Kit command skills were 45% of the folder. Cursor has an IDE browser and no full-desktop Computer Use.
+
+**Alternatives:** Keep the vendor slices; dump GSAP into `skills-catalog/`; one mega GSAP skill; Python browser-use / desktop CUA MCP.
+
+**Choice:** Keep `gsap-framer-scroll-animation` and one `speckit` router. Preinstall `computer-use` (Codex ladder mapped to Cursor) plus `agent-browser`. Do not vendor unofficial desktop-CUA MCPs. Extra GSAP slices and full `/speckit-*` commands stay `find-skills` / catalog.
+
+**Rationale:** Jobs, not slice packs. Agents pick the narrowest interface. Inventory is 30 skills.
