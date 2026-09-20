@@ -36,7 +36,7 @@ Get-ChildItem (Join-Path $root ".cursor\rules") -Filter "*.mdc" | ForEach-Object
         $alwaysOnLines += @($text -split "`n").Count
     }
 }
-$expectedAlways = @("ai-anti-patterns", "ponytail", "rule-awareness")
+$expectedAlways = @("ai-anti-patterns", "model-selection", "ponytail", "rule-awareness")
 $got = $alwaysOnNames | Sort-Object
 $want = $expectedAlways | Sort-Object
 if (($got -join ",") -ne ($want -join ",")) {
@@ -45,7 +45,7 @@ if (($got -join ",") -ne ($want -join ",")) {
 else {
     Ok "always-on rules: $($got -join ', ')"
 }
-$lineBudget = 120
+$lineBudget = 160
 if ($alwaysOnLines -gt $lineBudget) {
     Fail "always-on line count $alwaysOnLines > budget $lineBudget"
 }

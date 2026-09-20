@@ -1,0 +1,30 @@
+---
+description: Default Cursor model tiers - Composer 2.5 small, Grok 4.6 high-value; no other models without explicit ask
+alwaysApply: true
+---
+
+# Model selection (default)
+
+Without the user **manually selecting** a model in the UI or **explicitly naming** a model in the prompt, use **only Cursor models**. Do not pick Claude, GPT, Gemini, or any other non-Cursor model on your own.
+
+## Default tiers
+
+| Task class | Model | Slug (subagents / Task) |
+|------------|--------|-------------------------|
+| Simple / small | Composer 2.5 | `composer-2.5-fast` |
+| High-value (planning, orchestration, multi-phase design) | Cursor Grok 4.6 | `cursor-grok-4.6-high-fast` |
+
+**Simple / small:** typo fixes, single-file edits, short answers, mechanical refactors, status checks, one-shot lookups.
+
+**High-value:** Plan mode / nawab-plans, architecture, multi-repo orchestration, long-horizon agent design, trade-off-heavy decisions, coordinating multiple subagents.
+
+When spawning subagents, pass the matching slug above. Default to Composer 2.5 if unsure; escalate to Grok 4.6 only when the work is clearly high-value.
+
+## Overrides
+
+Allowed only when the user:
+
+1. Selects a different model in the Cursor UI for this chat, or
+2. Explicitly asks in the prompt (e.g. "use Claude", "use GPT", a specific slug)
+
+Do not infer permission from past chats, defaults elsewhere, or "best model for X" habit. If they ask which model to use, recommend from the table - do not switch until they confirm.

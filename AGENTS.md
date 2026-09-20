@@ -38,6 +38,7 @@ Default: [Agent Patterns Catalog](https://www.agentpatternscatalog.org/) — [do
 .\scripts\link-to-project.ps1 -Target "D:\Startups\YourApp"
 .\scripts\install-spec-kit.ps1 -Target "D:\Startups\YourApp"
 .\scripts\sync-coding-skills.ps1
+.\scripts\sync-global-rules.ps1
 ```
 
 Companion: [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness) · [cursor-config-design](https://github.com/Vinayak-RZ/cursor-config-design)

@@ -18,7 +18,7 @@
 
 > Full internals (every package, file map, how the repo runs): [Extensive README](docs/EXTENSIVE.md)
 
-Turn Cursor into a plan-then-ship engineering workflow. **42 skills**, **21 rules**.
+Turn Cursor into a plan-then-ship engineering workflow. **42 skills**, **22 rules**.
 
 Describe the feature in plain language. cursor-config-coding handles the plan, the spec, and the smallest correct diff.
 
@@ -28,13 +28,13 @@ Describe the feature in plain language. cursor-config-coding handles the plan, t
 
 ## Proof
 
-This is the inventory check, not `--help`. It counts the 42 skills, the three always-on rules, and the Spec Kit pin.
+This is the inventory check, not `--help`. It counts the 42 skills, the four always-on rules, and the Spec Kit pin.
 
 ```text
 $ .\scripts\validate-config.ps1
 ok  : skill count 42
-ok  : always-on rules: ai-anti-patterns, ponytail, rule-awareness
-ok  : always-on lines 51 (<= 120)
+ok  : always-on rules: ai-anti-patterns, model-selection, ponytail, rule-awareness
+ok  : always-on lines 82 (<= 160)
 ok  : Spec Kit pin v1.0.6 in script/manifest/source
 ok  : nawab PLAN.template.lite.md exists
 ok  : skills have no named-gold-repo strings
@@ -123,7 +123,7 @@ flowchart LR
 
 | Word | Meaning here |
 |------|----------------|
-| Rule | Short invariant in `.cursor/rules`. Always-on is three stubs (51 lines). |
+| Rule | Short invariant in `.cursor/rules`. Always-on is four stubs (incl. `model-selection`). |
 | Skill | Multi-step job in `.cursor/skills`. Fill blanks from the repo you opened. |
 | Lite vs project | Lite is five plan sections. Project is the full nawab template. Do not pad lite. |
 | XOR graphs | Name `graph-engineering` **or** `graph-of-loops`, never both. Neither is `graphify`. |
@@ -144,4 +144,4 @@ flowchart LR
 
 PM / GTM work lives in [cursor-config-buisness](https://github.com/Vinayak-RZ/cursor-config-buisness). Decks and video live in [cursor-config-design](https://github.com/Vinayak-RZ/cursor-config-design).
 
-Sync the README/copywriting skills into `~/.cursor/skills` with `.\scripts\sync-coding-skills.ps1`. Install a catalog skill into an app with `.\scripts\install-catalog-skill.ps1`.
+Sync the README/copywriting skills into `~/.cursor/skills` with `.\scripts\sync-coding-skills.ps1`. Propagate `model-selection` (and other always-global rules) with `.\scripts\sync-global-rules.ps1`. Install a catalog skill into an app with `.\scripts\install-catalog-skill.ps1`.
