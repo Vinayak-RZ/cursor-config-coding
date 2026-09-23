@@ -1,5 +1,5 @@
 ---
-description: Default Cursor model tiers - Composer 2.5 (+ fast) small, Grok 4.6 high for plan/orchestrate
+description: Default Cursor model tiers - Composer 2.5 (+ fast) small, Grok 4.7 high for plan/orchestrate
 alwaysApply: true
 ---
 
@@ -12,7 +12,7 @@ Without the user **manually selecting** a model in the UI or **explicitly naming
 | Task class | Allowed models | Slugs |
 |------------|----------------|-------|
 | Simple / small | Composer 2.5 **or** Composer 2.5 Fast | `composer-2.5`, `composer-2.5-fast` |
-| High-value (planning, orchestration, multi-phase design) | Cursor Grok 4.6 High **only** (never Fast) | `cursor-grok-4.6-high` |
+| High-value (planning, orchestration, multi-phase design) | Cursor Grok 4.7 High **only** (never Fast) | `cursor-grok-4.7-high` |
 
 ### Simple / small
 
@@ -23,9 +23,9 @@ Both variants are allowed. Prefer by latency need:
 
 ### High-value
 
-Plan mode / nawab-plans, architecture, multi-repo orchestration, long-horizon agent design, trade-off-heavy decisions, coordinating multiple subagents → **`cursor-grok-4.6-high` only**. Do **not** use `cursor-grok-4.6-high-fast` for this class.
+Plan mode / nawab-plans, architecture, multi-repo orchestration, long-horizon agent design, trade-off-heavy decisions, coordinating multiple subagents → **`cursor-grok-4.7-high` only**. Do **not** use `cursor-grok-4.7-high-fast` (or any Fast variant) for this class.
 
-When spawning subagents, pass a slug from the matching row. Default to Composer 2.5 (non-fast) if unsure; escalate to Grok 4.6 High only when the work is clearly high-value.
+When spawning subagents, pass a slug from the matching row. Default to Composer 2.5 (non-fast) if unsure; escalate to Grok 4.7 High only when the work is clearly high-value.
 
 ## Overrides
 
