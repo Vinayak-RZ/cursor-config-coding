@@ -2,11 +2,12 @@
 name: nawab-plans
 description: >
   Master execution plans. Cursor Plan mode defaults to the lite profile
-  (§0 §1 §9 §16 §18). Standard and project profiles add sections. Use when
-  drafting IMPLEMENTATION_PLAN.md or a Cursor plan, orchestrating delivery,
-  or turning a vague project into a commit matrix. Pair with domain
-  architecture skills during research. Not graphify. graph-engineering and
-  graph-of-loops are opt-in §19 XOR (never both).
+  (§0 §1 §9 §16 §18) and writes only that plan file. Standard and project
+  profiles add sections. Use when drafting a Cursor plan, orchestrating
+  delivery, or turning a vague project into a commit matrix. After Build,
+  land every §9 commit; if a graph skill was named, write node plans first,
+  then run them. Not graphify. graph-engineering and graph-of-loops are
+  opt-in §19 XOR (never both).
 argument-hint: "[lite|standard|project] [scope]"
 license: MIT
 ---
@@ -99,17 +100,61 @@ Exactly one:
 | Named | §19 |
 |-------|-----|
 | nothing | `N/A — graph-engineering / graph-of-loops not requested` |
-| `graph-engineering` | Gate 0, then one-shot graph (`EXECUTION_GRAPH.md`) |
-| `graph-of-loops` | Gate 0, then loop graph (`LOOP_GRAPH.md`); nawab **standard/project** (not lite) |
+| `graph-engineering` | Gate 0, then the one-shot graph **inside §19** |
+| `graph-of-loops` | Gate 0, then the loop graph **inside §19**; nawab **standard/project** (not lite) |
 | both | **illegal** — ask which wins |
 
-The filled graph is the plan you read. Approving runs it.
+§19 **in the plan** is the graph the user sees and approves. Paste the full
+shape there, not a summary and not a pointer to a file:
+
+- the **mermaid diagram of the entire** graph-engineering or graph-of-loops structure
+- every decided node (id, job, inputs and outputs, gate or stop)
+- edges, waves, and lifecycle (or `N/A — reason`)
+
+It also names future paths (`plans/nodes/<id>.md` or `plans/loops/<id>.md`).
+Those paths are not files yet. A §19 that omits the mermaid or hides nodes
+until execution is incomplete.
+
+---
+
+## Plan mode writes one file
+
+Cursor Plan mode may edit **only the plan**. Do not create, during planning:
+
+- `IMPLEMENTATION_PLAN.md`
+- `EXECUTION_GRAPH.md` or `LOOP_GRAPH.md`
+- `plans/nodes/*` or `plans/loops/*`
+- `docs/planning/*`, `docs/PRODUCT.md`, `DECISIONS.md`, `PROGRESS.md`
+
+Copy `IMPLEMENTATION_PLAN.md` only after Build, and only when Delivery is repo.
 
 ---
 
 ## Execution after approval
 
-Follow §18 in the plan. Copy to `IMPLEMENTATION_PLAN.md` when Delivery is repo.
-Cursor `todos:` frontmatter may replace §8; do not maintain two conflicting lists.
+Build starts execution. Follow §18 in the plan. Cursor `todos:` frontmatter
+may replace §8; do not maintain two conflicting lists.
 
-Quality: chosen profile complete; commit budget honored; gates are real commands.
+**If §19 names a graph, step 0 comes before product code or node tasks:**
+
+1. Write `EXECUTION_GRAPH.md` or `LOOP_GRAPH.md` from the approved §19.
+2. Write every node or loop plan in full (objective, paths, commits, gate
+   or stop, return contract). A stub is not a plan.
+3. Confirm every path §19 named exists. Then run wave 0.
+
+**Completion contract** (linear and graph). The plan is done only when all
+of these hold. A partial run is a pause.
+
+1. Every §1 deliverable exists, and its gate was run and passed.
+2. Every §9 row is its own commit. Commits from this plan equal the approved
+   row count. After each commit, state `k/N`. Four commits on a 20-row
+   matrix is a failed run.
+3. Coalesce only **before** approval (the 2× rule). After approval, do not
+   merge, squash, or drop rows. If a row cannot be done, stop and ask.
+4. Every §16 P0 item is checked, with the command that proved it.
+5. Subagent output does not replace rows. One blob of work is still split
+   into the approved commits.
+6. If §19 is a graph, every non-N/A node passed, or escalated and is waiting
+   on the user. Do not skip run, trials, or docs-out after they were approved.
+7. If you stop early, name the next undone §9 row or node. Do not say the
+   plan is complete.

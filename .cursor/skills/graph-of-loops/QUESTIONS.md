@@ -1,7 +1,7 @@
 # Gate 0 — ask everything first
 
-Lead only. **Do not compile** `LOOP_GRAPH.md`, loop plans, or product/arch
-files on guessed intent.
+Lead only. **Do not compile** the loop graph on guessed intent. During Plan
+mode, do not write `LOOP_GRAPH.md`, loop plans, or product/arch files.
 
 Research the repo (or state greenfield) in **5–10 lines**. Then ask. Waiting
 is expected. Two batches only if must-answer items exceed 12.
@@ -28,8 +28,9 @@ One numbered list. Tag each item:
 **Override:** PRIORITY = COST | SPEED | QUALITY | SIMPLICITY | CONSISTENCY | AVAILABILITY | SAFETY
 ```
 
-Record answers in `docs/planning/GATE_0.md` (or nawab Open questions → answered).
-Resume compiles from that file — do not re-ask.
+Record answers in the plan (Open questions, or a Gate 0 block). Do not write
+`docs/planning/GATE_0.md` during Plan mode. Execution step 0 copies them
+there. Resume compiles from the plan — do not re-ask.
 
 ---
 
@@ -82,9 +83,9 @@ judge model. Do not silently pick.
 
 ## After answers
 
-1. Write `docs/planning/GATE_0.md` (questions + answers + open spikes).
-2. Fill nawab **standard or project** (not lite) §0–§18 from those answers.
-3. Compile the loop graph per [CYCLE.md](CYCLE.md).
-4. Approval footer: long-run execute starts immediately on approve.
+1. Keep questions and answers in the plan. Do not write `docs/planning/GATE_0.md` yet.
+2. Fill nawab **standard or project** (not lite) §0–§18 in that same plan.
+3. Compile the loop graph into §19 per [CYCLE.md](CYCLE.md). Name loop-plan paths; do not create the files.
+4. Approval footer: Build writes the loop plans (step 0), then the long run starts.
 
-Do not start makers before that approval.
+Do not start makers before that approval. Do not write planning files during Plan mode.

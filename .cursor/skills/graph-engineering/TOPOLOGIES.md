@@ -1,7 +1,8 @@
 # Topologies
 
 Read this while compiling the **graph of plans** when the shape is not a
-simple diamond. Each node still gets its own `plans/nodes/<id>.md`. Pick the
+simple diamond. Each node still gets its own `plans/nodes/<id>.md`, written
+at execution step 0, not during Plan mode. Pick the
 cheapest shape that matches **real data dependencies**. Default: per-item
 pipeline. Barrier only when a stage needs the whole set.
 

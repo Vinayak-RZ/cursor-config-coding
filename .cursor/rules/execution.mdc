@@ -23,6 +23,10 @@ Do not attempt large implementations in a single step.
 
 Work only on the approved phase.
 
+When the approved plan's §19 names `graph-engineering` or `graph-of-loops`, the first execution action is to write the graph file and every node or loop plan from §19. No product code before those files exist. Then run every non-N/A node.
+
+Do not mark the plan done while §9 rows or §1 deliverables remain. One approved row is one commit. State `k/N` after each commit. Fewer commits than the matrix is not complete.
+
 ## Architecture Preservation
 
 Before modifying existing systems:

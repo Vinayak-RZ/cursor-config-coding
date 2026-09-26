@@ -47,12 +47,14 @@ the plan explicitly delegates a workstream branch with merge-back at a named gat
 Launch multiple subagents in **one message** when tasks are independent.
 
 When the user named `graph-engineering` **or** `graph-of-loops`, compile this
-spawn map into nawab **§19** — never both:
+spawn map into nawab **§19** — never both. Name the paths; do not write the
+files until execution step 0:
 
 - `graph-engineering`: one-shot node plans (`plans/nodes/<id>.md`)
 - `graph-of-loops`: loop plans (`plans/loops/<id>.md`) — maker + checker
 
 Default remains this table. Do not load either skill unless the user named it.
+Subagent output does not shrink §9. The lead still commits every approved row.
 
 ---
 

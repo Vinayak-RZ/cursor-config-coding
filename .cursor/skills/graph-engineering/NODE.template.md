@@ -1,7 +1,8 @@
 # Node plan — `<id>` — `<short name>`
 
 > Collapsed feature-mode plan for **one graph node**. Not a second 18-section
-> nawab. Parent: [EXECUTION_GRAPH.md](../../EXECUTION_GRAPH.md) (adjust relative path).
+> nawab. Written at **execution step 0**, not during Plan mode.
+> Parent: [EXECUTION_GRAPH.md](../../EXECUTION_GRAPH.md) (adjust relative path).
 
 | Field | Value |
 |-------|-------|

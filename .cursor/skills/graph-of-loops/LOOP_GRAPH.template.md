@@ -1,10 +1,12 @@
 # Loop graph
 
-> **This is the plan you read.** Loop plans are separate files; every one
-> must appear as a markdown link in [Loop plans](#loop-plans).
+> **Paste this whole shape into the plan's §19**, including the mermaid
+> diagram of the entire loop graph and every decided loop. That is what the
+> user sees. Do not write `LOOP_GRAPH.md` or `plans/loops/*` until execution
+> step 0.
 >
-> Fill this shape in nawab **§19** and write it to `LOOP_GRAPH.md`.
-> On approval, **run immediately** ([EXECUTE.md](EXECUTE.md)).
+> On Build, copy this into `LOOP_GRAPH.md`, write every loop plan, then
+> **run** ([EXECUTE.md](EXECUTE.md)).
 >
 > XOR: do not also fill graph-engineering `EXECUTION_GRAPH.md`.
 
@@ -147,7 +149,8 @@ row per commit. Subagents do not commit.
 
 ## Approval implication
 
-Approving **this loop graph** (nawab plan with §19 filled as graph-of-loops)
-starts execution immediately. Loop plans are already written and linked. No
-second wait, and no wait per node unless a loop **escalates** or marks a
-human checkpoint (prod / freeze).
+Build on a plan with §19 filled as graph-of-loops starts execution. Step 0
+writes this file and every loop plan. Loop plans are not written during Plan
+mode. No second wait, and no wait per node unless a loop **escalates** or
+marks a human checkpoint (prod / freeze). The run is unfinished while any
+non-N/A stage is pending or any mapped §9 row has no commit.

@@ -12,7 +12,7 @@ fi
 ROOT="$(cd "$DIR/.." && pwd)"
 SRC="$ROOT/.cursor/skills"
 GLOBAL="${HOME}/.cursor/skills"
-SKILLS=(copywriting readme product-readme readable-readme extensive-readme)
+SKILLS=(copywriting readme product-readme readable-readme extensive-readme nawab-plans graph-engineering graph-of-loops)
 SEARCH_ROOTS=("${@:-$HOME/Startups}")
 
 sync_into() {

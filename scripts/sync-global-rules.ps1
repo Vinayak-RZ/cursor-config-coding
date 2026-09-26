@@ -20,7 +20,11 @@ $ErrorActionPreference = "Stop"
 $configRoot = Split-Path $PSScriptRoot -Parent
 $sourceRules = Join-Path $configRoot ".cursor\rules"
 $ruleNames = @(
-    "model-selection.mdc"
+    "model-selection.mdc",
+    "rule-awareness.mdc",
+    "planning.mdc",
+    "execution.mdc",
+    "quality-gates.mdc"
 )
 $companionRepoNames = @(
     "cursor-config-buisness",

@@ -71,8 +71,11 @@ User budget wins. One row = one commit.
 
 ```text
 1. Ponytail on every edit
-2. Each §9 row: implement → gate → commit
-3. Verify §16 P0
+2. Each §9 row: implement → gate → commit. After each commit, state k/N.
+   Land every row. Do not stop, squash, or skip. N rows means N commits.
+3. Every §1 deliverable exists and its check passed
+4. Verify §16 P0. An unchecked P0 means the plan is not done.
+   If you stop early, name the next undone row. Do not call that complete.
 ```
 
 ---

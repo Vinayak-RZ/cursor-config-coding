@@ -2,10 +2,12 @@
 name: graph-engineering
 description: >
   Builds a graph-of-plans for end-to-end one-shots: research then questions
-  (must ask; do not guess), then a master graph covering docs-in, architecture,
-  design/UI UX, build, integrate, evaluate, actually run, multiple trials, and
-  docs-out. Each node has a linked sub-plan; approving the graph runs it.
-  Use for entire products or major features when the user invokes
+  (must ask; do not guess), then a master graph in the plan covering docs-in,
+  architecture, design/UI UX, build, integrate, evaluate, actually run,
+  multiple trials, and docs-out. Decide nodes in the plan. Do not write node
+  plan files during Plan mode. When Build starts, write those plans first,
+  then run the graph to completion (every node, every mapped commit). Use
+  for entire products or major features when the user invokes
   /graph-engineering or says "graph this plan", "one-shot this project",
   or "run this as a graph". Do not load unless the user named it. Not
   graphify. Not for 1–3 step real chains.
@@ -70,13 +72,16 @@ parallel work.
 ## Hierarchy (depth 2, no more)
 
 ```text
-EXECUTION_GRAPH.md          ← what you approve and read
-  plans/nodes/<id>.md     ← one collapsed plan per node (linked from the graph)
+Plan §19                     ← what you approve (Plan mode: this file only)
+EXECUTION_GRAPH.md          ← written at execution step 0, then what you read
+  plans/nodes/<id>.md     ← written at execution step 0, one plan per node
 ```
 
-1. **Graph** — topology, contracts, waves, **links to every node plan**.
+1. **Graph** — topology, contracts, waves, **a path for every node**. During
+   planning those paths live in §19. They become files at execution step 0.
 2. **Node plan** — feature-mode nawab, collapsed: objective, paths, commits,
-   gate, return contract. Not a second 18-section master.
+   gate, return contract. Not a second 18-section master. Not written until
+   execution starts.
 3. **Stop.** A node plan does **not** spawn another graph unless the user
    names this skill again for that slice.
 
@@ -107,8 +112,9 @@ If a `model` slug is not in the session list, use `inherit`. Never guess.
 
 ## Gate 0 — Research, then questions (blocking)
 
-**Before** nawab §19, node plans, or approval. Asking is expected. Do not
-smooth over uncertainty.
+**Before** nawab §19 or approval. Asking is expected. Do not smooth over
+uncertainty. Node plan files are not part of this gate; they are execution
+step 0.
 
 1. Research the repo or state greenfield. 5–10 lines of what you found.
 2. Ask numbered questions. Split **must-answer** (blocks compile),
@@ -142,22 +148,40 @@ A graph that ends at "code written" is incomplete.
 
 ---
 
-### A. Drafting (skill named, not yet approved)
+### A. Drafting (skill named, plan not yet approved)
 
-1. **Gate 0** — research, then questions. Wait for answers.
-2. Draft nawab §0–§18 for **scope**.
-3. Compile the **graph of plans** (checklist). Cover the lifecycle. Write
-   every node plan **before** approval so the links work.
-4. Put the graph in **§19** and on disk as `EXECUTION_GRAPH.md`.
-5. Approval footer: *Approving this graph starts execution immediately. Node plans are linked. Lifecycle stages are listed (or N/A).*
-6. Stop. Wait only for **that** approval.
+Cursor Plan mode writes **only the plan**. Do not create
+`EXECUTION_GRAPH.md`, `plans/nodes/*`, or other planning files in this phase.
+Do not create files just so a markdown link resolves.
 
-### B. On approval, or skill named on an already-approved plan
+1. **Gate 0** — research, then questions. Wait for answers. Record answers
+   in the plan.
+2. Draft nawab §0–§18 for **scope** in that same plan.
+3. Compile the graph into **§19 of the plan** (checklist), where the user
+   can see it. Cover the lifecycle. Include the **mermaid diagram of the
+   entire graph**, every decided node, edges, and waves. For each node, name
+   the future path `plans/nodes/<id>.md` and the contract (objective, in/out,
+   gate, write paths, §9 rows). Do **not** write those node files yet. Do
+   not leave the diagram for `EXECUTION_GRAPH.md`.
+4. Approval footer: *Build starts execution. Step 0 writes `EXECUTION_GRAPH.md`
+   and every node plan from this §19, then runs the graph. Lifecycle stages
+   are listed (or N/A).*
+5. Stop. Wait only for **that** approval.
 
-1. If the graph or any node plan is missing, compile first.
-2. **Run immediately.** Each node Task gets: repo path, node-plan path,
-   input artifact, output schema, write paths, **Do NOT commit**.
-3. Follow [Execute protocol](#execute-protocol).
+### B. Execution started (Build, or skill named on an already-approved plan)
+
+**Step 0 — materialize, before any product code or node Task:**
+
+1. Write `EXECUTION_GRAPH.md` from the approved §19.
+2. Write every `plans/nodes/<id>.md` in full from
+   [NODE.template.md](NODE.template.md): objective, paths, commits, gate,
+   return contract. A heading-only file is not a plan.
+3. Every path §19 named must exist. Then run.
+
+**Then run.** Each node Task gets: repo path, node-plan path, input
+artifact, output schema, write paths, **Do NOT commit**. Follow
+[Execute protocol](#execute-protocol). Do not skip a non-N/A node, and do
+not stop while mapped §9 rows are still uncommitted.
 
 ---
 
@@ -172,20 +196,24 @@ Gate 0 must already be done. Read [LIFECYCLE.md](LIFECYCLE.md). Read
 3. Contract every node (in schema, out schema). Pass inputs explicitly.
 4. Mark remaining edges `plumbing` | `agent` | `verify`.
 5. Pick topology; emit **waves**. Barrier only when a stage needs the **whole** set.
-6. Write `plans/nodes/<id>.md` per node from [NODE.template.md](NODE.template.md).
-   Map commits onto the parent §9 matrix; writers must not overlap.
-7. Fill [GRAPH.template.md](GRAPH.template.md). **Node plans** table is
-   required — every row is a working markdown link. Include **Lifecycle**.
+6. In §19, name `plans/nodes/<id>.md` per node and map commits onto the
+   parent §9 matrix; writers must not overlap. **Write those files at
+   execution step 0, not during planning.**
+7. Paste the filled [GRAPH.template.md](GRAPH.template.md) **into the plan's
+   §19**, including its mermaid block. The node table lists every future
+   path. Include **Lifecycle**. The diagram and the decided nodes are visible
+   in the plan. Do not create node files to make links work.
 8. Tiny real chains stay a chain. Do not pad.
 
 Save agents for judgment. Not for plumbing.
 
 ## Output contract
 
-Show in chat, not only in files:
+The plan's **§19** is what the user sees. These are **in the plan**, not only
+in chat and not deferred to `EXECUTION_GRAPH.md`:
 
-1. The mermaid graph
-2. The **Node plans** table with clickable links
+1. The **mermaid diagram of the entire graph**
+2. Every decided node, with the path step 0 will create (not a file yet)
 3. Lifecycle table (every stage present or N/A)
 4. Wave table (counts, where the barrier is)
 5. **Edges cut, and why**
@@ -199,7 +227,10 @@ During a wave: name wave, node ids, model; after: survivors vs dropped.
 
 If §19 is filled, §18 defers to these waves.
 
-1. Refresh `EXECUTION_GRAPH.md` from §19 (must still contain the node-plan links).
+0. **Materialize** if `EXECUTION_GRAPH.md` or any node plan is missing:
+   write them from §19 before wave 0. Do not start on stubs.
+1. Refresh `EXECUTION_GRAPH.md` from §19 (must list every node-plan path,
+   and those files must now exist).
 2. Ponytail on every code write.
 3. Per wave: spawn independent `Task`s in **one message**. Each prompt
    includes **only** that node's plan path plus its input artifact — not the
@@ -212,7 +243,14 @@ If §19 is filled, §18 defers to these waves.
    and `PROGRESS.md`. A later session **resumes at the next pending wave** —
    do not restart the project in one context.
 9. Lead owns git, gates, PROGRESS, PR. Subagents do not commit. One §9 row
-   per commit. Human checkpoint only if the node plan marks it (prod / freeze).
+   per commit. After each commit, state `k/N` against the approved matrix.
+   Do not merge rows to finish faster. Human checkpoint only if the node
+   plan marks it (prod / freeze).
+10. **Done only when** every non-N/A node passed, `k` equals the approved
+    §9 row count, and §1 deliverables plus run, trials, and docs-out
+    (unless marked N/A) are real. Fewer commits than the matrix is a failed
+    run. If you stop early, name the next pending node and the next
+    uncommitted §9 row. Do not call that complete.
 
 ---
 
@@ -220,13 +258,15 @@ If §19 is filled, §18 defers to these waves.
 
 | | Default nawab | This skill named |
 |--|----------------|------------------|
-| What you read | Linear §0–§18 | **The graph** + linked node plans |
-| §19 | `N/A` | Required: graph + **links to every node plan** |
-| Approval | Then implement per §18 | Approve graph → **run** |
+| What you read while planning | Linear §0–§18 | **§19 in the plan**: full graph, mermaid, every node |
+| What you read while executing | Linear §0–§18 | Graph file + node plans written at step 0 |
+| §19 | `N/A` | Required: graph + **a path for every node** |
+| Approval | Then implement per §18 | Build → **write node plans, then run** |
 | Extra wait | — | **None** per node |
 
 Never auto-chain from nawab-plans. Nawab §0–§18 stay the scope contract.
-The graph is the execution program. Node plans are additive files.
+The graph in §19 is the execution program. Node plan files are created at
+execution step 0, then each node runs its own plan.
 
 ---
 
@@ -236,7 +276,12 @@ The graph is the execution program. Node plans are additive files.
 - Compiling the graph before Gate 0 answers (guessing architecture or UX)
 - Skipping trade-off questions when two options are both valid
 - Graph that ends at "code written" with no run / trials / docs-out
-- Graph with no working links to node plans
+- Writing `EXECUTION_GRAPH.md` or `plans/nodes/*` during Cursor Plan mode
+- Creating files during planning so a link resolves
+- A plan whose §19 has no mermaid of the whole graph, or hides decided nodes until execution
+- Graph whose §19 names no path per node
+- Finishing after a fraction of the §9 commits
+- Skipping a non-N/A node because the code already exists
 - 18-section nawab **per node** (collapse; depth 2 only)
 - Node plan that spawns another graph unasked
 - Treating "and then" as an edge when no data crosses

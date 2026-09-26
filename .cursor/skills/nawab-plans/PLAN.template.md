@@ -386,12 +386,23 @@ _or:_
 ```
 
 If **§19 is filled**, do not run this linear protocol as the primary loop.
-On approval: the graph is the plan you read.
+The graph in §19 is what you execute, after step 0.
+
+```text
+0. Materialize (before product code):
+   write EXECUTION_GRAPH.md or LOOP_GRAPH.md from §19,
+   then write every node/loop plan in full.
+   Do not start wave 0 until those files exist.
+```
 
 - `graph-engineering` → `EXECUTION_GRAPH.md` + `plans/nodes/` (one-shot nodes)
 - `graph-of-loops` → `LOOP_GRAPH.md` + `plans/loops/` (maker + checker until stop)
 
 Never both. Keep §9 commits, gates, and lead-owned git.
+After each commit, state `k/N`. The run is done only when `k` equals the
+approved row count, every §1 deliverable passed its gate, every §16 P0 is
+checked, and every non-N/A graph node passed. Fewer commits than the matrix
+is not a finished plan. If you stop early, name the next row or node.
 
 ---
 
@@ -401,20 +412,27 @@ Never both. Keep §9 commits, gates, and lead-owned git.
 
 Exactly one named skill may fill this section:
 
-- **graph-engineering:** ask questions first, then
-  `.cursor/skills/graph-engineering/GRAPH.template.md`. **Required:** Node
-  plans table with working links; Lifecycle table (run, trials, docs-out
-  present or N/A with reason).
-- **graph-of-loops:** ask questions first, then
-  `.cursor/skills/graph-of-loops/LOOP_GRAPH.template.md`. Use nawab
-  **standard or project** (not lite). **Required:** Loop plans table with
-  working links; each loop names a **stop command**; Lifecycle includes
-  product lock, architecture, evaluate, run, trials, docs-out (or N/A with
-  reason).
+- **graph-engineering:** ask questions first, then fill
+  `.cursor/skills/graph-engineering/GRAPH.template.md` **in this section**.
+  **Required in this section, visible in the plan:** the mermaid diagram of
+  the entire graph; every decided node; edges and waves; node table naming
+  each future `plans/nodes/<id>.md` path (do not create the files);
+  Lifecycle table (run, trials, docs-out present or N/A with reason).
+- **graph-of-loops:** ask questions first, then fill
+  `.cursor/skills/graph-of-loops/LOOP_GRAPH.template.md` **in this section**.
+  Use nawab **standard or project** (not lite).   **Required in this section, visible in the plan:** the mermaid diagram of
+  the entire loop graph; every decided loop; edges and waves; loop table
+  naming each future `plans/loops/<id>.md` path (do not create the files);
+  each loop names a **stop command**; Lifecycle includes product lock,
+  architecture, evaluate, run, trials, docs-out (or N/A with reason).
 - **Both named:** stop and ask which wins. Do not compile either until then.
 
-**If this section is filled:** approving this plan starts that graph
-immediately. No second wait.
+**Plan mode writes only this plan.** Do not create the graph file or node
+plans while drafting.
+
+**If this section is filled:** Build starts execution. Step 0 writes the
+graph file and every node plan from this section, then runs the graph. No
+second wait, and no wait per node.
 
 ---
 
@@ -429,4 +447,4 @@ immediately. No second wait.
 **Mode:** [project | feature]  
 Plan ready for review. Approve to begin **Phase [0/A]**.  
 Lead agent follows **§18 Execution protocol**.  
-If §19 is filled: approving writes `EXECUTION_GRAPH.md` **or** `LOOP_GRAPH.md` (whichever skill was named) and **starts that graph immediately**.
+If §19 is filled: Build does not write files during planning. Execution step 0 writes `EXECUTION_GRAPH.md` **or** `LOOP_GRAPH.md` and every node plan, then **starts that graph**.

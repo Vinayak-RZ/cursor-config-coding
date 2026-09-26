@@ -11,7 +11,7 @@ fi
 ROOT="$(cd "$DIR/.." && pwd)"
 SRC="$ROOT/.cursor/rules"
 GLOBAL="${HOME}/.cursor/rules"
-RULES=(model-selection.mdc)
+RULES=(model-selection.mdc rule-awareness.mdc planning.mdc execution.mdc quality-gates.mdc)
 SEARCH_ROOTS=("${@:-$HOME/Startups}")
 
 sync_into() {

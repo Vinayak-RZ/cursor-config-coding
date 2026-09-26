@@ -34,8 +34,9 @@ command that was actually run.
 
 ## T1 — Queued trials
 
-Not one happy screenshot. Write the queue **in the T1 loop plan before
-execution**. Default queue (drop a row only with `N/A — reason`):
+Not one happy screenshot. Name the queue **in §19 during planning**. Copy it
+into the T1 loop plan at execution step 0, before that node runs. Default
+queue (drop a row only with `N/A — reason`):
 
 | # | Trial | Pass means |
 |---|-------|------------|

@@ -4,6 +4,17 @@ If nawab §19 is a loop graph, §18 defers to these waves. Lead owns git,
 gates, `LOOP_GRAPH.md` status, `PROGRESS.md`, and PR. Subagents do not
 commit. Ponytail on every code write.
 
+## Step 0 — materialize (before any maker)
+
+If `LOOP_GRAPH.md` or any loop plan is missing, write them before wave 0.
+Do not start makers on stubs.
+
+1. Write `LOOP_GRAPH.md` from the approved §19.
+2. Write `docs/planning/GATE_0.md` from answers already in the plan.
+3. Write every `plans/loops/<id>.md` in full, including its stop command.
+   Copy the T1 trial queue from §19 into the T1 plan.
+4. Confirm every path §19 named exists. Then continue below.
+
 Do **not** use Cursor `/loop` timers. Do **not** run graph-engineering’s
 one-shot execute protocol on these nodes.
 
@@ -58,7 +69,7 @@ If the slug is not in the session list, use `inherit`.
 
 ## Per wave
 
-1. Refresh `LOOP_GRAPH.md` from §19 (must still contain the loop-plan links).
+1. Refresh `LOOP_GRAPH.md` from §19 (every loop-plan path listed, and those files exist).
 2. Independent nodes: spawn **makers** in one message (cap 2–4 writers).
    After each maker returns, spawn its **checker**. Do not let two makers
    share write paths.
@@ -113,12 +124,15 @@ slop.
 6. **Lead plumbing.** Flatten, dedupe, git, gates — no extra agent.
 7. **Ponytail on writes.** Inner retries fix the stop, not extra features.
 8. **Commit as you go.** Lead commits each passed node's §9 rows so a crash
-   does not sit on a giant uncommitted tree.
+   does not sit on a giant uncommitted tree. One row, one commit. After each
+   commit, state `k/N`. Do not squash the matrix to finish faster.
 9. **Context dying.** Finish the current checker, write checkpoints, tell
    the user `resume at wave N / node id`. Do not dump a recap novel.
-10. **Done.** All required cycle stages `passed` (or N/A with reason), T1
-    log filled, D1 README names the boot command. Then stop — do not start
-    a second product.
+10. **Done only when** every required cycle stage is `passed` (or N/A with
+    reason), T1 log filled, D1 README names the boot command, and `k` equals
+    the approved §9 row count. Fewer commits than the matrix is a failed run.
+    If you stop early, name the next pending node and the next uncommitted
+    row. Do not call that complete. Then stop — do not start a second product.
 
 Token waste: identical maker prompts every round, checkers that rewrite
 code, serializing independent B* nodes, documenting before R1.

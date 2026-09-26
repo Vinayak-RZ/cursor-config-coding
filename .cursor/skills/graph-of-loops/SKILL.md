@@ -2,11 +2,13 @@
 name: graph-of-loops
 description: >
   Full product one-shot as a graph of loops: ask every product and technical
-  question first, lock users/P0/non-goals, architecture ADRs, then execute
-  build slices with maker + independent checker until a stop command holds,
-  boot it, run a queued trial log, document after evidence. For long
-  (1–2h+) runs when the user names /graph-of-loops. XOR graph-engineering.
-  Not graphify. Not Cursor /loop.
+  question first, lock the graph in the plan (users/P0/non-goals, architecture
+  shape), then on Build write each loop plan and execute slices with maker +
+  independent checker until a stop command holds, boot it, run a queued trial
+  log, document after evidence. Do not write loop plan files during Plan mode.
+  Finish every approved node and every mapped commit. For long (1–2h+) runs
+  when the user names /graph-of-loops. XOR graph-engineering. Not graphify.
+  Not Cursor /loop.
 disable-model-invocation: true
 trigger: /graph-of-loops
 argument-hint: "[plan path or leave blank to use the current nawab plan]"
@@ -73,19 +75,20 @@ separate checker agrees — typical for **entire products / major features**.
 ## Hierarchy (depth 2)
 
 ```text
-LOOP_GRAPH.md
-  plans/loops/<id>.md
+Plan §19                     ← approved graph (Plan mode: this file only)
+LOOP_GRAPH.md                ← execution step 0
+  plans/loops/<id>.md        ← execution step 0
   plans/loops/<id>.state.json
-docs/PRODUCT.md              ← P0
-DECISIONS.md                 ← A1
-docs/planning/GATE_0.md      ← R0 answers
+docs/PRODUCT.md              ← P0 node, during execution
+DECISIONS.md                 ← A1 node, during execution
+docs/planning/GATE_0.md      ← execution step 0, from answers already in the plan
 docs/planning/R1_BOOT.md
 docs/planning/T1_TRIALS.md
 PROGRESS.md
 ```
 
-Loop plans do **not** spawn another graph unless the user names this skill
-again for that slice.
+Do not create this tree during Plan mode. Loop plans do **not** spawn
+another graph unless the user names this skill again for that slice.
 
 ---
 
@@ -114,19 +117,35 @@ Unknown `model` slug → `inherit`. Never guess.
 
 ### A. Named, not yet approved
 
+Cursor Plan mode writes **only the plan**. Do not create `LOOP_GRAPH.md`,
+`plans/loops/*`, `docs/planning/GATE_0.md`, or other planning files in this
+phase. Do not create files just so a markdown link resolves.
+
 1. Research 5–10 lines. Follow [QUESTIONS.md](QUESTIONS.md). **Stop. Wait.**
-2. From answers: nawab **standard/project** §0–§18 + `docs/planning/GATE_0.md`.
-3. Compile per [CYCLE.md](CYCLE.md) + checklist below. Write **every** loop
-   plan before approval (links must work). Every plan has a stop command.
-4. §19 + disk: `LOOP_GRAPH.md`.
-5. Footer: *Approving starts the long run immediately. Product, architecture,
-   build, boot, queued trials, and docs-out are on the graph.*
-6. Wait **only** for that approval.
+2. From answers: nawab **standard/project** §0–§18 in that same plan. Record
+   Gate 0 answers in the plan, not in a side file.
+3. Compile per [CYCLE.md](CYCLE.md) + checklist below **into §19 of the
+   plan**, where the user can see it. Include the **mermaid diagram of the
+   entire loop graph**, every decided loop, edges, and waves. Name each
+   future `plans/loops/<id>.md` and its stop command. Do **not** write those
+   loop files yet. Do not leave the diagram for `LOOP_GRAPH.md`.
+4. Footer: *Build starts the long run. Step 0 writes `LOOP_GRAPH.md` and
+   every loop plan from this §19, then executes product, architecture,
+   build, boot, queued trials, and docs-out.*
+5. Wait **only** for that approval.
 
-### B. Approved, or named on an already-approved plan
+### B. Execution started (Build, or named on an already-approved plan)
 
-If the graph or a loop plan is missing, compile first. Then **run**
-[EXECUTE.md](EXECUTE.md) without a second wait per node.
+**Step 0 — materialize, before any maker:**
+
+1. Write `LOOP_GRAPH.md` from the approved §19.
+2. Write `docs/planning/GATE_0.md` from the answers already in the plan.
+3. Write every `plans/loops/<id>.md` in full from
+   [LOOP.template.md](LOOP.template.md), including a real stop command.
+   Copy the T1 trial queue from §19 into the T1 plan. A stub is not a plan.
+4. Every path §19 named must exist. Then **run**
+   [EXECUTE.md](EXECUTE.md) with no second wait per node. Do not skip a
+   non-N/A stage, and do not stop while mapped §9 rows are still uncommitted.
 
 ---
 
@@ -137,17 +156,23 @@ Gate 0 answers exist. Read [CYCLE.md](CYCLE.md) and topologies.
 1. Every cycle stage is a loop (or `N/A — reason`). **P0, A1, E1, R1, T1, D1
    are not optional** for software.
 2. Cut fake edges. Independent work is the same wave.
-3. Fill [LOOP.template.md](LOOP.template.md) per node. Prose-only stop →
-   refuse that node.
+3. Specify each node from [LOOP.template.md](LOOP.template.md) **inside §19**
+   (path, stop, write paths, §9 rows). Prose-only stop → refuse that node.
+   Write the loop plan file at execution step 0, not during planning.
 4. Checker ≠ maker. Default checker `composer-2.5-fast`.
 5. `max_rounds` default 3. Escalate rule named.
 6. Waves + barrier only when the next node needs the **whole** set.
-7. Fill [LOOP_GRAPH.template.md](LOOP_GRAPH.template.md). Loop-plans table
-   required. T1 plan lists the **trial queue** ([QUALITY.md](QUALITY.md)).
+7. Paste the filled [LOOP_GRAPH.template.md](LOOP_GRAPH.template.md) **into
+   the plan's §19**, including its mermaid block. The loop table lists every
+   future path. T1's row lists the **trial queue**
+   ([QUALITY.md](QUALITY.md)). The diagram and the decided loops are visible
+   in the plan. Do not create the loop files.
 8. Tiny real chains stay a chain. Do not pad.
 
-Show in chat: mermaid, loop-plan links, lifecycle, waves, per-loop stop +
-max rounds, edges cut.
+Visible **in the plan's §19** (not only in chat, not deferred to
+`LOOP_GRAPH.md`): mermaid of the entire loop graph, every decided loop and
+its path (not a file yet), lifecycle, waves, per-loop stop + max rounds,
+edges cut.
 
 ---
 
@@ -156,9 +181,10 @@ max rounds, edges cut.
 | | Default nawab | This skill |
 |--|----------------|------------|
 | Profile | lite in Plan mode | **standard or project** |
-| What you read | §0–§18 | **LOOP_GRAPH.md** + loop plans |
-| §19 | `N/A` | Required loop graph + links |
-| Approval | then §18 | Approve → **run the long cycle** |
+| What you read while planning | §0–§18 | **§19 in the plan**: full loop graph, mermaid, every loop |
+| What you read while executing | §0–§18 | `LOOP_GRAPH.md` + loop plans from step 0 |
+| §19 | `N/A` | Required loop graph + a path per loop |
+| Approval | then §18 | Build → **write loop plans, then run the long cycle** |
 | Extra wait | — | Gate 0, escalate, prod/freeze only |
 
 If §19 already has `EXECUTION_GRAPH.md`, ask which skill wins.
@@ -170,7 +196,12 @@ If §19 already has `EXECUTION_GRAPH.md`, ask which skill wins.
 - Loading because Plan mode is on, or with graph-engineering
 - Using Cursor `/loop` as the inner loop
 - Compiling before Gate 0 answers; guessing users or UX
+- Writing `LOOP_GRAPH.md`, `plans/loops/*`, or `docs/planning/*` during Cursor Plan mode
+- Creating files during planning so a link resolves
+- A plan whose §19 has no mermaid of the whole loop graph, or hides decided loops until execution
 - Lite nawab for this skill
+- Finishing after a fraction of the §9 commits
+- Skipping a non-N/A stage (especially R1, T1, D1) because code already exists
 - Stop that is not a command or file predicate
 - Maker checking its own stop
 - Graph that ends at code written (no R1/T1/D1)

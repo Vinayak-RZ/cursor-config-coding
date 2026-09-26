@@ -1,4 +1,4 @@
-# Sync README + copywriting skills from this config into:
+# Sync coding skills from this config into:
 #   1. ~/.cursor/skills  (global)
 #   2. local git repos that already contain those skill folders
 #
@@ -21,7 +21,10 @@ $skillNames = @(
     "readme",
     "product-readme",
     "readable-readme",
-    "extensive-readme"
+    "extensive-readme",
+    "nawab-plans",
+    "graph-engineering",
+    "graph-of-loops"
 )
 $skipDirNames = @("node_modules", "external", ".git", "dist", ".next", "__pycache__")
 

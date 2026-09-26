@@ -1,6 +1,7 @@
 # Loop plan — `<id>` — `<short name>`
 
 > Collapsed plan for **one loop node**. Not a second 18-section nawab.
+> Written at **execution step 0**, not during Plan mode.
 > Parent: [LOOP_GRAPH.md](../../LOOP_GRAPH.md) (adjust relative path).
 
 | Field | Value |

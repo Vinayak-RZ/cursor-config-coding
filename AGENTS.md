@@ -6,7 +6,7 @@ Skills in this config describe **jobs** (plan, README, architecture), not a name
 
 ## Always on
 
-Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `nawab-plans` at **lite / standard / project** (lite unless the user asks full nawab or the work is multi-package). graph-engineering **or** graph-of-loops only if named (never both) — not graphify.
+Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `nawab-plans` at **lite / standard / project** (lite unless the user asks full nawab or the work is multi-package). Plan mode writes only the plan file, and that plan shows the full decided graph (mermaid and every node). graph-engineering **or** graph-of-loops only if named (never both) — not graphify. Per-node plans are written when execution starts, then run to the end of the approved commit matrix.
 
 ## Skills
 

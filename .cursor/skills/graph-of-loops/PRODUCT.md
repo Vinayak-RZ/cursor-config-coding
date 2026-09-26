@@ -4,8 +4,9 @@ Think like a product engineer, then write it down. A long run that skips
 this ships the wrong software efficiently.
 
 Authority after this loop: `docs/PRODUCT.md` (preferred) **or** nawab §1 if
-the user forbade extra docs. Checker proves the file has every required
-heading.
+the user forbade extra docs. Write it **inside the P0 node, after execution
+has started**, not during Plan mode. Checker proves the file has every
+required heading.
 
 Load this inside the **P0** loop. Do not invent users or copy.
 

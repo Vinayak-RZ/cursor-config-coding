@@ -14,5 +14,7 @@ Non-trivial work: read `.cursor/skills/nawab-plans/SKILL.md` and use the
 - Ask commit budget before §9 if missing
 - Skip-plan / one-line hotfix: ponytail only
 - graph-engineering **or** graph-of-loops only if named (never both); graphify is not §19
+- Plan mode writes **only the plan file**. If a graph skill was named, §19 of that plan shows the full decided graph: mermaid of the entire structure, every node, edges, and waves. Do not create `EXECUTION_GRAPH.md`, `LOOP_GRAPH.md`, `plans/nodes/`, or `plans/loops/` until Build. Execution step 0 writes the per-node plans from that visible graph, then runs them.
+- Execution lands **every** §9 row as its own commit and every §1 deliverable. Stopping at a fraction of the matrix is not done.
 
 Present the plan and wait for approval before implementation.

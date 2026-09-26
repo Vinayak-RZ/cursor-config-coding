@@ -53,6 +53,8 @@ A task is complete only when:
 - Progress updated
 - Phase report generated (include **What you learned** bullets per `learn-and-research.mdc`)
 - **Conventional commit created** per `git-commit-discipline.mdc` (unless user said no commits this session)
+- Every approved §9 row has its own commit (`k/N` matches). Fewer commits than the matrix is not complete
+- If the plan has a graph, every non-N/A node passed
 
 Do not mark work complete before all criteria are satisfied.
 

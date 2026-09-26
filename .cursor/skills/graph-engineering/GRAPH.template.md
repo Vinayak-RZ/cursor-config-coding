@@ -1,10 +1,12 @@
 # Execution graph
 
-> **This is the plan you read.** Node plans are separate files; every one
-> must appear as a markdown link in [Node plans](#node-plans).
+> **Paste this whole shape into the plan's §19**, including the mermaid
+> diagram of the entire graph and every decided node. That is what the user
+> sees. Do not write `EXECUTION_GRAPH.md` or `plans/nodes/*` until execution
+> step 0.
 >
-> Fill this shape in nawab **§19** and write it to `EXECUTION_GRAPH.md`.
-> On approval, **run immediately**.
+> On Build, copy this into `EXECUTION_GRAPH.md`, write every node plan,
+> then **run**.
 
 ---
 
@@ -131,6 +133,8 @@ Lead commits. Ponytail on every write. One matrix row per commit.
 
 ## Approval implication
 
-Approving **this graph** (nawab plan with §19 filled) starts graph execution
-immediately. Node plans are already written and linked. No second wait, and
-no wait per node unless a node plan marks a human checkpoint (prod / freeze).
+Build on a plan with §19 filled starts execution. Step 0 writes this file
+and every node plan. Node plans are not written during Plan mode. No second
+wait, and no wait per node unless a node plan marks a human checkpoint
+(prod / freeze). The run is unfinished while any non-N/A node is pending or
+any mapped §9 row has no commit.

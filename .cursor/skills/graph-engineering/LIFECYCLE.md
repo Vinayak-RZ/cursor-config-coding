@@ -10,8 +10,10 @@ Companion skills are **loaded inside that node**, not instead of a node plan.
 
 ## Gate 0 — Research, then questions (blocking)
 
-Lead only. No product fan-out yet. **Do not compile §19 or write node plans
-until this gate passes.**
+Lead only. No product fan-out yet. **Do not compile §19 until this gate
+passes.** After answers, the graph goes in the plan's §19 only. Do not write
+`EXECUTION_GRAPH.md` or node plans during Plan mode; those files are
+execution step 0.
 
 1. **Research** — Read the repo (or state greenfield). Note stack, existing
    docs, constraints, users. Load domain skills as needed

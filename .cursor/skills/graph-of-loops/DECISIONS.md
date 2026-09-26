@@ -6,7 +6,8 @@ from Gate 0 land here. Use `system-design-tradeoffs` (and
 when that layer exists).
 
 Write `DECISIONS.md` (or `docs/DECISIONS.md` if the repo already uses that
-path). Do not reopen PID P0 locks.
+path) **inside the A1 node, after execution has started**. Do not write it
+during Plan mode. Do not reopen PID P0 locks.
 
 ---
 
