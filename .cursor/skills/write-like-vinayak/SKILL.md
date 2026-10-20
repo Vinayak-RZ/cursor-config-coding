@@ -30,6 +30,7 @@ These outrank every local style choice below.
 6. **His latest edit wins.** A word or number he typed over yours is the word or number. Never "correct" it back in a later polish.
 7. **Separate the rooms.** Investor video, client letter, website, technical note, internal note and post each have their own tone and depth.
 8. **One strong word, one job; one proof, one place.** A prestige word appears once, where it does real work. A stat or story appears in one section only.
+9. **Headings stay general.** The title and the section headings name the whole job. A specific machine, site, defect or capability goes in the body under them. A heading that only one feature could wear makes the reader think that is all the product does. (20 Oct 2026.)
 
 ## 2. Voice and sentence rules
 
@@ -75,6 +76,10 @@ These outrank every local style choice below.
 **Inside each problem block:** the problem in the reader's words, short; only the evidence they need to believe it; the move; who watches, who is told, who decides.
 
 **One idea per paragraph.** Short paragraphs that group related lines. Break any paragraph an owner would read top to bottom into two. (The older "one line per paragraph" post rule is out of date.)
+
+**Headings stay general.** The title, and any heading a reader treats as what the document is about, names the whole job. Put the specific scene in the paragraph under it. This is not the "keep it general" anecdote rule in section 5: the heading is broad, and the first sentence under it is still the concrete mechanism. A post has no document title, so a post hook stays specific (section 6).
+- Before: a page titled "Catch the late cake before the oven timer ends."
+- After: a page titled "Orders leave the same day." The late cake stays in the paragraph under that title.
 
 **One proof per section.** Each stat, story or pivot sentence lives in one place. Pick the section where it belongs and cut the copies.
 
@@ -122,7 +127,7 @@ Example:
 | Internal note | Lead with the conclusion. Full history allowed, including failed directions and internal mottos. Mark confidence and open questions. Do not force a three-beat close. | Pasting internal history or mottos into external copy |
 | Social posts | See section 6. | Company-copy phrase banks into posts, and post lines into any other room |
 
-**"General" and "specific" are not opposites in his feedback.** "Keep it general" means do not replay a particular anecdote from his archive. "Too generic" means you only renamed the question. Hold both.
+**"General" and "specific" are not opposites in his feedback.** "Keep it general" means do not replay a particular anecdote from his archive. "Too generic" means you only renamed the question. Hold both. A third use, from 20 Oct 2026: main headings stay general so one example does not look like the whole product. The example stays in the body.
 
 **Humour.** Website "friendly" is not interview "funny". The scripts he records are not humorous. How funny a client email should be is not established. (Low.)
 
@@ -190,6 +195,7 @@ Example:
 - When he says "too AI" or "humanise it", rewrite the sentence shapes (triplets, contrast lines, polished closers, explainer tone), not just the vocabulary.
 - When he says "generic", you probably echoed the question or used category words. Replace with the mechanism.
 - When he says "keep it general", remove the borrowed anecdote, not the specifics.
+- When he says a heading is too specific, or that a reader will think the product only does that, widen the title and the section headings. Leave the example in the body.
 - When he rejects a draft, do not lift paragraphs from it into the next one.
 - If the mechanism was wrong, fix it from the real source (the proposal, the record) before polishing anything else. Polish on a wrong "how" is wasted.
 - Record a decision once he makes it, with the date, so the next agent does not reopen it.
@@ -197,6 +203,7 @@ Example:
 ## 10. Pre-send checklist
 
 - [ ] The first sentence answers the question.
+- [ ] The title and the section headings name the whole job. One machine, site or capability does not sit in the heading.
 - [ ] The mechanism is named: who acts, on what, what is measured.
 - [ ] Every number, name, date and status traces to a source; aims, replays and assumptions are labelled.
 - [ ] No invented customer, quote, figure or price; placeholders where needed.
@@ -234,3 +241,4 @@ Example:
 18. Copying wording from a draft he already rejected.
 19. Proper nouns the reader cannot use.
 20. American spelling.
+21. A heading that names one capability, so the reader thinks that is the whole product.
