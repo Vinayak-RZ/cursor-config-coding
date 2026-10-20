@@ -12,7 +12,7 @@ Stamped is AI for plant operations. It models a plant's processes and equipment 
 
 The losses are scrap, rejects and wasted energy, usually found after the damage, when the parts have already left. Stamped is built to catch that drift while the run can still be saved.
 
-Never "Stamped Energy". Not an energy company, a dashboard, a replacement for MES or quality systems, a hardware company or a consultancy. Energy sits in the same sentence as scrap and rejects. It is not a separate programme, and it is not the company. A worked example may be a furnace or a heater. The heading does not name that machine.
+Never "Stamped Energy". Not an energy company, a dashboard, a replacement for MES or quality systems, a hardware company or a consultancy. Energy sits in the same sentence as scrap and rejects. It is not a separate programme, and it is not the company. A worked example comes from the open bank in section 3. The heading does not name that machine.
 
 ## 2. Lines he will sign
 
@@ -39,12 +39,68 @@ Tell it in this order, with these names. One or two words each.
 
 **How we capture it,** in his shape: You approve. The agent makes the allowed change. Loads that must stay on stay with you.
 
-**Two samples, two machines.** Do not tell the same scene in the card and in the steps.
+**Two samples, two machines. The pair stays open.** On one page, the card and the steps use different machines, so the reader does not think the product is that one machine. Pick any two from the bank below, or write a new one in the same shape when the reader's line uses a different machine. Do not default to the same pair every time. Each sample is a sample. None of them is a live plant.
 
-- Card: This part needs less heat. The furnace is still set for the last one. The last part was hotter, the burners have not come down, so that extra fuel has not been burned yet. You approve. The agent turns the burners down.
-- Steps: The forging press has stopped, but the billet heater is still running at full heat. They try a lower heat for the stop on a model of that heater, and check the billets are still hot enough when the press restarts. The operator approves before the heater is touched. Once it has proved itself, the agent runs it on every stop.
+The shape of a new sample, in words a shift lead can say back:
 
-Say "a model of that machine." Do not say digital twin, world model, or reinforcement learning on this surface.
+- Headline, two facts: what this job needs, and what the machine is still doing.
+- Tag: the area, then the loss in plain words.
+- One finding sentence.
+- What we found. The opportunity. How we capture it.
+- Steps, if this sample is the strip: one sentence each, a scene, not a definition of the step name.
+
+**Furnace, next part.** He used this on the card, and it is the one he said he could follow.
+
+- Headline: This part needs less heat. The furnace is still set for the last one.
+- Tag: Heat treatment · Extra fuel, not yet burned
+- Finding: The last part was hotter. The burners have not come down, so that extra fuel has not been burned yet.
+- What we found: The furnace is still hot from the last part. This one does not need that much heat.
+- The opportunity: If the burners stay high, they burn fuel this part will never use.
+- How we capture it: You approve. The agent turns the burners down. Loads that must stay on stay with you.
+
+**Billet heater, press stopped.** He used this in the steps.
+
+- Find loss: The forging press has stopped, but the billet heater is still running at full heat.
+- Simulate: They try a lower heat for the stop on a model of that heater, and check the billets are still hot enough when the press restarts.
+- Approve: The operator sees the change and the record behind it, and approves it before the heater is touched.
+- Keep on: Once it has proved itself, the agent runs it on every stop, and it becomes part of how that line runs.
+
+**Quench, parts still in the tank.** A reject caught before the load comes out.
+
+- Headline: This load is cooling too fast. The parts are still in the quench.
+- Tag: Heat treatment · A batch heading for rejection
+- Finding: The loads that passed cooled more slowly. This one is already ahead of them, and it has not come out yet.
+- What we found: The quench is running colder than the loads that passed. The parts are still in the tank.
+- The opportunity: If it finishes this way, the batch fails after it leaves, and the heat already in it is wasted.
+- How we capture it: You approve. The agent brings this quench back to the rate the good loads used. A load that must hit a hardness spec stays with you.
+- Find loss: The quench is cooling this load faster than the loads that passed, and the parts are still in the tank.
+- Simulate: They try a slower cool on a model of that quench, and check the parts still come out hard enough.
+- Approve: The operator sees the change and the record behind it, and approves it before the quench is touched.
+- Keep on: Once it has proved itself, the agent runs it on every load that is cooling too fast, and it becomes part of how that line runs.
+
+**Induction coil, thinner shaft.** The same "still set for the last job" idea, on a different machine.
+
+- Headline: This shaft needs a shorter heat. The coil is still set for the thicker one.
+- Tag: Induction hardening · Extra heat, not yet used
+- Finding: The last shaft was thicker. This one is already in the coil, and the coil has not come down.
+- What we found: The coil is still on the setting for the thicker shaft. This shaft does not need that long a heat.
+- The opportunity: The extra seconds heat a shaft that does not need them, and can push it out of spec.
+- How we capture it: You approve. The agent shortens this heat. A shaft that must stay on full heat stays with you.
+
+**Die, next billets not forged yet.** Scrap caught before the press makes the part.
+
+- Headline: These parts are drifting out of size. The next billets are not forged yet.
+- Tag: Forging · Scrap before the press
+- Finding: The last parts from this die are moving toward the size that fails. The next billets are still in the heater.
+- What we found: The die is making parts that are leaving the size that passed.
+- The opportunity: If those billets are forged now, they are scrap, and the heat in them is gone.
+- How we capture it: You approve. The agent holds the next billets. Releasing a part stays with you.
+- Find loss: Parts from this die are drifting out of size, and the next billets have not been forged.
+- Simulate: They try holding those billets on a model of that press, and check the metal is still sound when forging starts again.
+- Approve: The operator sees the change and the record behind it, and approves it before the press is held.
+- Keep on: Once it has proved itself, the agent holds the next billets whenever that die starts to drift, and it becomes part of how that line runs.
+
+Say "a model of that machine." Do not say digital twin, world model, or reinforcement learning on this surface. A line he could not picture ("Ease the burners") is too compressed. Two facts, then the move.
 
 ## 4. Authority
 
@@ -71,7 +127,7 @@ Still true: tested on a model first, the record is visible (Evidence), the team 
 | Proof | A sample, labelled as a sample. A replay on their own records once they ask | The record behind the finding | Only sourced facts. Nothing implied about a live plant |
 | Close | A short meeting with the person you wrote to | Same | The end state: a proved change that keeps running |
 
-**Sector order for a technical story:** forging (a press stop, a billet heater) and heat treatment (a furnace still set for the last part). One machine per section.
+**Sector order for a technical story:** forging, then heat treatment, then a foundry line when the reader runs one. Pick the machines from the bank in section 3, two different ones if the page has a card and a strip. One machine per section.
 
 ## 6. Outcomes and how to state them
 

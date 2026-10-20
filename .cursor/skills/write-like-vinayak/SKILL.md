@@ -37,7 +37,7 @@ These outrank every local style choice below.
 
 **Spelling.** British/Indian spelling everywhere: optimise, organise, programme, colour, behaviour, analyse, centre. (High, Content Lead.)
 
-**Punctuation.** No em dashes, ever. Use a comma, colon, parentheses or a new sentence. Straight quotes. No bold scattered mid-sentence.
+**Punctuation.** No em dashes, ever. Use a comma, colon, parentheses or a new sentence. Straight quotes. No bold scattered through a paragraph. In a document, one phrase in a section may be bold when it is the point of that section.
 
 **Sentences.**
 - Plain verbs: build, run, move, check, prove, pay, ship.
@@ -81,6 +81,22 @@ These outrank every local style choice below.
 **Headings stay general.** The title, and any heading a reader treats as what the document is about, names the whole job. Put the specific scene in the paragraph under it. This is not the "keep it general" anecdote rule in section 5: the heading is broad, and the first sentence under it is still the concrete mechanism. A post has no document title, so a post hook stays specific (section 6).
 - Before: a page titled "Catch the late cake before the oven timer ends."
 - After: a page titled "Orders leave the same day." The late cake stays in the paragraph under that title.
+
+**A one-page document is a set of regions, each with one job.** He builds these by deleting anything a region above already said. Size follows the job: the sentence that explains the whole thing is the largest text under the title. Labels stay small, so a person who only reads the labels still gets the page. (20 Oct 2026, from the one-pager he kept editing.)
+
+The regions, in order:
+
+1. A small kicker, then the heading. If the heading is two beats, the turn sits on its own line.
+2. One explaining sentence, larger than the paragraphs under it. That sentence is the company. Do not add a second block that says the company again. If the sentence becomes a wall, cut it. Do not cut it down to a line he cannot picture.
+3. Two labeled facts, a short label beside one paragraph each. What it does. What it fixes. Speech, not an essay.
+4. One object that looks like the product, not a paragraph about the product. A headline of two facts (what this job needs, what the machine is still doing). A tag: the area, then the loss in plain words. One finding sentence. Three boxes: what we found, the opportunity, how we capture it. Three actions as buttons: Evidence, Approve, Comment. Comment is the person saying something or asking for a different change. No sentence under the buttons explaining them. A quieter caption under the object says it is a sample. The object itself is written in the present.
+5. A strip for how a change goes through. A small label, a heading for the whole job, and one constraint line beside that heading. Then four steps: a number, a name of one or two words, and one sentence that is a scene. The sentence does not define the step name. One step may be marked as the key. The scene here is a different machine from the object above.
+6. A footer of names and links. It does not restate the pitch.
+
+- Before: the oven is in the title, in the company paragraph, in the problem and in the steps, and a line under the buttons says what the buttons do.
+- After: the title is "Orders leave the same day." The line under it is the company, and it is the largest sentence. Two labels sit under it. The card says "This cake needs less time. The oven is still set for the last tray." The steps use the prover, still on after the bake has stopped. The caption says it is a sample.
+
+When two regions would tell the same scene, give the second region a different machine. The pair is open. For Stamped, the bank of samples is in `stamped.md`. Write a new sample in that shape when the reader's line uses a machine the bank does not have.
 
 **One proof per section.** Each stat, story or pivot sentence lives in one place. Pick the section where it belongs and cut the copies.
 
@@ -127,6 +143,7 @@ Example:
 | Plant technical note | Constraints, data path, who acts, what is measured, illustrative numbers labelled. Moderately technical, in the plant's own machine names. | Investor vocabulary, brochure openers, fake certainty |
 | Internal note | Lead with the conclusion. Full history allowed, including failed directions and internal mottos. Mark confidence and open questions. Do not force a three-beat close. | Pasting internal history or mottos into external copy |
 | Social posts | See section 6. | Company-copy phrase banks into posts, and post lines into any other room |
+| One-page leave-behind | Regions, one job each. A large explaining line. Two short labels. One product card with a spoken headline, three boxes, three buttons, and a sample caption. Four short steps on a different machine. | A company block that repeats the lede. A slogan under the buttons. The same scene in every region. |
 
 **"General" and "specific" are not opposites in his feedback.** "Keep it general" means do not replay a particular anecdote from his archive. "Too generic" means you only renamed the question. Hold both. A third use, from 20 Oct 2026: main headings stay general so one example does not look like the whole product. The example stays in the body.
 
@@ -193,7 +210,8 @@ Example:
 
 - His hand edits are final. Keep his word and his number in every later pass.
 - When he says "shorter", cut scenes, asides and repeated setup. Keep the mechanism and the facts.
-- When he says "too AI" or "humanise it", rewrite the sentence shapes (triplets, contrast lines, polished closers, explainer tone), not just the vocabulary.
+- When he says "too AI" or "humanise it", rewrite the sentence shapes (triplets, contrast lines, polished closers, explainer tone), not just the vocabulary. On a document, also cut a section that has turned into an essay, back to what a person on the floor would say.
+- When a short line is clever and he cannot picture it, put the two facts back: what the job needs, and what the machine is still doing. Clarity outranks compression.
 - When he says "generic", you probably echoed the question or used category words. Replace with the mechanism.
 - When he says "keep it general", remove the borrowed anecdote, not the specifics.
 - When he says a heading is too specific, or that a reader will think the product only does that, widen the title and the section headings. Leave the example in the body.
@@ -206,6 +224,7 @@ Example:
 
 - [ ] The first sentence answers the question.
 - [ ] The title and the section headings name the whole job. One machine, site or capability does not sit in the heading.
+- [ ] On a one-page document: each region has one job, the explaining line is the largest, the card is the product rather than a description of it, the buttons have no slogan under them, and the card and the steps use different machines.
 - [ ] The mechanism is named: who acts, on what, what is measured.
 - [ ] Every number, name, date and status traces to a source; aims, replays and assumptions are labelled.
 - [ ] No invented customer, quote, figure or price; placeholders where needed.
@@ -245,3 +264,4 @@ Example:
 20. American spelling.
 21. A heading that names one capability, so the reader thinks that is the whole product.
 22. Explaining Stamped with the 15 Oct hero, then refusing both an approval and an agent that changes a setting, so the page never shows how a change reaches the plan.
+23. A one-page document that explains the product in prose, repeats one machine in every region, and puts a sentence under the buttons to say what the buttons do.
