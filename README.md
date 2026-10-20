@@ -20,7 +20,7 @@
 
 > Full internals (every package, file map, how the repo runs): [Extensive README](docs/EXTENSIVE.md)
 
-Turn Cursor into a plan-then-ship engineering workflow. **30 skills**, **21 rules**.
+Turn Cursor into a plan-then-ship engineering workflow. **31 skills**, **21 rules**.
 
 You keep every product and architecture decision. The agent writes the plan, stops, and waits. You approve. Then it executes. Describe the job in plain language.
 
@@ -30,11 +30,11 @@ You keep every product and architecture decision. The agent writes the plan, sto
 
 ## Proof
 
-This is the inventory check, not `--help`. It counts the 30 skills, the three always-on rules, and the Spec Kit pin.
+This is the inventory check, not `--help`. It counts the 31 skills, the three always-on rules, and the Spec Kit pin.
 
 ```text
 $ .\scripts\validate-config.ps1
-ok  : skill count 30
+ok  : skill count 31
 ok  : always-on rules: ai-anti-patterns, ponytail, rule-awareness
 ok  : always-on lines 51 (<= 120)
 ok  : Spec Kit pin v1.0.6 in script/manifest/source
@@ -68,7 +68,7 @@ Cursor injects `alwaysApply: true` rules into every chat. This lab keeps that se
 | Three stubs: `rule-awareness`, `ponytail`, `ai-anti-patterns` | **51 lines** |
 | Hard budget (validator fails if we exceed it) | **120 lines** |
 
-The other **18 rules** and all **30 skills** stay on disk. They enter context only when you name them, when a glob matches (UI, API, tests), or when Plan mode loads `nawab-plans`. `rule-awareness` is an index, not a dump: it points at `AGENTS.md` and the matching skill, then that file is read. The agent does not load every `.mdc` or `SKILL.md` up front.
+The other **18 rules** and all **31 skills** stay on disk. They enter context only when you name them, when a glob matches (UI, API, tests), or when Plan mode loads `nawab-plans`. `rule-awareness` is an index, not a dump: it points at `AGENTS.md` and the matching skill, then that file is read. The agent does not load every `.mdc` or `SKILL.md` up front.
 
 `.\scripts\validate-config.ps1` checks the three names and the 51-line count. Idle chats stay cheap. A named graph still costs tokens for that run; the promise is the always-on slice, not a free long job.
 

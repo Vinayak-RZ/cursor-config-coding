@@ -140,7 +140,7 @@ sequenceDiagram
    agent-requested. Stack extras install through `install-catalog-skill.ps1`.
 7. After a milestone, `git-commit-discipline.mdc` wants a conventional commit.
    Auto-push at 10 unpushed commits, or when you ask.
-8. `scripts/validate-config.ps1` is the distro gate: 30 skills, three always-on
+8. `scripts/validate-config.ps1` is the distro gate: 31 skills, three always-on
    names, line budget, Spec Kit pin, lite template, portable skill bodies.
 
 **Cloud path.** A junction is local. Cloud agents need `.cursor/skills/` in the
@@ -177,7 +177,7 @@ and `README.md`.
 
 **How it works.** `AGENTS.md` is the short always-on map: ponytail → nawab
 lite in Plan mode → Spec Kit for greenfield → implement → validate → commit.
-`skills-manifest.json` version 8 lists the 30 skills, MCP default, Spec Kit
+`skills-manifest.json` version 8 lists the 31 skills, MCP default, Spec Kit
 pin, and optional catalog rows. `DECISIONS.md` holds ADRs 001-004.
 `IMPLEMENTATION_PLAN.md` and `PROGRESS.md` are the 2026 audit ledger for
 **this** config, not for linked apps.
@@ -266,6 +266,7 @@ user names the skill. Graph skills wait until the user names them.
 | `readable-readme` | Internal service | One-sitting overview |
 | `extensive-readme` | Internals companion | This document's skill |
 | `copywriting` | Public sentences | Scorecard + anti-slop; never invent proof |
+| `write-like-vinayak` | His voice | Drafts he will sign or publish; Stamped snapshot in `stamped.md` |
 | `learn-while-building` | Teaching | Research briefs, phase learning |
 | `impeccable` | UI polish | Craft, type, motion, critique |
 | `frontend-design` | Blank-canvas UI | Distinctive visual identity |
@@ -454,7 +455,7 @@ product-readme → copywriting + readme/anti-slop.md
 |------|--------|--------|
 | Default MCP | `.cursor/mcp.json` | `agent-patterns`, no key |
 | Optional MCP | `.cursor/mcp.json.example` | GitHub token, Context7 key |
-| Skill inventory | `skills-manifest.json` | `preinstalled.count` must stay 30 |
+| Skill inventory | `skills-manifest.json` | `preinstalled.count` must stay 31 |
 | Spec Kit pin | manifest, `SPEC_KIT.md`, `speckit-SOURCE.txt`, `install-spec-kit.ps1` | `v1.0.6` |
 | Stack detect | `skills-catalog/stacks.json` | Not auto-installed |
 | Always-on line budget | `validate-config.ps1` | 120 lines |
@@ -472,7 +473,7 @@ There is no unit test runner and no `.github/workflows` directory.
 
 The distro test is `scripts/validate-config.ps1`. It checks:
 
-- Directory count of `.cursor/skills/*/SKILL.md` equals `preinstalled.count` (30)
+- Directory count of `.cursor/skills/*/SKILL.md` equals `preinstalled.count` (31)
 - `alwaysApply: true` names are exactly `ai-anti-patterns`, `ponytail`,
   `rule-awareness`
 - Combined always-on line count ≤ 120 (currently 51)
