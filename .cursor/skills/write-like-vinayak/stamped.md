@@ -1,100 +1,125 @@
 # Stamped: how Vinayak explains it today
 
-**As of:** 20 October 2026, 4:40 PM IST. **stamped-external main:** `cbb6b9d` (PR #118 merged 20 Oct 2026, 4:45 PM IST). **Also read:** `research/quality-plus-process/POSITIONING_PREFERENCES.md` and `POSITIONING_DECISION_LOG.md` (on main; status: proposed, awaiting Vinayak).
+**As of:** 20 October 2026, evening. **Explanation locked** from the WFES one-pager he rewrote by hand that day. **stamped-external main at the earlier snapshot:** `cbb6b9d`. **Also read** the master document for hard stops, and the copy guide only for facts that can go stale (what is live, names, numbers).
 
-> **Refresh rule.** This file is a snapshot. Before using it, read the latest stamped-external `main` and compare it against `cbb6b9d`, especially `docs/copy/STAMPED_COPY_GUIDE.md`, the root `Stamped_Master_Document.md` plus its quality-plus-process revision (`research/quality-plus-process/Stamped_Master_Document.md`), `technical/DECISIONS.md` and the decision log. If anything changed, the repo wins and this file must be refreshed. Never reuse a line marked "under review" as settled.
-
-Source order when they disagree: a dated decision in the log, then the copy guide (wording), then the master document (company identity), then working notes.
+> **Which file wins.** For how he explains the product (the heading, the lede, the losses, and find / simulate / approve / keep on), this file wins over `docs/copy/STAMPED_COPY_GUIDE.md`. That guide, decided 14–15 Oct, still tells a writer not to show an approval and not to let an agent change a setting. Following both produced the drafts he rejected. Do not "correct" a draft back to those two bans.
+>
+> Still take from the repo, and refresh this file when they change: company name Stamped, hard stops, verified savings are zero, product names are still `[NAME: ...]`, nothing is live or in pilot, no invented customer or figure. Never reuse a website line he has not used in his own explanation.
 
 ## 1. In one breath
 
-Stamped is AI for plant operations. Its always-on AI agents work on the data a manufacturing plant already records: they monitor every process, model each machine from the plant's own runs, improve its control inside limits set beforehand, and catch a batch heading for rejection while it can still be saved. The plant makes fewer bad parts, throws away less scrap, and spends less energy on each good part, measured in its own numbers.
+Stamped is AI for plant operations. It models a plant's processes and equipment from the data the plant already logs, then recommends the change that cuts the loss, inside limits set beforehand.
 
-Positioned as general industrial AI for Indian plants (owners as buyers, Delhi NCR first), with sector depth on solution pages. The vision is smarter plants. The wedge is process and quality.
+The losses are scrap, rejects and wasted energy, usually found after the damage, when the parts have already left. Stamped is built to catch that drift while the run can still be saved.
 
-Never "Stamped Energy". Not an energy company, a dashboard, a replacement for MES or quality systems, a hardware company or a consultancy. Energy is one outcome (energy spent on parts that never ship), stated in a short clause, never the lead and never a separate programme.
+Never "Stamped Energy". Not an energy company, a dashboard, a replacement for MES or quality systems, a hardware company or a consultancy. Energy sits in the same sentence as scrap and rejects. It is not a separate programme, and it is not the company. A worked example may be a furnace or a heater. The heading does not name that machine.
 
-## 2. How he explains it, by audience
+## 2. Lines he will sign
+
+Use these as written when the piece has to say what Stamped is. The sentence under the heading is the company. Do not add a Company block that repeats it.
+
+- **Kicker:** AI for plant operations.
+- **Heading:** From monitoring your plant to improving it.
+- **Under the heading:** Stamped models your processes and equipment from the data you already log, then recommends the change that cuts the loss, inside limits set beforehand.
+- **Product:** Agents watch every run and learn each machine from that plant's own logs. They try the next setting in a model before the line sees it, and they catch a batch heading for rejection before it ships. The operator gets the change, and the record it came from.
+- **What we solve:** Scrap, rejects and wasted energy are usually found after the damage. The parts have already left by then. Stamped is built to catch the drift while the run can still be saved.
+
+The live site and the 15 Oct hero ("AI agents that work on your plant's data, every batch.") may still differ. New copy uses his heading. Do not swap it back because the guide's appendix retired it.
+
+## 3. How a change reaches the plan
+
+Tell it in this order, with these names. One or two words each.
+
+1. **Find loss.** Name a loss already happening, in the plant's own words.
+2. **Simulate.** They try the change on a model of that machine, and check the constraint that would make it a bad change.
+3. **Approve.** The operator sees the change and the record behind it, and approves it before the machine is touched.
+4. **Keep on.** Once it has proved itself, the agent runs it from then on, and it becomes part of how that line runs. It does not come back for a fresh approval every time.
+
+**How a finding reads.** A plain mismatch a shift lead can repeat. Then three short blocks: What we found, The opportunity, How we capture it. Beside them: Evidence, Approve, and Comment. Comment is the operator saying something or asking for a different change. Caption every sample: it is a sample, written from records the plant already keeps.
+
+**How we capture it,** in his shape: You approve. The agent makes the allowed change. Loads that must stay on stay with you.
+
+**Two samples, two machines.** Do not tell the same scene in the card and in the steps.
+
+- Card: This part needs less heat. The furnace is still set for the last one. The last part was hotter, the burners have not come down, so that extra fuel has not been burned yet. You approve. The agent turns the burners down.
+- Steps: The forging press has stopped, but the billet heater is still running at full heat. They try a lower heat for the stop on a model of that heater, and check the billets are still hot enough when the press restarts. The operator approves before the heater is touched. Once it has proved itself, the agent runs it on every stop.
+
+Say "a model of that machine." Do not say digital twin, world model, or reinforcement learning on this surface.
+
+## 4. Authority
+
+Say the recommendation and the limits in the same breath: inside limits set beforehand.
+
+The old pair of bans is retired for new copy. Do not apply either of these from the 14 Oct guide:
+
+- "Do not say a person approves every change."
+- "Do not say the agent changes a setting on its own."
+
+His sequence needs both halves. The operator approves before the first touch. After the change has proved itself, the agent runs the allowed change without asking again. Approval is not on every later run, and the agent does not touch the machine before that first approval.
+
+Loads that must stay on stay with the operator. So do the hard stops in the master document: no silent safety or critical-equipment control, no quality hold release, no maintenance authorisation or lockout bypass, no silent change to customer priority, promise dates, routing or the full dispatch sequence. Do not print that list as a "never" list. Say "loads that must stay on stay with you."
+
+Still true: tested on a model first, the record is visible (Evidence), the team can refuse or comment, nothing is claimed live. Do not say shadow mode, safety filter, or setpoint writes unless the room is a technical meeting.
+
+## 5. How he explains it, by audience
 
 | | Plant owners | Plant engineers, quality and heat-treat heads | Investors and general audiences |
 | --- | --- | --- | --- |
-| Opening | The loss they already recognise: a scrapped or rejected part never earns back its material, labour, time or energy | Why a lot failed, and who decides | What the technology does that is new, then why that is the business |
-| Depth | Outcomes plus one plain line of method | Moderately technical, in their machine names | Non-technical stories; method names allowed in investor video and decks |
-| Agents | Later, in the meeting, shown on their own records. Use "AI agents" where continuous watching is the point; otherwise state the operating rule | The two agent systems, evidence on every finding, the safety filter and the signed window | Shown as agency: what the agents notice, do and check on a shift |
-| Proof | A worst-lot replay on their own records; a "line record" from their own plant once it exists | Evidence ids on each finding; matched-batch comparison | Only sourced facts; nothing implied about live plants |
-| Close | A short meeting with the person you wrote to; "Book a site survey" on public surfaces | Same | The end state: agents running live in plants, paying customers |
+| Opening | The heading and the lede in section 2, then the loss found too late | The finding: what was found, the opportunity, how it is captured | The same loop: find, simulate, approve, keep on |
+| Depth | Outcomes plus one plain line of method | Their machine names, the model check, the record | One scene, then the loop. No method names |
+| Agents | The operator gets the change and the record. After it is proved, the agent runs the allowed change | Evidence on the finding. Comment if they want a different change | What the agent notices, checks, and then runs |
+| Proof | A sample, labelled as a sample. A replay on their own records once they ask | The record behind the finding | Only sourced facts. Nothing implied about a live plant |
+| Close | A short meeting with the person you wrote to | Same | The end state: a proved change that keeps running |
 
-**Sector order for technical stories:** forging (billet heating and dies) first, then heat treatment, then foundry. Keep every industry page on the site so no prospect thinks their industry is not served.
+**Sector order for a technical story:** forging (a press stop, a billet heater) and heat treatment (a furnace still set for the last part). One machine per section.
 
-## 3. The core pitch arc
+## 6. Outcomes and how to state them
 
-Weave this in every time (High, P&M and PR #118):
+- **Lead losses, together:** scrap, rejects, wasted energy. Caught while the run can still be saved.
+- **In a client letter,** scrap leads, then the parts that have already left, then energy in the same breath. One clause can separate scrap from rejection. Do not open a letter as an energy-only pitch.
+- **A percentage** appears only in a letter, only as an aim he has already approved, always labelled as an aim. The public explanation and a one-pager carry no percentage, no rupee figure, and no customer.
+- **Verified savings to date are zero.**
+- **Two products** (names to be chosen): `[NAME: control agent system]` and `[NAME: quality agent system]`. Do not invent the names. The explanation in section 2 does not need them.
+- **The four areas** are process, quality, planning and maintenance, with energy counted inside them. Not a dated roadmap.
 
-1. Models of the plant's core equipment, built from its own runs.
-2. Prediction: how a load or batch will turn out, including what a sensor cannot see.
-3. Control recommendations, and over time earned control, that cut scrap and rejections.
-4. Always-on agents on top, on every batch and every shift.
-
-**The founder's known-line loop** (tell it as a story): observe how the line really runs, research how the best plants run it, simulate variations on a model of this line, propose one change with its expected result, run approved shifts, measure in the plant's own numbers, adopt as the standard. Every shift then runs like the best one.
-
-**Story moments that work** (from the pitch stories; tell them like a colleague who never sleeps): a new part the plant has never made; getting better overnight on a model of the line; saving the batch at 2 a.m.; finding the cause before the customer calls. Each one shows that Stamped notices on its own, does the homework, checks itself and asks the right person at the right moment. Pitch stories may reach past today's architecture (he is confident the team will deliver), but must not claim it runs today.
-
-**Internal motto:** users should feel they have gained a superpower, the way he did with a general AI assistant. "Superpower" is internal only; we never claim it. Design pilots as a run of "it did that by itself?" moments and lead follow-ups with one moment and its evidence.
-
-## 4. Outcomes and how to state them
-
-- **Lead outcomes:** fewer rejections, less scrap, a batch caught while it can still be saved, lower energy per good part.
-- **In a client letter, scrap leads** (the loss most under process control), then reruns, then rejection risk, then heat treatment. One clause separates scrap from rejection.
-- **Value line:** "What we think we can move is scrap under process control, about 10 to 15% less preventable rejection and rework, and with them lower energy per good part. Those are aims, not a contract."
-- **Credible framing:** an assumed 8 to 13% rejection rate and an assumed 10 to 15% cut, always labelled as assumptions. Verified savings to date are zero.
-- **Two products** (names to be chosen): `[NAME: control agent system]` and `[NAME: quality agent system]`, with proof in the plant's own numbers shipped with both.
-- **The four areas** are process, quality, planning and maintenance, with energy counted inside all of them. Not a fixed roadmap: no dates.
-
-## 5. Authority and autonomy framing
-
-**Of record (copy guide, 15 Oct):** "Stamped works inside limits set beforehand." Say what it improves and the limits in the same breath. Say: tested in simulation first; checked by a safety filter; runs in shadow mode before going live; every change logged and visible; the team can switch it off. Do not say a person approves every change (it makes Stamped sound slow). Do not say Stamped controls the furnace or changes settings on its own. Do not publish the internal hard-stop list, and avoid hard "never" lists such as "never writes to a PLC" or "nothing is written to your machines".
-
-**Under review (D3):** "Stamped recommends and your team decides" (live site, P&M brief). Do not treat either as settled in new public copy without checking the log.
-
-**By room:**
-- Client letters: a named person turns the knob, the operator can override, the quality team releases parts, and the in-charge writes the limits. Stamped does not release material.
-- Investor answers: the recorded line is "from models that recommend changes to agents that run the line's control", proved live. (Medium: investor room only; do not spread it into client documents.)
-- Direct control comes only after the system is proven on that line, within limits the client's engineers sign. Heat-treatment setpoint writes are excluded by ADR-035 until a new decision.
-
-## 6. Terms
+## 7. Terms
 
 | Use | Avoid |
 | --- | --- |
-| AI for plant operations; AI agents (with what they do) | "ML" or "AI agents" alone as the claim; "machine learning and AI" (dropped, every vendor says it) |
-| every batch; your own numbers; while it can still be saved; limits set beforehand; good parts; beyond your best runs; always on | unlock, empower, platform (as the pitch), transform, superpower (public), plant operating system, intelligence layer, decision intelligence |
-| Live Control | Live SCADA |
-| line record | case study |
-| site survey, then implementation; worst-lot replay | cycle, first cycle, improvement cycle; guarantee; pre-agreed success criteria in a letter |
-| a model of each machine (call it a digital twin only after it passes validation) | "digital twin" in client writing unless he has used it there (Medium) |
-| "AI-based predictive control" on technical pages, decks and site surveys only | that phrase in headlines or first-touch copy |
-| the plants we work with | place names the reader cannot use |
-| | "Smarter control" as a pillar name (rejected; still in the master doc and guide) |
-| | "Find it. Change it. Prove it. Keep it." (retired) |
-| | Kalman, unscented filters, neural nets, error tables, world models or reinforcement learning in owner letters (allowed in decks and technical meetings) |
+| AI for plant operations; the heading in section 2 | "Stamped Energy"; an energy-only company |
+| models your processes and equipment; a model of that machine; the change that cuts the loss | digital twin, world model, reinforcement learning, on a first-touch page |
+| Find loss, Simulate, Approve, Keep on | "Find it. Change it. Prove it. Keep it." (retired) |
+| Evidence, Approve, Comment | "Then the agent runs it" as a button or a slogan under the card |
+| while the run can still be saved; inside limits set beforehand; loads that must stay on stay with you | a person approves every later run; the agent changes a setting before anyone has approved it |
+| a sample finding | live, in pilot, proven, guarantee |
+| | unlock, empower, platform (as the pitch), transform, showcase, innovation, superpower (public) |
+| | Kalman, filters, neural nets, error tables in owner copy |
 
-## 7. Claims
+## 8. Claims
 
-**Can say:** works on records the plant already keeps; models each machine from its own runs; tests a change in a model before the line sees it; findings come with their evidence; gains measured against matched batches on the plant's own line; the Ask agent answers questions in ordinary language from their data and does not invent numbers that are not in the record.
+**Can say:** works on records the plant already keeps; models each machine from its own runs; tries the next setting in a model before the line sees it; the operator approves before the first touch; once proved, the agent runs the allowed change; findings come with their evidence; the operator can comment.
 
-**Cannot say:** any savings figure, percentage, rupee figure, customer name, logo or quote not produced by that plant; competitor results as ours; that anything is live or in pilot (the first paid pilot is still a proposal); autonomous setpoint writes or furnace control today; replacement of engineers; India hosting or an offline on-site mode (`[CONFIRM]`); "first finding within about two weeks" (unconfirmed); any pricing figure; client names in general docs; failed earlier products by name (say "three directions before this; some failed on value proposition, one on go-to-market"); dated roadmaps; energy-only or two-pillar framing.
+**Cannot say:** any savings figure, percentage, rupee figure, customer name, logo or quote not produced by that plant; that anything is live or in pilot; that the sample furnace or heater is a real plant's result; replacement of engineers; India hosting or an offline on-site mode (`[CONFIRM]`); any pricing; client names in general docs; dated roadmaps; energy-only or two-pillar framing; the word innovation.
 
-**Team roles:** Vinayak leads engineering, product and positioning. Utso Sarkar leads outreach and sales and helps on software. Never swap them.
+**Team roles:** Vinayak leads engineering, product and positioning. Utso Sarkar leads outreach and sales and helps on software. Founder line when a footer needs it: Co-founder, Undergrad, IIT Roorkee. Never swap who leads outreach.
 
-## 8. Open decisions under review
+## 9. What the first drafts got wrong
 
-From the decision log (merged with PR #118; proposed, awaiting Vinayak) and the open website plan. Do not resolve these by guessing; ask.
+The skill's voice rules were fine. The product explanation was taken from the 14–15 Oct copy guide, which contradicts the way he talks through the product.
 
-| Point | Of record | Under review | Conflict |
-| --- | --- | --- | --- |
-| Hero | "AI agents that work on your plant's data, every batch." (15 Oct) | Eyebrow "Industrial AI", H1 "From monitoring your plant to improving it." (website plan, not signed off). Live site still says "Turn plant data into action." | Record, plan and live site all differ |
-| D3 Authority line | "Stamped works inside limits set beforehand." | "Stamped recommends and your team decides" | A positioning diagram still ends "Your team decides" |
-| D17/D20 Three steps | Copy guide and ADR-035 keep autonomous execution unbuilt and staged | Monitoring, Decision making, Autonomous execution shown equally; a "Planned" tag on step 3 was rejected. Proposed pairing: "proven changes, inside the limits your engineers signed", never on hard-stop classes | Equal display versus not-built status |
-| Pilot labels | None agreed; nothing presented as in pilot | "Available in pilots" and "On the way"; nothing "Live" until a plant runs it | Needs a rule change |
-| D5 Planning and maintenance | Master doc: they come after the wedge | Site shows Planning live, Maintenance "coming soon" | Site versus master doc |
-| Agents section on the homepage | Copy guide keeps agent detail for meetings | Possibly a compact section after "What we improve" | Outcomes-first rule versus showcase |
-| Product names | `[NAME: ...]` placeholders | Not chosen | |
+- The guide's hero is "AI agents that work on your plant's data, every batch." He explains it as "From monitoring your plant to improving it."
+- The guide's subhead is monitor, tune, and catch a batch. His lede starts with models, then the change that cuts the loss.
+- The guide forbids showing an approval, because it sounds slow, and forbids an agent changing a setting. He explains a first approval, then the agent keeps running the change that proved itself.
+- Early drafts put one furnace scene in the heading, the product, the problem and the steps, and compressed it into a line he could not repeat ("Ease the burners"). The heading stays the whole job. The body is a specific scene, in words a shift lead can say back. A second section gets a different machine.
+
+## 10. Still open
+
+Do not resolve these by guessing.
+
+| Point | How to write it now | Still elsewhere |
+| --- | --- | --- |
+| Website hero | Use section 2 | Live site may still say "Turn plant data into action." |
+| Copy guide authority | Use section 4 | Guide section 7 still has the two retired bans |
+| Product names | Placeholders | Not chosen |
+| Planning and maintenance | After the wedge, in a letter | The site may show them differently |
+| Pilot labels | Do not say live or in pilot | Nothing is running at a plant |

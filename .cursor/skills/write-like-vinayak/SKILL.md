@@ -7,7 +7,7 @@ description: Use whenever drafting or editing any copy for Vinayak Raizada or fo
 
 This skill describes how Vinayak wants writing to read, whatever the subject. It is deliberately general. Every example uses a made-up business or a placeholder, so nothing here goes stale when a company's positioning changes.
 
-**If writing about Stamped, read `stamped.md` in this skill folder first, and check it against the latest stamped-external** (read the latest `main`: the copy guide, the root master document and its quality-plus-process revision, plus any open positioning PR). Where `stamped.md` and the repo disagree, the repo wins and `stamped.md` needs a refresh.
+**If writing about Stamped, read `stamped.md` in this skill folder first.** That file is how he explains the product. Check stamped-external for facts that go stale: what is live, names, numbers, and the hard stops in the master document. Where the copy guide still bans an operator approval, or bans an agent from changing a setting after that approval, `stamped.md` wins. Do not refresh those two bans back into a draft.
 
 Confidence labels follow the sources: **(High)** apply without asking, **(Medium)** apply in the room named, **(Low)** treat as a lean, not a rule. Unlabelled rules are High.
 
@@ -17,6 +17,7 @@ Confidence labels follow the sources: **(High)** apply without asking, **(Medium
 2. List the facts he has locked: numbers, dates, roles, what is live versus planned. If one is unstable, ask one question. Do not pick a confident version.
 3. Write the mechanism sentence first: what actually changes, for whom, and how. Then write an opening shorter than it.
 4. Put the draft itself in front of him, not an outline of it. On anything he will sign or say, show the prose before you build the file, PDF or page.
+5. If the piece says what Stamped is, use the heading, the lede, the losses and the four-step loop in `stamped.md` as the mechanism. Do not open on the 15 Oct hero, and do not apply the 14 Oct bans that forbid an approval and forbid an agent changing a setting.
 
 ## 1. Core principles, ranked
 
@@ -196,6 +197,7 @@ Example:
 - When he says "generic", you probably echoed the question or used category words. Replace with the mechanism.
 - When he says "keep it general", remove the borrowed anecdote, not the specifics.
 - When he says a heading is too specific, or that a reader will think the product only does that, widen the title and the section headings. Leave the example in the body.
+- When he walks a change from a loss, to a try on a model, to one approval, to the agent keeping it running, that sequence is the mechanism. Do not collapse it into "recommends only", and do not turn the approval into a sign-off on every later run.
 - When he rejects a draft, do not lift paragraphs from it into the next one.
 - If the mechanism was wrong, fix it from the real source (the proposal, the record) before polishing anything else. Polish on a wrong "how" is wasted.
 - Record a decision once he makes it, with the date, so the next agent does not reopen it.
@@ -217,7 +219,7 @@ Example:
 - [ ] Ends on a fact, state, next step or position, not a restatement.
 - [ ] Read it aloud. Any sentence that could sit on any company's site gets replaced.
 - [ ] His latest edits are intact.
-- [ ] For company copy: checked against the current company file (for Stamped, `stamped.md` and the latest stamped-external).
+- [ ] For company copy: the explanation matches `stamped.md` (heading, lede, losses, find / simulate / approve / keep on). Stale facts were checked against stamped-external. The 14 Oct approval bans were not written back in.
 
 ## 11. Common first-draft failures
 
@@ -242,3 +244,4 @@ Example:
 19. Proper nouns the reader cannot use.
 20. American spelling.
 21. A heading that names one capability, so the reader thinks that is the whole product.
+22. Explaining Stamped with the 15 Oct hero, then refusing both an approval and an agent that changes a setting, so the page never shows how a change reaches the plan.
