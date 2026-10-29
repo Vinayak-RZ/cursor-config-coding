@@ -157,7 +157,7 @@ Still true: tested on a model first, the record is visible (Evidence), the team 
 
 **Cannot say:** any savings figure, percentage, rupee figure, customer name, logo or quote not produced by that plant; that anything is live or in pilot; that the sample furnace or heater is a real plant's result; replacement of engineers; India hosting or an offline on-site mode (`[CONFIRM]`); any pricing; client names in general docs; dated roadmaps; energy-only or two-pillar framing; the word innovation.
 
-**Team roles:** Vinayak leads engineering, product and positioning. Utso Sarkar leads outreach and sales and helps on software. Founder line when a footer needs it: Co-founder, Undergrad, IIT Roorkee. Never swap who leads outreach.
+**Team roles:** Vinayak leads product, engineering, and marketing. Utso Sarkar leads outreach and sales and helps on software. Founder line when a footer needs it: Co-founder, Undergrad, IIT Roorkee. Never swap who leads outreach. (25 Oct 2026. He replaced "positioning" and "strategy": product and marketing already cover branding, positioning, and strategy, so do not list those as separate things he leads.)
 
 ## 9. What the first drafts got wrong
 

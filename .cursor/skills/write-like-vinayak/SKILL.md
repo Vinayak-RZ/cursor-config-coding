@@ -194,7 +194,10 @@ Example:
 - **Use their advantages.** When the reader's existing setup makes the work easier, say so.
   - After: "You already print an order number on every box, which is a better key than matching by time, so this is easier for you, not harder."
 - **Do not lecture them on their own work.** Say fitting the work to their records is your job. Do not tell them to re-derive anything.
+- **Do not inventory the reader.** Ban openings and bridges that map their plant back at them: "your lines are not…", "you run…", "you have…", "you already…". Describe the work and the gap from what was said or observed. Prefer "on the floor", "on the call", "the plant", "these lines".
 - **Do not over-teach the obvious.** A distinction the reader already knows gets one clause.
+- **Technical bullets sound like an engineer wrote them.** Name the signal and the action. Cut soft paraphrase ("in simple terms from the sensors you already trust"). Humble without being vague: decent depth, no expert laundry list, no "we closed the gap" boasting.
+- **Observation-note openers.** Three short paragraphs when that is the shape he used: what was found, where the numbers came from, what stood out. Do not add "we are not naming the plant" unless he asks for it.
 
 ## 8. Banned words and shapes
 
@@ -204,7 +207,7 @@ Example:
 
 **Category sentences.** "Tap the global market," "move up-market," "a clear foothold." Replace with who you meet, what changes and what the money buys.
 
-**Shapes.** Prompt echo as the opening; contrast lines (rule in section 2); reflexive triplets; fragment lists posing as sentences; runs of very short sentences; hard "never" lists in public copy ("we never touch X"); the neat restatement closer; vague attribution ("experts say"); a method section exiled from its problems; the same proof repeated in every section; a slogan stamped on every block ("our agents" in every how-block).
+**Shapes.** Prompt echo as the opening; contrast lines (rule in section 2); reflexive triplets; fragment lists posing as sentences; runs of very short sentences; hard "never" lists in public copy ("we never touch X"); the neat restatement closer; vague attribution ("experts say"); a method section exiled from its problems; the same proof repeated in every section; a slogan stamped on every block ("our agents" in every how-block); "your X is not Y / you have / you run / you already" inventories of the reader's own operation.
 
 ## 9. How to handle his edits
 
@@ -239,6 +242,8 @@ Example:
 - [ ] Read it aloud. Any sentence that could sit on any company's site gets replaced.
 - [ ] His latest edits are intact.
 - [ ] For company copy: the explanation matches `stamped.md` (heading, lede, losses, find / simulate / approve / keep on). Stale facts were checked against stamped-external. The 14 Oct approval bans were not written back in.
+- [ ] No "you have / you run / your lines are not" inventory of the reader's own operation.
+- [ ] Plant bullets name signals and actions; no soft marketing paraphrase.
 
 ## 11. Common first-draft failures
 
@@ -254,7 +259,7 @@ Example:
 10. A tidy mechanism that is not the one in the real proposal.
 11. Past data given with calendar dates.
 12. A multi-phase programme instead of a small first step.
-13. Telling the reader to redo work that is your job.
+13. Telling the reader to redo work that is your job, or telling them what they already run as if they needed the inventory.
 14. The same brand phrase stamped on every block.
 15. Em dashes, triplets, contrast lines and brochure rhythm.
 16. Closing by offering to brief their team instead of asking the reader for a meeting.
@@ -265,3 +270,5 @@ Example:
 21. A heading that names one capability, so the reader thinks that is the whole product.
 22. Explaining Stamped with the 15 Oct hero, then refusing both an approval and an agent that changes a setting, so the page never shows how a change reaches the plan.
 23. A one-page document that explains the product in prose, repeats one machine in every region, and puts a sentence under the buttons to say what the buttons do.
+24. Soft, non-technical paraphrase in a plant note ("sensors you already trust") when a named signal would do.
+25. Boastful "gap we closed" framing when the room wants humble, practical scope.
