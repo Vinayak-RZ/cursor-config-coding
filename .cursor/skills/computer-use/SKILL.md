@@ -22,14 +22,22 @@ then signed-in Chrome, then desktop last. Cursor has no `@Computer`.
 
 1. **API, CLI, curl, or repo files.** If the answer is in the tree, a script,
    or an HTTP API, do not open a browser.
-2. **Cursor IDE browser.** Localhost and public pages: navigate, snapshot,
+2. **Lightpanda (headless, no pixels).** Reading JS-rendered pages, scraping,
+   or many pages in parallel where nobody needs to see the page. Run
+   `npx @lightpanda/browser` or `lightpanda serve --host 127.0.0.1 --port 9222`,
+   then connect with Playwright `chromium.connectOverCDP('ws://127.0.0.1:9222')`
+   or Puppeteer `connect({ browserWSEndpoint })`. About 10x less memory than
+   headless Chrome. It does no layout or painting, so screenshots, PDFs, visual
+   checks, and logged-in profiles stay on Chrome (rungs below). If a CDP call
+   is unsupported, fall back to Chrome; do not work around it.
+3. **Cursor IDE browser.** Localhost and public pages: navigate, snapshot,
    click, type. Verify **behavior**, not one screenshot. This is Codex
    built-in / `@Browser`.
-3. **agent-browser.** Real Chrome/CDP, logged-in profile, Electron app, or
+4. **agent-browser.** Real Chrome/CDP, logged-in profile, Electron app, or
    a11y-tree `@eN` refs. Load `.cursor/skills/agent-browser/SKILL.md`, then
    `agent-browser skills get core --full`. CLI if missing:
    `npm i -g agent-browser && agent-browser install`. This is Codex `@Chrome`.
-4. **Full-desktop CUA.** **Not available in Cursor.** Stop. Tell the user.
+5. **Full-desktop CUA.** **Not available in Cursor.** Stop. Tell the user.
    Do not fake OS click/type. Do not install unofficial desktop-CUA MCPs.
 
 ## Always

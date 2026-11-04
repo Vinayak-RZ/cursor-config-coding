@@ -17,3 +17,5 @@ Reject and refactor these patterns:
 - Drive-by refactors outside the approved scope
 
 When unsure about architecture, **stop and apply** `system-design-tradeoffs` rather than guessing.
+
+When the user corrects the same mistake twice, propose one line for the matching rule or skill so it does not recur. Propose, do not auto-edit.
