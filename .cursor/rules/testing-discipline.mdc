@@ -13,3 +13,6 @@ alwaysApply: false
 - Run the narrowest test command for the changed files before claiming done
 
 Bug fixes should include a regression test when practical.
+
+- Browser and end-to-end regression tests: Playwright (`@playwright/test`)
+  unless the repo already uses another runner. Do not add a second runner.

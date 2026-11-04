@@ -32,6 +32,9 @@ Fall back to `agentic-system-design` skill and [docs/MCP_SETUP.md](../../docs/MC
 
 ## Other MCP servers
 
-Optional: Context7 (library docs), GitHub (repo data) — see [docs/mcp-catalog.json](../../docs/mcp-catalog.json). Use only when task requires live external data.
+Before writing code against a library or external API version you have not
+checked in this session, read its current docs (Context7 MCP if configured,
+else the official docs page). Do not code from memory for fast-moving APIs.
+GitHub MCP: only when the task needs live repo data.
 
 Do not call MCP for routine CRUD coding with no agentic design component. Minimal-code discipline is enforced by `ponytail.mdc` + the `ponytail` skill — not by MCP.
