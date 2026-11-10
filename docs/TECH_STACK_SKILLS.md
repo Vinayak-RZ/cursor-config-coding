@@ -24,7 +24,7 @@ Use this document when working in a **specific stack**. Install catalog skills o
 | Optional | `nextjs-react-typescript` | 3.6K | Optional | `npx skills add mindrally/skills@nextjs-react-typescript -y --copy` |
 | Optional | `seo-aeo-best-practices` | — | Optional | Copy from `~/.agents/skills/seo-aeo-best-practices` or install via catalog |
 
-**Also use (pre-installed):** `impeccable` (UI polish), `frontend-design` (blank-canvas UI), `web-design-guidelines` (a11y/UX audit), `gsap-framer-scroll-animation` (scroll/motion), `computer-use` then `agent-browser` for GUI work, `graphify` (map codebase before large refactors).
+**Also use (pre-installed):** `impeccable` (UI polish), `frontend-design` (blank-canvas UI), `web-design-guidelines` (a11y/UX audit), `modern-web-guidance` (modern, secure, performant web platform APIs via CLI — guides not vendored here), `gsap-framer-scroll-animation` (scroll/motion), `computer-use` then `agent-browser` for GUI work, `graphify` (map codebase before large refactors).
 
 ---
 
@@ -37,7 +37,7 @@ Use this document when working in a **specific stack**. Install catalog skills o
 | Recommended | `react-nextjs-patterns` | 284 | `npx skills add duyet/claude-plugins@react-nextjs-patterns -y --copy` |
 | Optional | `nextjs-framer-motion-animations` | — | Copy from `~/.agents/skills/nextjs-framer-motion-animations` |
 
-**Also use (pre-installed):** `impeccable`, `gsap-framer-scroll-animation`, `graphify`.
+**Also use (pre-installed):** `impeccable`, `modern-web-guidance`, `gsap-framer-scroll-animation`, `graphify`.
 
 ---
 
@@ -99,4 +99,4 @@ From a project linked to this coding config:
 
 Installs into the **current project's** `.cursor/skills/` (not global).
 
-**Still catalog (do not duplicate into this config):** extra GSAP slices, full upstream Spec Kit command skills, Flutter/Django/Kotlin packs, Clerk, Playwright. Use `install-catalog-skill.ps1` in the app that needs them. Auth-sensitive diffs: Cursor `/review-security`, not a third-party `security-reviewer` as default.
+**Still catalog (do not duplicate into this config):** extra GSAP slices, full upstream Spec Kit command skills, Flutter/Django/Kotlin packs, Clerk, Playwright, the **full** Modern Web Guidance guide tree (use `npx modern-web-guidance@latest install` or `install-catalog-skill.ps1 -Package "GoogleChrome/modern-web-guidance"` in the app). Auth-sensitive diffs: Cursor `/review-security`, not a third-party `security-reviewer` as default.

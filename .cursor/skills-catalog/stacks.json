@@ -12,7 +12,7 @@
         "sickn33/antigravity-awesome-skills@nextjs-best-practices",
         "mindrally/skills@nextjs-react-typescript"
       ],
-      "also_use_preinstalled": ["impeccable", "vercel-react-best-practices", "frontend-design", "web-design-guidelines", "gsap-framer-scroll-animation", "computer-use", "agent-browser", "graphify"]
+      "also_use_preinstalled": ["impeccable", "vercel-react-best-practices", "frontend-design", "web-design-guidelines", "modern-web-guidance", "gsap-framer-scroll-animation", "computer-use", "agent-browser", "graphify"]
     },
     "react": {
       "detect": ["react", "vite", "create-react-app"],
@@ -22,7 +22,7 @@
         "vercel-labs/agent-skills@vercel-react-view-transitions",
         "duyet/claude-plugins@react-nextjs-patterns"
       ],
-      "also_use_preinstalled": ["impeccable", "frontend-design", "web-design-guidelines", "gsap-framer-scroll-animation", "computer-use", "agent-browser", "graphify"]
+      "also_use_preinstalled": ["impeccable", "frontend-design", "web-design-guidelines", "modern-web-guidance", "gsap-framer-scroll-animation", "computer-use", "agent-browser", "graphify"]
     },
     "flutter": {
       "detect": ["pubspec.yaml", "flutter"],

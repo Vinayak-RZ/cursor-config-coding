@@ -271,6 +271,7 @@ user names the skill. Graph skills wait until the user names them.
 | `impeccable` | UI polish | Craft, type, motion, critique |
 | `frontend-design` | Blank-canvas UI | Distinctive visual identity |
 | `web-design-guidelines` | UI audit | A11y / UX / forms / focus |
+| `modern-web-guidance` | Web platform | Modern, secure, performant HTML/CSS/client JS via CLI (guides in npm, not vendored) |
 | `computer-use` | GUI policy | Codex ladder mapped to Cursor (no desktop CUA) |
 | `agent-browser` | GUI tool | Chrome / CDP / a11y-tree `@eN` refs |
 | `graphify` | Codebase map | Knowledge graph CLI on a folder |

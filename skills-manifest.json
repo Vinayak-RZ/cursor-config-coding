@@ -1,6 +1,6 @@
 ﻿{
   "version": 8,
-  "description": "Coding Cursor config — 31 skills, 21 rules, 3 always-on stubs, agent-patterns MCP, nawab-plans profiles + opt-in graph-engineering XOR graph-of-loops + ponytail + Spec Kit v1.0.6",
+  "description": "Coding Cursor config — 32 skills, 21 rules, 3 always-on stubs, agent-patterns MCP, nawab-plans profiles + opt-in graph-engineering XOR graph-of-loops + ponytail + Spec Kit v1.0.6",
   "mcp": {
     "default_server": "agent-patterns",
     "url": "https://mcp.agentpatternscatalog.org/mcp",
@@ -15,7 +15,7 @@
     "rule": "speckit"
   },
   "preinstalled": {
-    "count": 31,
+    "count": 32,
     "categories": {
       "planning": ["nawab-plans", "graph-engineering", "graph-of-loops"],
       "minimal-code": [
@@ -37,7 +37,7 @@
       "documentation": ["readme", "product-readme", "readable-readme", "extensive-readme", "copywriting", "write-like-vinayak"],
       "learning": ["learn-while-building"],
       "animation": ["gsap-framer-scroll-animation"],
-      "ui": ["impeccable", "web-design-guidelines", "frontend-design"],
+      "ui": ["impeccable", "web-design-guidelines", "frontend-design", "modern-web-guidance"],
       "computer-use": ["computer-use", "agent-browser"],
       "exploration": ["graphify"],
       "utility": ["find-skills"]
@@ -101,6 +101,11 @@
       "installs": 86,
       "command": "npx skills add dauquangthanh/hanoi-rainbow@backend-design -y --copy",
       "when": "Supplement backend-architecture skill"
+    },
+    {
+      "name": "modern-web-guidance-full",
+      "command": "npx skills add GoogleChrome/modern-web-guidance -y --copy",
+      "when": "Copy upstream skill + local guide tree into the app's .cursor/skills/ (config ships CLI router only)"
     }
   ]
 }
