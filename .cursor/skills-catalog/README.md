@@ -16,6 +16,7 @@ This folder documents **optional** skills for specific tech stacks. Nothing here
 | `impeccable` | Frontend UI polish |
 | `frontend-design` | Blank-canvas distinctive UI |
 | `web-design-guidelines` | A11y / UX audit |
+| `modern-web-guidance` | Modern web platform APIs (CLI router; full guides via install) |
 | `gsap-framer-scroll-animation` | Scroll and timeline animation (extra GSAP slices: `find-skills`) |
 | `computer-use` | Codex-style interface ladder (no full-desktop CUA in Cursor) |
 | `agent-browser` | Chrome / CDP / a11y-tree CLI |
