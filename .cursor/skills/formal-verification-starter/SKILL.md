@@ -1,67 +1,80 @@
 ---
 name: formal-verification-starter
 description: >
-  When to use TLA+ (TLC) vs Lean 4 vs tests only. Templates and local run
-  commands. For full automation use pstack /create-formal-verification-skill.
+  When to use TLA+ (TLC) vs Lean 4 vs tests only. Not default. Checklist for
+  stateful, concurrent, safety-critical, or small invariant work. Templates local.
 ---
 
 # Formal verification starter
 
-Formal methods are expensive. Use them only where bugs are costly and tests are weak on **ordering and concurrency**.
+**Default is tests and `./scripts/check.sh`, not formal methods.**
 
-## When to use what
+Use this skill only when the checklist below says yes. Otherwise use tests, pstack **`/statechart`** for review-only flow diagrams, or skip.
+
+## Decision checklist (all must be considered)
+
+Answer each. **Three or more "yes" on the TLA+ row** suggests TLA+. **Lean row** needs a crisp math-like invariant, not UI.
+
+### TLA+ / TLC
+
+| # | Question | Yes / No |
+|---|----------|----------|
+| 1 | Can two actors interleave (double submit, retry, two devices, two tabs)? | |
+| 2 | Is there hidden state (session, lease, lock, queue) that must stay consistent? | |
+| 3 | Would a race be expensive (money, safety, data loss, irreversible write)? | |
+| 4 | Are unit tests weak on ordering (pass individually, fail in production)? | |
+
+**Use TLA+ when:** at least two "yes" on rows 1 to 3, or row 4 is yes with any of 1 to 3.
+
+**Do not use TLA+ when:** CRUD only, static UI, config change, or behavior is a pure function with no shared mutable state.
+
+### Lean 4
+
+| # | Question | Yes / No |
+|---|----------|----------|
+| 1 | Is the core a small algorithm (sort, schedule, parse, allocate)? | |
+| 2 | Can you state the invariant in one sentence without UI words? | |
+| 3 | Is the proof scope under ~200 lines of code? | |
+
+**Use Lean when:** all three yes.
+
+**Do not use Lean when:** the "proof" would be the whole app, IO boundaries, or product rules that change weekly.
+
+### Neither (usual case)
+
+- Straight features, refactors, forms, APIs without concurrency bugs
+- Flow review for humans: pstack **`/statechart`** without maintaining TLC on every PR
+- Permanent gate on every PR: pstack **`/create-formal-verification-skill`** only after one spec proves value
+
+## When to use what (summary)
 
 | Tool | Use when | Skip when |
 |------|----------|-----------|
-| **TLA+ / TLC** | Concurrent writers, retries, session state, protocol handshakes, "what if two requests interleave" | Straight CRUD, pure functions, static UI |
-| **Lean 4** | Small algorithm with a crisp invariant (sort, scheduler slice, parser) | Large surface area, UI, IO-heavy code |
-| **Tests + statechart** | User-visible flow with few states | Same, but you need shortest path to a bad state for reviewers |
-
-pstack **`/statechart`** covers many flow reviews without owning a permanent TLA+ suite. pstack **`/create-formal-verification-skill`** when the property must run on every PR in one repo.
+| **TLA+ / TLC** | Stateful, concurrent, multi-device, safety-critical interleavings | CRUD, static UI, no shared mutable state |
+| **Lean 4** | Small algorithm, crisp invariant | UI, IO-heavy code, large surface |
+| **Tests + statechart** | Normal flows; reviewers need a path to bad states | Same |
 
 ## TLA+ quick start
 
 Templates: [templates/formal/tla/](../../../templates/formal/tla/)
 
-Install (local):
-
 ```bash
-# Example: mise manages Java + tlaplus (same idea as pstack statechart skill)
 mise use -g java@temurin-17
-# Download tla2tools.jar from https://github.com/tlaplus/TLAPlus/releases
 java -cp tla2tools.jar tlc2.TLC -config Model.cfg Spec.tla
 ```
 
-Workflow:
-
-1. Name variables for **user-visible** or **protocol** state, not implementation detail.
-2. Write invariants for rules product owners agree to.
-3. Run TLC; any counterexample becomes a test or a code fix.
-4. Optional: pstack **`/statechart`** to publish Mermaid for non-formal readers.
+(jar from https://github.com/tlaplus/TLAPlus/releases)
 
 ## Lean 4 quick start
 
 Templates: [templates/formal/lean/](../../../templates/formal/lean/)
 
-Install:
-
 ```bash
 curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh
-elan default stable
 ```
-
-Workflow:
-
-1. State theorem or invariant in plain language first.
-2. Prove on a **small model** of the data (not the whole app).
-3. Keep proofs beside the algorithm they guard; do not prove UI.
 
 ## Repo hygiene
 
-- Store specs under `formal/` or `docs/formal/`
-- One README per spec: what it proves, how to run, last TLC/Lean version
-- Failing model check blocks merge locally via `./scripts/check.sh` only if you wire it (optional script hook)
+Specs under `formal/`. Optional wire into `./scripts/check.sh` only when stable.
 
-## Thin rule
-
-Do not mandate formal methods repo-wide. Mandate **think-before-ship** for non-trivial work; escalate here when the design note lists concurrency or invariant risk.
+Record checklist answers in the design note or plan when you escalate to formal methods.

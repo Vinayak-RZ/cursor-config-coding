@@ -1,6 +1,6 @@
 # Coding — Agent Mode
 
-**think-before-ship (non-trivial) → ponytail → nawab-plans (lite) → spec-kit greenfield → implement → `./scripts/check.sh` → commit.**
+**brief → plan (strong model) → build (fast model) on non-trivial work → `./scripts/check.sh` → commit.** See [docs/PLAN_THEN_BUILD.md](docs/PLAN_THEN_BUILD.md).
 
 Install pstack: [docs/PSTACK.md](docs/PSTACK.md) (`/add-plugin pstack`).
 
@@ -25,7 +25,7 @@ Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `n
 | Copy | `copywriting` — public sentences (READMEs, landings, CTAs); category + conversion for host-run products; anti-slop pass required |
 | Vinayak's voice | `write-like-vinayak` — drafts and edits he will sign or publish; read `stamped.md` in that folder when the subject is Stamped |
 | Review | `ponytail-review`, `ponytail-audit` |
-| Think before code | `think-before-ship`, `product-architecture-context`, `formal-verification-starter` (uses pstack) |
+| Brief and plan | `briefing-and-planning`, `think-before-ship`, `product-architecture-context`, `formal-verification-starter` (uses pstack) |
 
 Inventory: [skills-manifest.json](skills-manifest.json)
 

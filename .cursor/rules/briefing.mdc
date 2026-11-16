@@ -1,0 +1,12 @@
+---
+description: Non-trivial tasks start with a product brief; plan before build
+alwaysApply: true
+---
+
+# Briefing
+
+Non-trivial work: load skill **`briefing-and-planning`** and post a brief before planning or code.
+
+Plan-then-build: stronger model writes `plans/<slug>.md` (approved); cheaper model implements. See [docs/PLAN_THEN_BUILD.md](../../docs/PLAN_THEN_BUILD.md).
+
+Trivial changes: say so in the PR; no plan file.

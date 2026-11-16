@@ -27,6 +27,8 @@ if [[ -x "$SRC/../scripts/check.sh" ]]; then
   cp "$SRC/../scripts/check.sh" "$TARGET/scripts/check.sh"
   chmod +x "$TARGET/scripts/check.sh"
 fi
+mkdir -p "$TARGET/plans"
+touch "$TARGET/plans/.gitkeep" 2>/dev/null || true
 
 chmod +x "$TARGET/scripts/quality-ratchet.mjs" "$TARGET/scripts/check-justification-comments.mjs"
 

@@ -1,0 +1,39 @@
+# Disabled while GitHub Actions minutes are exhausted (~re-enable in one month).
+# To turn on: set QUALITY_PACK_CI_ENABLED to true (repo variable) OR replace `if: false` with `if: true`.
+name: quality-pack
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  QUALITY_PACK_CI_ENABLED: false
+
+jobs:
+  install-smoke:
+    if: ${{ vars.QUALITY_PACK_CI_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install pack into scratch repo
+        run: |
+          chmod +x quality-pack/install.sh scripts/check.sh
+          SCRATCH="${RUNNER_TEMP}/qp-scratch"
+          mkdir -p "$SCRATCH/src/lib/effects"
+          printf '%s\n' 'export const ok = true;' > "$SCRATCH/src/index.ts"
+          QUALITY_PACK_SRC="${GITHUB_WORKSPACE}/quality-pack" \
+            ./quality-pack/install.sh "$SCRATCH"
+          test -f "$SCRATCH/eslint/quality-pack.config.mjs"
+          test -f "$SCRATCH/scripts/quality-ratchet.mjs"
+
+      - name: Same checks as local check.sh
+        run: |
+          ./scripts/check.sh
+          RUN_QUALITY_PACK_SMOKE=1 ./scripts/check.sh

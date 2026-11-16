@@ -1,6 +1,6 @@
 ﻿{
   "version": 8,
-  "description": "Coding Cursor config — 35 skills, 23 rules, quality-pack + think-before-ship, pstack companion docs, nawab-plans + ponytail + Spec Kit v1.0.6",
+  "description": "Coding Cursor config — 36 skills, 24 rules, briefing + plan-then-build, quality-pack, pstack companion docs",
   "mcp": {
     "default_server": "agent-patterns",
     "url": "https://mcp.agentpatternscatalog.org/mcp",
@@ -15,7 +15,7 @@
     "rule": "speckit"
   },
   "preinstalled": {
-    "count": 35,
+    "count": 36,
     "categories": {
       "planning": ["nawab-plans", "graph-engineering", "graph-of-loops"],
       "minimal-code": [
@@ -32,6 +32,7 @@
         "backend-architecture",
         "agentic-system-design",
         "system-design-tradeoffs",
+        "briefing-and-planning",
         "think-before-ship",
         "product-architecture-context",
         "formal-verification-starter"
@@ -52,7 +53,8 @@
       "ponytail",
       "ai-anti-patterns",
       "deterministic-quality",
-      "think-before-code"
+      "think-before-code",
+      "briefing"
     ],
     "contextual": [
       "planning",

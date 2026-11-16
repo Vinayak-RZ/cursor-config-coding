@@ -13,6 +13,8 @@ Agents default to the shortest compiling path. This skill forces senior-engineer
 
 ## When required
 
+After a task brief per **`briefing-and-planning`**.
+
 Non-trivial if any apply:
 
 - New user-facing flow or change to an existing flow

@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Think before code
 
-Non-trivial tasks: load skill **`think-before-ship`** and follow it before editing code.
+Non-trivial tasks: **`briefing-and-planning`** then **`think-before-ship`** before editing code.
 
 Always read repo **`CONTEXT.md`** when present. Install pstack: [docs/PSTACK.md](../../docs/PSTACK.md).
 
