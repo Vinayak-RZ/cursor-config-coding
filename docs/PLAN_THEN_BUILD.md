@@ -32,7 +32,7 @@ Everything else: brief + plan before code.
 
 ## Approval
 
-Planner sets plan **Status: approved** only after Vinayak (or named delegate) replies. Builder must not start if status is draft.
+Planner sets plan **Status: approved** only after the human owner replies. Builder must not start if status is draft.
 
 ## Cloud agents
 

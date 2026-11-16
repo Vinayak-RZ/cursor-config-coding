@@ -1,80 +1,46 @@
 ---
 name: formal-verification-starter
-description: >
-  When to use TLA+ (TLC) vs Lean 4 vs tests only. Not default. Checklist for
-  stateful, concurrent, safety-critical, or small invariant work. Templates local.
+description: >-
+  When a design has concurrent actors, multiple devices, retries, hidden shared
+  state, irreversible writes, or a small algorithm with a crisp invariant, and
+  you must choose TLA+ or Lean. Not for CRUD, static UI, config, or ordinary
+  features. Default is tests plus a flow diagram, not formal tools.
 ---
 
 # Formal verification starter
 
-**Default is tests and `./scripts/check.sh`, not formal methods.**
+**Default:** tests, `./scripts/check.sh`, and a Mermaid or pstack **`/statechart`** diagram. TLA+ and Lean cost time; use only when the checklist says the bug would be expensive and hard to catch in tests.
 
-Use this skill only when the checklist below says yes. Otherwise use tests, pstack **`/statechart`** for review-only flow diagrams, or skip.
+## TLA+ (states and interleavings)
 
-## Decision checklist (all must be considered)
+Answer yes or no:
 
-Answer each. **Three or more "yes" on the TLA+ row** suggests TLA+. **Lean row** needs a crisp math-like invariant, not UI.
+1. Can two actors interleave: double submit, retry, two devices, two tabs, bot and human?
+2. Hidden state that must stay consistent: session, lease, lock, queue, approval status?
+3. Would a race be costly: money, safety, lost data, irreversible write?
+4. Tests struggle with ordering: each passes alone, production fails?
 
-### TLA+ / TLC
+**Use TLA+** when at least **two** of 1 to 3 are yes, or **4** is yes with any of 1 to 3.  
+**Do not use** for CRUD, static UI, config, or pure functions with no shared mutable state.
 
-| # | Question | Yes / No |
-|---|----------|----------|
-| 1 | Can two actors interleave (double submit, retry, two devices, two tabs)? | |
-| 2 | Is there hidden state (session, lease, lock, queue) that must stay consistent? | |
-| 3 | Would a race be expensive (money, safety, data loss, irreversible write)? | |
-| 4 | Are unit tests weak on ordering (pass individually, fail in production)? | |
+## Lean 4
 
-**Use TLA+ when:** at least two "yes" on rows 1 to 3, or row 4 is yes with any of 1 to 3.
+Use only when **all three** are yes: small algorithm core (allocate, schedule, parse, sort); invariant in one sentence without UI words; proof scope under ~200 lines.
 
-**Do not use TLA+ when:** CRUD only, static UI, config change, or behavior is a pure function with no shared mutable state.
+**Do not use** when the proof would be the whole app, code is mostly IO, or product rules change weekly.
 
-### Lean 4
+## Usual case: neither
 
-| # | Question | Yes / No |
-|---|----------|----------|
-| 1 | Is the core a small algorithm (sort, schedule, parse, allocate)? | |
-| 2 | Can you state the invariant in one sentence without UI words? | |
-| 3 | Is the proof scope under ~200 lines of code? | |
+Statechart for human review; move on. Permanent TLC on every PR only after one spec proved value (pstack **`/create-formal-verification-skill`**).
 
-**Use Lean when:** all three yes.
+## If the answer is yes
 
-**Do not use Lean when:** the "proof" would be the whole app, IO boundaries, or product rules that change weekly.
+- Record checklist answers in the design note or plan.
+- Model only the risky slice, not the whole product.
+- Templates: [templates/formal/](../../../templates/formal/). Cloud agents can run TLC/Lean if Java/Lean are on the VM; otherwise run locally and attach output.
+- Deliverable: reachable bad states and shortest paths in plain words for human judgment. Passing TLC covers the model only, not the full product.
 
-### Neither (usual case)
+## Quick run
 
-- Straight features, refactors, forms, APIs without concurrency bugs
-- Flow review for humans: pstack **`/statechart`** without maintaining TLC on every PR
-- Permanent gate on every PR: pstack **`/create-formal-verification-skill`** only after one spec proves value
-
-## When to use what (summary)
-
-| Tool | Use when | Skip when |
-|------|----------|-----------|
-| **TLA+ / TLC** | Stateful, concurrent, multi-device, safety-critical interleavings | CRUD, static UI, no shared mutable state |
-| **Lean 4** | Small algorithm, crisp invariant | UI, IO-heavy code, large surface |
-| **Tests + statechart** | Normal flows; reviewers need a path to bad states | Same |
-
-## TLA+ quick start
-
-Templates: [templates/formal/tla/](../../../templates/formal/tla/)
-
-```bash
-mise use -g java@temurin-17
-java -cp tla2tools.jar tlc2.TLC -config Model.cfg Spec.tla
-```
-
-(jar from https://github.com/tlaplus/TLAPlus/releases)
-
-## Lean 4 quick start
-
-Templates: [templates/formal/lean/](../../../templates/formal/lean/)
-
-```bash
-curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh
-```
-
-## Repo hygiene
-
-Specs under `formal/`. Optional wire into `./scripts/check.sh` only when stable.
-
-Record checklist answers in the design note or plan when you escalate to formal methods.
+TLA+: Java + `tla2tools.jar` (https://github.com/tlaplus/TLAPlus/releases).  
+Lean: https://leanprover.github.io/lean4/doc/setup.html via `elan`.

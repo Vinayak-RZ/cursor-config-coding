@@ -14,27 +14,30 @@ Latency, platforms, compliance, data retention, existing invariants from CONTEXT
 
 ## Alternatives
 
-### A. NAME
+Include one **bold** option and one safe option. Different shape, not wording.
+
+### A. NAME (safe)
 
 - Summary:
-- Pros:
-- Cons:
+- Pros / cons / rules out:
 
-### B. NAME
+### B. NAME (bold)
 
 - Summary:
-- Pros:
-- Cons:
+- Pros / cons / rules out:
 
 ### C. NAME (optional)
 
 - Summary:
-- Pros:
-- Cons:
+- Pros / cons / rules out:
 
 ## Chosen design
 
-Which option (or synthesis) and what tradeoff we accept.
+Which option, tradeoff accepted, what would change your mind.
+
+## Premise check
+
+If the ask itself is wrong, say the better move before building.
 
 ## Failure modes
 

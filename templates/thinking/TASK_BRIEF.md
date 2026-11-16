@@ -18,15 +18,13 @@ Persona or role from CONTEXT.md:
 
 Performance, safety, compliance, platforms, dependencies, must-not-touch areas.
 
-## Definition of done
-
-- Local: (e.g. `./scripts/check.sh`, tests)
-- Verification artifacts: (paths, screenshots, verify command)
-- Ratchet / lint:
-
 ## Quality bar
 
-What "good" means for this task (beyond "compiles").
+What "good" means for this task (beyond "compiles"). Repo check command.
+
+## Definition of done (with proof)
+
+Checks to run and artifacts to attach: tests, `./scripts/check.sh`, screenshots, statechart, logs.
 
 ## Scope
 
@@ -34,6 +32,8 @@ In scope:
 
 Out of scope:
 
+Not optimizing for:
+
 ## Challenge the premise
 
-Agents: if this task should not be done, or scope should shrink, say so with one alternative.
+If this task is wrong or too big, say what to do instead and why.

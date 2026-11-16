@@ -19,7 +19,7 @@ Deterministic checks plus **structure** (Dune-style layout, boundary configs). C
 
 ## Thinking layer (this repo)
 
-Skills (not duplicated here): `think-before-ship`, `product-architecture-context`, `formal-verification-starter`. Install pstack per [docs/PSTACK.md](../docs/PSTACK.md).
+Skills: `think-before-ship`, `briefing-and-planning`, `formal-verification-starter`. Install: [docs/THINKING_SKILLS_INSTALL.md](../docs/THINKING_SKILLS_INSTALL.md). pstack: [docs/PSTACK.md](../docs/PSTACK.md).
 
 ## Install
 

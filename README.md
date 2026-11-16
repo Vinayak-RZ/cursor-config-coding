@@ -176,7 +176,7 @@ cd cursor-config-coding
 .\scripts\link-to-project.ps1 -Target "<absolute-path-to-your-app>"
 ```
 
-Then talk like the prompts above. Plan mode loads `nawab-plans` at lite on its own. Name a graph skill only for a large one-shot. "Make a good README" hits the `readme` router.
+Then talk like the prompts above. Plan mode loads `nawab-plans` at lite on its own. For cloud agents, copy repo-level `.cursor/` into the app (see [Thinking skills install](docs/THINKING_SKILLS_INSTALL.md)). Name a graph skill only for a large one-shot. "Make a good README" hits the `readme` router.
 
 Greenfield Spec Kit (writes `.specify/` into the **app**, never into a junctioned `.cursor`):
 

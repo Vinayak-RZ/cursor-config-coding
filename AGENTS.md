@@ -29,9 +29,13 @@ Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `n
 
 Inventory: [skills-manifest.json](skills-manifest.json)
 
+## Thinking skills (Cursor + cloud)
+
+Install per [docs/THINKING_SKILLS_INSTALL.md](docs/THINKING_SKILLS_INSTALL.md). Repo-level `.cursor/` is what cloud agents read.
+
 ## Deterministic quality
 
-Ship [quality-pack/](quality-pack/README.md) into app repos before adding prose rules. Definition of done: checks green, ratchet not raised, verification artifacts when applicable (`deterministic-quality.mdc`).
+Ship [quality-pack/](quality-pack/README.md) into app repos before adding prose rules. Definition of done: `./scripts/check.sh`, ratchet not raised, verification artifacts when applicable (`deterministic-quality.mdc`).
 
 ## Git
 

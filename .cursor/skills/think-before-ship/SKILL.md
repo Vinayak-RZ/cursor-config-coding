@@ -1,84 +1,65 @@
 ---
 name: think-before-ship
-description: >
-  Before non-trivial code: product-aware design note, alternatives, adversarial
-  review, and user-facing statechart. Requires pstack (/add-plugin pstack).
-  Use for features, refactors, bugs that touch architecture, or any task where
-  jumping to code would lock the wrong shape.
+description: >-
+  When designing, architecting, or building anything consequential (feature,
+  module, cross-system change, strategy-shaped doc) before committing to a shape.
+  Sizes the ask, writes a design note with real alternatives including a bold one,
+  adversarial pass on large work, premise check, statechart for flows. Skips typos
+  and one-line edits. Use in Cursor Plan mode, local chat, or before coding in a
+  cloud agent run.
 ---
 
 # Think before ship
 
-Agents default to the shortest compiling path. This skill forces senior-engineer thinking **before** implementation.
+Default behaviour is the shortest path that looks done. This skill makes you think like a senior engineer and product owner first. It routes to other skills; it does not replace them.
 
-## When required
+Load **`briefing-and-planning`** when handing work to another cloud agent or subagent. For work in this chat, brief + design note still apply on **Large** asks.
 
-After a task brief per **`briefing-and-planning`**.
+Optional: pstack per [docs/PSTACK.md](../../../docs/PSTACK.md) (`/add-plugin pstack`). Use `/architect`, `/interrogate`, `/arena`, `/statechart` when available; fallbacks below always work.
 
-Non-trivial if any apply:
+## Size the ask first
 
-- New user-facing flow or change to an existing flow
-- New module, package, or cross-layer import
-- Behavior that can race, retry, or sit in more than one state
-- Touches money, auth, safety, or irreversible writes
+- **Skip**: typo, copy tweak, lookup, status reply, one-line fix, easy undo in a minute. Do not write a note. Do not mention this skill.
+- **Medium**: small feature, doc outline, localized recommendation. Five to ten lines in the reply (sections below), then implement.
+- **Large**: new flow, new module, cross-system change, money, safety, auth, customer data, irreversible writes, or others will build from your shape. Write a file under `docs/design-notes/<short-name>.md` (or `plans/<slug>.md`), run adversarial pass, get human **yes** before build unless they said skip approval.
 
-Trivial typo or one-line fix: skip, but still read repo `CONTEXT.md` if present.
+## Design note (Medium and Large)
 
-## Prerequisite
+Keep sections short. Label each claim **fact** (source), **estimate**, or **judgement**. Do not invent numbers, customers, or quotes.
 
-Install **pstack** per [docs/PSTACK.md](../../../docs/PSTACK.md) (`/add-plugin pstack`). Use plugin skills; do not rewrite them here.
+1. **Problem and user.** Who is affected, what must be true when this ships, how we will notice.
+2. **Constraints.** Fixed, decided, or out of scope. Read `CONTEXT.md`, `FEATURE_MAP.md`, nearest `docs/decisions/*.md`. Naming a file is not reading it.
+3. **Two or three real alternatives**, each with pros, cons, and what it rules out. Different **shape**, not wording. Include one **bold** high-upside option beside a safe one.
+4. **Chosen option**, tradeoff accepted, what would change your mind.
+5. **Risks and failure modes.** Double submit, offline, partial rollout, wrong data. How it would be noticed.
+6. **Premise check.** If the ask is wrong, say so and give the better move before doing the work.
 
-## Workflow
+Template: [templates/thinking/DESIGN_NOTE.md](../../../templates/thinking/DESIGN_NOTE.md). Enduring choice: add an ADR (`templates/decisions/ADR-template.md`).
 
-### 1. Ground product and architecture
+## Adversarial pass (Large only)
 
-Read (create if missing, from templates):
+Try to break the note before building.
 
-- `CONTEXT.md` (glossary, users, invariants)
-- `FEATURE_MAP.md` for UI work
-- Nearest `docs/decisions/*.md` ADR
+- **Fast path (pstack):** `/interrogate` on the note; `/architect` for interfaces; `/arena` if two options stay tied.
+- **Fallback:** Fresh context only (Cursor **Task** subagent, second chat, or cloud agent) with the note and named files. Ask: five likely failures and weakest assumption. Keep findings only if backed by a run, quote, or missing file.
+- Fix survivors or record open risks. Do not silently drop findings.
 
-Trace real code paths; naming files is not grounding.
+## User flows
 
-### 2. Design note (required artifact)
+Multi-step human or device flow: pstack **`/statechart`**, or Mermaid statechart; find states that should not exist. Escalate to **`formal-verification-starter`** only if its checklist passes.
 
-Write `docs/design-notes/<short-name>.md` from [templates/thinking/DESIGN_NOTE.md](../../../templates/thinking/DESIGN_NOTE.md) **or** embed the same sections in the PR description.
+## Route elsewhere
 
-Sections (keep each short):
+| Need | Skill |
+|------|--------|
+| Glossary, feature map, layout | `product-architecture-context` |
+| Hand off to cloud agent | `briefing-and-planning` |
+| Greenfield spec pack | `speckit`, `nawab-plans` |
+| Trade-offs on architecture | `system-design-tradeoffs` |
 
-1. Problem and product intent (who, what outcome)
-2. Constraints (latency, platforms, compliance, existing invariants)
-3. Two to three **distinct** alternatives with tradeoffs (not one option dressed up)
-4. Chosen design and why it loses least
-5. What could go wrong (failure modes, observability)
+## Done
 
-For interface shape across modules: run pstack **`/architect`** on the design note before coding.
-
-### 3. Adversarial review
-
-Before implementation (or on the design note if no code yet):
-
-- pstack **`/interrogate`** on the diff or design
-- Optionally **`/arena`** when two architectures are still tied
-
-Fix or document only findings a run **proves**. Encode repeats via **`/correct`** (lint/test), not new prose rules.
-
-### 4. User-facing statechart (flows)
-
-If the task changes a multi-step user or device flow:
-
-- Run pstack **`/statechart`** (TLA+ spec + Mermaid + shortest path to broken states)
-- Attach the chart to the PR for human review
-- For deep formal work, also see skill **`formal-verification-starter`**
-
-### 5. Implement
-
-Follow approved design. Deviations are signal: update the design note or re-run architect.
-
-## Outputs checklist
-
-- [ ] Design note path listed in PR
-- [ ] Alternatives section has at least two real options
-- [ ] Interrogate (or explicit skip reason) recorded
-- [ ] Statechart for flow changes
-- [ ] `pnpm` / `./scripts/check.sh` or repo equivalent green locally
+- Note at the size the ask required; alternatives are real; adversarial pass ran or skip reason stated.
+- Large: human saw the note before build (or recorded "skip approval").
+- Build deviations update the note; do not drift silently.
+- `./scripts/check.sh` or repo equivalent before claiming done.

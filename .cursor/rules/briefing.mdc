@@ -5,8 +5,4 @@ alwaysApply: true
 
 # Briefing
 
-Non-trivial work: load skill **`briefing-and-planning`** and post a brief before planning or code.
-
-Plan-then-build: stronger model writes `plans/<slug>.md` (approved); cheaper model implements. See [docs/PLAN_THEN_BUILD.md](../../docs/PLAN_THEN_BUILD.md).
-
-Trivial changes: say so in the PR; no plan file.
+Hand-offs and non-trivial work: skill **`briefing-and-planning`** (8-part brief). Design: **`think-before-ship`**. Plan-then-build: [docs/PLAN_THEN_BUILD.md](../../docs/PLAN_THEN_BUILD.md). Trivial: say so; no plan file.
