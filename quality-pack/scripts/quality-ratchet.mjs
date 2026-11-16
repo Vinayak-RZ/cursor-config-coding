@@ -4,15 +4,21 @@
  * Reads quality_baseline.json from cwd (or QUALITY_BASELINE path).
  * Fails when any metric count exceeds ceiling; --update lowers ceilings to current counts.
  */
-import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
 const repoRoot = process.cwd();
 const baselinePath =
   process.env.QUALITY_BASELINE ?? path.join(repoRoot, 'quality_baseline.json');
-const update = process.argv.includes('--update');
-const writeBaseline = process.argv.includes('--write-baseline');
+
+const SKIP_DIRS = new Set([
+  'node_modules',
+  '.git',
+  'dist',
+  'build',
+  '.next',
+  'coverage',
+]);
 
 function loadBaseline() {
   if (!fs.existsSync(baselinePath)) {
@@ -24,50 +30,59 @@ function loadBaseline() {
   return JSON.parse(fs.readFileSync(baselinePath, 'utf8'));
 }
 
-function rgAvailable() {
-  const r = spawnSync('rg', ['--version'], { encoding: 'utf8' });
-  return r.status === 0;
+function parseGlob(glob) {
+  const brace = glob.match(/^\*\*\/\*\.\{([^}]+)\}$/);
+  if (brace) {
+    return brace[1].split(',').map((e) => `.${e.trim()}`);
+  }
+  if (glob === '**/*.py') return ['.py'];
+  if (glob === '**/*') return null;
+  return null;
+}
+
+function walkFiles(dir, out) {
+  for (const name of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (SKIP_DIRS.has(name.name)) continue;
+    const p = path.join(dir, name.name);
+    if (name.isDirectory()) walkFiles(p, out);
+    else out.push(p);
+  }
+}
+
+function fileMatchesGlob(filePath, exts) {
+  if (!exts) return true;
+  return exts.some((ext) => filePath.endsWith(ext));
 }
 
 function countMetric(metric, root) {
-  const patterns = metric.patterns ?? [];
-  const glob = metric.glob ?? '**/*';
+  const patterns = (metric.patterns ?? []).map((p) => new RegExp(p));
+  const exts = parseGlob(metric.glob ?? '**/*');
+  const files = [];
+  walkFiles(root, files);
   let total = 0;
 
-  if (!rgAvailable()) {
-    console.error(
-      'ratchet/missing-rg: ripgrep (rg) is required.\nFix: install ripgrep or run in CI image that includes it.',
-    );
-    process.exit(1);
-  }
-
-  for (const pattern of patterns) {
-    const args = [
-      '--glob',
-      glob,
-      '--glob',
-      '!node_modules/**',
-      '--glob',
-      '!.git/**',
-      '-e',
-      pattern,
-      root,
-    ];
-    const r = spawnSync('rg', args, { encoding: 'utf8' });
-    if (r.status === 0) {
-      const lines = r.stdout.trim().split('\n').filter(Boolean);
-      total += lines.length;
-    } else if (r.status === 1) {
-      // no matches
-    } else {
-      console.error(`ratchet/rg-error: pattern ${pattern}\n${r.stderr}`);
-      process.exit(1);
+  for (const file of files) {
+    const rel = path.relative(root, file);
+    if (!fileMatchesGlob(rel, exts)) continue;
+    let content;
+    try {
+      content = fs.readFileSync(file, 'utf8');
+    } catch {
+      continue;
+    }
+    const lines = content.split('\n');
+    for (const line of lines) {
+      for (const re of patterns) {
+        if (re.test(line)) total += 1;
+      }
     }
   }
   return total;
 }
 
 function main() {
+  const writeBaseline = process.argv.includes('--write-baseline');
+  const update = process.argv.includes('--update');
   const baseline = loadBaseline();
   const metrics = baseline.metrics ?? {};
   const results = {};

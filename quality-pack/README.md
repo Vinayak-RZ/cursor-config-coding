@@ -45,7 +45,7 @@ Append `ruff/ruff.toml.snippet` into `[tool.ruff.lint]` / `[tool.ruff]` in `pypr
 ## Ratchet
 
 1. Copy `scripts/quality_baseline.json` to the repo root and run once with `--write-baseline` after measuring current debt.
-2. In CI: `node quality-pack/scripts/quality-ratchet.mjs` (install script places it at `scripts/quality-ratchet.mjs`).
+2. In CI: `node scripts/quality-ratchet.mjs` (no extra binaries; pure Node walk).
 3. To record improvement: `node scripts/quality-ratchet.mjs --update`.
 
 ## Justification comments
