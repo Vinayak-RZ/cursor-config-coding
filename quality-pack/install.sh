@@ -18,6 +18,15 @@ cp "$SRC/scripts/quality_baseline.json" "$TARGET/quality-pack/quality_baseline.j
 cp "$SRC/dependency-cruiser/dependency-cruiser.config.mjs" "$TARGET/dependency-cruiser.config.mjs"
 cp "$SRC/import-linter/importlinter.ini.example" "$TARGET/importlinter.ini.example"
 cp "$SRC/docs/error-messages-for-agents.md" "$TARGET/quality-pack/error-messages-for-agents.md"
+cp -r "$SRC/../templates" "$TARGET/templates" 2>/dev/null || true
+if [[ -d "$SRC/dune" ]]; then
+  mkdir -p "$TARGET/quality-pack/dune"
+  cp "$SRC/dune/FEATURE_LAYOUT.md" "$TARGET/quality-pack/dune/FEATURE_LAYOUT.md"
+fi
+if [[ -x "$SRC/../scripts/check.sh" ]]; then
+  cp "$SRC/../scripts/check.sh" "$TARGET/scripts/check.sh"
+  chmod +x "$TARGET/scripts/check.sh"
+fi
 
 chmod +x "$TARGET/scripts/quality-ratchet.mjs" "$TARGET/scripts/check-justification-comments.mjs"
 

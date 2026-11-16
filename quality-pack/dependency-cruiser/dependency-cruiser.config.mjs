@@ -2,6 +2,25 @@
 export default {
   forbidden: [
     {
+      name: 'no-feature-to-sibling',
+      comment:
+        'Do not import another feature folder. Fix: import from contracts/ or the other feature public index only.',
+      severity: 'error',
+      from: { path: '^src/features/[^/]+/' },
+      to: {
+        path: '^src/features/',
+        pathNot: ['^src/features/[^/]+/index\\.'],
+      },
+    },
+    {
+      name: 'no-framework-to-app',
+      comment:
+        'shared framework packages must not import product features. Fix: invert dependency or expose a hook in contracts/.',
+      severity: 'error',
+      from: { path: '^(packages|lib)/' },
+      to: { path: '^src/features/' },
+    },
+    {
       name: 'no-ui-to-data',
       comment: 'UI must not import data access. Fix: call a service or server action instead.',
       severity: 'error',

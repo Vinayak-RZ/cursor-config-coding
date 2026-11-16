@@ -11,6 +11,6 @@ alwaysApply: true
 4. **graph-engineering / graph-of-loops:** only if the user named that skill. Never both. Never auto-chain. Not graphify.
 5. Apply other rules when their description or globs match. Do not read every `.mdc` up front.
 6. If a user request conflicts with these rules, stop and ask which wins.
-7. App repos: install `quality-pack/` and prefer deterministic gates over new prose rules.
+7. Non-trivial work: `think-before-ship` before code; install `quality-pack/` and run `./scripts/check.sh`.
 
 Ponytail first. Minimal correct diff. No secrets in git. Architecture: frontend / backend / agentic skills when that work starts.

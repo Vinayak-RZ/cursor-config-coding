@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Optional: cp quality-pack/hooks/pre-push.sample .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+set -euo pipefail
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+if [[ -x scripts/check.sh ]]; then
+  ./scripts/check.sh
+elif [[ -x quality-pack/../scripts/check.sh ]]; then
+  "${REPO_ROOT}/scripts/check.sh"
+else
+  echo "pre-push: no scripts/check.sh found; skip"
+fi

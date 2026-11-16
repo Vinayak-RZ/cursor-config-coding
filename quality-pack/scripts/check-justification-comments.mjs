@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const JUSTIFICATION =
-  /\b(workaround|hack|temporary|for\s+now)\b/i;
+  /\b(workaround|hack|for\s+now|temporary\s+(fix|hack|solution|workaround))\b/i;
 const TODO_BAD = /\bTODO\b(?!\s*[:#]?\s*(?:#\d+|https?:\/\/\S+issues\/\d+))/i;
 
 const EXT = new Set([

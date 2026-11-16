@@ -1,0 +1,21 @@
+---
+description: Non-trivial work starts with design and product context, not code
+alwaysApply: true
+---
+
+# Think before code
+
+Non-trivial tasks: load skill **`think-before-ship`** and follow it before editing code.
+
+Always read repo **`CONTEXT.md`** when present. Install pstack: [docs/PSTACK.md](../../docs/PSTACK.md).
+
+Skills (not long rules):
+
+| Need | Skill |
+|------|--------|
+| Design note, interrogate, statechart | `think-before-ship` |
+| Glossary, feature map, ADRs, layout | `product-architecture-context` |
+| TLA+ / Lean when warranted | `formal-verification-starter` |
+| Lint, ratchet, local check | `quality-pack` + `./scripts/check.sh` |
+
+Do not add prose that duplicates pstack or linters. Corrections become code: `deterministic-quality.mdc`.

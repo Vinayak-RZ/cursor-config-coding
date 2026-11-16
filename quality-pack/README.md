@@ -1,6 +1,6 @@
 # Quality pack
 
-Deterministic checks that ship before prose rules. Copy into app repos with `install.sh`, then wire the scripts into CI and `package.json` / `just check`.
+Deterministic checks plus **structure** (Dune-style layout, boundary configs). Copy into app repos with `install.sh`. Validate locally with `./scripts/check.sh` (this template repo) or the copied script in the target repo. **Do not depend on GitHub Actions** for these gates.
 
 ## Contents
 
@@ -14,6 +14,12 @@ Deterministic checks that ship before prose rules. Copy into app repos with `ins
 | `dependency-cruiser/dependency-cruiser.config.mjs` | Starter forbidden-import rules (edit for your layers) |
 | `import-linter/importlinter.ini.example` | Starter Python package boundaries |
 | `docs/error-messages-for-agents.md` | How to write lint errors agents can act on |
+| `dune/FEATURE_LAYOUT.md` | Feature-folder layout and boundary rules |
+| `hooks/pre-push.sample` | Optional git hook calling `check.sh` |
+
+## Thinking layer (this repo)
+
+Skills (not duplicated here): `think-before-ship`, `product-architecture-context`, `formal-verification-starter`. Install pstack per [docs/PSTACK.md](../docs/PSTACK.md).
 
 ## Install
 

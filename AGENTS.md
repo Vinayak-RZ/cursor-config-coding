@@ -1,6 +1,8 @@
 # Coding — Agent Mode
 
-**ponytail → nawab-plans (lite default in Plan mode) → spec-kit for greenfield → implement → validate → commit.**
+**think-before-ship (non-trivial) → ponytail → nawab-plans (lite) → spec-kit greenfield → implement → `./scripts/check.sh` → commit.**
+
+Install pstack: [docs/PSTACK.md](docs/PSTACK.md) (`/add-plugin pstack`).
 
 Skills in this config describe **jobs** (plan, README, architecture), not a named product. Fill them from the repo in front of you.
 
@@ -23,6 +25,7 @@ Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `n
 | Copy | `copywriting` — public sentences (READMEs, landings, CTAs); category + conversion for host-run products; anti-slop pass required |
 | Vinayak's voice | `write-like-vinayak` — drafts and edits he will sign or publish; read `stamped.md` in that folder when the subject is Stamped |
 | Review | `ponytail-review`, `ponytail-audit` |
+| Think before code | `think-before-ship`, `product-architecture-context`, `formal-verification-starter` (uses pstack) |
 
 Inventory: [skills-manifest.json](skills-manifest.json)
 

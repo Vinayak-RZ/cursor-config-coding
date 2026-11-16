@@ -1,6 +1,6 @@
 ﻿{
   "version": 8,
-  "description": "Coding Cursor config — 32 skills, 21 rules, 3 always-on stubs, agent-patterns MCP, nawab-plans profiles + opt-in graph-engineering XOR graph-of-loops + ponytail + Spec Kit v1.0.6",
+  "description": "Coding Cursor config — 35 skills, 23 rules, quality-pack + think-before-ship, pstack companion docs, nawab-plans + ponytail + Spec Kit v1.0.6",
   "mcp": {
     "default_server": "agent-patterns",
     "url": "https://mcp.agentpatternscatalog.org/mcp",
@@ -15,7 +15,7 @@
     "rule": "speckit"
   },
   "preinstalled": {
-    "count": 32,
+    "count": 35,
     "categories": {
       "planning": ["nawab-plans", "graph-engineering", "graph-of-loops"],
       "minimal-code": [
@@ -31,7 +31,10 @@
         "frontend-architecture",
         "backend-architecture",
         "agentic-system-design",
-        "system-design-tradeoffs"
+        "system-design-tradeoffs",
+        "think-before-ship",
+        "product-architecture-context",
+        "formal-verification-starter"
       ],
       "nextjs": ["nextjs-app-router-patterns", "vercel-react-best-practices"],
       "documentation": ["readme", "product-readme", "readable-readme", "extensive-readme", "copywriting", "write-like-vinayak"],
@@ -47,7 +50,9 @@
     "always_apply": [
       "rule-awareness",
       "ponytail",
-      "ai-anti-patterns"
+      "ai-anti-patterns",
+      "deterministic-quality",
+      "think-before-code"
     ],
     "contextual": [
       "planning",
