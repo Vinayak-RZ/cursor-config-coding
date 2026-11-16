@@ -1,6 +1,8 @@
 # Coding — Agent Mode
 
-**ponytail → nawab-plans (lite default in Plan mode) → spec-kit for greenfield → implement → validate → commit.**
+**brief → plan (strong model) → build (fast model) on non-trivial work → `./scripts/check.sh` → commit.** See [docs/PLAN_THEN_BUILD.md](docs/PLAN_THEN_BUILD.md).
+
+Install pstack: [docs/PSTACK.md](docs/PSTACK.md) (`/add-plugin pstack`).
 
 Skills in this config describe **jobs** (plan, README, architecture), not a named product. Fill them from the repo in front of you.
 
@@ -23,8 +25,17 @@ Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `n
 | Copy | `copywriting` — public sentences (READMEs, landings, CTAs); category + conversion for host-run products; anti-slop pass required |
 | Vinayak's voice | `write-like-vinayak` — drafts and edits he will sign or publish; read `stamped.md` in that folder when the subject is Stamped |
 | Review | `ponytail-review`, `ponytail-audit` |
+| Brief and plan | `briefing-and-planning`, `think-before-ship`, `product-architecture-context`, `formal-verification-starter` (uses pstack) |
 
 Inventory: [skills-manifest.json](skills-manifest.json)
+
+## Thinking skills (Cursor + cloud)
+
+Install per [docs/THINKING_SKILLS_INSTALL.md](docs/THINKING_SKILLS_INSTALL.md). Repo-level `.cursor/` is what cloud agents read.
+
+## Deterministic quality
+
+Ship [quality-pack/](quality-pack/README.md) into app repos before adding prose rules. Definition of done: `./scripts/check.sh`, ratchet not raised, verification artifacts when applicable (`deterministic-quality.mdc`).
 
 ## Git
 

@@ -1,0 +1,19 @@
+---
+description: Non-trivial work starts with design and product context, not code
+alwaysApply: true
+---
+
+# Think before code
+
+Consequential work: **`briefing-and-planning`** (hand-off) and **`think-before-ship`** (design note, size skip/medium/large) before code. Formal: **`formal-verification-starter`** only if checklist passes. Install: [docs/THINKING_SKILLS_INSTALL.md](../../docs/THINKING_SKILLS_INSTALL.md), pstack [docs/PSTACK.md](../../docs/PSTACK.md).
+
+Skills (not long rules):
+
+| Need | Skill |
+|------|--------|
+| Design note, interrogate, statechart | `think-before-ship` |
+| Glossary, feature map, ADRs, layout | `product-architecture-context` |
+| TLA+ / Lean when warranted | `formal-verification-starter` |
+| Lint, ratchet, local check | `quality-pack` + `./scripts/check.sh` |
+
+Do not add prose that duplicates pstack or linters. Corrections become code: `deterministic-quality.mdc`.

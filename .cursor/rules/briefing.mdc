@@ -1,0 +1,8 @@
+---
+description: Non-trivial tasks start with a product brief; plan before build
+alwaysApply: true
+---
+
+# Briefing
+
+Hand-offs and non-trivial work: skill **`briefing-and-planning`** (8-part brief). Design: **`think-before-ship`**. Plan-then-build: [docs/PLAN_THEN_BUILD.md](../../docs/PLAN_THEN_BUILD.md). Trivial: say so; no plan file.

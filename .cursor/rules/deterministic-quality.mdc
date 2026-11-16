@@ -1,0 +1,17 @@
+---
+description: Deterministic checks and local verify; thin pointer to skills
+alwaysApply: true
+---
+
+# Deterministic quality first
+
+1. **Local gate**: `./scripts/check.sh` (optional `quality-pack/hooks/pre-push.sample`). Do not rely on GitHub Actions minutes.
+2. **Install** [quality-pack/](../../quality-pack/README.md) in app repos.
+3. **Corrections become code**: lint, test, or API change in the same PR, not prose (`/correct` in pstack).
+4. **Definition of done**:
+   - `./scripts/check.sh` green (or repo equivalent)
+   - Design artifacts for non-trivial work per `think-before-ship`
+   - Verification artifacts when `FEATURE_MAP.md` defines verify
+   - Ratchet not raised
+
+Architecture thinking: **`think-before-ship`**, not more rules here.

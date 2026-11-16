@@ -1,0 +1,19 @@
+# Copy to importlinter.ini or .importlinter at repo root. Requires import-linter (pip).
+
+[importlinter]
+root_packages =
+    cells
+    plugins
+
+[importlinter:contract:cells-isolated]
+name = Cells do not import other cells directly
+type = forbidden
+source_modules =
+    cells
+forbidden_modules =
+    cells
+ignore_imports =
+    cells.contracts -> cells
+
+# Customize root_packages and contracts for your Python layout.
+# Error text in CI should follow quality-pack/docs/error-messages-for-agents.md
