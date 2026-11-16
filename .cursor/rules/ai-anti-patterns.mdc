@@ -9,13 +9,12 @@ Reject and refactor these patterns:
 
 - Copy-paste duplicate logic instead of reusing existing functions
 - Speculative features or abstractions not required by the task
-- Swallowed exceptions or empty catch blocks
-- `any` / untyped boundaries without documented reason
 - God files that mix UI, data access, and business rules
 - Hard-coded config that should be environment-driven
-- Comments that restate obvious code instead of explaining why
 - Drive-by refactors outside the approved scope
 
-When unsure about architecture, **stop and apply** `system-design-tradeoffs` rather than guessing.
+Encode in linters where possible (see `quality-pack/`): `no-explicit-any`, ruff `BLE`/`PGH`, justification-comment lint, boundary imports.
 
-When the user corrects the same mistake twice, propose one line for the matching rule or skill so it does not recur. Propose, do not auto-edit.
+When unsure about architecture, stop and apply `system-design-tradeoffs` rather than guessing.
+
+When the user corrects the same mistake twice, add a lint or test in the same PR; do not add prose per `deterministic-quality.mdc`.

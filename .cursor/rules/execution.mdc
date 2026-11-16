@@ -1,5 +1,5 @@
 ---
-description: Phase execution workflow — apply when implementing code, modifying or creating files, or executing an approved implementation phase
+description: Phase execution workflow — apply when implementing code or executing an approved phase
 alwaysApply: false
 ---
 
@@ -7,93 +7,16 @@ alwaysApply: false
 
 ## Ponytail gate
 
-Before writing or editing code in this phase:
+Before code edits: read `.cursor/skills/ponytail/SKILL.md`, trace the flow, climb the ladder, prefer deletion.
 
-1. **Read** `.cursor/skills/ponytail/SKILL.md` — required, not optional.
-2. Trace the real flow in the files the change touches.
-3. Climb the ladder — stop at the first rung that holds.
-4. Prefer deletion over addition; fewest files possible.
-5. On non-trivial diffs, consider `ponytail-review` before marking the phase done.
+## Scope
 
-## Phase-Based Development
+Work only the approved phase. No unrequested refactors or file sprawl.
 
-All implementation must be performed in phases.
+## Assumptions
 
-Do not attempt large implementations in a single step.
+If a decision is uncertain, stop and ask. Document only what gates cannot encode.
 
-Work only on the approved phase.
+## Boundaries
 
-## Architecture Preservation
-
-Before modifying existing systems:
-
-- Analyze current architecture.
-- Identify affected components.
-- Evaluate impacts.
-- Preserve existing patterns where possible.
-
-Avoid unnecessary architectural changes.
-
-## Assumption Management
-
-Never hide assumptions.
-
-Document assumptions using:
-
-- Assumption
-- Reason
-- Impact
-
-Important assumptions require approval.
-
-## Dependency Management
-
-Before introducing dependencies:
-
-- Explain necessity.
-- Evaluate alternatives.
-- Explain maintenance impact.
-
-Prefer existing dependencies whenever possible.
-
-## File Creation Rules
-
-Before creating new files:
-
-- Verify necessity.
-- Explain purpose.
-- Check whether existing files can be extended.
-
-Avoid unnecessary file creation.
-
-## Refactoring Rules
-
-Do not perform unrelated refactoring.
-
-Allowed:
-
-- Task-required refactoring
-
-Not allowed:
-
-- Unrequested rewrites
-- Structural reorganizations
-- Preference-driven changes
-
-Unless explicitly approved.
-
-## Context Preservation
-
-Maintain awareness of:
-
-- Existing architecture
-- Previous decisions
-- Existing constraints
-- Completed work
-
-Do not contradict previously approved decisions.
-
-If conflicts are discovered:
-
-- Stop.
-- Request clarification.
+Preserve layer boundaries; use `quality-pack` dependency-cruiser and import-linter starters in app repos.

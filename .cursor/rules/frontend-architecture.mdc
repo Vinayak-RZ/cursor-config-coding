@@ -9,7 +9,7 @@ alwaysApply: false
 When editing UI files:
 
 1. Load skill `frontend-architecture` for new features or structural changes
-2. Keep components thin — data fetching in RSC/server layer or dedicated hooks
+2. Keep components thin — data fetching in RSC/server layer; lifecycle in `src/lib/effects/` wrappers (enforced by `quality-pack` ESLint)
 3. Use design tokens / shared primitives — run `impeccable` for polish audits
 4. Platform APIs / client DOM-CSS-JS: load `modern-web-guidance` and use its CLI before defaulting to legacy libraries
 5. Animation: prefer `gsap-framer-scroll-animation` for scroll/timelines; extra GSAP slices via `find-skills`

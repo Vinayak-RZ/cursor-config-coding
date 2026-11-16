@@ -26,6 +26,10 @@ Read `.cursor/skills/ponytail/SKILL.md` before any code edit. Plan mode: load `n
 
 Inventory: [skills-manifest.json](skills-manifest.json)
 
+## Deterministic quality
+
+Ship [quality-pack/](quality-pack/README.md) into app repos before adding prose rules. Definition of done: checks green, ratchet not raised, verification artifacts when applicable (`deterministic-quality.mdc`).
+
 ## Git
 
 Conventional commits after milestones (`git-commit-discipline.mdc`). Auto-push at **≥ 10** unpushed, or when asked.

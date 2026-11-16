@@ -1,0 +1,16 @@
+---
+description: Deterministic checks before prose — quality pack, corrections, definition of done
+alwaysApply: true
+---
+
+# Deterministic quality first
+
+1. **Install** [quality-pack/](../../quality-pack/README.md) in app repos (ESLint, ruff, ratchet, boundaries, justification-comment lint).
+2. **Corrections become code**: every correction to an agent (human or bot) becomes a lint rule, test, or API change in the **same PR**, not another prose rule.
+3. **Definition of done** for agent PRs:
+   - CI checks green (lint, types, tests as defined in the repo)
+   - `node scripts/quality-ratchet.mjs` does not increase debt
+   - Verification artifacts attached when the repo defines a verify step (screenshots, logs)
+   - No new justification comments (`scripts/check-justification-comments.mjs`)
+
+Prose rules explain what linters cannot encode. If the pack enforces it, delete or shorten the matching rule here.

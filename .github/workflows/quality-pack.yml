@@ -1,0 +1,54 @@
+name: quality-pack
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  install-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install pack into scratch repo
+        run: |
+          chmod +x quality-pack/install.sh
+          SCRATCH="${RUNNER_TEMP}/qp-scratch"
+          mkdir -p "$SCRATCH/src/lib/effects"
+          printf '%s\n' 'export const ok = true;' > "$SCRATCH/src/index.ts"
+          QUALITY_PACK_SRC="${GITHUB_WORKSPACE}/quality-pack" \
+            ./quality-pack/install.sh "$SCRATCH"
+          test -f "$SCRATCH/eslint/quality-pack.config.mjs"
+          test -f "$SCRATCH/scripts/quality-ratchet.mjs"
+          test -f "$SCRATCH/quality_baseline.json"
+
+      - name: Ratchet and justification lint on scratch
+        run: |
+          SCRATCH="${RUNNER_TEMP}/qp-scratch"
+          cd "$SCRATCH"
+          node scripts/quality-ratchet.mjs --write-baseline
+          node scripts/quality-ratchet.mjs
+          node scripts/check-justification-comments.mjs
+
+      - name: Justification lint rejects slop comment
+        run: |
+          SCRATCH="${RUNNER_TEMP}/qp-scratch"
+          echo '// temporary hack' >> "$SCRATCH/src/index.ts"
+          cd "$SCRATCH"
+          if node scripts/check-justification-comments.mjs; then
+            echo "expected failure"
+            exit 1
+          fi
+
+      - name: Ratchet self-test on this repo (temp baseline)
+        run: |
+          cp quality-pack/scripts/quality_baseline.json /tmp/qp-selftest-baseline.json
+          QUALITY_BASELINE=/tmp/qp-selftest-baseline.json \
+            node quality-pack/scripts/quality-ratchet.mjs --write-baseline
+          QUALITY_BASELINE=/tmp/qp-selftest-baseline.json \
+            node quality-pack/scripts/quality-ratchet.mjs

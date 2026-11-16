@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "description": "Debt counts. CI fails when any metric rises above its ceiling; use --update to lower after cleanup.",
+  "metrics": {
+    "ts-ignore": {
+      "description": "@ts-ignore and @ts-nocheck in TS/TSX",
+      "patterns": ["@ts-ignore", "@ts-nocheck"],
+      "glob": "**/*.{ts,tsx}",
+      "ceiling": 0
+    },
+    "type-ignore-py": {
+      "description": "type: ignore in Python",
+      "patterns": ["type: ignore", "# pyright: ignore"],
+      "glob": "**/*.py",
+      "ceiling": 0
+    },
+    "noqa-broad": {
+      "description": "noqa without code on Python line",
+      "patterns": ["# noqa\\s*$", "# noqa$"],
+      "glob": "**/*.py",
+      "ceiling": 0
+    },
+    "use-effect": {
+      "description": "useEffect calls outside src/lib/effects (approximate; pair with ESLint)",
+      "patterns": ["useEffect\\("],
+      "glob": "**/*.{tsx,jsx}",
+      "ceiling": 9999
+    },
+    "raw-timers-js": {
+      "description": "setTimeout/setInterval in JS/TS (pair with ESLint restrictions)",
+      "patterns": ["setTimeout\\(", "setInterval\\("],
+      "glob": "**/*.{ts,tsx,js,jsx}",
+      "ceiling": 9999
+    }
+  }
+}
